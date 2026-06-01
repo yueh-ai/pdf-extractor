@@ -105,7 +105,6 @@ cd /Users/yuehu/projects/pdf-extract
 
 /Users/yuehu/opensources/PaddleOCR/.venv/bin/python scripts/run_pdf_vl.py \
   /path/to/input.pdf \
-  --out runs/input_vl \
   --pages 1 \
   --resume \
   --retries 1 \
@@ -144,7 +143,6 @@ From this repo:
 
 ```bash
 uv run --extra paddle run-pdf-vl /path/to/input.pdf \
-  --out runs/input_vl \
   --resume \
   --retries 1 \
   --vl-rec-max-concurrency 1 \
@@ -158,7 +156,6 @@ You can also call the script directly through `uv`:
 
 ```bash
 uv run --extra paddle python scripts/run_pdf_vl.py /path/to/input.pdf \
-  --out runs/input_vl \
   --resume \
   --retries 1 \
   --vl-rec-max-concurrency 1 \
@@ -178,21 +175,19 @@ Page selections can be a single page, a range, or a comma-separated mix:
 If `--out` is omitted, the default output directory is:
 
 ```text
-runs/<pdf_stem>_vl
+runs/<pdf_stem>/union
 ```
 
-If `--run-mode union` or `--run-mode small` is provided and `--out` is omitted,
-the output directory is:
+If `--run-mode small` is provided and `--out` is omitted, the output directory is:
 
 ```text
 runs/<pdf_stem>/<run_mode>
 ```
 
-For a document-layout union run:
+For a document-layout union run, no `--run-mode` flag is needed:
 
 ```bash
 uv run --extra paddle run-pdf-vl /path/to/input.pdf \
-  --run-mode union \
   --resume \
   --retries 1 \
   --vl-rec-max-concurrency 1 \
@@ -275,9 +270,8 @@ The default layout behavior is the safest general-purpose path. You can try Padd
 
 ```bash
 uv run --extra paddle run-pdf-vl /path/to/input.pdf \
-  --out runs/diagnostic_small_layout \
+  --run-mode small \
   --pages 1 \
-  --layout-merge-bboxes-mode small \
   --resume
 ```
 

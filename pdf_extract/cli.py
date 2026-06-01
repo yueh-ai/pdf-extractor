@@ -32,7 +32,10 @@ def create_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--run-mode",
         choices=VALID_RUN_MODES,
-        help="Use document layout runs/<pdf_stem>/<mode>; small also enables small layout merge mode",
+        help=(
+            "Use document layout runs/<pdf_stem>/<mode>; defaults to union, "
+            "and small also enables small layout merge mode"
+        ),
     )
     parser.add_argument("--pages", help="Page selection such as 1, 1-5, or 1,3,7-9")
 
@@ -105,9 +108,7 @@ def create_default_pipeline(args: argparse.Namespace) -> Any:
 def _run_dir_for(args: argparse.Namespace, input_pdf: Path) -> Path:
     if args.out is not None:
         return args.out
-    if args.run_mode is not None:
-        return mode_run_dir(input_pdf, args.run_mode)
-    return Path("runs") / f"{input_pdf.stem}_vl"
+    return mode_run_dir(input_pdf, args.run_mode)
 
 
 def _write_config(
@@ -161,6 +162,9 @@ def _predict_one(pipeline: Any, image_path: Path, args: argparse.Namespace) -> A
 
 
 def _normalize_mode_args(args: argparse.Namespace) -> None:
+    if args.run_mode is None:
+        args.run_mode = "union"
+
     if args.run_mode == "small":
         if args.layout_merge_bboxes_mode not in (None, "small"):
             raise ValueError(
@@ -176,6 +180,7 @@ def _normalize_mode_args(args: argparse.Namespace) -> None:
 
 
 def run(args: argparse.Namespace, *, pipeline_factory: PipelineFactory) -> int:
+    explicit_run_mode = args.run_mode is not None
     _normalize_mode_args(args)
     input_pdf = Path(args.input_pdf).expanduser().resolve()
     if not input_pdf.is_file():
@@ -187,7 +192,7 @@ def run(args: argparse.Namespace, *, pipeline_factory: PipelineFactory) -> int:
 
     run_dir = _run_dir_for(args, input_pdf)
     run_dir.mkdir(parents=True, exist_ok=True)
-    if args.run_mode is not None:
+    if args.out is None or explicit_run_mode:
         write_document_metadata(run_dir.parent, input_pdf=input_pdf, mode=args.run_mode)
     total_pages = get_pdf_page_count(input_pdf)
     selected_pages = parse_page_spec(args.pages, total_pages=total_pages)

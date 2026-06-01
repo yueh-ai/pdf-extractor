@@ -111,19 +111,59 @@ def test_run_mode_union_uses_document_union_dir_without_layout_override(
     assert pipeline.calls[0][1] == {}
 
 
-def test_default_output_without_run_mode_keeps_legacy_dir(tmp_path, monkeypatch):
+def test_default_output_without_run_mode_uses_document_union_dir(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
+    pdf_path = tmp_path / "input.pdf"
+    make_one_page_pdf(pdf_path)
+    pipeline = FakePipeline()
+
+    exit_code = main(
+        [str(pdf_path), "--pages", "1"],
+        pipeline_factory=lambda _args: pipeline,
+    )
+
+    assert exit_code == 0
+    run_dir = tmp_path / "runs" / "input" / "union"
+    assert (run_dir / "pages" / "page_0001" / "output.md").exists()
+    assert not (tmp_path / "runs" / "input_vl").exists()
+    config = json.loads((run_dir / "config.json").read_text(encoding="utf-8"))
+    assert config["run_mode"] == "union"
+    assert config["layout_merge_bboxes_mode"] is None
+    assert pipeline.calls[0][1] == {}
+
+
+def test_default_run_mode_rejects_layout_override_without_small_mode(tmp_path):
     pdf_path = tmp_path / "input.pdf"
     make_one_page_pdf(pdf_path)
 
     exit_code = main(
-        [str(pdf_path), "--pages", "1"],
+        [
+            str(pdf_path),
+            "--layout-merge-bboxes-mode",
+            "small",
+            "--pages",
+            "1",
+        ],
+        pipeline_factory=lambda _args: FakePipeline(),
+    )
+
+    assert exit_code == 2
+
+
+def test_default_run_mode_with_explicit_out_does_not_write_document_metadata(tmp_path):
+    pdf_path = tmp_path / "input.pdf"
+    out_dir = tmp_path / "runs" / "smoke_page1"
+    make_one_page_pdf(pdf_path)
+
+    exit_code = main(
+        [str(pdf_path), "--out", str(out_dir), "--pages", "1"],
         pipeline_factory=lambda _args: FakePipeline(),
     )
 
     assert exit_code == 0
-    assert (tmp_path / "runs" / "input_vl" / "pages" / "page_0001" / "output.md").exists()
-    assert not (tmp_path / "runs" / "input" / "union").exists()
+    config = json.loads((out_dir / "config.json").read_text(encoding="utf-8"))
+    assert config["run_mode"] == "union"
+    assert not (out_dir.parent / "document.json").exists()
 
 
 def test_run_mode_small_rejects_conflicting_layout_override(tmp_path):
