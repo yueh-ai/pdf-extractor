@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0095/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>324684</td><td>THUNDERHEAD TD STATE #003</td><td>S</td><td>K-32-08S-26E</td><td>K</td><td>30-005-63207</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324685</td><td>THURMAN DRAW STATE COM #001H</td><td>S</td><td>E-32-08S-26E</td><td>E</td><td>30-005-63241</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324686</td><td>TIDE AXT STATE COM #001</td><td>S</td><td>P-32-09S-26E</td><td>P</td><td>30-005-63722</td><td>G</td><td>76730</td><td>WOWDCAT S262316C; BONE SPRING (GAS)</td></tr><tr><td>324687</td><td>TIDWELL ED COM #001</td><td>P</td><td>P-22-17S-26E</td><td>P</td><td>30-015-21445</td><td>G</td><td>79480</td><td>FOOR RANCH; PRE PERMAN (GAS)</td></tr><tr><td>324690</td><td>TIDWELL ED COM #001</td><td>P</td><td>P-22-17S-26E</td><td>P</td><td>30-015-21445</td><td>G</td><td>79520</td><td>KENNEDY FARMS; ATOKA (GAS)</td></tr><tr><td>37479</td><td>TIPPECANOE B 7 FEE COM #002H</td><td>F</td><td>P-27-17S-24E</td><td>P</td><td>30-015-21445</td><td>G</td><td>79520</td><td>KENNEDY FARMS; MORROW (GAS)</td></tr><tr><td>324689</td><td>TOM BROWN GO COM #001</td><td>P</td><td>C-22-17S-26E</td><td>C</td><td>30-015-21953</td><td>G</td><td>79520</td><td>KENNEDY FARMS; MORROW (GAS)</td></tr><tr><td>324692</td><td>TORPEDO BOW STATE COM #001H</td><td>S</td><td>M-11-25S-27E</td><td>M</td><td>30-015-37495</td><td>O</td><td>97816</td><td>WC-015 G-02 S252715A; BONE SPRING</td></tr><tr><td>324693</td><td>TORPEDO BOW STATE COM #004H</td><td>S</td><td>H-11-25S-27E</td><td>H</td><td>30-015-41861</td><td>O</td><td>96415</td><td>WILLOW LAKE; BONE SPRING WEST</td></tr><tr><td>324694</td><td>TORRINGTON ZK #001</td><td>P</td><td>A-11-25S-27E</td><td>A</td><td>30-015-41861</td><td>O</td><td>97060</td><td>ATOKA; MORROW, WEST (GAS)</td></tr><tr><td>324695</td><td>TOUCHDOWN BJC FEDERAL #001</td><td>P</td><td>J-08-18S-26E</td><td>J</td><td>30-015-24906</td><td>G</td><td>70760</td><td>COYOTE; WOLFCAMP (G)</td></tr><tr><td>324696</td><td>TOUCHDOWN BJC FEDERAL #001</td><td>P</td><td>I-11-12S-26E</td><td>I</td><td>30-005-63876</td><td>O</td><td>97361</td><td>LEA LAKE; PRE-PERMIAN (G)</td></tr><tr><td>324697</td><td>TOUCHDOWN BJC FEDERAL #002</td><td>P</td><td>I-11-12S-26E</td><td>I</td><td>30-005-63876</td><td>O</td><td>97361</td><td>COYOTE; WOLFCAMP (G)</td></tr><tr><td>324698</td><td>TRACY AXW STATE #001</td><td>S</td><td>D-20-25S-25E</td><td>D</td><td>30-015-37779</td><td>O</td><td>96403</td><td>WILDCAT; BONE SPRING</td></tr><tr><td>324699</td><td>TRACY AXW STATE #001</td><td>S</td><td>I-25-21S-26E</td><td>I</td><td>30-015-31582</td><td>G</td><td>73280</td><td>BURTON FLAT; MORROW (PRO GAS)</td></tr><tr><td>324700</td><td>TRAVIS FEDERAL COM #001</td><td>P</td><td>M-20-06S-26E</td><td>M</td><td>30-005-62061</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324701</td><td>TRIANGLE RANCH AAB STATE #001</td><td>S</td><td>B-24-19S-23E</td><td>B</td><td>30-015-25048</td><td>G</td><td>70520</td><td>ANTELOPE SINK; UPPER PENN (GAS)</td></tr><tr><td>324705</td><td>TRIANGLE RANCH ASW STATE COM #001</td><td>S</td><td>K-13-19S-23E</td><td>K</td><td>30-015-30402</td><td>G</td><td>96923</td><td>RED TANK DRAW; ATOKA-MORROW (G)</td></tr><tr><td>324706</td><td>TRIANGLE RANCH RA ST COM. #001</td><td>S</td><td>O-14-19S-23E</td><td>O</td><td>30-015-23926</td><td>G</td><td>78560</td><td>HOAG TANK; MORROW (GAS)</td></tr><tr><td>324707</td><td>TRIANGLE RANCH RA ST COM. #002</td><td>S</td><td>G-14-19S-23E</td><td>G</td><td>30-015-24090</td><td>G</td><td>70520</td><td>ANTELOPE SINK; UPPER PENN (GAS)</td></tr><tr><td>324708</td><td>TRIANGLE RANCH YK STATE #001</td><td>S</td><td>I-13-19S-23E</td><td>I</td><td>30-015-24690</td><td>G</td><td>70520</td><td>ANTELOPE SINK; UPPER PENN (GAS)</td></tr><tr><td>324709</td><td>TRIGG AIN FEDERAL #001</td><td>P</td><td>H-28-20S-29E</td><td>H</td><td>30-015-26697</td><td>G</td><td>73400</td><td>BURTON FLAT; STRAWN, EAST (GAS)</td></tr><tr><td>324710</td><td>TRUJANS BOT STATE #001H</td><td>S</td><td>P-36-25S-28E</td><td>P</td><td>30-015-38261</td><td>O</td><td>52775</td><td>ROCK SPUR; BONE SPRING</td></tr><tr><td>324715</td><td>TUMBLEDINK AVK STATE COM #001</td><td>S</td><td>I-36-25S-28E</td><td>I</td><td>30-015-42053</td><td>O</td><td>52775</td><td>ROCK SPUR; BONE SPRING</td></tr><tr><td>324716</td><td>TUMBLEDINK AVK STATE COM #001</td><td>S</td><td>A-16-18S-25E</td><td>A</td><td>30-015-31148</td><td>G</td><td>70820</td><td>ATOKA; UPPER PENN, WEST (GAS)</td></tr><tr><td>324717</td><td>TUMBLEDINK AVK STATE COM #002</td><td>S</td><td>A-16-18S-25E</td><td>A</td><td>30-015-31148</td><td>G</td><td>76320</td><td>EAGLE CREEK; STRAWN (GAS)</td></tr><tr><td>324718</td><td>TYLER AVC STATE #001</td><td>S</td><td>J-30-23S-25E</td><td>J</td><td>30-015-10413</td><td>G</td><td>83840</td><td>RICHARD KNOB; ATOKA-MORROW (GAS)</td></tr><tr><td>324719</td><td>ULTRA U A STATE #001</td><td>S</td><td>E-32-09S-26E</td><td>E</td><td>30-005-61536</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324720</td><td>ULTRA UA STATE COM #002</td><td>S</td><td>H-32-09S-26E</td><td>H</td><td>30-005-63283</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMAN (GAS)</td></tr><tr><td>324726</td><td>UNOCAL AH U FEDERAL #001</td><td>P</td><td>2-01-22S-31E</td><td>B</td><td>30-015-26698</td><td>O</td><td>40299</td><td>LOST TANK; DELLAWARE</td></tr><tr><td>324727</td><td>UPHAM K N #001</td><td>P</td><td>K-14-18S-25E</td><td>K</td><td>30-015-22800</td><td>G</td><td>70820</td><td>ATOKA; UPPER PENN, WEST (GAS)</td></tr><tr><td>324728</td><td>UPRIGHT BFU STATE COM #001</td><td>S</td><td>H-30-10S-26E</td><td>H</td><td>30-005-63698</td><td>G</td><td>97120</td><td>COMANCHE; WOLFCAMP (G)</td></tr><tr><td>324733</td><td>VALUE BCV STATE COM #001</td><td>S</td><td>O-02-08S-26E</td><td>O</td><td>30-005-63590</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324734</td><td>VALUE BCV STATE COM #001</td><td>S</td><td>O-02-08S-26E</td><td>O</td><td>30-005-63590</td><td>G</td><td>97094</td><td>FOOR RANCH; PRE-PERMIAN, N. (G)</td></tr><tr><td>324735</td><td>VALUE BCV STATE COM #002</td><td>S</td><td>2-02-08S-26E</td><td>B</td><td>30-005-63677</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324736</td><td>VALUE BCV STATE COM #002</td><td>S</td><td>2-02-08S-26E</td><td>B</td><td>30-005-63677</td><td>G</td><td>97094</td><td>FOOR RANCH; PRE-PERMIAN, N. (G)</td></tr><tr><td>324737</td><td>VANDIVER #001</td><td>P</td><td>4-18-18S-26E</td><td>M</td><td>30-015-20783</td><td>G</td><td>70760</td><td>ATOKA; MORROW, WEST (GAS)</td></tr><tr><td>324739</td><td>VANDIVER CN #002</td><td>P</td><td>A-18-18S-26E</td><td>A</td><td>30-015-28355</td><td>G</td><td>70800</td><td>ATOKA; PENN</td></tr><tr><td>324741</td><td>VANDIVER DO COM #001</td><td>P</td><td>N-07-18S-26E</td><td>N</td><td>30-015-21339</td><td>G</td><td>70760</td><td>ATOKA; MORROW, WEST (GAS)</td></tr><tr><td>324742</td><td>VANILLA AZA STATE #001</td><td>S</td><td>A-28-09S-26E</td><td>A</td><td>30-005-63390</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td>324744</td><td>VEGAS AVT STATE COM #001</td><td>S</td><td>K-22-09S-26E</td><td>K</td><td>30-005-62539</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td>324745</td><td>VERBENA UV FEDERAL #001</td><td>F</td><td>H-26-07S-25E</td><td>H</td><td>30-005-61748</td><td>G</td><td>97150</td><td>COYOTE; DRAW; PERMO PENNSYLVANIAN (G)</td></tr><tr><td>324750</td><td>VERBENA UV FEDERAL #002</td><td>F</td><td>D-26-07S-25E</td><td>D</td><td>30-005-62941</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324751</td><td>VISTA AVS STATE #002</td><td>S</td><td>F-21-09S-26E</td><td>F</td><td>30-005-63262</td><td>G</td><td>76755</td><td>FOOR RANCH; WOLFCAMP, NORTH (GAS)</td></tr><tr><td>324752</td><td>VOIGHT AJD #002H</td><td>P</td><td>A-29-19S-25E</td><td>A</td><td>30-015-42011</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>324754</td><td>WAGER AWG STATE #004</td><td>S</td><td>D-34-09S-26E</td><td>D</td><td>30-005-63306</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324755</td><td>WAGER AWG STATE COM #003</td><td>S</td><td>J-34-09S-26E</td><td>J</td><td>30-005-63297</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td>324756</td><td>WAGER AWG STATE COM #003</td><td>S</td><td>J-34-09S-26E</td><td>J</td><td>30-005-63297</td><td>G</td><td>76750</td><td>FOOR RANCH; WOLFCAMP (GAS)</td></tr><tr><td>324757</td><td>WALDRIP JY #001</td><td>P</td><td>L-34-18S-26E</td><td>L</td><td>30-015-22755</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>324758</td><td>WALDRIP JY #002</td><td>P</td><td>K-34-18S-26E</td><td>K</td><td>30-015-24940</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>324759</td><td>WALDRIP JY #003H</td><td>P</td><td>D-34-18S-26E</td><td>D</td><td>30-015-39301</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>324762</td><td>WANDA ZT FEDERAL #001</td><td>F</td><td>2-31-10S-26E</td><td>E</td><td>30-005-62163</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324763</td><td>WABIRD BEO FEDERAL COM #001</td><td>F</td><td>A-08-06S-27E</td><td>A</td><td>30-005-63683</td><td>G</td><td>78320</td><td>HAYSTACK; CISCO (GAS)</td></tr><tr><td>324764</td><td>WARREN ANW FEDERAL #001</td><td>F</td><td>L-09-19S-25E</td><td>L</td><td>30-015-27748</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC)</td></tr><tr><td>324765</td><td>WARREN ANW FEDERAL #002</td><td>F</td><td>M-09-19S-25E</td><td>M</td><td>30-015-28147</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC)</td></tr><tr><td>324766</td><td>WARREN ANW FEDERAL #003</td><td>F</td><td>O-09-19S-25E</td><td>O</td><td>30-015-28598</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC)</td></tr><tr><td>324767</td><td>WARREN ANW FEDERAL #004</td><td>F</td><td>J-09-19S-25E</td><td>J</td><td>30-015-28598</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC</td></tr></table>",
+            "block_bbox": [
+                56,
+                49,
+                1168,
+                1536
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    49.0
+                ],
+                [
+                    1168.0,
+                    49.0
+                ],
+                [
+                    1168.0,
+                    1536.0
+                ],
+                [
+                    56.0,
+                    1536.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9882010221481323,
+                "coordinate": [
+                    56,
+                    49,
+                    1168,
+                    1536
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        49.0
+                    ],
+                    [
+                        1168.0,
+                        49.0
+                    ],
+                    [
+                        1168.0,
+                        1536.0
+                    ],
+                    [
+                        56.0,
+                        1536.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

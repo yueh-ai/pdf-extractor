@@ -1,0 +1,217 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0033/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1598,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "# Pason DataHub Deviation Survey\n# Well Dossier 1276840811 - JERICHO BKJ STATE COM\n#",
+            "block_bbox": [
+                106,
+                110,
+                631,
+                188
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    106.0,
+                    110.0
+                ],
+                [
+                    631.0,
+                    110.0
+                ],
+                [
+                    631.0,
+                    188.0
+                ],
+                [
+                    106.0,
+                    188.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td># Date</td><td>Depth</td><td>Deviation</td><td>Direction</td><td>TVD</td><td>Horiz</td></tr><tr><td>7/5/2010</td><td>6275</td><td>71.84</td><td>272.79</td><td>6126.00</td><td>327.00</td></tr><tr><td>7/5/2010</td><td>6306</td><td>76.41</td><td>272.22</td><td>6134.00</td><td>357.00</td></tr><tr><td>7/5/2010</td><td>6337</td><td>81.25</td><td>271.56</td><td>6140.00</td><td>387.87</td></tr><tr><td>7/5/2010</td><td>6368</td><td>85.03</td><td>270.74</td><td>6144.00</td><td>418.00</td></tr><tr><td>7/6/2010</td><td>6451</td><td>90.04</td><td>270.82</td><td>6147.00</td><td>501.00</td></tr><tr><td>7/6/2010</td><td>6547</td><td>89.43</td><td>271.70</td><td>6148.00</td><td>597.00</td></tr><tr><td>7/6/2010</td><td>6733</td><td>88.64</td><td>271.75</td><td>6152.00</td><td>783.00</td></tr><tr><td>7/6/2010</td><td>6827</td><td>89.52</td><td>271.45</td><td>6153.00</td><td>877.00</td></tr><tr><td>7/7/2010</td><td>6920</td><td>88.99</td><td>271.40</td><td>6155.00</td><td>970.00</td></tr><tr><td>7/7/2010</td><td>7013</td><td>89.96</td><td>271.65</td><td>6155.00</td><td>1063.00</td></tr><tr><td>7/7/2010</td><td>7106</td><td>90.13</td><td>270.94</td><td>6155.00</td><td>1156.00</td></tr><tr><td>7/7/2010</td><td>7199</td><td>89.52</td><td>271.09</td><td>6156.00</td><td>1249.00</td></tr><tr><td>7/7/2010</td><td>7292</td><td>91.19</td><td>271.30</td><td>6155.00</td><td>1342.00</td></tr><tr><td>7/7/2010</td><td>7386</td><td>91.89</td><td>271.66</td><td>6153.00</td><td>1436.00</td></tr><tr><td>7/7/2010</td><td>7479</td><td>91.63</td><td>271.93</td><td>6150.00</td><td>1529.00</td></tr><tr><td>7/7/2010</td><td>7573</td><td>90.66</td><td>272.03</td><td>6148.00</td><td>1623.00</td></tr><tr><td>7/7/2010</td><td>7668</td><td>89.43</td><td>271.83</td><td>6148.00</td><td>1718.00</td></tr><tr><td>7/7/2010</td><td>7763</td><td>88.20</td><td>271.27</td><td>6150.00</td><td>1813.00</td></tr><tr><td>7/8/2010</td><td>7881</td><td>90.57</td><td>270.40</td><td>6151.00</td><td>1930.00</td></tr><tr><td>7/8/2010</td><td>7975</td><td>90.48</td><td>270.57</td><td>6150.00</td><td>2024.00</td></tr><tr><td>7/8/2010</td><td>8068</td><td>90.22</td><td>271.10</td><td>6149.00</td><td>2117.00</td></tr><tr><td>7/9/2010</td><td>8161</td><td>89.43</td><td>271.02</td><td>6150.00</td><td>2210.00</td></tr><tr><td>7/9/2010</td><td>8255</td><td>88.90</td><td>270.24</td><td>6151.64</td><td>2304.96</td></tr><tr><td>7/9/2010</td><td>8348</td><td>90.22</td><td>268.86</td><td>6152.00</td><td>2397.00</td></tr><tr><td>7/9/2010</td><td>8441</td><td>89.43</td><td>268.08</td><td>6152.00</td><td>2490.00</td></tr><tr><td>7/9/2010</td><td>8534</td><td>88.37</td><td>267.99</td><td>6154.00</td><td>2585.00</td></tr><tr><td>7/9/2010</td><td>8629</td><td>89.16</td><td>268.07</td><td>6159.00</td><td>2678.00</td></tr><tr><td>7/9/2010</td><td>8721</td><td>89.34</td><td>267.43</td><td>6157.00</td><td>2770.00</td></tr><tr><td>7/9/2010</td><td>8813</td><td>89.87</td><td>266.89</td><td>6158.00</td><td>2862.00</td></tr><tr><td>7/9/2010</td><td>8902</td><td>93.83</td><td>266.07</td><td>6155.00</td><td>2956.00</td></tr><tr><td>7/10/2010</td><td>8999</td><td>92.95</td><td>266.70</td><td>6149.00</td><td>3047.00</td></tr><tr><td>7/10/2010</td><td>9093</td><td>92.51</td><td>267.10</td><td>6145.00</td><td>3141.00</td></tr><tr><td>7/10/2010</td><td>9186</td><td>91.89</td><td>267.43</td><td>6141.00</td><td>3234.00</td></tr><tr><td>7/10/2010</td><td>9280</td><td>90.75</td><td>267.09</td><td>6139.00</td><td>3328.00</td></tr><tr><td>7/10/2010</td><td>9373</td><td>89.78</td><td>267.76</td><td>6139.00</td><td>3421.00</td></tr><tr><td>7/10/2010</td><td>9467</td><td>92.51</td><td>268.30</td><td>6137.00</td><td>3514.00</td></tr><tr><td>7/10/2010</td><td>9562</td><td>92.95</td><td>268.14</td><td>6132.00</td><td>3609.00</td></tr><tr><td>7/11/2010</td><td>9655</td><td>90.31</td><td>267.01</td><td>6130.00</td><td>3702.00</td></tr><tr><td>7/11/2010</td><td>9748</td><td>88.90</td><td>266.28</td><td>6130.00</td><td>3795.00</td></tr><tr><td>7/11/2010</td><td>9841</td><td>87.32</td><td>266.89</td><td>6133.00</td><td>3888.00</td></tr><tr><td>7/11/2010</td><td>9936</td><td>88.02</td><td>268.63</td><td>6137.00</td><td>3983.00</td></tr><tr><td>7/11/2010</td><td>10029</td><td>92.77</td><td>270.54</td><td>6137.00</td><td>4075.00</td></tr><tr><td>7/11/2010</td><td>10122</td><td>93.74</td><td>270.34</td><td>61.32</td><td>4168.00</td></tr><tr><td>7/11/2010</td><td>10216</td><td>94.09</td><td>270.32</td><td>6125.00</td><td>4262.00</td></tr><tr><td>7/12/2010</td><td>10310</td><td>90.75</td><td>269.90</td><td>6121.00</td><td>4356.00</td></tr><tr><td>7/12/2010</td><td>10414</td><td>88.55</td><td>269.19</td><td>6122.00</td><td>4460.00</td></tr><tr><td colspan=\"6\"># EOF</td></tr></table>",
+            "block_bbox": [
+                108,
+                206,
+                719,
+                1426
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    108.0,
+                    206.0
+                ],
+                [
+                    719.0,
+                    206.0
+                ],
+                [
+                    719.0,
+                    1426.0
+                ],
+                [
+                    108.0,
+                    1426.0
+                ]
+            ]
+        },
+        {
+            "block_label": "number",
+            "block_content": "Page 2 of 2",
+            "block_bbox": [
+                561,
+                1528,
+                671,
+                1553
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    561.0,
+                    1528.0
+                ],
+                [
+                    671.0,
+                    1528.0
+                ],
+                [
+                    671.0,
+                    1553.0
+                ],
+                [
+                    561.0,
+                    1553.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.4131346344947815,
+                "coordinate": [
+                    106,
+                    110,
+                    631,
+                    188
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        106.0,
+                        110.0
+                    ],
+                    [
+                        631.0,
+                        110.0
+                    ],
+                    [
+                        631.0,
+                        188.0
+                    ],
+                    [
+                        106.0,
+                        188.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9596371054649353,
+                "coordinate": [
+                    108,
+                    206,
+                    719,
+                    1426
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        108.0,
+                        206.0
+                    ],
+                    [
+                        719.0,
+                        206.0
+                    ],
+                    [
+                        719.0,
+                        1426.0
+                    ],
+                    [
+                        108.0,
+                        1426.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.8303990960121155,
+                "coordinate": [
+                    561,
+                    1528,
+                    671,
+                    1553
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        561.0,
+                        1528.0
+                    ],
+                    [
+                        671.0,
+                        1528.0
+                    ],
+                    [
+                        671.0,
+                        1553.0
+                    ],
+                    [
+                        561.0,
+                        1553.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

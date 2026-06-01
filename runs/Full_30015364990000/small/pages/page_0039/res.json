@@ -1,0 +1,156 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0039/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>M.D.</td><td>Inclination</td><td>Azimuth</td><td>T.V.D.</td><td>N+/S</td><td>E+/W</td><td>D.L.S.</td><td>ToolFace</td><td>T.F. Ref [HS/GN]</td></tr><tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td></tr><tr><td>760</td><td>0</td><td>0</td><td>760</td><td>0</td><td>0</td><td>0</td><td></td><td>RUSTLER</td></tr><tr><td>2,400</td><td>0</td><td>0</td><td>2,400</td><td>0</td><td>0</td><td>0</td><td></td><td>BELL CANYON</td></tr><tr><td>3,200</td><td>0</td><td>0</td><td>3,200</td><td>0</td><td>0</td><td>0</td><td></td><td>CHERRY CANYON</td></tr><tr><td>4,420</td><td>0</td><td>0</td><td>4,420</td><td>0</td><td>0</td><td>0</td><td></td><td>BRUSHY CANYON</td></tr><tr><td>5,900</td><td>0</td><td>0</td><td>5,900</td><td>0</td><td>0</td><td>0</td><td></td><td>BONE SPRINGS</td></tr><tr><td>6,120</td><td>0</td><td>0</td><td>6,120</td><td>0</td><td>0</td><td>0</td><td></td><td>AVALON SHALE</td></tr><tr><td>6423</td><td>0</td><td>0</td><td>6423</td><td>0</td><td>0</td><td>12</td><td>90</td><td>GN</td></tr><tr><td>6425</td><td>0.24</td><td>90</td><td>6425</td><td>0</td><td>0</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6450</td><td>3.24</td><td>90</td><td>6449.99</td><td>0</td><td>0.76</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6475</td><td>6.24</td><td>90</td><td>6474.9</td><td>0</td><td>2.83</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6500</td><td>9.24</td><td>90</td><td>6499.67</td><td>0</td><td>6.2</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6525</td><td>12.24</td><td>90</td><td>6524.23</td><td>0</td><td>10.85</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6550</td><td>15.24</td><td>90</td><td>6548.51</td><td>0</td><td>16.79</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6575</td><td>18.24</td><td>90</td><td>6572.45</td><td>0</td><td>23.99</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6600</td><td>21.24</td><td>90</td><td>6595.97</td><td>0</td><td>32.43</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6625</td><td>24.24</td><td>90</td><td>6619.03</td><td>0</td><td>42.1</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6650</td><td>27.24</td><td>90</td><td>6641.54</td><td>0</td><td>52.95</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6675</td><td>30.24</td><td>90</td><td>6663.46</td><td>0</td><td>64.97</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6700</td><td>33.24</td><td>90</td><td>6684.72</td><td>0</td><td>78.12</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6725</td><td>36.24</td><td>90</td><td>6705.26</td><td>0</td><td>92.37</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6750</td><td>39.24</td><td>90</td><td>6725.03</td><td>0</td><td>107.67</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6775</td><td>42.24</td><td>90</td><td>6743.97</td><td>0</td><td>123.98</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6800</td><td>45.24</td><td>90</td><td>6762.03</td><td>0</td><td>141.26</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6825</td><td>48.24</td><td>90</td><td>6779.16</td><td>0</td><td>159.47</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6850</td><td>51.24</td><td>90</td><td>6795.32</td><td>0</td><td>178.54</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6875</td><td>54.24</td><td>90</td><td>6810.45</td><td>0</td><td>198.44</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6900</td><td>57.24</td><td>90</td><td>6824.52</td><td>0</td><td>219.1</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6925</td><td>60.24</td><td>90</td><td>6837.49</td><td>0</td><td>240.47</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6950</td><td>63.24</td><td>90</td><td>6849.33</td><td>0</td><td>262.48</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>6975</td><td>66.24</td><td>90</td><td>6860</td><td>0</td><td>285.09</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7000</td><td>69.24</td><td>90</td><td>6869.46</td><td>0</td><td>308.22</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7025</td><td>72.24</td><td>90</td><td>6877.71</td><td>0</td><td>331.82</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7050</td><td>75.24</td><td>90</td><td>6884.71</td><td>0</td><td>355.82</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7075</td><td>78.24</td><td>90</td><td>6890.44</td><td>0</td><td>380.15</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7100</td><td>81.24</td><td>90</td><td>6894.9</td><td>0</td><td>404.75</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7125</td><td>84.24</td><td>90</td><td>6898.06</td><td>0</td><td>429.55</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7150</td><td>87.24</td><td>90</td><td>6899.91</td><td>0</td><td>454.47</td><td>12</td><td>0</td><td>HS</td></tr><tr><td>7173.06</td><td>90.01</td><td>90</td><td>6900.47</td><td>0</td><td>477.52</td><td>0</td><td></td><td>FBSG-TARGET</td></tr><tr><td>10985.54</td><td>90.01</td><td>90</td><td>6900</td><td>0</td><td>4290</td><td>0</td><td></td><td>LATERAL-TD</td></tr></table>",
+            "block_bbox": [
+                100,
+                132,
+                1087,
+                836
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    100.0,
+                    132.0
+                ],
+                [
+                    1087.0,
+                    132.0
+                ],
+                [
+                    1087.0,
+                    836.0
+                ],
+                [
+                    100.0,
+                    836.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Pilot hole drilled vertically to 8600'. Well will be plugged back with 400'-500' kick off plug at approx 6423' and directionally drilled at 12 degrees per 100' with a 8 3/4\" hole to 7173' MD (6,900' TVD). If hole conditions dictate, 7\" casing will be set. A 6 1/8\" hole will then be drilled to 10,985' MD (6,900' TVD) where 4 1/2\" casing will be set and cemented. If 7\" is not set, then hole size will be reduced to 7 7/8\" and drilled to 10,985' MD (6,900' TVD) where 5 1/2\" casing will be set and cemented. Penetration point of producing zone will be encountered at 1650' FSL and 1138' FWL, 24-24S-27E. Deepest TVD in the well is 8600' in the pilot hole. Deepest TVD in the lateral will be 6900'.",
+            "block_bbox": [
+                106,
+                850,
+                1011,
+                938
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    106.0,
+                    850.0
+                ],
+                [
+                    1011.0,
+                    850.0
+                ],
+                [
+                    1011.0,
+                    938.0
+                ],
+                [
+                    106.0,
+                    938.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.973430335521698,
+                "coordinate": [
+                    100,
+                    132,
+                    1087,
+                    836
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        100.0,
+                        132.0
+                    ],
+                    [
+                        1087.0,
+                        132.0
+                    ],
+                    [
+                        1087.0,
+                        836.0
+                    ],
+                    [
+                        100.0,
+                        836.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.55597984790802,
+                "coordinate": [
+                    106,
+                    850,
+                    1011,
+                    938
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        106.0,
+                        850.0
+                    ],
+                    [
+                        1011.0,
+                        850.0
+                    ],
+                    [
+                        1011.0,
+                        938.0
+                    ],
+                    [
+                        106.0,
+                        938.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

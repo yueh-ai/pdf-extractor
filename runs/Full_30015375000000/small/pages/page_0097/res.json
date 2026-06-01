@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0097/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>324046</td><td>LAGO BIU FEDERAL COM #001</td><td>F</td><td>E-11-20N-06W</td><td>E</td><td>30-031-21087</td><td>G</td><td>71629</td><td>BASIN FRUITLAND COAL (GAS)</td></tr><tr><td>324050</td><td>LAGO BIU FEDERAL COM #001</td><td>F</td><td>E-11-20N-06W</td><td>E</td><td>30-031-21087</td><td>G</td><td>97543</td><td>WC20N6W11; PICTURED CLIFFS</td></tr><tr><td>324055</td><td>PARTITION BIO FEDERAL #001</td><td>F</td><td>3-19-20N-05W</td><td>L</td><td>30-031-21090</td><td>G</td><td>71629</td><td>BASIN FRUITLAND COAL (GAS)</td></tr><tr><td>324056</td><td>PARTITION BIO FEDERAL #001</td><td>F</td><td>3-19-20N-05W</td><td>L</td><td>30-031-21090</td><td>G</td><td>97545</td><td>WC20N5W19; PICTURED CLIFFS</td></tr><tr><td>324057</td><td>SCORPION AGX FEDERAL #001</td><td>F</td><td>O-36-25N-12W</td><td>O</td><td>30-045-28526</td><td>O</td><td>5890</td><td>BISTI LOWER-GALLUP (O)</td></tr><tr><td>324058</td><td>TOLEDO WELLS BIS FEDERAL #001</td><td>F</td><td>2-05-20N-05W</td><td>B</td><td>30-031-21086</td><td>G</td><td>71629</td><td>BASIN FRUITLAND COAL (GAS)</td></tr><tr><td>324059</td><td>TOLEDO WELLS BIS FEDERAL #001</td><td>F</td><td>2-05-20N-05W</td><td>B</td><td>30-031-21086</td><td>G</td><td>97544</td><td>WC20N5W5; PICTURED CLIFFS</td></tr></table>",
+            "block_bbox": [
+                61,
+                48,
+                1164,
+                188
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    61.0,
+                    48.0
+                ],
+                [
+                    1164.0,
+                    48.0
+                ],
+                [
+                    1164.0,
+                    188.0
+                ],
+                [
+                    61.0,
+                    188.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9720119833946228,
+                "coordinate": [
+                    61,
+                    48,
+                    1164,
+                    188
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        61.0,
+                        48.0
+                    ],
+                    [
+                        1164.0,
+                        48.0
+                    ],
+                    [
+                        1164.0,
+                        188.0
+                    ],
+                    [
+                        61.0,
+                        188.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

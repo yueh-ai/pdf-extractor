@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0082/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td rowspan=\"6\">323928</td><td>HUMIDOR BML STATE COM #005H</td><td>S</td><td>I-23-24S-27E</td><td>I</td><td>30-015-42755</td><td>O</td><td>96415</td><td>WILLOW LAKE; BONE SPRING,WEST</td></tr><tr><td>HUMIDOR BMO STATE COM #003</td><td>S</td><td>E-14-24S-27E</td><td>E</td><td>30-015-23599</td><td>G</td><td>96542</td><td>WILDCAT, GRANITE</td></tr><tr><td>HUMIDOR BMO STATE COM #003</td><td>S</td><td>E-14-24S-27E</td><td>E</td><td>30-015-23599</td><td>G</td><td>96567</td><td>CHISUM; DEVONIAN, NORTHEAST</td></tr><tr><td>HUMIDOR BMO STATE COM #003</td><td>S</td><td>E-14-24S-27E</td><td>E</td><td>30-015-23599</td><td>G</td><td>97352</td><td>BLACK RIVER; MORROW,SOUTH (G)</td></tr><tr><td>HUMIDOR BMO STATE COM #003</td><td>S</td><td>E-14-24S-27E</td><td>E</td><td>30-015-23599</td><td>G</td><td>97567</td><td>BOND DRAW; STRAWN (G)</td></tr><tr><td>HUMIDOR BMO STATE COM #004H</td><td>S</td><td>H-14-24S-27E</td><td>H</td><td>30-015-42817</td><td>O</td><td>96415</td><td>WILLOW LAKE; BONE SPRING,WEST</td></tr><tr><td>323932</td><td>HUNTER FL COM #001</td><td>F</td><td>F-15-17S-26E</td><td>F</td><td>30-015-21739</td><td>G</td><td>79520</td><td>KENNEDY FARMS; MORROW (GAS)</td></tr><tr><td rowspan=\"2\">323935</td><td>IBIS XU STATE #001</td><td>S</td><td>A-23-09S-26E</td><td>A</td><td>30-005-62053</td><td>G</td><td>89741</td><td>CHAVES UNDESIGNED; WOLFCAMP (GAS)</td></tr><tr><td>IBIS XU STATE #004</td><td>S</td><td>E-23-09S-26E</td><td>E</td><td>30-005-63379</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td rowspan=\"2\">323936</td><td>IBIS XU STATE COMM #002</td><td>S</td><td>C-25-09S-26E</td><td>C</td><td>30-005-62582</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td>IBIS XU STATE COMM #002</td><td>S</td><td>C-25-09S-26E</td><td>C</td><td>30-005-62582</td><td>G</td><td>76750</td><td>FOOR RANCH; WOLFCAMP (GAS)</td></tr><tr><td rowspan=\"4\">323943</td><td>INEX #001</td><td>P</td><td>H-26-18S-26E</td><td>H</td><td>30-015-25316</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>INEX #002</td><td>P</td><td>G-26-18S-26E</td><td>G</td><td>30-015-25465</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>INEX #003</td><td>P</td><td>A-26-18S-26E</td><td>A</td><td>30-015-25916</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>INEX #004</td><td>P</td><td>B-26-18S-26E</td><td>B</td><td>30-015-25749</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td rowspan=\"4\">323945</td><td>INGRAM JACKSON BV #006</td><td>P</td><td>D-26-17S-25E</td><td>D</td><td>30-015-21893</td><td>O</td><td></td><td></td></tr><tr><td>INGRAM JACKSON BV #007</td><td>P</td><td>G-26-17S-25E</td><td>G</td><td>30-015-22789</td><td>G</td><td>76240</td><td>EAGLE CREEK; ATOKA-MORROW, E (GAS)</td></tr><tr><td>INGRAM JACKSON BV #007</td><td>P</td><td>G-26-17S-25E</td><td>G</td><td>30-015-22789</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td>INGRAM JACKSON BV #010</td><td>P</td><td>A-27-17S-25E</td><td>A</td><td>30-015-24322</td><td>O</td><td></td><td></td></tr><tr><td>323946</td><td>INGRAM WY FEDERAL #001</td><td>F</td><td>A-18-07S-26E</td><td>A</td><td>30-005-61958</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323948</td><td>IRISH HILLS KW STATE #003</td><td>S</td><td>1-02-19S-24E</td><td></td><td>30-015-27172</td><td>O</td><td>82775</td><td>PENASCO DRAW; PERMO PENN (GAS)</td></tr><tr><td>323949</td><td>IRISH HILLS YESO JE STATE #002</td><td>S</td><td>F-12-19S-24E</td><td>F</td><td>30-015-23256</td><td>O</td><td></td><td></td></tr><tr><td rowspan=\"2\">323952</td><td>IVEY BFV #001</td><td>P</td><td>P-04-19S-26E</td><td>P</td><td>30-015-34954</td><td>G</td><td>77000</td><td>FOUR MILE DRAW; MORROW, WEST (GAS)</td></tr><tr><td>IVEY BFV #001</td><td>P</td><td>P-04-19S-26E</td><td>P</td><td>30-015-34954</td><td>G</td><td>97338</td><td>WC; MISSISSIPPIAN GAS</td></tr><tr><td rowspan=\"7\">323954</td><td>J LAZY J #002</td><td>P</td><td>J-22-17S-25E</td><td>J</td><td>30-015-05915</td><td>O</td><td></td><td></td></tr><tr><td>J LAZY J #004</td><td>P</td><td>J-22-17S-25E</td><td>I</td><td>30-015-20415</td><td>O</td><td>20420</td><td>EAGLE CREEK; SAN ANDRES</td></tr><tr><td>J LAZY J #005</td><td>P</td><td>J-22-17S-25E</td><td>I</td><td>30-015-21124</td><td>O</td><td></td><td></td></tr><tr><td>J LAZY J #008</td><td>P</td><td>J-22-17S-25E</td><td>J</td><td>30-015-21144</td><td>O</td><td></td><td></td></tr><tr><td>J LAZY J #010</td><td>P</td><td>H-22-17S-25E</td><td>H</td><td>30-015-21303</td><td>O</td><td>20420</td><td>EAGLE CREEK; SAN ANDRES</td></tr><tr><td>J LAZY J #015</td><td>P</td><td>J-22-17S-25E</td><td>I</td><td>30-015-23532</td><td>O</td><td></td><td></td></tr><tr><td>J LAZY J #016</td><td>P</td><td>J-22-17S-25E</td><td>J</td><td>30-015-23533</td><td>O</td><td></td><td></td></tr><tr><td rowspan=\"2\">323956</td><td>JACKSON AT #002</td><td>P</td><td>N-14-17S-25E</td><td>N</td><td>30-015-20051</td><td>O</td><td></td><td></td></tr><tr><td>JACKSON AT #004</td><td>P</td><td>J-14-17S-25E</td><td>J</td><td>30-015-20404</td><td>O</td><td>20420</td><td>EAGLE CREEK; SAN ANDRES</td></tr><tr><td rowspan=\"24\">323957</td><td>JACKSON B #004</td><td>F</td><td>4-01-17S-30E</td><td>D</td><td>30-015-04036</td><td>I</td><td>57570</td><td>SQUARE LAKE; GRAYBURG-SAN ANDRES</td></tr><tr><td>JACKSON B #005</td><td>F</td><td>3-01-17S-30E</td><td>C</td><td>30-015-04037</td><td>O</td><td>57570</td><td>SQUARE LAKE; GRAYBURG-SAN ANDRES</td></tr><tr><td>JACKSON B #017</td><td>F</td><td>M-01-17S-30E</td><td>M</td><td>30-015-04039</td><td>O</td><td>57570</td><td>SQUARE LAKE; GRAYBURG-SAN ANDRES</td></tr><tr><td>JACKSON B #019</td><td>F</td><td>P-01-17S-30E</td><td>P</td><td>30-015-04041</td><td>I</td><td>57570</td><td>SQUARE LAKE; GRAYBURG-SAN ANDRES</td></tr><tr><td>JACKSON B #030</td><td>F</td><td>N-01-17S-30E</td><td>N</td><td>30-015-21386</td><td>I</td><td>57570</td><td>SQUARE LAKE; GRAYBURG-SAN ANDRES</td></tr><tr><td>JACKSON B #033</td><td>F</td><td>F-01-17S-30E</td><td>F</td><td>30-015-23807</td><td>O</td><td>57570</td><td>SQUARE LAKE; GRAYBURG-SAN ANDRES</td></tr><tr><td>JACKSON B #047</td><td>F</td><td>O-01-17S-30E</td><td>O</td><td>30-015-41399</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #048</td><td>F</td><td>A-12-17S-30E</td><td>A</td><td>30-015-41540</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #050</td><td>F</td><td>G-12-17S-30E</td><td>G</td><td>30-015-39364</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #052</td><td>F</td><td>B-12-17S-30E</td><td>B</td><td>30-015-40558</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #053</td><td>F</td><td>M-01-17S-30E</td><td>M</td><td>30-015-40942</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #054</td><td>F</td><td>N-01-17S-30E</td><td>N</td><td>30-015-41190</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #055</td><td>F</td><td>G-12-17S-30E</td><td>G</td><td>30-015-40844</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #057</td><td>F</td><td>L-01-17S-30E</td><td>L</td><td>30-015-41003</td><td>O</td><td>96718</td><td>LOCO HILLS; GLORIETA-YESO</td></tr><tr><td>JACKSON B #058</td><td>F</td><td>B-12-17S-30E</td><td>B</td><td>30-015-41192</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #059</td><td>F</td><td>N-01-17S-30E</td><td>N</td><td>30-015-41278</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #060</td><td>F</td><td>H-12-17S-30E</td><td>H</td><td>30-015-41365</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #061</td><td>F</td><td>H-12-17S-30E</td><td>H</td><td>30-015-41542</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #062</td><td>F</td><td>A-12-17S-30E</td><td>A</td><td>30-015-41279</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #063</td><td>F</td><td>P-01-17S-30E</td><td>P</td><td>30-015-41541</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #064</td><td>F</td><td>L-01-17S-30E</td><td>L</td><td>30-015-41277</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #065</td><td>F</td><td>P-01-17S-30E</td><td>P</td><td>30-015-41191</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #069</td><td>F</td><td>I-01-17S-30E</td><td>I</td><td>30-015-42042</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>JACKSON B #075</td><td>F</td><td>K-01-17S-30E</td><td>K</td><td>30-015-42215</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>323958</td><td>JACKSON B FEDERAL #051</td><td>F</td><td>M-01-17S-30E</td><td>M</td><td>30-015-40139</td><td>O</td><td>96831</td><td>CEDAR LAKE; GLORIETA-YESO</td></tr><tr><td>323959</td><td>JACKSON EM #001</td><td>P</td><td>O-25-17S-25E</td><td>O</td><td>30-015-21564</td><td>G</td><td>76240</td><td>EAGLE CREEK; ATOKA-MORROW, E (GAS)</td></tr><tr><td rowspan=\"7\">323960</td><td>JACKSON ESTATE BY #001</td><td>P</td><td>K-22-17S-25E</td><td>K</td><td>30-015-20461</td><td>O</td><td></td><td></td></tr><tr><td>JACKSON ESTATE BY #005</td><td>P</td><td>H-21-17S-25E</td><td>H</td><td>30-015-20504</td><td>O</td><td>20420</td><td>EAGLE CREEK; SAN ANDRES</td></tr><tr><td>JACKSON ESTATE BY #006</td><td>P</td><td>K-22-17S-25E</td><td>K</td><td>30-015-21129</td><td>O</td><td></td><td></td></tr><tr><td>JACKSON ESTATE BY #008</td><td>P</td><td>L-22-17S-25E</td><td>L</td><td>30-015-21819</td><td>O</td><td></td><td></td></tr><tr><td>JACKSON ESTATE BY #009</td><td>P</td><td>L-22-17S-25E</td><td>L</td><td>30-015-23154</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td>JACKSON ESTATE BY #010</td><td>P</td><td>F-22-17S-25E</td><td>F</td><td>30-015-23396</td><td>O</td><td></td><td></td></tr><tr><td>JACKSON ESTATE BY #011</td><td>P</td><td>F-22-17S-25E</td><td>F</td><td>30-015-23397</td><td>O</td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                56,
+                43,
+                1168,
+                1521
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    43.0
+                ],
+                [
+                    1168.0,
+                    43.0
+                ],
+                [
+                    1168.0,
+                    1521.0
+                ],
+                [
+                    56.0,
+                    1521.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9866653680801392,
+                "coordinate": [
+                    56,
+                    43,
+                    1168,
+                    1521
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        43.0
+                    ],
+                    [
+                        1168.0,
+                        43.0
+                    ],
+                    [
+                        1168.0,
+                        1521.0
+                    ],
+                    [
+                        56.0,
+                        1521.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

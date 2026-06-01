@@ -1,0 +1,461 @@
+{
+    "input_path": "runs/input_vl/pages/page_0118/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "Instructions on filing Form C-115\nhttp://www.emnrd.state.nm.us/OCD/documents/C115_FullInstructions10.2017.pdf",
+            "block_bbox": [
+                134,
+                183,
+                920,
+                244
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    134.05465698242188,
+                    176.8743896484375
+                ],
+                [
+                    919.5272216796875,
+                    183.87860107421875
+                ],
+                [
+                    919.0,
+                    243.0
+                ],
+                [
+                    133.52743530273438,
+                    235.99578857421875
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "RULES",
+            "block_bbox": [
+                133,
+                305,
+                237,
+                337
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    133.0,
+                    305.0
+                ],
+                [
+                    237.0,
+                    305.0
+                ],
+                [
+                    237.0,
+                    337.0
+                ],
+                [
+                    133.0,
+                    337.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "19.15.7.24 OPERATOR'S MONTHLY REPORT (Form C-115):",
+            "block_bbox": [
+                134,
+                356,
+                911,
+                395
+            ],
+            "block_id": 2,
+            "block_order": 2,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    134.06118774414062,
+                    349.2170715332031
+                ],
+                [
+                    910.3406982421875,
+                    356.2195739746094
+                ],
+                [
+                    909.9998779296875,
+                    394.0000305175781
+                ],
+                [
+                    133.72036743164062,
+                    386.9975280761719
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "A. An operator shall file a form C-115 for each non-plugged well completion for which the division has approved a form C-104 and for each secondary or other enhanced recovery project or pressure maintenance project injection well or other injection well within the state, setting forth complete information and data Indicated on the forms in the order, format and style the director prescribes. The operator shall estimate oil production from wells producing into common storage as accurately as possible based on periodic tests.",
+            "block_bbox": [
+                130,
+                410,
+                1062,
+                655
+            ],
+            "block_id": 3,
+            "block_order": 3,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    130.0,
+                    410.0
+                ],
+                [
+                    1062.0,
+                    410.0
+                ],
+                [
+                    1062.0,
+                    655.0
+                ],
+                [
+                    130.0,
+                    655.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "19.15.18.12 CASINGHEAD GAS:",
+            "block_bbox": [
+                133,
+                667,
+                546,
+                701
+            ],
+            "block_id": 4,
+            "block_order": 4,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    133.0,
+                    667.0
+                ],
+                [
+                    546.0,
+                    667.0
+                ],
+                [
+                    546.0,
+                    701.0
+                ],
+                [
+                    133.0,
+                    701.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "F. Pending connection of a well to a gas-gathering facility, or when a well has been excepted from the provisions of Subsection A of 19.15.18.12 NMAC, the operator shall burn all gas produced and not used and report the estimated volume on form C-115.",
+            "block_bbox": [
+                130,
+                720,
+                1078,
+                860
+            ],
+            "block_id": 5,
+            "block_order": 5,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    130.0,
+                    720.0
+                ],
+                [
+                    1078.0,
+                    720.0
+                ],
+                [
+                    1078.0,
+                    860.0
+                ],
+                [
+                    130.0,
+                    860.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Thank you for your assistance in this matter. If you have any questions, please contact the appropriate OCD District Office.",
+            "block_bbox": [
+                130,
+                875,
+                1021,
+                944
+            ],
+            "block_id": 6,
+            "block_order": 6,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    130.0,
+                    875.0
+                ],
+                [
+                    1021.0,
+                    875.0
+                ],
+                [
+                    1021.0,
+                    944.0
+                ],
+                [
+                    130.0,
+                    944.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.8889861106872559,
+                "coordinate": [
+                    134,
+                    183,
+                    920,
+                    244
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        134.05465698242188,
+                        176.8743896484375
+                    ],
+                    [
+                        919.5272216796875,
+                        183.87860107421875
+                    ],
+                    [
+                        919.0,
+                        243.0
+                    ],
+                    [
+                        133.52743530273438,
+                        235.99578857421875
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.7714232206344604,
+                "coordinate": [
+                    133,
+                    305,
+                    237,
+                    337
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        133.0,
+                        305.0
+                    ],
+                    [
+                        237.0,
+                        305.0
+                    ],
+                    [
+                        237.0,
+                        337.0
+                    ],
+                    [
+                        133.0,
+                        337.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8419607281684875,
+                "coordinate": [
+                    134,
+                    356,
+                    911,
+                    395
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        134.06118774414062,
+                        349.2170715332031
+                    ],
+                    [
+                        910.3406982421875,
+                        356.2195739746094
+                    ],
+                    [
+                        909.9998779296875,
+                        394.0000305175781
+                    ],
+                    [
+                        133.72036743164062,
+                        386.9975280761719
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.954475998878479,
+                "coordinate": [
+                    130,
+                    410,
+                    1062,
+                    655
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        130.0,
+                        410.0
+                    ],
+                    [
+                        1062.0,
+                        410.0
+                    ],
+                    [
+                        1062.0,
+                        655.0
+                    ],
+                    [
+                        130.0,
+                        655.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8427967429161072,
+                "coordinate": [
+                    133,
+                    667,
+                    546,
+                    701
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        133.0,
+                        667.0
+                    ],
+                    [
+                        546.0,
+                        667.0
+                    ],
+                    [
+                        546.0,
+                        701.0
+                    ],
+                    [
+                        133.0,
+                        701.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9391241073608398,
+                "coordinate": [
+                    130,
+                    720,
+                    1078,
+                    860
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        130.0,
+                        720.0
+                    ],
+                    [
+                        1078.0,
+                        720.0
+                    ],
+                    [
+                        1078.0,
+                        860.0
+                    ],
+                    [
+                        130.0,
+                        860.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.915439784526825,
+                "coordinate": [
+                    130,
+                    875,
+                    1021,
+                    944
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        130.0,
+                        875.0
+                    ],
+                    [
+                        1021.0,
+                        875.0
+                    ],
+                    [
+                        1021.0,
+                        944.0
+                    ],
+                    [
+                        130.0,
+                        944.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

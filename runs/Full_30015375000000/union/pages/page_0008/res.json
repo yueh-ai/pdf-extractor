@@ -1,0 +1,278 @@
+{
+    "input_path": "runs/input_vl/pages/page_0008/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "text",
+            "block_content": "3D $ ^{3} $ Directional Drilling Planner - 3D View\nCompany: Yates Petroleum Corporation\nWell: Jericho BKJ State Com. #2H",
+            "block_bbox": [
+                163,
+                54,
+                788,
+                114
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    163.0,
+                    54.0
+                ],
+                [
+                    788.0,
+                    54.0
+                ],
+                [
+                    788.0,
+                    114.0
+                ],
+                [
+                    163.0,
+                    114.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                325,
+                225,
+                913,
+                1012
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    325.0,
+                    225.0
+                ],
+                [
+                    913.0,
+                    225.0
+                ],
+                [
+                    913.0,
+                    1012.0
+                ],
+                [
+                    325.0,
+                    1012.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "File: G:\\drilling toolbox wellplans\\Horizontal\\jericho2h wpp",
+            "block_bbox": [
+                166,
+                1165,
+                565,
+                1189
+            ],
+            "block_id": 2,
+            "block_order": 2,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    166.0,
+                    1165.0
+                ],
+                [
+                    565.0,
+                    1165.0
+                ],
+                [
+                    565.0,
+                    1189.0
+                ],
+                [
+                    166.0,
+                    1189.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "",
+            "block_bbox": [
+                143,
+                1226,
+                1077,
+                1251
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    143.0,
+                    1226.0
+                ],
+                [
+                    1077.0,
+                    1226.0
+                ],
+                [
+                    1077.0,
+                    1251.0
+                ],
+                [
+                    143.0,
+                    1251.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.4422433376312256,
+                "coordinate": [
+                    163,
+                    54,
+                    788,
+                    114
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        163.0,
+                        54.0
+                    ],
+                    [
+                        788.0,
+                        54.0
+                    ],
+                    [
+                        788.0,
+                        114.0
+                    ],
+                    [
+                        163.0,
+                        114.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.9425230622291565,
+                "coordinate": [
+                    325,
+                    225,
+                    913,
+                    1012
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        325.0,
+                        225.0
+                    ],
+                    [
+                        913.0,
+                        225.0
+                    ],
+                    [
+                        913.0,
+                        1012.0
+                    ],
+                    [
+                        325.0,
+                        1012.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.4114730954170227,
+                "coordinate": [
+                    166,
+                    1165,
+                    565,
+                    1189
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        166.0,
+                        1165.0
+                    ],
+                    [
+                        565.0,
+                        1165.0
+                    ],
+                    [
+                        565.0,
+                        1189.0
+                    ],
+                    [
+                        166.0,
+                        1189.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.6252917647361755,
+                "coordinate": [
+                    143,
+                    1226,
+                    1077,
+                    1251
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        143.0,
+                        1226.0
+                    ],
+                    [
+                        1077.0,
+                        1226.0
+                    ],
+                    [
+                        1077.0,
+                        1251.0
+                    ],
+                    [
+                        143.0,
+                        1251.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

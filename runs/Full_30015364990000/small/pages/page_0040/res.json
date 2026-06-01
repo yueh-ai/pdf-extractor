@@ -1,0 +1,320 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0040/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "3D $ ^{3} $ Directional Drilling Planner - 3D View",
+            "block_bbox": [
+                372,
+                41,
+                851,
+                70
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    372.0,
+                    41.0
+                ],
+                [
+                    851.0,
+                    41.0
+                ],
+                [
+                    851.0,
+                    70.0
+                ],
+                [
+                    372.0,
+                    70.0
+                ]
+            ]
+        },
+        {
+            "block_label": "chart",
+            "block_content": "",
+            "block_bbox": [
+                272,
+                273,
+                996,
+                1283
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    272.0,
+                    273.0
+                ],
+                [
+                    996.0,
+                    273.0
+                ],
+                [
+                    996.0,
+                    1283.0
+                ],
+                [
+                    272.0,
+                    1283.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "File: G:\\drilling toolbox wellplans\\Horizontal\\perdomo1h.wpp",
+            "block_bbox": [
+                36,
+                1501,
+                582,
+                1530
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    36.0,
+                    1501.0
+                ],
+                [
+                    582.0,
+                    1501.0
+                ],
+                [
+                    582.0,
+                    1530.0
+                ],
+                [
+                    36.0,
+                    1530.0
+                ]
+            ]
+        },
+        {
+            "block_label": "aside_text",
+            "block_content": "……",
+            "block_bbox": [
+                1188,
+                27,
+                1202,
+                340
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    1188.0,
+                    27.0
+                ],
+                [
+                    1201.0,
+                    27.0
+                ],
+                [
+                    1201.0,
+                    339.0
+                ],
+                [
+                    1188.0,
+                    339.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.31855615973472595,
+                "coordinate": [
+                    372,
+                    41,
+                    851,
+                    70
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        372.0,
+                        41.0
+                    ],
+                    [
+                        851.0,
+                        41.0
+                    ],
+                    [
+                        851.0,
+                        70.0
+                    ],
+                    [
+                        372.0,
+                        70.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.33804914355278015,
+                "coordinate": [
+                    374,
+                    43,
+                    419,
+                    68
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        374.0,
+                        43.0
+                    ],
+                    [
+                        374.0,
+                        67.0
+                    ],
+                    [
+                        418.0,
+                        67.0
+                    ],
+                    [
+                        418.0,
+                        50.0
+                    ],
+                    [
+                        414.0,
+                        50.0
+                    ],
+                    [
+                        413.0,
+                        49.0
+                    ],
+                    [
+                        413.0,
+                        43.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 3,
+                "label": "chart",
+                "score": 0.8126157522201538,
+                "coordinate": [
+                    272,
+                    273,
+                    996,
+                    1283
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        272.0,
+                        273.0
+                    ],
+                    [
+                        996.0,
+                        273.0
+                    ],
+                    [
+                        996.0,
+                        1283.0
+                    ],
+                    [
+                        272.0,
+                        1283.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.7459982633590698,
+                "coordinate": [
+                    36,
+                    1501,
+                    582,
+                    1530
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        36.0,
+                        1501.0
+                    ],
+                    [
+                        582.0,
+                        1501.0
+                    ],
+                    [
+                        582.0,
+                        1530.0
+                    ],
+                    [
+                        36.0,
+                        1530.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "aside_text",
+                "score": 0.5297205448150635,
+                "coordinate": [
+                    1188,
+                    27,
+                    1202,
+                    340
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1188.0,
+                        27.0
+                    ],
+                    [
+                        1201.0,
+                        27.0
+                    ],
+                    [
+                        1201.0,
+                        339.0
+                    ],
+                    [
+                        1188.0,
+                        339.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

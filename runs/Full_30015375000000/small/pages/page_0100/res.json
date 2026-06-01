@@ -1,0 +1,1071 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0100/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "doc_title",
+            "block_content": "NEW MEXICO OIL CONSERVATION DIVISION\nDISTRICT 2 OFFICE\n811 S. FIRST STREET\nARTESIA, NM88210",
+            "block_bbox": [
+                295,
+                69,
+                944,
+                195
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    295.0,
+                    69.0
+                ],
+                [
+                    944.0,
+                    69.0
+                ],
+                [
+                    944.0,
+                    195.0
+                ],
+                [
+                    295.0,
+                    195.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "(575)748-1283",
+            "block_bbox": [
+                504,
+                222,
+                707,
+                257
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    504.0,
+                    222.0
+                ],
+                [
+                    707.0,
+                    222.0
+                ],
+                [
+                    707.0,
+                    257.0
+                ],
+                [
+                    504.0,
+                    257.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "CONDITIONS OF APPROVAL for FLARING or VENTING GAS",
+            "block_bbox": [
+                121,
+                274,
+                813,
+                302
+            ],
+            "block_id": 2,
+            "block_order": 3,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    121.0,
+                    274.0
+                ],
+                [
+                    813.0,
+                    274.0
+                ],
+                [
+                    813.0,
+                    302.0
+                ],
+                [
+                    121.0,
+                    302.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1. Venting gas is absolutely not allowed.",
+            "block_bbox": [
+                234,
+                321,
+                620,
+                349
+            ],
+            "block_id": 3,
+            "block_order": 4,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    234.0,
+                    321.0
+                ],
+                [
+                    620.0,
+                    321.0
+                ],
+                [
+                    620.0,
+                    349.0
+                ],
+                [
+                    234.0,
+                    349.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "2. Prior to flaring gas, C-129 must be filed & approved. Blanket approval cannot be given for this operation.",
+            "block_bbox": [
+                232,
+                353,
+                1059,
+                404
+            ],
+            "block_id": 4,
+            "block_order": 5,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    232.0,
+                    353.0
+                ],
+                [
+                    1059.0,
+                    353.0
+                ],
+                [
+                    1059.0,
+                    404.0
+                ],
+                [
+                    232.0,
+                    404.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "3. Flared volumes of gas are to be metered & reported.",
+            "block_bbox": [
+                233,
+                409,
+                746,
+                436
+            ],
+            "block_id": 5,
+            "block_order": 6,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    233.0,
+                    409.0
+                ],
+                [
+                    746.0,
+                    409.0
+                ],
+                [
+                    746.0,
+                    436.0
+                ],
+                [
+                    233.0,
+                    436.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "4. Flares WILL be manned at all times. Brush should be cut down to 1 or 2 inches around flare stack at least a radial distance of 2 times the height of the flare stack.",
+            "block_bbox": [
+                234,
+                441,
+                1055,
+                492
+            ],
+            "block_id": 6,
+            "block_order": 7,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    234.0,
+                    441.0
+                ],
+                [
+                    1055.0,
+                    441.0
+                ],
+                [
+                    1055.0,
+                    492.0
+                ],
+                [
+                    234.0,
+                    492.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "5. Flares WILL NOT be left unattended.",
+            "block_bbox": [
+                234,
+                495,
+                618,
+                523
+            ],
+            "block_id": 7,
+            "block_order": 8,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    234.0,
+                    495.0
+                ],
+                [
+                    618.0,
+                    495.0
+                ],
+                [
+                    618.0,
+                    523.0
+                ],
+                [
+                    234.0,
+                    523.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "6. No flaring operations to be conducted during red-flag days.\nhttp://www.gacc.nifc.gov/swcc (go to \"Predictive Services\" on SWCC website) to check for Red Flag Warnings.",
+            "block_bbox": [
+                233,
+                527,
+                1063,
+                606
+            ],
+            "block_id": 8,
+            "block_order": 9,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    233.05172729492188,
+                    520.8702392578125
+                ],
+                [
+                    1062.6513671875,
+                    527.875244140625
+                ],
+                [
+                    1062.0001220703125,
+                    605.0
+                ],
+                [
+                    232.40048217773438,
+                    597.9949951171875
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "7. Follow safe practices for flaring guidelines.",
+            "block_bbox": [
+                235,
+                608,
+                673,
+                636
+            ],
+            "block_id": 9,
+            "block_order": 10,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    235.0,
+                    608.0
+                ],
+                [
+                    673.0,
+                    608.0
+                ],
+                [
+                    673.0,
+                    636.0
+                ],
+                [
+                    235.0,
+                    636.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "8. Permit may be rescinded at any time by NMOCD.",
+            "block_bbox": [
+                235,
+                639,
+                723,
+                666
+            ],
+            "block_id": 10,
+            "block_order": 11,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    235.0,
+                    639.0
+                ],
+                [
+                    723.0,
+                    639.0
+                ],
+                [
+                    723.0,
+                    666.0
+                ],
+                [
+                    235.0,
+                    666.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "9. If well is able to be connected to a gas gathering system, it will be done so as soon as possible.",
+            "block_bbox": [
+                236,
+                671,
+                1040,
+                721
+            ],
+            "block_id": 11,
+            "block_order": 12,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    236.0,
+                    671.0
+                ],
+                [
+                    1040.0,
+                    671.0
+                ],
+                [
+                    1040.0,
+                    721.0
+                ],
+                [
+                    236.0,
+                    721.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "10. Flaring of gas is prohibited. The State Forester grants an exception to the prohibition on open fires for the flaring of natural gas when the following conditions are met. Unless flaring is needed for safety purposes, flaring pursuant to this exception shall not be done on days that are \"red flag days\" as determined by the National Weather Service or on days when the sustained wind is in excess of 25 miles per hour in the area.",
+            "block_bbox": [
+                235,
+                729,
+                1075,
+                847
+            ],
+            "block_id": 12,
+            "block_order": 13,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    241.01583862304688,
+                    729.00830078125
+                ],
+                [
+                    1073.015625,
+                    722.00830078125
+                ],
+                [
+                    1074.0,
+                    839.0
+                ],
+                [
+                    242.000244140625,
+                    846.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "11. The day is not a \"red flag day\" as determined by the National Weather Service and the sustained wind is not in excess of 25 miles per hour in the area.",
+            "block_bbox": [
+                236,
+                852,
+                987,
+                901
+            ],
+            "block_id": 13,
+            "block_order": 14,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    236.0,
+                    852.0
+                ],
+                [
+                    987.0,
+                    852.0
+                ],
+                [
+                    987.0,
+                    901.0
+                ],
+                [
+                    236.0,
+                    901.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "12. The local fire department and county dispatch are notified at least 24 hours in advance of anticipated releases that will result in flaring. If flaring is done by an automated system then the schedule of flaring shall be provided to the local fire department and county dispatch. The area is mowed and maintained at a length not to exceed 4 inches and all other flammable products or debris shall be cleared in the area for a distance of one and one half times the height of the stack.",
+            "block_bbox": [
+                239,
+                912,
+                1072,
+                1059
+            ],
+            "block_id": 14,
+            "block_order": 15,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    239.0,
+                    912.0
+                ],
+                [
+                    1072.0,
+                    912.0
+                ],
+                [
+                    1072.0,
+                    1059.0
+                ],
+                [
+                    239.0,
+                    1059.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "13. At least one adult is on site with communications equipment adequate to reach county dispatch and the local fire department in the event of a fire. The individual should also be equipped with a shovel and a water backpack pump or other equipment to deliver water to suppress a fire.",
+            "block_bbox": [
+                243,
+                1069,
+                1032,
+                1168
+            ],
+            "block_id": 15,
+            "block_order": 16,
+            "group_id": 15,
+            "block_polygon_points": [
+                [
+                    243.0,
+                    1069.0
+                ],
+                [
+                    1032.0,
+                    1069.0
+                ],
+                [
+                    1032.0,
+                    1168.0
+                ],
+                [
+                    243.0,
+                    1168.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "14. If flaring is to take place at an unmanned facility, then the area around the flare stack is mowed and maintained at a length not to exceed 4 inches and all other flammable products or debris shall be cleared in the area for a distance of three times the height of the stack.",
+            "block_bbox": [
+                239,
+                1178,
+                1059,
+                1252
+            ],
+            "block_id": 16,
+            "block_order": 17,
+            "group_id": 16,
+            "block_polygon_points": [
+                [
+                    239.0,
+                    1178.0
+                ],
+                [
+                    1059.0,
+                    1178.0
+                ],
+                [
+                    1059.0,
+                    1252.0
+                ],
+                [
+                    239.0,
+                    1252.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.9466482400894165,
+                "coordinate": [
+                    295,
+                    69,
+                    944,
+                    195
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        295.0,
+                        69.0
+                    ],
+                    [
+                        944.0,
+                        69.0
+                    ],
+                    [
+                        944.0,
+                        195.0
+                    ],
+                    [
+                        295.0,
+                        195.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6083815097808838,
+                "coordinate": [
+                    504,
+                    222,
+                    707,
+                    257
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        504.0,
+                        222.0
+                    ],
+                    [
+                        707.0,
+                        222.0
+                    ],
+                    [
+                        707.0,
+                        257.0
+                    ],
+                    [
+                        504.0,
+                        257.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8529245257377625,
+                "coordinate": [
+                    121,
+                    274,
+                    813,
+                    302
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        121.0,
+                        274.0
+                    ],
+                    [
+                        813.0,
+                        274.0
+                    ],
+                    [
+                        813.0,
+                        302.0
+                    ],
+                    [
+                        121.0,
+                        302.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8552156090736389,
+                "coordinate": [
+                    234,
+                    321,
+                    620,
+                    349
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        234.0,
+                        321.0
+                    ],
+                    [
+                        620.0,
+                        321.0
+                    ],
+                    [
+                        620.0,
+                        349.0
+                    ],
+                    [
+                        234.0,
+                        349.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9058789014816284,
+                "coordinate": [
+                    232,
+                    353,
+                    1059,
+                    404
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        232.0,
+                        353.0
+                    ],
+                    [
+                        1059.0,
+                        353.0
+                    ],
+                    [
+                        1059.0,
+                        404.0
+                    ],
+                    [
+                        232.0,
+                        404.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8409175276756287,
+                "coordinate": [
+                    233,
+                    409,
+                    746,
+                    436
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        233.0,
+                        409.0
+                    ],
+                    [
+                        746.0,
+                        409.0
+                    ],
+                    [
+                        746.0,
+                        436.0
+                    ],
+                    [
+                        233.0,
+                        436.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9071753621101379,
+                "coordinate": [
+                    234,
+                    441,
+                    1055,
+                    492
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        234.0,
+                        441.0
+                    ],
+                    [
+                        1055.0,
+                        441.0
+                    ],
+                    [
+                        1055.0,
+                        492.0
+                    ],
+                    [
+                        234.0,
+                        492.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8437613844871521,
+                "coordinate": [
+                    234,
+                    495,
+                    618,
+                    523
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        234.0,
+                        495.0
+                    ],
+                    [
+                        618.0,
+                        495.0
+                    ],
+                    [
+                        618.0,
+                        523.0
+                    ],
+                    [
+                        234.0,
+                        523.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9091086983680725,
+                "coordinate": [
+                    233,
+                    527,
+                    1063,
+                    606
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        233.05172729492188,
+                        520.8702392578125
+                    ],
+                    [
+                        1062.6513671875,
+                        527.875244140625
+                    ],
+                    [
+                        1062.0001220703125,
+                        605.0
+                    ],
+                    [
+                        232.40048217773438,
+                        597.9949951171875
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8437029123306274,
+                "coordinate": [
+                    235,
+                    608,
+                    673,
+                    636
+                ],
+                "order": 10,
+                "polygon_points": [
+                    [
+                        235.0,
+                        608.0
+                    ],
+                    [
+                        673.0,
+                        608.0
+                    ],
+                    [
+                        673.0,
+                        636.0
+                    ],
+                    [
+                        235.0,
+                        636.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8364503383636475,
+                "coordinate": [
+                    235,
+                    639,
+                    723,
+                    666
+                ],
+                "order": 11,
+                "polygon_points": [
+                    [
+                        235.0,
+                        639.0
+                    ],
+                    [
+                        723.0,
+                        639.0
+                    ],
+                    [
+                        723.0,
+                        666.0
+                    ],
+                    [
+                        235.0,
+                        666.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.911972165107727,
+                "coordinate": [
+                    236,
+                    671,
+                    1040,
+                    721
+                ],
+                "order": 12,
+                "polygon_points": [
+                    [
+                        236.0,
+                        671.0
+                    ],
+                    [
+                        1040.0,
+                        671.0
+                    ],
+                    [
+                        1040.0,
+                        721.0
+                    ],
+                    [
+                        236.0,
+                        721.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9518194198608398,
+                "coordinate": [
+                    235,
+                    729,
+                    1075,
+                    847
+                ],
+                "order": 13,
+                "polygon_points": [
+                    [
+                        241.01583862304688,
+                        729.00830078125
+                    ],
+                    [
+                        1073.015625,
+                        722.00830078125
+                    ],
+                    [
+                        1074.0,
+                        839.0
+                    ],
+                    [
+                        242.000244140625,
+                        846.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9112003445625305,
+                "coordinate": [
+                    236,
+                    852,
+                    987,
+                    901
+                ],
+                "order": 14,
+                "polygon_points": [
+                    [
+                        236.0,
+                        852.0
+                    ],
+                    [
+                        987.0,
+                        852.0
+                    ],
+                    [
+                        987.0,
+                        901.0
+                    ],
+                    [
+                        236.0,
+                        901.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9559541940689087,
+                "coordinate": [
+                    239,
+                    912,
+                    1072,
+                    1059
+                ],
+                "order": 15,
+                "polygon_points": [
+                    [
+                        239.0,
+                        912.0
+                    ],
+                    [
+                        1072.0,
+                        912.0
+                    ],
+                    [
+                        1072.0,
+                        1059.0
+                    ],
+                    [
+                        239.0,
+                        1059.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9458966851234436,
+                "coordinate": [
+                    243,
+                    1069,
+                    1032,
+                    1168
+                ],
+                "order": 16,
+                "polygon_points": [
+                    [
+                        243.0,
+                        1069.0
+                    ],
+                    [
+                        1032.0,
+                        1069.0
+                    ],
+                    [
+                        1032.0,
+                        1168.0
+                    ],
+                    [
+                        243.0,
+                        1168.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9298997521400452,
+                "coordinate": [
+                    239,
+                    1178,
+                    1059,
+                    1252
+                ],
+                "order": 17,
+                "polygon_points": [
+                    [
+                        239.0,
+                        1178.0
+                    ],
+                    [
+                        1059.0,
+                        1178.0
+                    ],
+                    [
+                        1059.0,
+                        1252.0
+                    ],
+                    [
+                        239.0,
+                        1252.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

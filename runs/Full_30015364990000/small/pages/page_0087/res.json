@@ -1,0 +1,278 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0087/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1590,
+    "height": 1223,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "paragraph_title",
+            "block_content": "PathFinder Energy Services, Inc.\nSurvey Report",
+            "block_bbox": [
+                547,
+                114,
+                1042,
+                199
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    547.0,
+                    114.0
+                ],
+                [
+                    1042.0,
+                    114.0
+                ],
+                [
+                    1042.0,
+                    199.0
+                ],
+                [
+                    547.0,
+                    199.0
+                ]
+            ]
+        },
+        {
+            "block_label": "header",
+            "block_content": "YATES PETROLEUM CORPORATION\nPERDOMO BMP STATE COM #1H\nEDDY COUNTY, NM\nRIG:PATRIOT #5",
+            "block_bbox": [
+                110,
+                188,
+                419,
+                272
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    110.0,
+                    188.0
+                ],
+                [
+                    419.0,
+                    188.0
+                ],
+                [
+                    419.0,
+                    272.0
+                ],
+                [
+                    110.0,
+                    272.0
+                ]
+            ]
+        },
+        {
+            "block_label": "number",
+            "block_content": "Page 04/05",
+            "block_bbox": [
+                1418,
+                231,
+                1514,
+                255
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    1418.0,
+                    231.0
+                ],
+                [
+                    1513.0,
+                    231.0
+                ],
+                [
+                    1513.0,
+                    254.0
+                ],
+                [
+                    1418.0,
+                    254.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>Measured Depth (ft)</td><td>Incl (deg)</td><td>Drift Dir. (deg)</td><td>TVD (ft)</td><td>Course Length (ft)</td><td>Vertical Section (ft)</td><td>TOTAL Rectangular Offsets (ft)</td><td>Closure Dist (ft)</td><td>DLS (deg/100ft)</td></tr><tr><td>8892.00</td><td>89.69</td><td>177.86</td><td>6218.90</td><td>93.00</td><td>2865.91</td><td>2865.95 S</td><td>2.62 E</td><td>2865.95@ 179.95</td></tr><tr><td>8986.00</td><td>91.01</td><td>178.21</td><td>6218.33</td><td>94.00</td><td>2959.87</td><td>2959.89 S</td><td>5.84 E</td><td>2959.90@ 179.89</td></tr><tr><td>9081.00</td><td>91.01</td><td>177.86</td><td>6216.65</td><td>95.00</td><td>3054.82</td><td>3054.82 S</td><td>9.10 E</td><td>3054.83@ 179.83</td></tr><tr><td>9175.00</td><td>91.19</td><td>178.21</td><td>6214.85</td><td>94.00</td><td>3148.76</td><td>3148.75 S</td><td>12.32 E</td><td>3148.77@ 179.78</td></tr><tr><td>9269.00</td><td>90.40</td><td>179.09</td><td>6213.55</td><td>94.00</td><td>3242.74</td><td>3242.71 S</td><td>14.54 E</td><td>3242.74@ 179.74</td></tr><tr><td>9363.00</td><td>90.31</td><td>178.74</td><td>6212.96</td><td>94.00</td><td>3336.73</td><td>3336.69 S</td><td>16.32 E</td><td>3336.73@ 179.72</td></tr><tr><td>9456.00</td><td>89.78</td><td>178.92</td><td>6212.89</td><td>93.00</td><td>3429.72</td><td>3429.67 S</td><td>18.22 E</td><td>3429.72@ 179.70</td></tr><tr><td>9550.00</td><td>89.34</td><td>179.62</td><td>6213.61</td><td>94.00</td><td>3523.71</td><td>3523.66 S</td><td>19.41 E</td><td>3523.71@ 179.68</td></tr><tr><td>9644.00</td><td>89.08</td><td>179.97</td><td>6214.91</td><td>94.00</td><td>3617.70</td><td>3617.65 S</td><td>19.75 E</td><td>3617.70@ 179.69</td></tr><tr><td>9738.00</td><td>91.01</td><td>180.32</td><td>6214.83</td><td>94.00</td><td>3711.70</td><td>3711.65 S</td><td>19.51 E</td><td>3711.70@ 179.70</td></tr><tr><td>9832.00</td><td>90.75</td><td>180.32</td><td>6213.39</td><td>94.00</td><td>3805.68</td><td>3805.63 S</td><td>18.99 E</td><td>3805.68@ 179.71</td></tr><tr><td>9927.00</td><td>90.13</td><td>179.97</td><td>6212.66</td><td>95.00</td><td>3900.67</td><td>3900.63 S</td><td>18.75 E</td><td>3900.67@ 179.72</td></tr><tr><td>10021.00</td><td>90.75</td><td>180.67</td><td>6211.94</td><td>94.00</td><td>3994.66</td><td>3994.62 S</td><td>18.22 E</td><td>3994.67@ 179.74</td></tr><tr><td>10116.00</td><td>89.34</td><td>179.71</td><td>6211.86</td><td>95.00</td><td>4089.65</td><td>4089.62 S</td><td>17.91 E</td><td>4089.66@ 179.75</td></tr><tr><td>10209.00</td><td>88.90</td><td>179.79</td><td>6213.29</td><td>93.00</td><td>4182.64</td><td>4182.61 S</td><td>18.31 E</td><td>4182.65@ 179.75</td></tr><tr><td>10303.00</td><td>88.64</td><td>179.79</td><td>6215.31</td><td>94.00</td><td>4276.62</td><td>4276.59 S</td><td>18.66 E</td><td>4276.63@ 179.75</td></tr><tr><td>10397.00</td><td>88.81</td><td>179.88</td><td>6217.40</td><td>94.00</td><td>4370.60</td><td>4370.56 S</td><td>18.93 E</td><td>4370.60@ 179.75</td></tr><tr><td>10491.00</td><td>88.90</td><td>180.50</td><td>6219.28</td><td>94.00</td><td>4464.57</td><td>4464.54 S</td><td>18.62 E</td><td>4464.58@ 179.76</td></tr><tr><td>10586.00</td><td>88.02</td><td>180.85</td><td>6221.83</td><td>95.00</td><td>4559.52</td><td>4559.50 S</td><td>17.50 E</td><td>4559.53@ 179.78</td></tr><tr><td>10680.00</td><td>89.16</td><td>180.41</td><td>6224.15</td><td>94.00</td><td>4653.48</td><td>4653.46 S</td><td>16.46 E</td><td>4653.49@ 179.80</td></tr><tr><td>10774.00</td><td>90.57</td><td>180.94</td><td>6224.37</td><td>94.00</td><td>4747.46</td><td>4747.46 S</td><td>15.36 E</td><td>4747.48@ 179.81</td></tr><tr><td>10868.00</td><td>92.33</td><td>179.27</td><td>6221.99</td><td>94.00</td><td>4841.42</td><td>4841.42 S</td><td>15.18 E</td><td>4841.44@ 179.82</td></tr><tr><td>10962.00</td><td>92.15</td><td>179.62</td><td>6218.32</td><td>94.00</td><td>4935.35</td><td>4935.34 S</td><td>16.09 E</td><td>4935.37@ 179.81</td></tr><tr><td>11056.00</td><td>92.33</td><td>179.62</td><td>6214.64</td><td>94.00</td><td>5029.28</td><td>5029.27 S</td><td>16.72 E</td><td>5029.29@ 179.81</td></tr><tr><td>11150.00</td><td>91.80</td><td>179.27</td><td>6211.25</td><td>94.00</td><td>5123.22</td><td>5123.20 S</td><td>17.63 E</td><td>5123.23@ 179.80</td></tr><tr><td>11254.00</td><td>90.66</td><td>179.44</td><td>6209.02</td><td>104.00</td><td>5227.19</td><td>5227.17 S</td><td>18.80 E</td><td>5227.20@ 179.79</td></tr><tr><td>11348.00</td><td>90.48</td><td>178.92</td><td>6208.09</td><td>94.00</td><td>5321.18</td><td>5321.15 S</td><td>20.14 E</td><td>5321.19@ 179.78</td></tr><tr><td>11443.00</td><td>88.90</td><td>178.04</td><td>6208.60</td><td>95.00</td><td>5416.15</td><td>5416.12 S</td><td>22.66 E</td><td>5416.16@ 179.76</td></tr></table>",
+            "block_bbox": [
+                257,
+                298,
+                1330,
+                1074
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    257.0,
+                    298.0
+                ],
+                [
+                    1330.0,
+                    298.0
+                ],
+                [
+                    1330.0,
+                    1074.0
+                ],
+                [
+                    257.0,
+                    1074.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.5661130547523499,
+                "coordinate": [
+                    547,
+                    114,
+                    1042,
+                    199
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        547.0,
+                        114.0
+                    ],
+                    [
+                        1042.0,
+                        114.0
+                    ],
+                    [
+                        1042.0,
+                        199.0
+                    ],
+                    [
+                        547.0,
+                        199.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.7985643148422241,
+                "coordinate": [
+                    110,
+                    188,
+                    419,
+                    272
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        110.0,
+                        188.0
+                    ],
+                    [
+                        419.0,
+                        188.0
+                    ],
+                    [
+                        419.0,
+                        272.0
+                    ],
+                    [
+                        110.0,
+                        272.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.7532788515090942,
+                "coordinate": [
+                    1418,
+                    231,
+                    1514,
+                    255
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        1418.0,
+                        231.0
+                    ],
+                    [
+                        1513.0,
+                        231.0
+                    ],
+                    [
+                        1513.0,
+                        254.0
+                    ],
+                    [
+                        1418.0,
+                        254.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9559701085090637,
+                "coordinate": [
+                    257,
+                    298,
+                    1330,
+                    1074
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        257.0,
+                        298.0
+                    ],
+                    [
+                        1330.0,
+                        298.0
+                    ],
+                    [
+                        1330.0,
+                        1074.0
+                    ],
+                    [
+                        257.0,
+                        1074.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

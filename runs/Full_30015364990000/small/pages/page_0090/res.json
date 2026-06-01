@@ -1,0 +1,522 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0090/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1598,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "number",
+            "block_content": "Page 2",
+            "block_bbox": [
+                58,
+                234,
+                117,
+                255
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    58.0,
+                    234.0
+                ],
+                [
+                    116.0,
+                    234.0
+                ],
+                [
+                    116.0,
+                    254.0
+                ],
+                [
+                    58.0,
+                    254.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Form C-103 continued:",
+            "block_bbox": [
+                55,
+                302,
+                262,
+                325
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    55.0,
+                    302.0
+                ],
+                [
+                    262.0,
+                    302.0
+                ],
+                [
+                    262.0,
+                    325.0
+                ],
+                [
+                    55.0,
+                    325.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "8/11/10 – Spotted 1500g 7-1/2% HCL acid at 10,487'. Perforated Bone Spring 10,487', 10,337', 10,187' and 10,037' for a total of 40 holes. Spearhead 1500g 7-1/2% HCL acid ahead of frac. Frac w/a 30# borate XL, 5577 bbls fluid, 60,893# 40/70 Ottawa, 118,519# 20/40 Ottawa, 79,937# 20/40 RCS.",
+            "block_bbox": [
+                55,
+                370,
+                1140,
+                439
+            ],
+            "block_id": 2,
+            "block_order": 2,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    55.0,
+                    370.0
+                ],
+                [
+                    1140.0,
+                    370.0
+                ],
+                [
+                    1140.0,
+                    439.0
+                ],
+                [
+                    55.0,
+                    439.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "8/12/10 – Spotted 1500g 7-1/2% HCL acid at 9887'. Perforated Bone Spring 9887', 9737', 9587' and 9437' for a total of 40 holes. Spearhead 1500g 7-1/2% HCL acid ahead of frac. Frac w/a 30# borate XL, 5564 bbls fluid, 60,474# 40/70 Ottawa, 116,638# 20/40 Ottawa, 80,792# 20/40 RCS. Spotted 1500g 7-1/2% HCL acid at 9287'. Perforated Bone Spring 9287', 9137', 8987' and 8837' for a total of 40 holes. Spearhead 1500g 7-1/2% HCL acid ahead of frac. Frac w/a 30# borate XL, 5691 bbls fluid, 61,682# 40/70 Ottawa, 117,107# 20/40 Ottawa, 87,311# 20/40 RCS. Spotted 1500g 7-1/2% HCL acid at 8687'.",
+            "block_bbox": [
+                55,
+                440,
+                1138,
+                557
+            ],
+            "block_id": 3,
+            "block_order": 3,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    55.0,
+                    440.0
+                ],
+                [
+                    1138.0,
+                    440.0
+                ],
+                [
+                    1138.0,
+                    557.0
+                ],
+                [
+                    55.0,
+                    557.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "8/13/10 – Perforated Bone Spring 8687’, 8537’, 8387’ and 8237’ for a total of 40 holes. Spearhead 1500g 7-1/2% HCL acid ahead of frac. Frac w/a 30# borate XL, 5543 bbls fluid, 62,573# 40/70 Ottawa, 109,893# 20/40 Ottawa, 60,486# 20/40 RCS. Spotted 1500g 7-1/2% HCL acid at 8087’. Perforated Bone Spring 8087’, 7937’, 7787’ and 7637’ for a total of 40 holes. Spearhead 1500g 7-1/2% HCL acid ahead of frac. Frac w/a 30# borate XL, 5583 bbls fluid, 58,697# 40/70 Ottawa, 118,885# 20/40 Ottawa, 42,286# 20/40 RCS. Spotted 1500g 7-1/2% HCL acid at 7487’. Perforated Bone Spring 7487’, 7337’, 7187’ and 7037’ for a total of 40 holes. Spearhead 1500g 7-1/2% HCL acid ahead of frac. Frac w/a 30# borate XL, 5390 bbls fluid, 66,177# 40/70 Ottawa, 114,628# 20/40 Ottawa, 27,890# 20/40 RCS. Spotted 1500g 7-1/2% HCL acid at 6887’. Perforated Bone Spring 6887’, 6737’, 6587’ and 6437’ for a total of 40 holes. Spearhead 1500g 7-1/2% HCL acid ahead of frac. Frac w/a 30# borate XL, 5493 bbls fluid, 64,843# 40/70 Ottawa, 117,360# 20/40 Ottawa, 61,553# 20/40 RCS. 2-7/8” 6.5# L-80 tubing and 5-1/2” 17# WL set AS-1 packer with 2.25” blanking plug in place at 5645’.",
+            "block_bbox": [
+                54,
+                559,
+                1170,
+                765
+            ],
+            "block_id": 4,
+            "block_order": 4,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    54.0,
+                    559.0
+                ],
+                [
+                    1170.0,
+                    559.0
+                ],
+                [
+                    1170.0,
+                    765.0
+                ],
+                [
+                    54.0,
+                    765.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                723,
+                832,
+                998,
+                908
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    723.0,
+                    832.0
+                ],
+                [
+                    998.0,
+                    832.0
+                ],
+                [
+                    998.0,
+                    908.0
+                ],
+                [
+                    723.0,
+                    908.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Regulatory Compliance Supervisor August 26, 2010",
+            "block_bbox": [
+                705,
+                907,
+                996,
+                929
+            ],
+            "block_id": 6,
+            "block_order": 5,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    705.0,
+                    907.0
+                ],
+                [
+                    996.0,
+                    907.0
+                ],
+                [
+                    996.0,
+                    929.0
+                ],
+                [
+                    705.0,
+                    929.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "",
+            "block_bbox": [
+                706,
+                929,
+                847,
+                952
+            ],
+            "block_id": 7,
+            "block_order": 6,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    706.0,
+                    929.0
+                ],
+                [
+                    846.0,
+                    929.0
+                ],
+                [
+                    846.0,
+                    951.0
+                ],
+                [
+                    706.0,
+                    951.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.325471967458725,
+                "coordinate": [
+                    58,
+                    234,
+                    117,
+                    255
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        58.0,
+                        234.0
+                    ],
+                    [
+                        116.0,
+                        234.0
+                    ],
+                    [
+                        116.0,
+                        254.0
+                    ],
+                    [
+                        58.0,
+                        254.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.725361704826355,
+                "coordinate": [
+                    55,
+                    302,
+                    262,
+                    325
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        55.0,
+                        302.0
+                    ],
+                    [
+                        262.0,
+                        302.0
+                    ],
+                    [
+                        262.0,
+                        325.0
+                    ],
+                    [
+                        55.0,
+                        325.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5168701410293579,
+                "coordinate": [
+                    55,
+                    370,
+                    1140,
+                    439
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        55.0,
+                        370.0
+                    ],
+                    [
+                        1140.0,
+                        370.0
+                    ],
+                    [
+                        1140.0,
+                        439.0
+                    ],
+                    [
+                        55.0,
+                        439.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5120814442634583,
+                "coordinate": [
+                    55,
+                    440,
+                    1138,
+                    557
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        55.0,
+                        440.0
+                    ],
+                    [
+                        1138.0,
+                        440.0
+                    ],
+                    [
+                        1138.0,
+                        557.0
+                    ],
+                    [
+                        55.0,
+                        557.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.4648926854133606,
+                "coordinate": [
+                    54,
+                    559,
+                    1170,
+                    765
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        54.0,
+                        559.0
+                    ],
+                    [
+                        1170.0,
+                        559.0
+                    ],
+                    [
+                        1170.0,
+                        765.0
+                    ],
+                    [
+                        54.0,
+                        765.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.8170645236968994,
+                "coordinate": [
+                    723,
+                    832,
+                    998,
+                    908
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        723.0,
+                        832.0
+                    ],
+                    [
+                        998.0,
+                        832.0
+                    ],
+                    [
+                        998.0,
+                        908.0
+                    ],
+                    [
+                        723.0,
+                        908.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7442790865898132,
+                "coordinate": [
+                    705,
+                    907,
+                    996,
+                    929
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        705.0,
+                        907.0
+                    ],
+                    [
+                        996.0,
+                        907.0
+                    ],
+                    [
+                        996.0,
+                        929.0
+                    ],
+                    [
+                        705.0,
+                        929.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.716424822807312,
+                "coordinate": [
+                    706,
+                    929,
+                    847,
+                    952
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        706.0,
+                        929.0
+                    ],
+                    [
+                        846.0,
+                        929.0
+                    ],
+                    [
+                        846.0,
+                        951.0
+                    ],
+                    [
+                        706.0,
+                        951.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

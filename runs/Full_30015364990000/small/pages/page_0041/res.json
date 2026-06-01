@@ -1,0 +1,217 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0041/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "inline_formula",
+            "block_content": " $$ 3D^{3} $$ ",
+            "block_bbox": [
+                372,
+                43,
+                417,
+                67
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    372.0,
+                    43.0
+                ],
+                [
+                    416.0,
+                    43.0
+                ],
+                [
+                    416.0,
+                    66.0
+                ],
+                [
+                    372.0,
+                    66.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                141,
+                701,
+                1122,
+                852
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    141.0,
+                    701.0
+                ],
+                [
+                    1122.0,
+                    701.0
+                ],
+                [
+                    1122.0,
+                    852.0
+                ],
+                [
+                    141.0,
+                    852.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "File: G:\\drilling toolbox wellplans\\Horizontal\\perdomo1h.wpp",
+            "block_bbox": [
+                33,
+                1503,
+                579,
+                1530
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    33.0,
+                    1503.0
+                ],
+                [
+                    579.0,
+                    1503.0
+                ],
+                [
+                    579.0,
+                    1530.0
+                ],
+                [
+                    33.0,
+                    1530.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.35774609446525574,
+                "coordinate": [
+                    372,
+                    43,
+                    417,
+                    67
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        372.0,
+                        43.0
+                    ],
+                    [
+                        416.0,
+                        43.0
+                    ],
+                    [
+                        416.0,
+                        66.0
+                    ],
+                    [
+                        372.0,
+                        66.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.45483827590942383,
+                "coordinate": [
+                    141,
+                    701,
+                    1122,
+                    852
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        141.0,
+                        701.0
+                    ],
+                    [
+                        1122.0,
+                        701.0
+                    ],
+                    [
+                        1122.0,
+                        852.0
+                    ],
+                    [
+                        141.0,
+                        852.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.583203911781311,
+                "coordinate": [
+                    33,
+                    1503,
+                    579,
+                    1530
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        33.0,
+                        1503.0
+                    ],
+                    [
+                        579.0,
+                        1503.0
+                    ],
+                    [
+                        579.0,
+                        1530.0
+                    ],
+                    [
+                        33.0,
+                        1530.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

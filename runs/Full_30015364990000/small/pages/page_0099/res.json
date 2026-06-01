@@ -1,0 +1,278 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0099/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1214,
+    "height": 1586,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "1",
+            "block_bbox": [
+                677,
+                14,
+                838,
+                25
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    677.0,
+                    14.0
+                ],
+                [
+                    837.0,
+                    14.0
+                ],
+                [
+                    837.0,
+                    24.0
+                ],
+                [
+                    677.0,
+                    24.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td rowspan=\"4\" colspan=\"3\">Submit To Appropriate District Office\nTwo Copies\nDistrict I\n1625 N. French Dr., Hobbs, NM 88240\nDistrict II\n1301 W. Grand Avenue, Anesia, NM 88210\nDistrict III\n1000 Rio Brazos Rd., Aztee, NM 87410\nDistrict IV\n1220 S. St. Francis Dr., Santa Fe, NM 87505</td><td colspan=\"4\">RECEIVE State of New Mexico\nEnerg. Minerals and Natural Resources</td><td colspan=\"3\">Form C-105\nJuly 17, 2008</td></tr><tr><td rowspan=\"3\" colspan=\"4\">SEP 29, 2020 Oil Conservation Division\nHOBBSOO 020 South St. Francis Dr.\nSanta Fe, NM 87505</td><td colspan=\"3\">1. WELL API NO.\n30-015-36499</td></tr><tr><td colspan=\"3\">2. Type of Lease\n☒ STATE ☐ FEE ☐ FED/INDIAN</td></tr><tr><td colspan=\"3\">3. State Oil &amp; Gas Lease No.\nVB-827 &amp; VO-5867</td></tr><tr><td colspan=\"7\">WELL COMPLETION OR RECOMPLETION REPORT AND LOG</td><td colspan=\"3\"></td></tr><tr><td colspan=\"7\">4. Reason for filing:\n☒ COMPLETION REPORT (Fill in boxes #1 through #31 for State and Fee wells only)\n☐ C-144 CLOSURE ATTACHMENT (Fill in boxes #1 through #9, #15 Date Rig Released and #32 and/or #33; attach this and the plat to the C-144 closure report in accordance with 19.15.17.13.K NMAC)</td><td colspan=\"3\">5. Lease Name or Unit Agreement Name\nPerdomo BMP State Com\n6. Well Number:\n1H</td></tr><tr><td colspan=\"10\">7. Type of Completion:\n☒ NEW WELL ☐ WORKOVER ☐ DEEPENING ☐ PLUGBACK ☐ DIFFERENT RESERVOIR ☐ OTHER</td></tr><tr><td colspan=\"7\">8. Name of Operator\nYates Petroleum Corporation</td><td colspan=\"3\">9. OGRID\n025575</td></tr><tr><td colspan=\"7\">10. Address of Operator\n105 South Fourth Street, Artesia, NM 88210</td><td colspan=\"3\">11. Pool name or Wildcat WillowCafe, West\nWidgett, Bone Spring, off</td></tr><tr><td>12. Location</td><td>Unit Lir</td><td>Section</td><td>Township</td><td>Range</td><td>Lot</td><td>Feet from the</td><td>N/S Line</td><td>Feet from the</td><td>E/W Line</td></tr><tr><td>Surface:</td><td>L</td><td>24</td><td>24S</td><td>27E</td><td></td><td>1650</td><td>South</td><td>660</td><td>West</td></tr><tr><td>BH:</td><td>M</td><td>25</td><td>24S</td><td>27E</td><td></td><td>5125</td><td>South</td><td>667</td><td>West</td></tr><tr><td>13. Date Spudded\nRH 8/1/08\nRT 4/30/10</td><td colspan=\"2\">14. Date T.D. Reached\n5/20/10</td><td colspan=\"3\">15. Date Rig Released\n5/23/10</td><td colspan=\"3\">16. Date Completed (Ready to Produce)\n8/21/10</td><td>17. Elevations (DF and RKB,\nRT, GR, etc.)\n3149&#x27;GR 3175&#x27;KB</td></tr><tr><td colspan=\"3\">18. Total Measured Depth of Well\n12,797&#x27;</td><td colspan=\"3\">19. Plug Back Measured Depth\n12,749&#x27;</td><td colspan=\"2\">20. Was Directional Survey Made?\nYes (Attached)</td><td colspan=\"2\">21. Type Electric and Other Logs Run\nCNL, Hi-Res Laterolog Array, CBL</td></tr><tr><td colspan=\"10\">22. Producing Interval(s), of this completion - Top, Bottom, Name\n6437-12,747&#x27; Bone Spring</td></tr><tr><td colspan=\"3\">23.</td><td colspan=\"7\">CASING RECORD (Report all strings set in well)</td></tr><tr><td colspan=\"2\">CASING SIZE</td><td>WEIGHT LB./FT.</td><td>DEPTH SET</td><td colspan=\"2\">HOLE SIZE</td><td colspan=\"2\">CEMENTING RECORD</td><td colspan=\"2\">AMOUNT PULLED</td></tr><tr><td colspan=\"2\">20&quot;</td><td>Conductor</td><td>90&#x27;</td><td colspan=\"2\">26&quot;</td><td colspan=\"2\">Redi-mix</td><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">13-3/8&quot;</td><td>48#</td><td>805&#x27;</td><td colspan=\"2\">17-1/2&quot;</td><td colspan=\"2\">650 sx (circ)</td><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">9-5/8&quot;</td><td>36#</td><td>2286&#x27;</td><td colspan=\"2\">12-1/4&quot;</td><td colspan=\"2\">750 sx (circ)</td><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">5-1/2&quot;</td><td>17#</td><td>12,797&#x27;</td><td colspan=\"2\">8-3/4&quot;</td><td colspan=\"2\">2010 sx</td><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">24.</td><td colspan=\"4\">LINER RECORD</td><td colspan=\"4\">25. TUBING RECORD</td></tr><tr><td>SIZE</td><td>TOP</td><td>BOTTOM</td><td>SACKS CEMENT</td><td>SCREEN</td><td>SIZE</td><td colspan=\"2\">DEPTH SET</td><td colspan=\"2\">PACKER SET</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan=\"2\">2-7/8&quot;</td><td colspan=\"2\">5645&#x27;</td></tr><tr><td colspan=\"5\">26. Perforation record (interval, size, and number)</td><td colspan=\"5\">27. ACID, SHOT, FRACTURE, CEMENT, SOUEEZE, ETC.</td></tr><tr><td rowspan=\"3\" colspan=\"5\">SEE ATTACHED SHEET</td><td>DEPTH INTERVAL</td><td colspan=\"4\">AMOUNT AND KIND MATERIAL USED</td></tr><tr><td></td><td colspan=\"4\"></td></tr><tr><td></td><td colspan=\"4\"></td></tr><tr><td colspan=\"3\">28.</td><td colspan=\"7\">PRODUCTION</td></tr><tr><td colspan=\"2\">Date First Production\n8/22/10</td><td colspan=\"4\">Production Method (Flowing, gas lift, pumping - Size and type pump)</td><td colspan=\"4\">Well Status (Prod. or Shut-in)\nProducing</td></tr><tr><td>Date of Test\n8/24/10</td><td>Hours Tested\n24</td><td>Choke Size\n1&quot;</td><td>Prod&#x27;n For\nTest Period</td><td>Oil - Bbl\n138</td><td>Gas - MCF\n2815</td><td>Water - Bbl.\n2058</td><td colspan=\"3\">Gas - Oil Ratio\nNA</td></tr><tr><td>Flow Tubing Press.\n660 psi</td><td>Casing Pressure\nPacker</td><td>Calculated 24-\nHour Rate</td><td>Oil - Bbl.\n138</td><td>Gas - MCF\n2815</td><td>Water - Bbl.\n2058</td><td colspan=\"4\">Oil Gravity - API - (Corr.)\nNA</td></tr><tr><td colspan=\"6\">29. Disposition of Gas (Sold, used for fuel, vented, etc.)</td><td colspan=\"4\">30. Test Winessed By\nR. Smith</td></tr><tr><td colspan=\"10\">31. List Attachments</td></tr><tr><td colspan=\"10\">Logs, Deviation and Directional Surveys</td></tr><tr><td colspan=\"10\">32. If an on-site burial was used at the well, attach a plat with the location of the temporary pit.</td></tr><tr><td colspan=\"10\">33. If an on-site burial was used at the well, report the exact location of the on-site burial:\nLatitude Longitude NAD 1927.1983</td></tr><tr><td colspan=\"10\">I hereby certify that the information shown on both sides of this form is true and complete to the best of my knowledge and belief.\nSignature Name Title Regulatory Compliance Supervisor Date August 26, 2010</td></tr><tr><td colspan=\"10\">E-mail Address tinh@vatespetroleum.com</td></tr></table>",
+            "block_bbox": [
+                29,
+                43,
+                1181,
+                1455
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    29.0,
+                    43.0
+                ],
+                [
+                    1181.0,
+                    43.0
+                ],
+                [
+                    1181.0,
+                    1455.0
+                ],
+                [
+                    29.0,
+                    1455.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer_image",
+            "block_content": "",
+            "block_bbox": [
+                37,
+                1489,
+                107,
+                1531
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    37.0,
+                    1489.0
+                ],
+                [
+                    107.0,
+                    1489.0
+                ],
+                [
+                    107.0,
+                    1531.0
+                ],
+                [
+                    37.0,
+                    1531.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer_image",
+            "block_content": "",
+            "block_bbox": [
+                1008,
+                1493,
+                1068,
+                1527
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    1008.0,
+                    1493.0
+                ],
+                [
+                    1068.0,
+                    1493.0
+                ],
+                [
+                    1068.0,
+                    1527.0
+                ],
+                [
+                    1008.0,
+                    1527.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.3578506112098694,
+                "coordinate": [
+                    677,
+                    14,
+                    838,
+                    25
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        677.0,
+                        14.0
+                    ],
+                    [
+                        837.0,
+                        14.0
+                    ],
+                    [
+                        837.0,
+                        24.0
+                    ],
+                    [
+                        677.0,
+                        24.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9630255103111267,
+                "coordinate": [
+                    29,
+                    43,
+                    1181,
+                    1455
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        29.0,
+                        43.0
+                    ],
+                    [
+                        1181.0,
+                        43.0
+                    ],
+                    [
+                        1181.0,
+                        1455.0
+                    ],
+                    [
+                        29.0,
+                        1455.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 9,
+                "label": "footer_image",
+                "score": 0.7471334934234619,
+                "coordinate": [
+                    37,
+                    1489,
+                    107,
+                    1531
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        37.0,
+                        1489.0
+                    ],
+                    [
+                        107.0,
+                        1489.0
+                    ],
+                    [
+                        107.0,
+                        1531.0
+                    ],
+                    [
+                        37.0,
+                        1531.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 9,
+                "label": "footer_image",
+                "score": 0.3151784837245941,
+                "coordinate": [
+                    1008,
+                    1493,
+                    1068,
+                    1527
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1008.0,
+                        1493.0
+                    ],
+                    [
+                        1068.0,
+                        1493.0
+                    ],
+                    [
+                        1068.0,
+                        1527.0
+                    ],
+                    [
+                        1008.0,
+                        1527.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

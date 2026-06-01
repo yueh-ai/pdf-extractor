@@ -1,0 +1,705 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0038/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Contingency Casing Design",
+            "block_bbox": [
+                334,
+                192,
+                585,
+                213
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    334.0,
+                    192.0
+                ],
+                [
+                    584.0,
+                    192.0
+                ],
+                [
+                    584.0,
+                    212.0
+                ],
+                [
+                    334.0,
+                    212.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "If hole conditions dictate, 7\" casing will be set at 7,173' MD (6,900' TVD). A 6 1/8\" hole will then be drilled to 10,985' MD (6,900' TVD) where 4 1/2\" casing will be set and cemented with one stage up to dv tool. After completion procedures, the 4 1/2\" casing will be cut and pulled at 6300'",
+            "block_bbox": [
+                106,
+                213,
+                775,
+                272
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    106.0,
+                    213.0
+                ],
+                [
+                    775.0,
+                    213.0
+                ],
+                [
+                    775.0,
+                    272.0
+                ],
+                [
+                    106.0,
+                    272.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "2nd Intermediate",
+            "block_bbox": [
+                334,
+                289,
+                463,
+                306
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    333.9999694824219,
+                    288.9999694824219
+                ],
+                [
+                    461.9999694824219,
+                    288.9999694824219
+                ],
+                [
+                    461.9999694824219,
+                    304.9999694824219
+                ],
+                [
+                    333.9999694824219,
+                    304.9999694824219
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td colspan=\"3\">0 ft to 100 ft</td><td colspan=\"2\">Make up Torque ft-lbs</td><td>Total ft = 100</td></tr><tr><td>O.D</td><td>Weight</td><td>Grade</td><td>Threads</td><td>opt.</td><td>min. mx.</td><td rowspan=\"3\"></td></tr><tr><td>7 inches</td><td>26#/ft</td><td>J-55</td><td>LT&amp;C</td><td>3670</td><td>2750 4590</td></tr><tr><td>Collapse Resistance</td><td>Internal Yield</td><td colspan=\"2\">Joint Strength</td><td>Body Yield</td><td>Drift</td></tr><tr><td>4,320 psi</td><td>4,980 psi</td><td colspan=\"2\">367,000#</td><td colspan=\"2\">415,000#</td><td>6.151</td></tr></table>",
+            "block_bbox": [
+                104,
+                304,
+                952,
+                405
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    104.0,
+                    304.0
+                ],
+                [
+                    952.0,
+                    304.0
+                ],
+                [
+                    952.0,
+                    405.0
+                ],
+                [
+                    104.0,
+                    405.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td colspan=\"3\">100 ft to 5,800 ft</td><td colspan=\"2\">Make up Torque ft-lbs</td><td>Total ft = 5,700</td></tr><tr><td>O.D.</td><td>Weight</td><td>Grade</td><td>Threads</td><td>opt. min</td><td>mx.</td><td></td></tr><tr><td>7 inches</td><td>23#/ft</td><td>J-55</td><td>LT&amp;C</td><td>3130</td><td>2350</td><td>3910</td></tr><tr><td>Collapse Resistance 3,270</td><td>Internal Yield 4,360 psi</td><td colspan=\"2\">Joint Strength 313,000 #</td><td colspan=\"2\">Body Yield 366,000 #</td><td>Drift 6.25</td></tr></table>",
+            "block_bbox": [
+                103,
+                422,
+                953,
+                521
+            ],
+            "block_id": 4,
+            "block_order": null,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    103.0,
+                    422.0
+                ],
+                [
+                    953.0,
+                    422.0
+                ],
+                [
+                    953.0,
+                    521.0
+                ],
+                [
+                    103.0,
+                    521.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td colspan=\"3\">5,800 ft to 7,173 ft</td><td>Make up Torque ft-lbs</td><td>Total ft = 1,373</td></tr><tr><td>O.D</td><td>Weight</td><td>Grade</td><td>Threads</td><td>min. mx.</td><td></td></tr><tr><td>7 inches</td><td>26#/ft</td><td>J-55</td><td>LT&amp;C</td><td>3670 2750 4590</td><td></td></tr><tr><td>Collapse Resistance</td><td>Internal Yield</td><td colspan=\"2\">Joint Strength</td><td>Body Yield Drift</td><td></td></tr><tr><td>4,320 psi</td><td>4,980 psi</td><td colspan=\"2\">367.000#</td><td>415.000# 6.151</td><td></td></tr></table>",
+            "block_bbox": [
+                104,
+                538,
+                953,
+                638
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    104.0,
+                    538.0
+                ],
+                [
+                    953.0,
+                    538.0
+                ],
+                [
+                    953.0,
+                    638.0
+                ],
+                [
+                    104.0,
+                    638.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Lead w/750sx Lite crete (YLD 2.66 Wt. 9.9) tail w/125sx PVL (YLD 1.41 Wt 13) TOC = Surface",
+            "block_bbox": [
+                106,
+                654,
+                750,
+                675
+            ],
+            "block_id": 6,
+            "block_order": 3,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    106.0,
+                    654.0
+                ],
+                [
+                    750.0,
+                    654.0
+                ],
+                [
+                    750.0,
+                    675.0
+                ],
+                [
+                    106.0,
+                    675.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Production",
+            "block_bbox": [
+                338,
+                692,
+                423,
+                711
+            ],
+            "block_id": 7,
+            "block_order": 4,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    338.0,
+                    692.0
+                ],
+                [
+                    422.0,
+                    692.0
+                ],
+                [
+                    422.0,
+                    710.0
+                ],
+                [
+                    338.0,
+                    710.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td colspan=\"3\">0 ft to 10,985 ft</td><td colspan=\"2\">Make up Torque ft-lbs</td><td>Total ft = 10,985</td></tr><tr><td>O.D.</td><td>Weight</td><td>Grade</td><td>Threads</td><td>opt</td><td>min. mx.</td><td rowspan=\"3\"></td></tr><tr><td>4.5 inches</td><td>11.6#/ft</td><td>HCP-110</td><td>LT&amp;C</td><td>3020</td><td>2270 3780</td></tr><tr><td>Collapse Resistance</td><td>Internal Yield</td><td colspan=\"2\">Joint Strength</td><td>Body Yield</td><td>Drift</td></tr><tr><td>8,650 psi</td><td>10,690 psi</td><td colspan=\"2\">279,000#</td><td colspan=\"2\">367,000#</td><td>3.875</td></tr></table>",
+            "block_bbox": [
+                105,
+                727,
+                954,
+                828
+            ],
+            "block_id": 8,
+            "block_order": null,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    105.0,
+                    727.0
+                ],
+                [
+                    954.0,
+                    727.0
+                ],
+                [
+                    954.0,
+                    828.0
+                ],
+                [
+                    105.0,
+                    828.0
+                ]
+            ]
+        },
+        {
+            "block_label": "vision_footnote",
+            "block_content": "DV tool placed at approx. 6300' and cemented with one stage up to dv tool. After completion procedures, the 4 1/2\" casing will be cut and pulled at 6300'.",
+            "block_bbox": [
+                105,
+                828,
+                849,
+                859
+            ],
+            "block_id": 9,
+            "block_order": null,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    105.0,
+                    828.0
+                ],
+                [
+                    849.0,
+                    828.0
+                ],
+                [
+                    849.0,
+                    859.0
+                ],
+                [
+                    105.0,
+                    859.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Cemented w/625sx PVL (YLD 1.41 Wt 13) TOC= 6300'",
+            "block_bbox": [
+                107,
+                864,
+                483,
+                885
+            ],
+            "block_id": 10,
+            "block_order": 5,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    107.0,
+                    864.0
+                ],
+                [
+                    482.0,
+                    864.0
+                ],
+                [
+                    482.0,
+                    884.0
+                ],
+                [
+                    107.0,
+                    884.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.7574434876441956,
+                "coordinate": [
+                    334,
+                    192,
+                    585,
+                    213
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        334.0,
+                        192.0
+                    ],
+                    [
+                        584.0,
+                        192.0
+                    ],
+                    [
+                        584.0,
+                        212.0
+                    ],
+                    [
+                        334.0,
+                        212.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8650108575820923,
+                "coordinate": [
+                    106,
+                    213,
+                    775,
+                    272
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        106.0,
+                        213.0
+                    ],
+                    [
+                        775.0,
+                        213.0
+                    ],
+                    [
+                        775.0,
+                        272.0
+                    ],
+                    [
+                        106.0,
+                        272.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.5407917499542236,
+                "coordinate": [
+                    334,
+                    289,
+                    463,
+                    306
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        333.9999694824219,
+                        288.9999694824219
+                    ],
+                    [
+                        461.9999694824219,
+                        288.9999694824219
+                    ],
+                    [
+                        461.9999694824219,
+                        304.9999694824219
+                    ],
+                    [
+                        333.9999694824219,
+                        304.9999694824219
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9102097749710083,
+                "coordinate": [
+                    104,
+                    304,
+                    952,
+                    405
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        104.0,
+                        304.0
+                    ],
+                    [
+                        952.0,
+                        304.0
+                    ],
+                    [
+                        952.0,
+                        405.0
+                    ],
+                    [
+                        104.0,
+                        405.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9317461848258972,
+                "coordinate": [
+                    103,
+                    422,
+                    953,
+                    521
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        103.0,
+                        422.0
+                    ],
+                    [
+                        953.0,
+                        422.0
+                    ],
+                    [
+                        953.0,
+                        521.0
+                    ],
+                    [
+                        103.0,
+                        521.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9182753562927246,
+                "coordinate": [
+                    104,
+                    538,
+                    953,
+                    638
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        104.0,
+                        538.0
+                    ],
+                    [
+                        953.0,
+                        538.0
+                    ],
+                    [
+                        953.0,
+                        638.0
+                    ],
+                    [
+                        104.0,
+                        638.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5680677890777588,
+                "coordinate": [
+                    106,
+                    654,
+                    750,
+                    675
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        106.0,
+                        654.0
+                    ],
+                    [
+                        750.0,
+                        654.0
+                    ],
+                    [
+                        750.0,
+                        675.0
+                    ],
+                    [
+                        106.0,
+                        675.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.35405728220939636,
+                "coordinate": [
+                    338,
+                    692,
+                    423,
+                    711
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        338.0,
+                        692.0
+                    ],
+                    [
+                        422.0,
+                        692.0
+                    ],
+                    [
+                        422.0,
+                        710.0
+                    ],
+                    [
+                        338.0,
+                        710.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9290763139724731,
+                "coordinate": [
+                    105,
+                    727,
+                    954,
+                    828
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        105.0,
+                        727.0
+                    ],
+                    [
+                        954.0,
+                        727.0
+                    ],
+                    [
+                        954.0,
+                        828.0
+                    ],
+                    [
+                        105.0,
+                        828.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.3309866487979889,
+                "coordinate": [
+                    105,
+                    828,
+                    849,
+                    859
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        105.0,
+                        828.0
+                    ],
+                    [
+                        849.0,
+                        828.0
+                    ],
+                    [
+                        849.0,
+                        859.0
+                    ],
+                    [
+                        105.0,
+                        859.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.3669080436229706,
+                "coordinate": [
+                    107,
+                    864,
+                    483,
+                    885
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        107.0,
+                        864.0
+                    ],
+                    [
+                        482.0,
+                        864.0
+                    ],
+                    [
+                        482.0,
+                        884.0
+                    ],
+                    [
+                        107.0,
+                        884.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0067/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td>IKE BQI STATE #002</td><td>S</td><td>N-31-12S-35E</td><td>N</td><td>30-025-38168</td><td>G</td><td>97295</td><td>RANGER LAKE; LWR MISS LIME, SOUTH (G)</td></tr><tr><td>323940</td><td>INDIGO BHB STATE #001</td><td>S</td><td>A-07-12S-35E</td><td>A</td><td>30-025-34991</td><td>G</td><td>97082</td><td>FOUR LAKES; MORROW (GAS)</td></tr><tr><td>323944</td><td>INEXCO AHY FEDERAL #001</td><td>F</td><td>H-07-19S-33E</td><td>H</td><td>30-025-25470</td><td>G</td><td>73000</td><td>BUFFALO; PENN (GAS)</td></tr><tr><td>323961</td><td>JACKSON FEDERAL SWD #001</td><td>F</td><td>D-26-24S-32E</td><td>D</td><td>30-025-28242</td><td>S</td><td>96802</td><td>SWD; BELL CANYON-CHERRY CANYON</td></tr><tr><td>323967</td><td>JEFE BSJ FEDERAL COM #001H</td><td>F</td><td>O-32-25S-32E</td><td>O</td><td>30-025-40722</td><td>O</td><td>97838</td><td>JENNINGS; UPPER BONE SPRING SHALE</td></tr><tr><td>323971</td><td>JERRY JEFF BED STATE COM #001</td><td>S</td><td>K-07-10S-34E</td><td>K</td><td>30-025-36694</td><td>G</td><td>97382</td><td>X-4 RANCH; MORROW, WEST (GAS)</td></tr><tr><td>323991</td><td>JUDSON AUU STATE COM #002</td><td>S</td><td>O-26-10S-34E</td><td>O</td><td>30-025-36886</td><td>G</td><td>84871</td><td>SAND SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324003</td><td>KEMNITZ SOUTH AFL STATE #001</td><td>S</td><td>O-31-16S-34E</td><td>O</td><td>30-025-31636</td><td>O</td><td>62180</td><td>VACUUM; GRAYBURG-SAN ANDRES</td></tr><tr><td>324018</td><td>KIWI AKX STATE #001</td><td>S</td><td>P-16-22S-32E</td><td>P</td><td>30-025-31576</td><td>O</td><td>39366</td><td>LIVINGSTON RIDGE; DELAWARE, EAST</td></tr><tr><td></td><td>KIWI AKX STATE #002</td><td>S</td><td>I-16-22S-32E</td><td>I</td><td>30-025-31595</td><td>O</td><td>39366</td><td>LIVINGSTON RIDGE; DELAWARE, EAST</td></tr><tr><td></td><td>KIWI AKX STATE #004</td><td>S</td><td>O-16-22S-32E</td><td>O</td><td>30-025-31600</td><td>O</td><td></td><td></td></tr><tr><td></td><td>KIWI AKX STATE #006</td><td>S</td><td>N-16-22S-32E</td><td>N</td><td>30-025-31645</td><td>O</td><td></td><td></td></tr><tr><td>324019</td><td>KIWI SWD #005</td><td>S</td><td>J-16-22S-32E</td><td>J</td><td>30-025-31644</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td></td><td>KIWI SWD #008</td><td>S</td><td>F-16-22S-32E</td><td>F</td><td>30-025-31889</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td></td><td>KIWI SWD #010</td><td>S</td><td>K-16-22S-32E</td><td>K</td><td>30-025-36006</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td>324023</td><td>KOOKABURRA AZB STATE #002</td><td>S</td><td>B-24-12S-34E</td><td>B</td><td>30-025-29741</td><td>O</td><td>97349</td><td>RANGER LAKE; ATOKA, NORTH (GAS)</td></tr><tr><td></td><td>KOOKABURRA AZB STATE #002</td><td>S</td><td>B-24-12S-34E</td><td>B</td><td>30-025-29741</td><td>O</td><td>97362</td><td>RANGER LAKE; MORROW, NORTH (GAS)</td></tr><tr><td>324033</td><td>KRUISER BLK STATE #002</td><td>S</td><td>J-36-15S-30E</td><td>J</td><td>30-005-29131</td><td>O</td><td>97722</td><td>WILDCAT G-05 S153117E; ABO-WOLFCAMP</td></tr><tr><td>324038</td><td>LACY BLE STATE COM #004</td><td>S</td><td>C-07-12S-34E</td><td>C</td><td>30-025-37112</td><td>G</td><td>97424</td><td>BAGLEY; MORROW, EAST (GAS)</td></tr><tr><td>324039</td><td>LACY J BIB STATE COM #001</td><td>S</td><td>I-08-12S-34E</td><td>I</td><td>30-025-36639</td><td>G</td><td>97371</td><td>BAGLEY; ATOKA, EAST (GAS)</td></tr><tr><td>324040</td><td>LACY J BIB STATE COM #002</td><td>S</td><td>P-06-12S-34E</td><td>P</td><td>30-025-36790</td><td>G</td><td>97424</td><td>BAGLEY; MORROW, EAST (GAS)</td></tr><tr><td>324041</td><td>LACY J BIZ STATE #003</td><td>S</td><td>E-05-12S-34E</td><td>E</td><td>30-025-37115</td><td>G</td><td>97424</td><td>BAGLEY; MORROW, EAST (GAS)</td></tr><tr><td>324042</td><td>LACY J BOC STATE COM #005</td><td>S</td><td>D-08-12S-34E</td><td>D</td><td>30-025-37422</td><td>G</td><td>97424</td><td>BAGLEY; MORROW, EAST (GAS)</td></tr><tr><td>324045</td><td>LAGARTO AMZ STATE #002</td><td>S</td><td>J-01-11S-34E</td><td>J</td><td>30-025-36523</td><td>G</td><td>84871</td><td>SAND SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324064</td><td>LEE BRC #001</td><td>P</td><td>N-35-11S-31E</td><td>N</td><td>30-005-29177</td><td>G</td><td>86560</td><td>TV; PENN (GAS)</td></tr><tr><td></td><td>LEE BRC #001</td><td>P</td><td>N-35-11S-31E</td><td>N</td><td>30-005-29177</td><td>G</td><td>97791</td><td>WILDCAT; MISSISSIPPIAN (GAS)</td></tr><tr><td>324067</td><td>LEFTY BEV STATE COM #001</td><td>S</td><td>K-32-11S-34E</td><td>K</td><td>30-025-36763</td><td>G</td><td>97424</td><td>BAGLEY; MORROW, EAST (GAS)</td></tr><tr><td>324078</td><td>LIMBAUGH AYO STATE #002</td><td>S</td><td>P-12-12S-34E</td><td>P</td><td>30-025-37111</td><td>G</td><td>97349</td><td>RANGER LAKE; ATOKA, NORTH (GAS)</td></tr><tr><td>324102</td><td>LOTUS ALT STATE #003</td><td>S</td><td>C-32-22S-32E</td><td>C</td><td>30-025-36005</td><td>O</td><td>39380</td><td>LIVINGSTON RIDGE; DELAWARE, SE</td></tr><tr><td></td><td>LOTUS ALT STATE #005</td><td>S</td><td>E-32-22S-32E</td><td>E</td><td>30-025-36136</td><td>O</td><td>39380</td><td>LIVINGSTON RIDGE; DELAWARE, SE</td></tr><tr><td>324103</td><td>LOTUS SWD #001</td><td>S</td><td>A-32-22S-32E</td><td>A</td><td>30-025-36004</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td></td><td>LOTUS SWD #002</td><td>S</td><td>G-32-22S-32E</td><td>G</td><td>30-025-31694</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td></td><td>LOTUS SWD #004</td><td>S</td><td>D-32-22S-32E</td><td>D</td><td>30-025-36135</td><td>S</td><td>97003</td><td>SWD; CHERRY CANYON</td></tr><tr><td></td><td>LOTUS SWD #012</td><td>S</td><td>B-32-22S-32E</td><td>B</td><td>30-025-37799</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td>324105</td><td>LOVELADY SWD #001</td><td>S</td><td>J-31-08S-33E</td><td>J</td><td>30-005-20474</td><td>S</td><td>96121</td><td>SWD; SAN ANDRES</td></tr><tr><td>324108</td><td>LUCILLE BKU STATE COM #001</td><td>S</td><td>2-05-12S-32E</td><td>B</td><td>30-025-38593</td><td>G</td><td>97690</td><td>CAPROCK; MORROW, NORTH (GAS)</td></tr><tr><td>324118</td><td>LUSK AHB FEDERAL #002</td><td>F</td><td>G-35-19S-32E</td><td>G</td><td>30-025-31042</td><td>O</td><td>41520</td><td>LUSK; DELAWARE, EAST</td></tr><tr><td></td><td>LUSK AHB FEDERAL #003</td><td>F</td><td>J-35-19S-32E</td><td>J</td><td>30-025-31111</td><td>O</td><td>41520</td><td>LUSK; DELAWARE, EAST</td></tr><tr><td></td><td>LUSK AHB FEDERAL #005</td><td>F</td><td>B-35-19S-32E</td><td>B</td><td>30-025-31151</td><td>O</td><td>41520</td><td>LUSK; DELAWARE, EAST</td></tr><tr><td></td><td>LUSK AHB FEDERAL #010H</td><td>F</td><td>D-35-19S-32E</td><td>D</td><td>30-025-40990</td><td>O</td><td>41442</td><td>LUSK; BONE SPRING, EAST</td></tr><tr><td>324128</td><td>MAMBA BQN STATE COM #001H</td><td>S</td><td>N-30-24S-33E</td><td>N</td><td>30-025-40039</td><td>O</td><td>96403</td><td>WILDCAT; BONE SPRING</td></tr><tr><td></td><td>MAMBA BQN STATE COM #001H</td><td>S</td><td>N-30-24S-33E</td><td>N</td><td>30-025-40039</td><td>O</td><td>97784</td><td>WC-025 G-06 S253201M; UPPER BONE SPRING</td></tr><tr><td></td><td>MAMBA BQN STATE COM #002H</td><td>S</td><td>C-31-24S-33E</td><td>C</td><td>30-025-41648</td><td>O</td><td>97964</td><td>WC-025 G-07 S243225C; LWR BONE SPRING</td></tr><tr><td>324132</td><td>MANGO BRM STATE #001H</td><td>S</td><td>C-27-20S-35E</td><td>C</td><td>30-025-40517</td><td>O</td><td>24250</td><td>FEATHERSTONE; BONE SPRING</td></tr><tr><td>324147</td><td>MATTEA BFA STATE #001</td><td>S</td><td>N-35-10S-34E</td><td>N</td><td>30-025-36867</td><td>O</td><td>96803</td><td>SAND SPRINGS; ABO</td></tr><tr><td></td><td>MATTEA BFA STATE #001</td><td>S</td><td>N-35-10S-34E</td><td>N</td><td>30-025-36867</td><td>O</td><td>97125</td><td>SAND SPRINGS; MISSISSIPPIAN (GAS)</td></tr><tr><td>324149</td><td>MCBRIDE BEH STATE COM #001</td><td>S</td><td>E-04-10S-34E</td><td>E</td><td>30-025-37107</td><td>G</td><td>97049</td><td>X-4 RANCH; MORROW (GAS)</td></tr><tr><td>324159</td><td>MCKAMEY BHM FEDERAL #001</td><td>F</td><td>F-26-15S-30E</td><td>F</td><td>30-005-21087</td><td>O</td><td>11785</td><td>CEDAR POINT; STRAWN</td></tr><tr><td>324170</td><td>MERLE BOF STATE #014</td><td>S</td><td>L-13-10S-34E</td><td>L</td><td>30-025-38396</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324171</td><td>MERLE BOG STATE #003</td><td>S</td><td>P-14-10S-34E</td><td>P</td><td>30-025-37545</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td></td><td>MERLE BOG STATE #007</td><td>S</td><td>J-14-10S-34E</td><td>J</td><td>30-025-37979</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td></td><td>MERLE BOG STATE #010</td><td>S</td><td>M-14-10S-34E</td><td>M</td><td>30-025-38253</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324172</td><td>MERLE BOH STATE #006</td><td>S</td><td>G-14-10S-34E</td><td>G</td><td>30-025-38184</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td></td><td>MERLE BOH STATE #012</td><td>S</td><td>B-14-10S-34E</td><td>B</td><td>30-025-38392</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324173</td><td>MERLE BOI STATE #005</td><td>S</td><td>A-23-10S-34E</td><td>A</td><td>30-025-37911</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td></td><td>MERLE BOI STATE #008</td><td>S</td><td>D-23-10S-34E</td><td>D</td><td>30-025-38017</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324174</td><td>MERLE BOJ STATE COM #011</td><td>S</td><td>A-11-10S-34E</td><td>A</td><td>30-025-38252</td><td>G</td><td>97090</td><td>X-4 RANCH; ATOKA (GAS)</td></tr><tr><td>324175</td><td>MERLE BOK STATE #013</td><td>S</td><td>M-11-10S-34E</td><td>M</td><td>30-025-38393</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324177</td><td>MERRELL #001</td><td>P</td><td>H-10-09S-36E</td><td>H</td><td>30-025-03563</td><td>S</td><td></td><td></td></tr><tr><td>324179</td><td>MESCALERO ARL STATE #001</td><td>S</td><td>P-02-10S-32E</td><td>P</td><td>30-025-33969</td><td>O</td><td>45750</td><td>MESCALERO; UPPER PENN, NORTH</td></tr><tr><td></td><td>MESCALERO ARL STATE #002</td><td>S</td><td>O-02-10S-32E</td><td>O</td><td>30-025-37039</td><td>G</td><td>45750</td><td>MESCALERO; UPPER PENN, NORTH</td></tr><tr><td></td><td>MESCALERO ARL STATE #003</td><td>S</td><td>N-02-10S-32E</td><td>N</td><td>30-0</td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                56,
+                42,
+                1168,
+                1528
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    42.0
+                ],
+                [
+                    1168.0,
+                    42.0
+                ],
+                [
+                    1168.0,
+                    1528.0
+                ],
+                [
+                    56.0,
+                    1528.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9868257641792297,
+                "coordinate": [
+                    56,
+                    42,
+                    1168,
+                    1528
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        42.0
+                    ],
+                    [
+                        1168.0,
+                        42.0
+                    ],
+                    [
+                        1168.0,
+                        1528.0
+                    ],
+                    [
+                        56.0,
+                        1528.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

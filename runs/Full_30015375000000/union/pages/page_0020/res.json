@@ -1,0 +1,644 @@
+{
+    "input_path": "runs/input_vl/pages/page_0020/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1590,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "http://www.YOURWEBSITE.com",
+            "block_bbox": [
+                975,
+                70,
+                1083,
+                81
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    975.0,
+                    69.99999237060547
+                ],
+                [
+                    1082.0,
+                    69.99999237060547
+                ],
+                [
+                    1082.0,
+                    79.99999237060547
+                ],
+                [
+                    975.0,
+                    79.99999237060547
+                ]
+            ]
+        },
+        {
+            "block_label": "header",
+            "block_content": "Trant Logistics, LLC",
+            "block_bbox": [
+                135,
+                71,
+                204,
+                83
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    135.0,
+                    71.0
+                ],
+                [
+                    203.0,
+                    71.0
+                ],
+                [
+                    203.0,
+                    82.0
+                ],
+                [
+                    135.0,
+                    82.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "Scale = 1 500; TVD v. VS @azl 270",
+            "block_bbox": [
+                384,
+                159,
+                526,
+                176
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    383.99993896484375,
+                    158.99998474121094
+                ],
+                [
+                    524.9999389648438,
+                    158.99998474121094
+                ],
+                [
+                    524.9999389648438,
+                    174.99998474121094
+                ],
+                [
+                    383.99993896484375,
+                    174.99998474121094
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td colspan=\"12\">Scale = 1 500; TVD v. VS @azl 270</td></tr><tr><td>-500</td><td>0</td><td>500</td><td>1000</td><td>1500</td><td>2000</td><td>2500</td><td>3000</td><td>3500</td><td>4000</td><td>4500</td><td>5000</td></tr><tr><td></td><td>0</td><td>0.00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                159,
+                166,
+                765,
+                261
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    159.0,
+                    166.0
+                ],
+                [
+                    765.0,
+                    166.0
+                ],
+                [
+                    765.0,
+                    261.0
+                ],
+                [
+                    159.0,
+                    261.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>500</td><td>Cold</td><td colspan=\"12\">Jericho BKJ State Corn 2H</td></tr><tr><td>No.</td><td>MTD</td><td>GL</td><td>TMD</td><td>ZAG</td><td>TMD</td><td>TMD</td><td>VS</td><td>+NS</td><td>+EW</td><td>BIK</td><td>Wks</td><td>DLS</td><td>Estimates</td></tr><tr><td>700.04</td><td>TOS</td><td>0</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td></td><td>1</td><td>500.00</td><td>500.00</td><td>0.00</td><td>360.00</td><td>500.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>Castile</td></tr><tr><td></td><td>2</td><td>700.04</td><td>200.04</td><td>0.00</td><td>360.00</td><td>700.04</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>TOS</td></tr><tr><td>-1000</td><td></td><td>3</td><td>2100.00</td><td>1399.96</td><td>0.00</td><td>360.00</td><td>2100.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>BOS</td></tr><tr><td></td><td>4</td><td>2280.10</td><td>160.00</td><td>0.00</td><td>2280.10</td><td>2280.10</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>Bell Canyon</td></tr><tr><td></td><td>5</td><td>3560.01</td><td>770.01</td><td>0.00</td><td>360.00</td><td>3050.01</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>Cherry Canyon</td></tr><tr><td></td><td>6</td><td>4179.99</td><td>1129.99</td><td>0.00</td><td>360.00</td><td>4179.99</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>Brushy Canyon</td></tr><tr><td>-500</td><td>7</td><td>5530.00</td><td>1350.01</td><td>0.00</td><td>360.00</td><td>5530.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>Brushy Canyon Marker</td></tr><tr><td></td><td>8</td><td>5647.54</td><td>5647.54</td><td>0.00</td><td>270.00</td><td>5647.54</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>-1.59</td><td>0.00</td><td>KOP</td></tr><tr><td></td><td>9</td><td>5700.00</td><td>5246.46</td><td>8.29</td><td>270.00</td><td>5699.49</td><td>2.88</td><td>0.00</td><td>-2.88</td><td>12.00</td><td>0.00</td><td>12.00</td><td>12.00</td></tr><tr><td></td><td>10</td><td>5802.76</td><td>155.23</td><td>18.62</td><td>270.00</td><td>5800.04</td><td>25.00</td><td>0.00</td><td>-25.00</td><td>12.00</td><td>0.00</td><td>12.00</td><td>Bone Springs</td></tr><tr><td></td><td>11</td><td>5900.00</td><td>97.24</td><td>30.30</td><td>270.00</td><td>5888.40</td><td>65.19</td><td>0.00</td><td>-65.19</td><td>12.01</td><td>0.00</td><td>12.01</td><td></td></tr><tr><td>-2000</td><td>12</td><td>6100.00</td><td>200.00</td><td>54.30</td><td>270.00</td><td>6035.26</td><td>198.80</td><td>0.01</td><td>-198.80</td><td>12.00</td><td>0.00</td><td>12.00</td><td></td></tr><tr><td></td><td>13</td><td>6300.00</td><td>200.00</td><td>78.30</td><td>270.00</td><td>6115.08</td><td>380.89</td><td>0.01</td><td>-380.89</td><td>12.00</td><td>0.00</td><td>12.00</td><td></td></tr><tr><td></td><td>14</td><td>6397.53</td><td>750.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>477.46</td><td>0.00</td><td>-477.46</td><td>12.00</td><td>0.00</td><td>12.00</td><td>EQC</td></tr><tr><td>-2200</td><td>Bell Canyon</td><td>15</td><td>6700.00</td><td>302.47</td><td>90.00</td><td>270.00</td><td>779.93</td><td>0.01</td><td>-779.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td></td><td>16</td><td>7200.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>1279.93</td><td>0.01</td><td>-1279.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>-2500</td><td>17</td><td>7700.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>2779.93</td><td>0.01</td><td>-1779.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td></td><td>18</td><td>8200.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>2279.93</td><td>0.01</td><td>-2279.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td></td><td>19</td><td>8700.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>2779.93</td><td>0.01</td><td>-2779.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td></td><td>20</td><td>9200.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.01</td><td>3279.93</td><td>0.01</td><td>-3279.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>-3000</td><td>3050.01</td><td>Cherry Canyon</td><td>22</td><td>10200.00</td><td>500.00</td><td>270.00</td><td>6125.01</td><td>3779.93</td><td>0.01</td><td>-3779.93</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td></td><td>23</td><td>10200.07</td><td>3802.54</td><td>90.00</td><td>270.00</td><td>6125.01</td><td>4290.00</td><td>0.01</td><td>-4290.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>EOL</td></tr></table>",
+            "block_bbox": [
+                163,
+                261,
+                1063,
+                542
+            ],
+            "block_id": 4,
+            "block_order": null,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    163.0,
+                    261.0
+                ],
+                [
+                    1063.0,
+                    261.0
+                ],
+                [
+                    1063.0,
+                    542.0
+                ],
+                [
+                    163.0,
+                    542.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>3500</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4000</td><td>4179.99</td><td>Brusley Canyon</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4500</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5000</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5500</td><td>5530</td><td>Brusley Canyon Marker</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>5847.54</td><td>KOP</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>5800.04</td><td>Bone Springs</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6000</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6500</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                163,
+                543,
+                760,
+                878
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    163.0,
+                    543.0
+                ],
+                [
+                    760.0,
+                    543.0
+                ],
+                [
+                    760.0,
+                    878.0
+                ],
+                [
+                    163.0,
+                    878.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "Scale = 1:500; +N/S- v. +EW-",
+            "block_bbox": [
+                403,
+                911,
+                516,
+                920
+            ],
+            "block_id": 6,
+            "block_order": null,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    403.0,
+                    911.0
+                ],
+                [
+                    515.0,
+                    911.0
+                ],
+                [
+                    515.0,
+                    919.0
+                ],
+                [
+                    403.0,
+                    919.0
+                ]
+            ]
+        },
+        {
+            "block_label": "number",
+            "block_content": "+EW",
+            "block_bbox": [
+                455,
+                1026,
+                477,
+                1035
+            ],
+            "block_id": 7,
+            "block_order": null,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    455.0,
+                    1026.0
+                ],
+                [
+                    476.0,
+                    1026.0
+                ],
+                [
+                    476.0,
+                    1034.0
+                ],
+                [
+                    455.0,
+                    1034.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "SuRF ©2007-2009 Trant Logistics, LLC",
+            "block_bbox": [
+                144,
+                1428,
+                273,
+                1440
+            ],
+            "block_id": 8,
+            "block_order": 1,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    144.0,
+                    1428.0
+                ],
+                [
+                    272.0,
+                    1428.0
+                ],
+                [
+                    272.0,
+                    1439.0
+                ],
+                [
+                    144.0,
+                    1439.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "www.tantlogistics.com",
+            "block_bbox": [
+                1014,
+                1430,
+                1089,
+                1440
+            ],
+            "block_id": 9,
+            "block_order": null,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    1014.0,
+                    1430.0
+                ],
+                [
+                    1088.0,
+                    1430.0
+                ],
+                [
+                    1088.0,
+                    1439.0
+                ],
+                [
+                    1014.0,
+                    1439.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.7254586815834045,
+                "coordinate": [
+                    975,
+                    70,
+                    1083,
+                    81
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        975.0,
+                        69.99999237060547
+                    ],
+                    [
+                        1082.0,
+                        69.99999237060547
+                    ],
+                    [
+                        1082.0,
+                        79.99999237060547
+                    ],
+                    [
+                        975.0,
+                        79.99999237060547
+                    ]
+                ]
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.5257984399795532,
+                "coordinate": [
+                    135,
+                    71,
+                    204,
+                    83
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        135.0,
+                        71.0
+                    ],
+                    [
+                        203.0,
+                        71.0
+                    ],
+                    [
+                        203.0,
+                        82.0
+                    ],
+                    [
+                        135.0,
+                        82.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.46365198493003845,
+                "coordinate": [
+                    384,
+                    159,
+                    526,
+                    176
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        383.99993896484375,
+                        158.99998474121094
+                    ],
+                    [
+                        524.9999389648438,
+                        158.99998474121094
+                    ],
+                    [
+                        524.9999389648438,
+                        174.99998474121094
+                    ],
+                    [
+                        383.99993896484375,
+                        174.99998474121094
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.46448230743408203,
+                "coordinate": [
+                    159,
+                    166,
+                    765,
+                    261
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        159.0,
+                        166.0
+                    ],
+                    [
+                        765.0,
+                        166.0
+                    ],
+                    [
+                        765.0,
+                        261.0
+                    ],
+                    [
+                        159.0,
+                        261.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.7888754606246948,
+                "coordinate": [
+                    163,
+                    261,
+                    1063,
+                    542
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        163.0,
+                        261.0
+                    ],
+                    [
+                        1063.0,
+                        261.0
+                    ],
+                    [
+                        1063.0,
+                        542.0
+                    ],
+                    [
+                        163.0,
+                        542.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.3049141466617584,
+                "coordinate": [
+                    163,
+                    543,
+                    760,
+                    878
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        163.0,
+                        543.0
+                    ],
+                    [
+                        760.0,
+                        543.0
+                    ],
+                    [
+                        760.0,
+                        878.0
+                    ],
+                    [
+                        163.0,
+                        878.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.5549529194831848,
+                "coordinate": [
+                    403,
+                    911,
+                    516,
+                    920
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        403.0,
+                        911.0
+                    ],
+                    [
+                        515.0,
+                        911.0
+                    ],
+                    [
+                        515.0,
+                        919.0
+                    ],
+                    [
+                        403.0,
+                        919.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.35020825266838074,
+                "coordinate": [
+                    455,
+                    1026,
+                    477,
+                    1035
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        455.0,
+                        1026.0
+                    ],
+                    [
+                        476.0,
+                        1026.0
+                    ],
+                    [
+                        476.0,
+                        1034.0
+                    ],
+                    [
+                        455.0,
+                        1034.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.4146396815776825,
+                "coordinate": [
+                    144,
+                    1428,
+                    273,
+                    1440
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        144.0,
+                        1428.0
+                    ],
+                    [
+                        272.0,
+                        1428.0
+                    ],
+                    [
+                        272.0,
+                        1439.0
+                    ],
+                    [
+                        144.0,
+                        1439.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.3193034827709198,
+                "coordinate": [
+                    1014,
+                    1430,
+                    1089,
+                    1440
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1014.0,
+                        1430.0
+                    ],
+                    [
+                        1088.0,
+                        1430.0
+                    ],
+                    [
+                        1088.0,
+                        1439.0
+                    ],
+                    [
+                        1014.0,
+                        1439.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

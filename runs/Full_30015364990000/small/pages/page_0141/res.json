@@ -1,0 +1,949 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0141/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "doc_title",
+            "block_content": "State of New Mexico\nEnergy, Minerals and Natural Resources Department",
+            "block_bbox": [
+                288,
+                107,
+                909,
+                172
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    288.0,
+                    107.0
+                ],
+                [
+                    909.0,
+                    107.0
+                ],
+                [
+                    909.0,
+                    172.0
+                ],
+                [
+                    288.0,
+                    172.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Susana Martinez Governor",
+            "block_bbox": [
+                153,
+                207,
+                297,
+                250
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    153.0,
+                    207.0
+                ],
+                [
+                    297.0,
+                    207.0
+                ],
+                [
+                    297.0,
+                    250.0
+                ],
+                [
+                    153.0,
+                    250.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "David Martin\nCabinet Secretary",
+            "block_bbox": [
+                153,
+                263,
+                285,
+                302
+            ],
+            "block_id": 2,
+            "block_order": 3,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    153.0,
+                    263.0
+                ],
+                [
+                    285.0,
+                    263.0
+                ],
+                [
+                    285.0,
+                    302.0
+                ],
+                [
+                    153.0,
+                    302.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "David R. Catanach, Division Director Oil Conservation Division",
+            "block_bbox": [
+                599,
+                263,
+                870,
+                302
+            ],
+            "block_id": 3,
+            "block_order": 4,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    599.0,
+                    263.0
+                ],
+                [
+                    870.0,
+                    263.0
+                ],
+                [
+                    870.0,
+                    302.0
+                ],
+                [
+                    599.0,
+                    302.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Tony Delfin\nDeputy Cabinet Secretary",
+            "block_bbox": [
+                153,
+                318,
+                334,
+                358
+            ],
+            "block_id": 4,
+            "block_order": 5,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    153.0,
+                    318.0
+                ],
+                [
+                    334.0,
+                    318.0
+                ],
+                [
+                    334.0,
+                    358.0
+                ],
+                [
+                    153.0,
+                    358.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                890,
+                209,
+                1040,
+                360
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    890.0,
+                    209.0
+                ],
+                [
+                    1040.0,
+                    209.0
+                ],
+                [
+                    1040.0,
+                    360.0
+                ],
+                [
+                    890.0,
+                    360.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "NOTICE TO OPERATORS",
+            "block_bbox": [
+                458,
+                512,
+                742,
+                540
+            ],
+            "block_id": 6,
+            "block_order": 6,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    458.0,
+                    512.0
+                ],
+                [
+                    742.0,
+                    512.0
+                ],
+                [
+                    742.0,
+                    540.0
+                ],
+                [
+                    458.0,
+                    540.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The Oil Conservation Division (\"OCD\") has been tasked to study flaring and develop a gas capture plan by the end of the year with the ultimate goal to reduce natural gas emissions.",
+            "block_bbox": [
+                151,
+                591,
+                1046,
+                648
+            ],
+            "block_id": 7,
+            "block_order": 7,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    151.0,
+                    591.0
+                ],
+                [
+                    1046.0,
+                    591.0
+                ],
+                [
+                    1046.0,
+                    648.0
+                ],
+                [
+                    151.0,
+                    648.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Current OCD reporting has no specific method to differentiate flared and vented volumes reported on C-115 reports. This prevents the OCD from having quantifiable flaring data per Rule 19.15.18.12.F NMAC.",
+            "block_bbox": [
+                151,
+                669,
+                1047,
+                750
+            ],
+            "block_id": 8,
+            "block_order": 8,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    151.0,
+                    669.0
+                ],
+                [
+                    1047.0,
+                    669.0
+                ],
+                [
+                    1047.0,
+                    750.0
+                ],
+                [
+                    151.0,
+                    750.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Therefore, to collect flaring volumes and differentiate actual vented volumes going forward, NMOCD will implement a new “Non-Transported Disposition” Code (for gas) to be reported on the C-115 reports. The new code will be “F” for Flared. The new code “F” is to be used to report the volume of gas that is flared on a well basis, or total volume if flared at a common battery or gathering system and reported under one point of disposition. Operators must report vented and flared volumes separately to their respective “Non Transported Disposition” code (“V” for vented and “F” for flared).",
+            "block_bbox": [
+                150,
+                773,
+                1047,
+                961
+            ],
+            "block_id": 9,
+            "block_order": 9,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    150.0,
+                    773.0
+                ],
+                [
+                    1047.0,
+                    773.0
+                ],
+                [
+                    1047.0,
+                    961.0
+                ],
+                [
+                    150.0,
+                    961.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The change will become effective for the November 2015 production month with reporting due by January 15, 2016.",
+            "block_bbox": [
+                151,
+                984,
+                1046,
+                1039
+            ],
+            "block_id": 10,
+            "block_order": 10,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    151.0,
+                    984.0
+                ],
+                [
+                    1046.0,
+                    984.0
+                ],
+                [
+                    1046.0,
+                    1039.0
+                ],
+                [
+                    151.0,
+                    1039.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The NMOCD will be conducting operator outreach training sessions in the Southeast and Northwest to provide information and answer questions regarding the process.",
+            "block_bbox": [
+                151,
+                1062,
+                1045,
+                1116
+            ],
+            "block_id": 11,
+            "block_order": 11,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    151.0,
+                    1062.0
+                ],
+                [
+                    1045.0,
+                    1062.0
+                ],
+                [
+                    1045.0,
+                    1116.0
+                ],
+                [
+                    151.0,
+                    1116.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Meeting notices will be posted on NMOCD website at: http://www.emnrd.state.nm.us/OCD/announcements.html",
+            "block_bbox": [
+                151,
+                1140,
+                686,
+                1195
+            ],
+            "block_id": 12,
+            "block_order": 12,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    151.0,
+                    1140.0
+                ],
+                [
+                    686.0,
+                    1140.0
+                ],
+                [
+                    686.0,
+                    1195.0
+                ],
+                [
+                    151.0,
+                    1195.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The C-115 instructions are available on NMOCD website at: http://www.emnrd.state.nm.us/OCD/documents/eC115_FullInstructions.pdf",
+            "block_bbox": [
+                153,
+                1217,
+                854,
+                1274
+            ],
+            "block_id": 13,
+            "block_order": 13,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    153.0,
+                    1217.0
+                ],
+                [
+                    854.0,
+                    1217.0
+                ],
+                [
+                    854.0,
+                    1274.0
+                ],
+                [
+                    153.0,
+                    1274.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "Oil Conservation Division\n1000 Rio Brazos Rd., Aztec, New Mexico 87410\nPhone (505) 334-6178 • Fax (505) 334-6170 • www.emnrd.state.nm.us",
+            "block_bbox": [
+                362,
+                1441,
+                840,
+                1503
+            ],
+            "block_id": 14,
+            "block_order": null,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    362.0,
+                    1441.0
+                ],
+                [
+                    840.0,
+                    1441.0
+                ],
+                [
+                    840.0,
+                    1503.0
+                ],
+                [
+                    362.0,
+                    1503.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.6897448301315308,
+                "coordinate": [
+                    288,
+                    107,
+                    909,
+                    172
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        288.0,
+                        107.0
+                    ],
+                    [
+                        909.0,
+                        107.0
+                    ],
+                    [
+                        909.0,
+                        172.0
+                    ],
+                    [
+                        288.0,
+                        172.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8592599034309387,
+                "coordinate": [
+                    153,
+                    207,
+                    297,
+                    250
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        153.0,
+                        207.0
+                    ],
+                    [
+                        297.0,
+                        207.0
+                    ],
+                    [
+                        297.0,
+                        250.0
+                    ],
+                    [
+                        153.0,
+                        250.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8657223582267761,
+                "coordinate": [
+                    153,
+                    263,
+                    285,
+                    302
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        153.0,
+                        263.0
+                    ],
+                    [
+                        285.0,
+                        263.0
+                    ],
+                    [
+                        285.0,
+                        302.0
+                    ],
+                    [
+                        153.0,
+                        302.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8646026253700256,
+                "coordinate": [
+                    599,
+                    263,
+                    870,
+                    302
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        599.0,
+                        263.0
+                    ],
+                    [
+                        870.0,
+                        263.0
+                    ],
+                    [
+                        870.0,
+                        302.0
+                    ],
+                    [
+                        599.0,
+                        302.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8668274879455566,
+                "coordinate": [
+                    153,
+                    318,
+                    334,
+                    358
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        153.0,
+                        318.0
+                    ],
+                    [
+                        334.0,
+                        318.0
+                    ],
+                    [
+                        334.0,
+                        358.0
+                    ],
+                    [
+                        153.0,
+                        358.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.9238826632499695,
+                "coordinate": [
+                    890,
+                    209,
+                    1040,
+                    360
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        890.0,
+                        209.0
+                    ],
+                    [
+                        1040.0,
+                        209.0
+                    ],
+                    [
+                        1040.0,
+                        360.0
+                    ],
+                    [
+                        890.0,
+                        360.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.6957575678825378,
+                "coordinate": [
+                    458,
+                    512,
+                    742,
+                    540
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        458.0,
+                        512.0
+                    ],
+                    [
+                        742.0,
+                        512.0
+                    ],
+                    [
+                        742.0,
+                        540.0
+                    ],
+                    [
+                        458.0,
+                        540.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9207770824432373,
+                "coordinate": [
+                    151,
+                    591,
+                    1046,
+                    648
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        151.0,
+                        591.0
+                    ],
+                    [
+                        1046.0,
+                        591.0
+                    ],
+                    [
+                        1046.0,
+                        648.0
+                    ],
+                    [
+                        151.0,
+                        648.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9350504875183105,
+                "coordinate": [
+                    151,
+                    669,
+                    1047,
+                    750
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        151.0,
+                        669.0
+                    ],
+                    [
+                        1047.0,
+                        669.0
+                    ],
+                    [
+                        1047.0,
+                        750.0
+                    ],
+                    [
+                        151.0,
+                        750.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9501792192459106,
+                "coordinate": [
+                    150,
+                    773,
+                    1047,
+                    961
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        150.0,
+                        773.0
+                    ],
+                    [
+                        1047.0,
+                        773.0
+                    ],
+                    [
+                        1047.0,
+                        961.0
+                    ],
+                    [
+                        150.0,
+                        961.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9107483625411987,
+                "coordinate": [
+                    151,
+                    984,
+                    1046,
+                    1039
+                ],
+                "order": 10,
+                "polygon_points": [
+                    [
+                        151.0,
+                        984.0
+                    ],
+                    [
+                        1046.0,
+                        984.0
+                    ],
+                    [
+                        1046.0,
+                        1039.0
+                    ],
+                    [
+                        151.0,
+                        1039.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9240428805351257,
+                "coordinate": [
+                    151,
+                    1062,
+                    1045,
+                    1116
+                ],
+                "order": 11,
+                "polygon_points": [
+                    [
+                        151.0,
+                        1062.0
+                    ],
+                    [
+                        1045.0,
+                        1062.0
+                    ],
+                    [
+                        1045.0,
+                        1116.0
+                    ],
+                    [
+                        151.0,
+                        1116.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8707712292671204,
+                "coordinate": [
+                    151,
+                    1140,
+                    686,
+                    1195
+                ],
+                "order": 12,
+                "polygon_points": [
+                    [
+                        151.0,
+                        1140.0
+                    ],
+                    [
+                        686.0,
+                        1140.0
+                    ],
+                    [
+                        686.0,
+                        1195.0
+                    ],
+                    [
+                        151.0,
+                        1195.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9139465093612671,
+                "coordinate": [
+                    153,
+                    1217,
+                    854,
+                    1274
+                ],
+                "order": 13,
+                "polygon_points": [
+                    [
+                        153.0,
+                        1217.0
+                    ],
+                    [
+                        854.0,
+                        1217.0
+                    ],
+                    [
+                        854.0,
+                        1274.0
+                    ],
+                    [
+                        153.0,
+                        1274.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.8530076146125793,
+                "coordinate": [
+                    362,
+                    1441,
+                    840,
+                    1503
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        362.0,
+                        1441.0
+                    ],
+                    [
+                        840.0,
+                        1441.0
+                    ],
+                    [
+                        840.0,
+                        1503.0
+                    ],
+                    [
+                        362.0,
+                        1503.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

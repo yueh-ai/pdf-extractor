@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0086/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>324119</td><td>MACANUDO BTE STATE COM #001H</td><td>S</td><td>I-23-24S-27E</td><td>I</td><td>30-015-42893</td><td>O</td><td>96415</td><td>WILLOW LAKE, BONE SPRING, WEST</td></tr><tr><td></td><td>MACANUDO BTE STATE COM #003H</td><td>S</td><td>L-14-24S-27E</td><td>L</td><td>30-015-42949</td><td>O</td><td>96415</td><td>WILLOW LAKE, BONE SPRING, WEST</td></tr><tr><td></td><td>MACANUDO BTE STATE COM #004H</td><td>S</td><td>M-14-24S-27E</td><td>M</td><td>30-015-42950</td><td>O</td><td>96415</td><td>WILLOW LAKE, BONE SPRING, WEST</td></tr><tr><td>324120</td><td>MADDXX QU FEDERAL #002</td><td>F</td><td>I-33-18S-24E</td><td>I</td><td>30-015-34282</td><td>G</td><td>97338</td><td>WC-015 SGO2522715A; BONE SPRING</td></tr><tr><td>324121</td><td>MADURO BOZ STATE COM #001H</td><td>S</td><td>P-10-25S-27E</td><td>P</td><td>30-015-37537</td><td>O</td><td>97816</td><td>WC-015 G-02 S522715A; BONE SPRING</td></tr><tr><td>324122</td><td>MAGELLAN FEDERAL #001</td><td>F</td><td>I-05-25S-27E</td><td>I</td><td>30-015-34603</td><td>O</td><td>96785</td><td>HACKBERRY, MORROW, NORTH (G)</td></tr><tr><td>324125</td><td>MALLARD HM #001</td><td>P</td><td>L-28-18S-26E</td><td>L</td><td>30-015-00254</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td></td><td>MALLARD HM #002</td><td>P</td><td>K-28-18S-26E</td><td>K</td><td>30-015-22052</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>324126</td><td>MALONE ASA FEDERAL COM #002</td><td>F</td><td>A-12-22S-23E</td><td>A</td><td>30-015-30769</td><td>G</td><td>33685</td><td>INDIAN BASIN; UPPER PENN (ASSOC)</td></tr><tr><td>324129</td><td>MANCHESTER BQQ STATE COM #001</td><td>S</td><td>D-20-19S-23E</td><td>D</td><td>30-015-34929</td><td>G</td><td>84350</td><td>RUNYAN RANCH; MORROW (GAS)</td></tr><tr><td></td><td>MANCHESTER BQQ STATE COM #001</td><td>S</td><td>D-20-19S-23E</td><td>D</td><td>30-015-34929</td><td>G</td><td>97338</td><td>WC-015SSISSPPIAN GAS</td></tr><tr><td>324133</td><td>MANSEAU EK FEE #001</td><td>P</td><td>C-35-17S-25E</td><td>C</td><td>30-015-21531</td><td>G</td><td>76320</td><td>EAGLE CREEK; STRAWN (GAS)</td></tr><tr><td>324135</td><td>MARALO HL FEDERAL COM #001</td><td>F</td><td>I-12-20S-28E</td><td>I</td><td>30-015-22074</td><td>G</td><td>73320</td><td>BURTON FLAT, MORROW, EAST (GAS)</td></tr><tr><td>324136</td><td>MARATHON AGI STATE #001</td><td>S</td><td>A-33-17S-24E</td><td>A</td><td>30-015-10268</td><td>G</td><td>75010</td><td>COLLINS RANCH; WOLFCAMP (GAS)</td></tr><tr><td></td><td>MARATHON AGI STATE #002H</td><td>S</td><td>A-33-17S-24E</td><td>A</td><td>30-015-10268</td><td>G</td><td>76250</td><td>EAGLE CREEK; ATOKA-MORROW, S (GAS)</td></tr><tr><td>324137</td><td>MARCEL BMM FEDERAL #001H</td><td>S</td><td>D-33-17S-24E</td><td>D</td><td>30-015-34144</td><td>G</td><td>75010</td><td>COLLINS RANCH; WOLFCAMP (GAS)</td></tr><tr><td></td><td>MARCEL BMM FEDERAL #002H</td><td>S</td><td>I-01-16S-29E</td><td>A</td><td>30-015-36845</td><td>O</td><td>97712</td><td>WC; COUNTY LINE TANK; WOLFCAMP (O)</td></tr><tr><td></td><td>MARCH AMT FEDERAL COM #001</td><td>F</td><td>5-06-16S-30E</td><td>E</td><td>30-015-41677</td><td>O</td><td>97197</td><td>COUNTY LINE TANK; ABO (O)</td></tr><tr><td>324138</td><td>MARCH AMT FEDERAL COM #001</td><td>F</td><td>N-25-19S-24E</td><td>N</td><td>30-015-27506</td><td>G</td><td>75960</td><td>DAGGER DRAW; WOLFCAMP (GAS)</td></tr><tr><td>324139</td><td>MARGENE AWM FEDERAL #002Q</td><td>F</td><td>H-20-09S-26E</td><td>H</td><td>30-005-63456</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>MARGENE AWM FEDERAL #002Q</td><td>F</td><td>I-20-09S-26E</td><td>I</td><td>30-005-63488</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>MARGENE AWM FEDERAL #005Q</td><td>F</td><td>K-19-09S-26E</td><td>K</td><td>30-005-62690</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324140</td><td>MARIE VU FEDERAL #001</td><td>F</td><td>I-20-09S-25E</td><td>I</td><td>30-005-62001</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324142</td><td>MARSHALL APH #001</td><td>P</td><td>F-09-19S-25E</td><td>F</td><td>30-015-28543</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC)</td></tr><tr><td></td><td>MARSHALL APH #002</td><td>P</td><td>E-09-19S-25E</td><td>E</td><td>30-015-28748</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC)</td></tr><tr><td>324143</td><td>MARSHALL APH #004</td><td>P</td><td>D-09-19S-25E</td><td>D</td><td>30-015-29713</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC)</td></tr><tr><td>324144</td><td>MARSHALL XG COM #001</td><td>F</td><td>N-22-08S-26E</td><td>N</td><td>30-005-61967</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #001</td><td>S</td><td>P-11-22S-31E</td><td>P</td><td>30-015-26549</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #002</td><td>F</td><td>I-11-22S-31E</td><td>I</td><td>30-015-26650</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #003</td><td>F</td><td>O-11-22S-31E</td><td>O</td><td>30-015-26723</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #004</td><td>F</td><td>J-11-22S-31E</td><td>J</td><td>30-015-26724</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #006</td><td>F</td><td>A-11-22S-31E</td><td>A</td><td>30-015-26960</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #007H</td><td>F</td><td>H-11-22S-31E</td><td>H</td><td>30-015-40051</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #008H</td><td>F</td><td>A-11-22S-31E</td><td>A</td><td>30-015-39733</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #009</td><td>F</td><td>P-11-22S-31E</td><td>P</td><td>30-015-37512</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #010H</td><td>F</td><td>I-11-22S-31E</td><td>I</td><td>30-015-37509</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #011H</td><td>F</td><td>I-11-22S-31E</td><td>I</td><td>30-015-37510</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #013H</td><td>F</td><td>H-11-22S-31E</td><td>H</td><td>30-015-37511</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td></td><td>MARTHA AIK FEDERAL #014H</td><td>F</td><td>P-11-22S-31E</td><td>P</td><td>30-015-37556</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td>324145</td><td>MARY AIV STATE #003</td><td>S</td><td>B-36-21S-31E</td><td>B</td><td>30-015-26729</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>MARY AIV STATE #005</td><td>S</td><td>A-36-21S-31E</td><td>A</td><td>30-015-26760</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td>324146</td><td>MATLOCK AJW #001</td><td>P</td><td>J-04-19S-25E</td><td>J</td><td>30-015-20593</td><td>O</td><td>50280</td><td>PENASCO DRAW; UPPER PENN</td></tr><tr><td>324151</td><td>MCCAW COM #001</td><td>P</td><td>G-18-17S-24E</td><td>G</td><td>30-015-22516</td><td>O</td><td>78470</td><td>HIGH HOPE; ATOKA, EAST (GAS)</td></tr><tr><td>324153</td><td>MCCONKEY HX #001</td><td>P</td><td>D-10-09S-26E</td><td>D</td><td>30-005-00154</td><td>G</td><td>76730</td><td>FOUR RANCH; PRE PERMAN (GAS)</td></tr><tr><td></td><td>MCCONKEY HX #001</td><td>P</td><td>D-10-09S-26E</td><td>D</td><td>30-005-00154</td><td>O</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>MCCONKEY HX #001</td><td>P</td><td>D-10-09S-26E</td><td>D</td><td>30-005-00154</td><td>O</td><td>97066</td><td>FOUR RANCH; WOLFCAMP, NORTHWEST</td></tr><tr><td></td><td>MCCONKEY HX #004</td><td>P</td><td>L-10-09S-26E</td><td>L</td><td>30-005-62589</td><td>G</td><td>76730</td><td>FOUR RANCH; PRE PERMAN (GAS)</td></tr><tr><td></td><td>MCCONKEY HX #004</td><td>P</td><td>L-10-09S-26E</td><td>L</td><td>30-005-62589</td><td>G</td><td>97066</td><td>FOUR RANCH; WOLFCAMP, NORTHWEST</td></tr><tr><td>324154</td><td>MCCREA SF COM #001</td><td>P</td><td>C-14-09S-25E</td><td>C</td><td>30-005-61273</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324155</td><td>MCCREA TU COM #001</td><td>P</td><td>B-32-08S-26E</td><td>B</td><td>30-005-61566</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324156</td><td>MCDERMET T #001</td><td>P</td><td>J-19-06S-25E</td><td>J</td><td>30-005-61113</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324160</td><td>MCKITRICK ATS STATE #001</td><td>S</td><td>D-16-22S-24E</td><td>D</td><td>30-015-29105</td><td>G</td><td>97315</td><td>MCKITRICK HILLS; STRAWN W (G)</td></tr><tr><td>324161</td><td>MEADOWS COM #001</td><td>P</td><td>B-13-07S-25E</td><td>B</td><td>30-005-60911</td><td>O</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>MEADOWS COM #002</td><td>P</td><td>D-13-07S-25E</td><td>D</td><td>30-005-61148</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>324163</td><td>MEDANO VA STATE #002</td><td>S</td><td>E-16-23S-31E</td><td>E</td><td>30-015-26382</td><td>O</td><td>40297</td><td>LOS MEDANOS; DELAWARE</td></tr><tr><td></td><td>MEDANO VA STATE #003</td><td>S</td><td>F-16-23S-31E</td><td>F</td><td>30-015-26591</td><td>O</td><td>40297</td><td>LOS MEDANOS; DELAWARE</td></tr><tr><td></td><td>MEDANO VA STATE #004</td><td>S</td><td>L-16-23S-31E</td><td>L</td><td>30-015-26633</td><td>O</td><td>40297</td><td>LOS MEDANOS; DELAWARE</td></tr><tr><td></td><td>MEDANO VA STATE #005</td><td>S</td><td>M-16-23S-31E</td><td>M</td><td>30-015-27021</td><td>O</td><td>40297</td><td>LOS MEDANOS; DELAWARE</td></tr><tr><td></td><td>MEDANO VA STATE #006</td><td>S</td><td>N-16-23S-31E</td><td>N</td><td>30-015-27022</td><td>O</td><td>40297</td><td>LOS MEDANOS; DELAWARE</td></tr><tr><td></td><td>MEDANO VA STATE #007Q</td><td>S</td><td>O-16-23S-31E</td><td>O</td><td>30-015-32123</td><td>O</td><td>40297</td><td>LOS MEDANOS; DELAWARE</td></tr><tr><td></td><td>MEDANO VA STATE #008</td><td>S</td><td>P-16-23S-31E</td><td>P</td><td>30-015-33401</td><td>O</td><td>40297</td><td>&lt;nl&gt;</td></tr></table>",
+            "block_bbox": [
+                56,
+                42,
+                1168,
+                1536
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    42.0
+                ],
+                [
+                    1168.0,
+                    42.0
+                ],
+                [
+                    1168.0,
+                    1536.0
+                ],
+                [
+                    56.0,
+                    1536.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.987063467502594,
+                "coordinate": [
+                    56,
+                    42,
+                    1168,
+                    1536
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        42.0
+                    ],
+                    [
+                        1168.0,
+                        42.0
+                    ],
+                    [
+                        1168.0,
+                        1536.0
+                    ],
+                    [
+                        56.0,
+                        1536.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

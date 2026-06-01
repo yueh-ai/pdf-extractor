@@ -1,0 +1,278 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0049/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "3D $ ^{3} $ Directional Drilling Planner - 3D View",
+            "block_bbox": [
+                384,
+                66,
+                838,
+                94
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    384.0,
+                    66.0
+                ],
+                [
+                    838.0,
+                    66.0
+                ],
+                [
+                    838.0,
+                    94.0
+                ],
+                [
+                    384.0,
+                    94.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Company Yates Petroleum Corporation\nWell: Perdomo BMP State Com. #1H",
+            "block_bbox": [
+                57,
+                91,
+                425,
+                140
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    57.0,
+                    91.0
+                ],
+                [
+                    425.0,
+                    91.0
+                ],
+                [
+                    425.0,
+                    140.0
+                ],
+                [
+                    57.0,
+                    140.0
+                ]
+            ]
+        },
+        {
+            "block_label": "chart",
+            "block_content": "",
+            "block_bbox": [
+                285,
+                293,
+                976,
+                1255
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    285.0,
+                    293.0
+                ],
+                [
+                    976.0,
+                    293.0
+                ],
+                [
+                    976.0,
+                    1255.0
+                ],
+                [
+                    285.0,
+                    1255.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "File: G:\\drilling toolbox wellplans\\Horizontal\\perdomo1h.wpp",
+            "block_bbox": [
+                59,
+                1468,
+                579,
+                1496
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    59.0,
+                    1468.0
+                ],
+                [
+                    579.0,
+                    1468.0
+                ],
+                [
+                    579.0,
+                    1496.0
+                ],
+                [
+                    59.0,
+                    1496.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.38863447308540344,
+                "coordinate": [
+                    384,
+                    66,
+                    838,
+                    94
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        384.0,
+                        66.0
+                    ],
+                    [
+                        838.0,
+                        66.0
+                    ],
+                    [
+                        838.0,
+                        94.0
+                    ],
+                    [
+                        384.0,
+                        94.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.3141694664955139,
+                "coordinate": [
+                    57,
+                    91,
+                    425,
+                    140
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        57.0,
+                        91.0
+                    ],
+                    [
+                        425.0,
+                        91.0
+                    ],
+                    [
+                        425.0,
+                        140.0
+                    ],
+                    [
+                        57.0,
+                        140.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 3,
+                "label": "chart",
+                "score": 0.9021246433258057,
+                "coordinate": [
+                    285,
+                    293,
+                    976,
+                    1255
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        285.0,
+                        293.0
+                    ],
+                    [
+                        976.0,
+                        293.0
+                    ],
+                    [
+                        976.0,
+                        1255.0
+                    ],
+                    [
+                        285.0,
+                        1255.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.6252259612083435,
+                "coordinate": [
+                    59,
+                    1468,
+                    579,
+                    1496
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        59.0,
+                        1468.0
+                    ],
+                    [
+                        579.0,
+                        1468.0
+                    ],
+                    [
+                        579.0,
+                        1496.0
+                    ],
+                    [
+                        59.0,
+                        1496.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,400 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0019/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1583,
+    "height": 1227,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "Jericho BKJ State Co",
+            "block_bbox": [
+                716,
+                49,
+                887,
+                69
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    716.0,
+                    49.0
+                ],
+                [
+                    886.0,
+                    49.0
+                ],
+                [
+                    886.0,
+                    68.0
+                ],
+                [
+                    716.0,
+                    68.0
+                ]
+            ]
+        },
+        {
+            "block_label": "header",
+            "block_content": "http://www.yatespetroleum.com",
+            "block_bbox": [
+                1203,
+                49,
+                1446,
+                69
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    1202.9998779296875,
+                    49.0
+                ],
+                [
+                    1444.9998779296875,
+                    49.0
+                ],
+                [
+                    1444.9998779296875,
+                    68.0
+                ],
+                [
+                    1202.9998779296875,
+                    68.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td colspan=\"5\">Co: 0</td><td colspan=\"4\">Units: Feet, ° 9100ft</td><td colspan=\"2\">VS Az: 270.00</td><td colspan=\"2\">Tgt TVD: 6125.00</td></tr><tr><td colspan=\"5\">Drillers: 0</td><td colspan=\"4\">Elevation:</td><td colspan=\"2\">Tgt Radius: 0.00</td><td colspan=\"2\">Tgt MD: 0.00</td></tr><tr><td colspan=\"5\">Well Name: Jericho BKJ State Com #2H</td><td colspan=\"4\">Northing:</td><td colspan=\"2\">Tgt N/S: 0.00</td><td colspan=\"2\">Tgt Displ.: 0.00</td></tr><tr><td colspan=\"5\">Location: 0</td><td colspan=\"4\">Easting:</td><td colspan=\"2\">Tgt E/W: -4280.00</td><td colspan=\"2\">Method: Minimum Curvature</td></tr><tr><td colspan=\"5\">Jericho BKJ State Com 2H</td><td colspan=\"4\"></td><td colspan=\"2\"></td><td colspan=\"2\"></td></tr><tr><td>No</td><td>MD</td><td>CL</td><td>Inc.</td><td>Azi.</td><td>TVD</td><td>VS</td><td>+N/S-</td><td>+E/W-</td><td>BR</td><td>WR</td><td>DLS</td><td>Comments</td></tr><tr><td>0</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td><td></td><td></td><td></td></tr><tr><td>1</td><td>500.00</td><td>500.00</td><td>0.00</td><td>360.00</td><td>500.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00 Castille</td><td></td></tr><tr><td>2</td><td>700.04</td><td>200.04</td><td>0.00</td><td>360.00</td><td>700.04</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00 TOS</td><td></td></tr><tr><td>3</td><td>2100.00</td><td>1399.96</td><td>0.00</td><td>360.00</td><td>2100.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00 BOS</td><td></td></tr><tr><td>4</td><td>2280.00</td><td>180.00</td><td>0.00</td><td>360.00</td><td>2280.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00 Bell Canyon</td><td></td></tr><tr><td>5</td><td>3050.01</td><td>770.01</td><td>0.00</td><td>360.00</td><td>3050.01</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00 Cherry Canyon</td><td></td></tr><tr><td>6</td><td>4179.99</td><td>1129.99</td><td>0.00</td><td>360.00</td><td>4179.99</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00 Brushy Canyon</td><td></td></tr><tr><td>7</td><td>5530.00</td><td>1350.01</td><td>0.00</td><td>360.00</td><td>5530.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00 Brushy Canyon Marker</td><td></td></tr><tr><td>8</td><td>5647.54</td><td>5647.54</td><td>0.00</td><td>270.00</td><td>5647.54</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>-1.59</td><td>0.00 KOP</td><td></td></tr><tr><td>9</td><td>5700.00</td><td>52.46</td><td>6.29</td><td>270.00</td><td>5699.89</td><td>2.88</td><td>0.00</td><td>-2.88</td><td>12.00</td><td>0.00</td><td>12.00</td><td></td></tr><tr><td>10</td><td>5802.76</td><td>155.23</td><td>18.62</td><td>270.00</td><td>5800.04</td><td>25.00</td><td>0.00</td><td>-25.00</td><td>12.00</td><td>0.00</td><td>12.00 Bone Springs</td><td></td></tr><tr><td>11</td><td>5900.00</td><td>97.24</td><td>30.30</td><td>270.00</td><td>5888.40</td><td>65.19</td><td>0.00</td><td>-65.19</td><td>12.01</td><td>0.00</td><td>12.01</td><td></td></tr><tr><td>12</td><td>6100.00</td><td>200.00</td><td>54.30</td><td>270.00</td><td>6035.26</td><td>198.80</td><td>0.01</td><td>-198.80</td><td>12.00</td><td>0.00</td><td>12.00</td><td></td></tr><tr><td>13</td><td>6300.00</td><td>200.00</td><td>78.30</td><td>270.00</td><td>6115.08</td><td>380.59</td><td>0.01</td><td>-380.59</td><td>12.00</td><td>0.00</td><td>12.00</td><td></td></tr><tr><td>14</td><td>6397.53</td><td>750.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>477.46</td><td>0.00</td><td>-477.46</td><td>12.00</td><td>0.00</td><td>12.00 EOC (Avalon Shale Target)</td><td></td></tr><tr><td>15</td><td>6700.00</td><td>302.47</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>779.93</td><td>0.01</td><td>-779.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>16</td><td>7200.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>1279.93</td><td>0.01</td><td>-1279.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>17</td><td>7700.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>1779.93</td><td>0.01</td><td>-1779.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>18</td><td>8200.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>2279.93</td><td>0.01</td><td>-2279.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>19</td><td>8700.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.00</td><td>2779.93</td><td>0.01</td><td>-2779.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>20</td><td>9200.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.01</td><td>3279.93</td><td>0.01</td><td>-3279.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>21</td><td>9700.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.01</td><td>3779.93</td><td>0.01</td><td>-3779.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>22</td><td>10200.00</td><td>500.00</td><td>90.00</td><td>270.00</td><td>6125.01</td><td>4279.93</td><td>0.01</td><td>-4279.93</td><td>0.00</td><td>0.00</td><td>0.00</td><td></td></tr><tr><td>23</td><td>10200.07</td><td>3802.54</td><td>90.00</td><td>270.00</td><td>6125.01</td><td>4280.00</td><td>0.01</td><td>-4280.00</td><td>0.00</td><td>0.00</td><td>0.00 EOL</td><td></td></tr></table>",
+            "block_bbox": [
+                116,
+                78,
+                1547,
+                729
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    116.0,
+                    78.0
+                ],
+                [
+                    1547.0,
+                    78.0
+                ],
+                [
+                    1547.0,
+                    729.0
+                ],
+                [
+                    116.0,
+                    729.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "SuRF: ©2006-2010 Trant Logistics, LLC",
+            "block_bbox": [
+                155,
+                1122,
+                469,
+                1144
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    155.0,
+                    1122.0
+                ],
+                [
+                    469.0,
+                    1122.0
+                ],
+                [
+                    469.0,
+                    1144.0
+                ],
+                [
+                    155.0,
+                    1144.0
+                ]
+            ]
+        },
+        {
+            "block_label": "number",
+            "block_content": "Page 1 of 1",
+            "block_bbox": [
+                752,
+                1123,
+                849,
+                1145
+            ],
+            "block_id": 4,
+            "block_order": null,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    752.0,
+                    1123.0
+                ],
+                [
+                    848.0,
+                    1123.0
+                ],
+                [
+                    848.0,
+                    1144.0
+                ],
+                [
+                    752.0,
+                    1144.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "www.trantlogistics.com",
+            "block_bbox": [
+                1267,
+                1123,
+                1446,
+                1144
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    1267.0,
+                    1123.0
+                ],
+                [
+                    1445.0,
+                    1123.0
+                ],
+                [
+                    1445.0,
+                    1143.0
+                ],
+                [
+                    1267.0,
+                    1143.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.8069239854812622,
+                "coordinate": [
+                    716,
+                    49,
+                    887,
+                    69
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        716.0,
+                        49.0
+                    ],
+                    [
+                        886.0,
+                        49.0
+                    ],
+                    [
+                        886.0,
+                        68.0
+                    ],
+                    [
+                        716.0,
+                        68.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.8189978003501892,
+                "coordinate": [
+                    1203,
+                    49,
+                    1446,
+                    69
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1202.9998779296875,
+                        49.0
+                    ],
+                    [
+                        1444.9998779296875,
+                        49.0
+                    ],
+                    [
+                        1444.9998779296875,
+                        68.0
+                    ],
+                    [
+                        1202.9998779296875,
+                        68.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9141942262649536,
+                "coordinate": [
+                    116,
+                    78,
+                    1547,
+                    729
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        116.0,
+                        78.0
+                    ],
+                    [
+                        1547.0,
+                        78.0
+                    ],
+                    [
+                        1547.0,
+                        729.0
+                    ],
+                    [
+                        116.0,
+                        729.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.8529635071754456,
+                "coordinate": [
+                    155,
+                    1122,
+                    469,
+                    1144
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        155.0,
+                        1122.0
+                    ],
+                    [
+                        469.0,
+                        1122.0
+                    ],
+                    [
+                        469.0,
+                        1144.0
+                    ],
+                    [
+                        155.0,
+                        1144.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.8145943880081177,
+                "coordinate": [
+                    752,
+                    1123,
+                    849,
+                    1145
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        752.0,
+                        1123.0
+                    ],
+                    [
+                        848.0,
+                        1123.0
+                    ],
+                    [
+                        848.0,
+                        1144.0
+                    ],
+                    [
+                        752.0,
+                        1144.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.8500775098800659,
+                "coordinate": [
+                    1267,
+                    1123,
+                    1446,
+                    1144
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1267.0,
+                        1123.0
+                    ],
+                    [
+                        1445.0,
+                        1123.0
+                    ],
+                    [
+                        1445.0,
+                        1143.0
+                    ],
+                    [
+                        1267.0,
+                        1143.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

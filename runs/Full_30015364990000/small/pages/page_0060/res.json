@@ -1,0 +1,308 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0060/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1588,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "3D $ ^{3} $ Directional Drilling Planner - 3D View",
+            "block_bbox": [
+                378,
+                51,
+                835,
+                79
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    378.0,
+                    51.0
+                ],
+                [
+                    835.0,
+                    51.0
+                ],
+                [
+                    835.0,
+                    79.0
+                ],
+                [
+                    378.0,
+                    79.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Company: Yates Petroleum Corporation\nWell: Perdomo BMP State Com. #1H",
+            "block_bbox": [
+                45,
+                76,
+                418,
+                126
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    45.0,
+                    76.0
+                ],
+                [
+                    418.0,
+                    76.0
+                ],
+                [
+                    418.0,
+                    126.0
+                ],
+                [
+                    45.0,
+                    126.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                561,
+                273,
+                832,
+                1260
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    561.0,
+                    273.0
+                ],
+                [
+                    832.0,
+                    273.0
+                ],
+                [
+                    832.0,
+                    1260.0
+                ],
+                [
+                    561.0,
+                    1260.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "File: G:\\drilling toolbox wellplans\\Horizontal\\perdomo1h.wpp",
+            "block_bbox": [
+                50,
+                1475,
+                573,
+                1503
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    50.0,
+                    1475.0
+                ],
+                [
+                    573.0,
+                    1475.0
+                ],
+                [
+                    573.0,
+                    1503.0
+                ],
+                [
+                    50.0,
+                    1503.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.534351646900177,
+                "coordinate": [
+                    378,
+                    51,
+                    835,
+                    79
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        378.0,
+                        51.0
+                    ],
+                    [
+                        835.0,
+                        51.0
+                    ],
+                    [
+                        835.0,
+                        79.0
+                    ],
+                    [
+                        378.0,
+                        79.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 15,
+                "label": "inline_formula",
+                "score": 0.43840980529785156,
+                "coordinate": [
+                    380,
+                    52,
+                    420,
+                    76
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        380.0,
+                        52.0
+                    ],
+                    [
+                        380.0,
+                        75.0
+                    ],
+                    [
+                        419.0,
+                        75.0
+                    ],
+                    [
+                        419.0,
+                        52.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.49272873997688293,
+                "coordinate": [
+                    45,
+                    76,
+                    418,
+                    126
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        45.0,
+                        76.0
+                    ],
+                    [
+                        418.0,
+                        76.0
+                    ],
+                    [
+                        418.0,
+                        126.0
+                    ],
+                    [
+                        45.0,
+                        126.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.9071539044380188,
+                "coordinate": [
+                    561,
+                    273,
+                    832,
+                    1260
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        561.0,
+                        273.0
+                    ],
+                    [
+                        832.0,
+                        273.0
+                    ],
+                    [
+                        832.0,
+                        1260.0
+                    ],
+                    [
+                        561.0,
+                        1260.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.7387167811393738,
+                "coordinate": [
+                    50,
+                    1475,
+                    573,
+                    1503
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        50.0,
+                        1475.0
+                    ],
+                    [
+                        573.0,
+                        1475.0
+                    ],
+                    [
+                        573.0,
+                        1503.0
+                    ],
+                    [
+                        50.0,
+                        1503.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,217 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0050/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "3D $ ^{3} $ Directional Drilling Planner - 3D View",
+            "block_bbox": [
+                385,
+                68,
+                844,
+                96
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    385.0,
+                    68.0
+                ],
+                [
+                    844.0,
+                    68.0
+                ],
+                [
+                    844.0,
+                    96.0
+                ],
+                [
+                    385.0,
+                    96.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>0</td><td>900</td><td>1800</td><td>2700</td><td>3600</td><td>1500</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                160,
+                701,
+                1105,
+                846
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    160.00001525878906,
+                    701.0
+                ],
+                [
+                    1102.77001953125,
+                    692.95068359375
+                ],
+                [
+                    1104.0,
+                    837.0
+                ],
+                [
+                    161.22998046875,
+                    845.04931640625
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "File: G:\\drilling toolbox wellplans\\Horizontal\\perdomo1h.wpp",
+            "block_bbox": [
+                58,
+                1468,
+                582,
+                1496
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    58.0,
+                    1468.0
+                ],
+                [
+                    582.0,
+                    1468.0
+                ],
+                [
+                    582.0,
+                    1496.0
+                ],
+                [
+                    58.0,
+                    1496.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.31529027223587036,
+                "coordinate": [
+                    385,
+                    68,
+                    844,
+                    96
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        385.0,
+                        68.0
+                    ],
+                    [
+                        844.0,
+                        68.0
+                    ],
+                    [
+                        844.0,
+                        96.0
+                    ],
+                    [
+                        385.0,
+                        96.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.4003739655017853,
+                "coordinate": [
+                    160,
+                    701,
+                    1105,
+                    846
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        160.00001525878906,
+                        701.0
+                    ],
+                    [
+                        1102.77001953125,
+                        692.95068359375
+                    ],
+                    [
+                        1104.0,
+                        837.0
+                    ],
+                    [
+                        161.22998046875,
+                        845.04931640625
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.7866945862770081,
+                "coordinate": [
+                    58,
+                    1468,
+                    582,
+                    1496
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        58.0,
+                        1468.0
+                    ],
+                    [
+                        582.0,
+                        1468.0
+                    ],
+                    [
+                        582.0,
+                        1496.0
+                    ],
+                    [
+                        58.0,
+                        1496.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

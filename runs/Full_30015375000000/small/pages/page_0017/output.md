@@ -1,0 +1,30 @@
+
+<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td rowspan="4">-- Submit 3 Copies To Appropriate District Office\nDistrict I\n1625 N. French Dr., Hobbs, NM 88240\nDistrict II\n1301 W. Grand Ave., Artesia, NM 88210\nDistrict III\n1000 Rio Brazos Rd., Aztec, NM 87410\nDistrict IV\n1220 S. St. Francis Dr., Santa Fe, NM\n87505</td><td style='text-align: center; word-wrap: break-word;'>State of New Mexico\nEnergy, Minerals and Natural Resources</td><td style='text-align: center; word-wrap: break-word;'>Form C-103\nMay 27, 2004</td></tr><tr><td rowspan="3">OIL CONSERVATION DIVISION\n1220 South St. Francis Dr.\nSanta Fe, NM 87505</td><td style='text-align: center; word-wrap: break-word;'>WELL API NO.\n30-015-37500</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>5. Indicate Type of Lease\nSTATE ☒ FEE ☐</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6. State Oil &amp; Gas Lease No.\nV-7318</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>SUNDRY NOTICES AND REPORTS ON WELLS\n(DO NOT USE THIS FORM FOR PROPOSALS TO DRILL OR TO DEEPEN OR PLUG BACK TO A DIFFERENT RESERVOIR. USE &quot;APPLICATION FOR PERMIT&quot; (FORM C-101) FOR SUCH PROPOSALS.)\n1. Type of Well: Oil Well ☒ Gas Well ☐ Other RECEIVED</td><td style='text-align: center; word-wrap: break-word;'>7. Lease Name or Unit Agreement Name\nJericho BKJ State Com.</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2. Name of Operator\nYates Petroleum Corporation</td><td style='text-align: center; word-wrap: break-word;'>JUN 15 2010</td><td style='text-align: center; word-wrap: break-word;'>8. Well Number\n2H</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3. Address of Operator\n105 S.  $ 4^{{th}} $ Street, Artesia, NM 88210</td><td style='text-align: center; word-wrap: break-word;'>NMOCD ARTESIA</td><td style='text-align: center; word-wrap: break-word;'>9. OGRID Number\n025575</td></tr><tr><td colspan="3">4. Well Location\nUnit Letter A : 660 feet from the North line and 330 feet from the East line</td></tr><tr><td colspan="3">Section 15 Township 25S Range 27E NMPM Eddy County</td></tr><tr><td colspan="3">11. Elevation (Show whether DR, RKB, RT, GR, etc.)\n3170&#x27;</td></tr><tr><td colspan="3">Pit or Below-grade Tank Application ☐ or Closure ☐</td></tr><tr><td colspan="3">Pit type ________ Depth to Groundwater ________ Distance from nearest fresh water well ________ Distance from nearest surface water ________</td></tr><tr><td colspan="3">Pit Liner Thickness: ________ mil Below-Grade Tank: Volume ________ bbls; Construction Material</td></tr></table>
+
+<div style="text-align: center;">12. Check Appropriate Box to Indicate Nature of Notice, Report or Other Data</div>
+
+
+
+<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan="3">NOTICE OF INTENTION TO:</td><td colspan="3">SUBSEQUENT REPORT OF:</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>PERFORM REMEDIAL WORK ☐</td><td style='text-align: center; word-wrap: break-word;'>PLUG AND ABANDON ☐</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>REMEDIAL WORK ☐</td><td style='text-align: center; word-wrap: break-word;'>ALTERING CASING ☐</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>TEMPORARILY ABANDON ☐</td><td style='text-align: center; word-wrap: break-word;'>CHANGE PLANS ☒</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>COMMENCE DRILLING OPNS. ☐</td><td style='text-align: center; word-wrap: break-word;'>PLUG AND ABANDON ☐</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>PULL OR ALTER CASING ☐</td><td style='text-align: center; word-wrap: break-word;'>MULTIPLE COMPL ☐</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>CASING/CEMENT JOB ☐</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>OTHER:</td><td style='text-align: center; word-wrap: break-word;'>☐</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>OTHER:</td><td style='text-align: center; word-wrap: break-word;'>☐</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>
+
+13. Describe proposed or completed operations. (Clearly state all pertinent details, and give pertinent dates, including estimated date of starting any proposed work). SEE RULE 1103. For Multiple Completions: Attach wellbore diagram of proposed completion or recompletion.
+
+Bottom hole location for this well is Section 15, T25S-R27E, Unit D. 660' FNL and 330' FWL.
+
+Yates Petroleum Corporation respectfully requests permission to change the target formation for this well.
+
+Attached is the new directional plan as well as revised production casing design.
+
+Thank-you.
+
+I hereby certify that the information above is true and complete to the best of my knowledge and belief. I further certify that any pit or below-grade tank has been/will be constructed or closed according to NMOCD guidelines □, a general permit ☒ or an (attached) alternative OCD-approved plan □.
+
+SIGNATURE  $ \underline{\text{Jeremim Mullin}} $ TITLE  $ \underline{\text{Well Planning Technician}} $ DATE  $ \underline{\text{6/11/10}} $
+
+Type or print name  $ \underline{\text{Jeremiah Mullen}} $
+
+Conditions of Approval (if any):
+
+TITLE Geologist
+
+DATE 13/30/80

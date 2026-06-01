@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0068/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>324204</td><td>MOCHA AQL STATE #001</td><td>P</td><td>3-02-13S-34E</td><td>C</td><td>30-025-35761</td><td>G</td><td>97230</td><td>RANGER LAKE, MORROW, SOUTH (GAS)</td></tr><tr><td>324216</td><td>MOCHA AQL STATE #001</td><td>P</td><td>3-02-13S-34E</td><td>C</td><td>30-025-35761</td><td>G</td><td>97231</td><td>RANGER LAKE, AUSTIN, SOUTH (GAS)</td></tr><tr><td>324230</td><td>NAGUSS BRN STATE COM #001H</td><td>S</td><td>4-30-21S-34E</td><td>M</td><td>30-025-40303</td><td>O</td><td>97872</td><td>WILDCAT G-06 S1531260; WOLFCAMP</td></tr><tr><td>324234</td><td>NECTARINE BSQ STATE COM #002</td><td>S</td><td>L-24-21S-33E</td><td>L</td><td>30-025-42460</td><td>O</td><td>97962</td><td>WC-025 G-07 S213430M; BONE SPRING</td></tr><tr><td>324249</td><td>NINJA BMN STATE COM #001H</td><td>F</td><td>A-11-15S-31E</td><td>A</td><td>30-005-29083</td><td>O</td><td>97715</td><td>WILDCAT G-05 S1531110; ABO-WOLFCAMP</td></tr><tr><td>324274</td><td>OAKRIDGE BIL STATE COM #002</td><td>S</td><td>O-20-11S-34E</td><td>O</td><td>30-025-36750</td><td>G</td><td>97190</td><td>EIGHT MILE DRAW; MORROW NW (GAS)</td></tr><tr><td>324275</td><td>OAKRIDGE BIO STATE COM #003</td><td>S</td><td>J-31-11S-34E</td><td>J</td><td>30-025-38887</td><td>G</td><td>97424</td><td>BAGLEY; MORROW, EAST (GAS)</td></tr><tr><td>324283</td><td>ORBISON BOM STATE COM #001</td><td>S</td><td>H-14-12S-34E</td><td>H</td><td>30-025-36816</td><td>G</td><td>97164</td><td>FOUR LAKES; AUSTIN, SOUTH (GAS)</td></tr><tr><td>324284</td><td>ORBISON BON STATE COM #002</td><td>S</td><td>J-14-12S-34E</td><td>J</td><td>30-025-38888</td><td>O</td><td>97728</td><td>WILDCAT G-08 S123414J; DEVONIAN</td></tr><tr><td>324303</td><td>PARSLEY ARA FEDERAL #001</td><td>F</td><td>P-26-23S-32E</td><td>P</td><td>30-025-33863</td><td>O</td><td>59930</td><td>TRISTE DRAW; DELAWARE</td></tr><tr><td>324304</td><td>PARSLEY ARA FEDERAL #001</td><td>F</td><td>P-26-23S-32E</td><td>P</td><td>30-025-33863</td><td>O</td><td>96003</td><td>TRISTE DRAW; BONE SPRING</td></tr><tr><td>324310</td><td>PATSY BPH STATE COM #006</td><td>S</td><td>M-26-23S-32E</td><td>M</td><td>30-025-41686</td><td>O</td><td>96003</td><td>TRISTE DRAW; BONE SPRING</td></tr><tr><td>324311</td><td>PATSY BPH STATE COM #006</td><td>S</td><td>2-02-12S-31E</td><td>B</td><td>30-005-29109</td><td>G</td><td>73780</td><td>CAPROCK; MORROW, WEST (GAS)</td></tr><tr><td>324312</td><td>PATSY BPH STATE COM #007</td><td>S</td><td>O-35-11S-31E</td><td>O</td><td>30-005-29121</td><td>G</td><td>96039</td><td>WILDCAT; GROUP 8</td></tr><tr><td>324313</td><td>PATSY BPH STATE COM #002</td><td>S</td><td>M-11-12S-31E</td><td>M</td><td>30-005-27934</td><td>G</td><td>96039</td><td>WILDCAT; GROUP 8</td></tr><tr><td>324313</td><td>PATSY BPH STATE COM #008</td><td>S</td><td>H-14-12S-31E</td><td>H</td><td>30-005-20981</td><td>G</td><td>97838</td><td>JENNINGS; UPPER BONE SPRING SHALE</td></tr><tr><td>324367</td><td>PRESIDENTE BPD STATE COM #001H</td><td>S</td><td>D-32-25S-32E</td><td>D</td><td>30-025-39660</td><td>O</td><td>97838</td><td>JENNINGS; UPPER BONE SPRING SHALE</td></tr><tr><td>324385</td><td>QUETZAL AQA STATE #001</td><td>S</td><td>J-08-11S-33E</td><td>J</td><td>30-025-33460</td><td>O</td><td>3820</td><td>BAGLEY; PERMO PENN, NORTH</td></tr><tr><td>324387</td><td>QUJOTE BQJ STATE COM #001H</td><td>S</td><td>O-02-26S-32E</td><td>O</td><td>30-025-39947</td><td>O</td><td>97879</td><td>WILDCAT G-06 S2632020; BONE SPRING</td></tr><tr><td>324390</td><td>QUOTA AQT STATE #001</td><td>S</td><td>F-01-09S-32E</td><td>F</td><td>30-025-33743</td><td>O</td><td>4709</td><td>BAR-U; PENN</td></tr><tr><td>324392</td><td>RAITT BID STATE #001</td><td>S</td><td>P-35-10S-32E</td><td>P</td><td>30-025-37982</td><td>G</td><td>14980</td><td>CUERNO LARGO; UPPER PENNSYLVANIAN</td></tr><tr><td>324398</td><td>RAY BBR STATE #001</td><td>S</td><td>P-25-11S-35E</td><td>P</td><td>30-025-02674</td><td>G</td><td>97291</td><td>DEMPSTER MILL; MISSISSIPPIAN (GAS)</td></tr><tr><td>324399</td><td>RAY BBR STATE COM #001</td><td>S</td><td>P-25-11S-35E</td><td>P</td><td>30-025-02674</td><td>G</td><td>97299</td><td>DEMPSTER MILL; ATOKA (GAS)</td></tr><tr><td>324401</td><td>REBA BNS STATE COM #001</td><td>S</td><td>C-29-11S-35E</td><td>C</td><td>30-025-36527</td><td>G</td><td>97053</td><td>FOUR LAKES; MISSISSIPPIAN (GAS)</td></tr><tr><td>324401</td><td>REBA BNU STATE COM #005</td><td>S</td><td>K-32-11S-35E</td><td>K</td><td>30-025-31243</td><td>O</td><td>97082</td><td>FOUR LAKES; MORROW (GAS)</td></tr><tr><td>324405</td><td>RED HAT STATE SWD #001</td><td>S</td><td>15-02-16S-33E</td><td>G</td><td>30-025-31110</td><td>S</td><td>96127</td><td>SWD; SAN ANDRES-GLORIETA</td></tr><tr><td>324409</td><td>REESE BDE STATE COM #001</td><td>S</td><td>J-13-12S-34E</td><td>J</td><td>30-025-29791</td><td>O</td><td>97349</td><td>RANGER LAKE; ATOKA, NORTH (GAS)</td></tr><tr><td>324414</td><td>RENEGADE BPG FEDERAL #001H</td><td>F</td><td>1-18-26S-35E</td><td>D</td><td>30-025-39768</td><td>O</td><td>96672</td><td>WC-025 G-08 S263412K; BONE SPRING</td></tr><tr><td>324415</td><td>RESOLUTE BTO FEDERAL #001H</td><td>F</td><td>A-12-25S-32E</td><td>A</td><td>30-025-42214</td><td>O</td><td>97903</td><td>WC-025 G-08 S252325G; LWR BONE SPRIN</td></tr><tr><td>324416</td><td>RESOLUTE BTO FEDERAL COM #002H</td><td>F</td><td>G-24-25S-32E</td><td>G</td><td>30-025-41452</td><td>O</td><td>97784</td><td>WC-025 G-06 S253201M; UPPER BONE SPR</td></tr><tr><td>324421</td><td>RIDER BRQ FEDERAL COM #002H</td><td>F</td><td>M-13-25S-34E</td><td>M</td><td>30-025-40558</td><td>O</td><td>96340</td><td>FAIRVIEW MILLS; BONE SPRING</td></tr><tr><td>324446</td><td>ROKESMITH BDI STATE COM #001</td><td>S</td><td>I-02-11S-34E</td><td>I</td><td>30-025-36582</td><td>G</td><td>84871</td><td>SAN D SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324453</td><td>ROKESMITH BDI STATE COM #001</td><td>S</td><td>I-02-11S-34E</td><td>I</td><td>30-025-36582</td><td>G</td><td>97125</td><td>SAN D SPRINGS; MISSISSIPPIAN (GAS)</td></tr><tr><td>324490</td><td>ROSEMARY SWD #001</td><td>F</td><td>6-06-22S-32E</td><td>L</td><td>30-025-31227</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td>324492</td><td>SAN SIMON AWO STATE COM #001</td><td>S</td><td>O-18-23S-35E</td><td>O</td><td>30-025-33000</td><td>O</td><td>96446</td><td>SAN SIMON SINK; MORROW (GAS)</td></tr><tr><td>324492</td><td>SAN SPRINGS ASU STATE COM #001</td><td>S</td><td>C-11-11S-34E</td><td>C</td><td>30-025-29843</td><td>G</td><td>84871</td><td>SAN SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324492</td><td>SAN SPRINGS ASU STATE COM #003</td><td>S</td><td>J-11-11S-34E</td><td>J</td><td>30-025-34861</td><td>G</td><td>84871</td><td>SAN SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324492</td><td>SAN SPRINGS ASU STATE COM #004</td><td>S</td><td>B-11-11S-34E</td><td>B</td><td>30-025-34899</td><td>O</td><td>84871</td><td>SAN SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324514</td><td>SAN SPRINGS ASU STATE COM #005</td><td>S</td><td>L-11-11S-34E</td><td>L</td><td>30-025-37265</td><td>G</td><td>84871</td><td>SAN SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324514</td><td>SCOOTER BPR FEDERAL #001H</td><td>F</td><td>A-28-15S-31E</td><td>A</td><td>30-005-29172</td><td>O</td><td>97722</td><td>WILDCAT G-05 S153117E; ABO-WOLFCAMP</td></tr><tr><td>324524</td><td>SCOOTER BPR FEDERAL #002H</td><td>F</td><td>H-28-15S-31E</td><td>H</td><td>30-005-29173</td><td>O</td><td>97722</td><td>WILDCAT G-05 S153117E; ABO-WOLFCAMP</td></tr><tr><td>324524</td><td>SEPTEMBER GRASS BSG STATE COM #001H</td><td>S</td><td>J-05-21S-34E</td><td>J</td><td>30-025-40576</td><td>O</td><td>5535</td><td>BERRY; BONE SPRING, NORTH</td></tr><tr><td>324535</td><td>SHINNERY AZG STATE #001</td><td>S</td><td>D-09-10S-34E</td><td>D</td><td>30-025-34989</td><td>G</td><td>36673</td><td>LANE; ABO; EAST</td></tr><tr><td>324539</td><td>SHINNERY AZG STATE #002Y</td><td>S</td><td>F-09-10S-34E</td><td>F</td><td>30-025-38573</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324545</td><td>SHOOTING STAR STATE SWD #001</td><td>P</td><td>J-11-18S-35E</td><td>J</td><td>30-025-29805</td><td>S</td><td>96095</td><td>SWD; BONE SPRING</td></tr><tr><td>324545</td><td>SIMANOLA AWM STATE COM #001</td><td>S</td><td>K-15-10S-34E</td><td>K</td><td>30-025-31943</td><td>O</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324548</td><td>SKAGGES BES STATE COM #001</td><td>S</td><td>G-15-10S-34E</td><td>G</td><td>30-025-36729</td><td>G</td><td>36676</td><td>LANE; ABO; SOUTHEAST</td></tr><tr><td>324566</td><td>SOMBREO MS STATE COM #001</td><td>S</td><td>J-22-16S-33E</td><td>J</td><td>30-025-26591</td><td>O</td><td>35330</td><td>KEMNITZ; CISCO; SOUTH</td></tr><tr><td>324568</td><td>SOMBREO MS STATE COM #001</td><td>S</td><td>J-22-16S-33E</td><td>J</td><td>30-025-26591</td><td>O</td><td>35330</td><td>KEMNITZ; LOWER WOLFCAMP</td></tr><tr><td>324618</td><td>SOONER AHP FED #001</td><td>F</td><td>N-26-09S-33E</td><td>N</td><td>30-025-30938</td><td>O</td><td>36671</td><td>LANE; ABO</td></tr><tr><td>324618</td><td>STATE QE 13 #001</td><td>S</td><td>N-13-12S-34E</td><td>N</td><td>30-025-29634</td><td>O</td><td>97362</td><td>RANGER LAKE; MORROW, NORTH (GAS)</td></tr><tr><td>324631</td><td>STRAIT BLH STATE #001</td><td>S</td><td>I-33-10S-34E</td><td>I</td><td>30-025-36253</td><td>G</td><td>84871</td><td>SAN SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324631</td><td>STRAIT BLH STATE #007</td><td>S</td><td>K-33-10S-34E</td><td>K</td><td>30-025-38863</td><td>G</td><td>84871</td><td>SAN SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>324632</td><td>STRAIT BLH STATE COM #004</td><td>S</td><td>K-33-10S-34E</td><td>K</td><td>30-025-38863</td><td>G</td><td>97125</td><td>SAN SPRINGS; MISSISSIPPIAN (GAS)</td></tr><tr><td>324632</td><td>TRAIT BLJ STATE COM #004</td><td>S</td><td>J-21-10S-34E</td><td>J</td><td>30-025-37260</td><td>G</td><td>97049</td><td>X-4 RANCH; MORROW (GAS)</td></tr><tr><td>324632</td><td>TRAIT BLJ STATE COM #005</td><td>S</td><td>J-21-10S-34E</td><td>J</td><td>30-025-37260</td><td>G</td><td>97090</td><td>X-4 RANCH; ATOKA (GAS)</td></tr><tr><td>324632</td><td>TRAIT BLN STATE COM #005</td><td>S</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                55,
+                42,
+                1169,
+                1537
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    55.0,
+                    42.0
+                ],
+                [
+                    1169.0,
+                    42.0
+                ],
+                [
+                    1169.0,
+                    1537.0
+                ],
+                [
+                    55.0,
+                    1537.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9871353507041931,
+                "coordinate": [
+                    55,
+                    42,
+                    1169,
+                    1537
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        55.0,
+                        42.0
+                    ],
+                    [
+                        1169.0,
+                        42.0
+                    ],
+                    [
+                        1169.0,
+                        1537.0
+                    ],
+                    [
+                        55.0,
+                        1537.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

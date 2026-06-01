@@ -1,0 +1,20 @@
+{
+  "input_pdf": "/private/var/folders/08/f9s3zd8d0sb2lmb32cd9chm00000gn/T/pytest-of-yuehu/pytest-46/test_default_run_mode_rejects_0/input.pdf",
+  "out": "runs/input_vl",
+  "run_mode": null,
+  "pages": "1",
+  "selected_pages": [
+    1
+  ],
+  "total_pages": 1,
+  "resume": true,
+  "force": false,
+  "retries": 0,
+  "fail_fast": false,
+  "timeout_sec": 900,
+  "server_url": "http://localhost:8111/",
+  "model_name": "PaddlePaddle/PaddleOCR-VL-1.6",
+  "vl_rec_max_concurrency": 1,
+  "layout_merge_bboxes_mode": "small",
+  "save_page_image": true
+}

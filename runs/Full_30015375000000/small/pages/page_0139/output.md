@@ -1,0 +1,5 @@
+C) Subsequent plugging report for a well using a below ground marker must have an updated C-102 signed by a certified surveyor for SHL.
+
+Note: A below ground marker is required with all pertinent information mentioned above on a plate, set 3' below ground level, a picture of the plate will be supplied to OCD for record, the exact location of the marker (longitude and latitude by GPS) will be provided to OCD. OCD requires a current survey to verify the location of the below ground marker, however OCD will accept a GPS coordinate that were taken with a GPS that has an accuracy of within 15 feet.
+
+18. If work has not commenced within 1 year of the approval of this procedure, the approval is automatically expired. After 1 year a new [C-103] NOI Plugging (C-103F) must be submitted and approved prior to work.

@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0071/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>(GAS)</td><td></td></tr><tr><td></td><td>ARMSTRONG CT COM #001</td><td>P</td><td>L-05-18S-26E</td><td>L</td><td>30-015-20863</td><td>G</td><td>76320</td><td>EAGLE CREEK, STRAWN (GAS)</td></tr><tr><td>323258</td><td>ARROW ARW FEDERAL COM #001</td><td>F</td><td>J-11-19S-25E</td><td>J</td><td>30-015-28898</td><td>O</td><td>72850</td><td>BOYD; PERMO PENN (GAS)</td></tr><tr><td>323259</td><td>ARROW ARW FEDERAL COM #002H</td><td>F</td><td>L-11-19S-25E</td><td>L</td><td>30-015-43700</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323259</td><td>ARTEMIS BUA FEDERAL COM #001H</td><td>F</td><td>C-23-19S-25E</td><td>C</td><td>30-015-42750</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323260</td><td>ARTESIA AIRPORT CF #001</td><td>P</td><td>M-11-17S-25E</td><td>M</td><td>30-015-20519</td><td>G</td><td>76200</td><td>EAGLE CREEK; ATOKA (GAS)</td></tr><tr><td>323263</td><td>ATOM ANT FEDERAL COM #001</td><td>F</td><td>D-10-22S-24E</td><td>D</td><td>30-015-27721</td><td>O</td><td>97943</td><td>WC-015-G-03 S222409A; BONE SPRING</td></tr><tr><td>323265</td><td>AURORA AUR STATE #001</td><td>S</td><td>I-16-09S-26E</td><td>I</td><td>30-005-63236</td><td>G</td><td>76750</td><td>FOUR RANCH; WOLFCAMP (GAS)</td></tr><tr><td>323267</td><td>AVALON YI COM SOUTH #001</td><td>P</td><td>K-23-21S-26E</td><td>K</td><td>30-015-24769</td><td>G</td><td>78075</td><td>HAPPY VALLEY; STRAWN, NE (GAS)</td></tr><tr><td>323269</td><td>AVENUE AVU STATE #001</td><td>S</td><td>I-21-09S-26E</td><td>I</td><td>30-005-63259</td><td>G</td><td>76755</td><td>FOUR RANCH; WOLFCAMP, NORTH (GAS)</td></tr><tr><td>323276</td><td>AVENUE AVU STATE #002</td><td>S</td><td>K-21-09S-26E</td><td>K</td><td>30-005-63260</td><td>G</td><td>76755</td><td>FOUR RANCH; WOLFCAMP, NORTH (GAS)</td></tr><tr><td>323273</td><td>AVIETTE ALK STATE COM #001</td><td>S</td><td>L-17-21S-27E</td><td>L</td><td>30-015-21546</td><td>G</td><td>73360</td><td>BURTON FLAT; STRAWN (PRORATED GAS)</td></tr><tr><td>323276</td><td>B GRAHAM BPU STATE #001H</td><td>S</td><td>M-01-26S-28E</td><td>M</td><td>30-015-37549</td><td>O</td><td>51010</td><td>RED BLUFF; BONE SPRING; SOUTH</td></tr><tr><td>323277</td><td>BABCOCK IR #001</td><td>P</td><td>O-26-18S-25E</td><td>O</td><td>30-015-22311</td><td>O</td><td>50270</td><td>PENASCO DRAW; SA-YESO (ASSOC)</td></tr><tr><td>323278</td><td>BAFFLED BCA FEDERAL COM #001</td><td>F</td><td>E-11-21S-24E</td><td>E</td><td>30-015-32850</td><td>G</td><td>96714</td><td>SEVEN RIVERS HILLS; ATOKA</td></tr><tr><td>37754</td><td>BAILOUT BOA FEDERAL COM #001H</td><td>F</td><td>I-12-18S-29E</td><td>I</td><td>30-015-37168</td><td>O</td><td>96832</td><td>SAND TANK; BONE SPRING</td></tr><tr><td>323281</td><td>BALSAM BNL FEDERAL COM #001H</td><td>F</td><td>A-08-24S-29E</td><td>A</td><td>30-015-37035</td><td>O</td><td>11520</td><td>CEDAR CANYON; BONE SPRING</td></tr><tr><td>323282</td><td>BAMBOOZLED BBX FEDERAL COM #001</td><td>F</td><td>9-03-21S-24E</td><td>O</td><td>30-015-35596</td><td>G</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323283</td><td>BAMBOOZLED BBX FEDERAL COM #002</td><td>F</td><td>P-03-21S-24E</td><td>P</td><td>30-015-32885</td><td>G</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323284</td><td>BANDANA BNA FEDERAL #001</td><td>F</td><td>H-20-22S-24E</td><td>H</td><td>30-015-27313</td><td>O</td><td>96172</td><td>INDIAN BASIN; UP PENN, SOUTH (GAS)</td></tr><tr><td>323284</td><td>BANJO BNO FEDERAL #001</td><td>F</td><td>P-05-26S-30E</td><td>P</td><td>30-015-36923</td><td>O</td><td>13354</td><td>CORRAL CANYON; BONE SPRING, SOUTH</td></tr><tr><td>323285</td><td>BANJO BNO FEDERAL #002H</td><td>F</td><td>M-05-26S-30E</td><td>M</td><td>30-015-37363</td><td>O</td><td>96403</td><td>WILDCAT; BONE SPRING</td></tr><tr><td>323285</td><td>BANQUET BKQ FEDERAL #001</td><td>F</td><td>L-24-21S-21E</td><td>L</td><td>30-015-36316</td><td>G</td><td>72780</td><td>BOX CANYON; PERMO PENN (GAS)</td></tr><tr><td>323286</td><td>BANZAI BKZ FEDERAL #001</td><td>F</td><td>A-23-25S-25E</td><td>A</td><td>30-015-20346</td><td>G</td><td>98220</td><td>PURPLE SAGE; WOLFCAMP (GAS)</td></tr><tr><td>323287</td><td>BARBARA FEDERAL #010</td><td>F</td><td>M-17-19S-25E</td><td>M</td><td>30-015-26570</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323287</td><td>BARBARA FEDERAL #019</td><td>F</td><td>C-17-19S-25E</td><td>C</td><td>30-015-27165</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323288</td><td>BARBARA FEDERAL COM #021H</td><td>F</td><td>I-17-19S-25E</td><td>I</td><td>30-015-43968</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323289</td><td>BARBARA FEDERAL COM #022H</td><td>F</td><td>P-17-19S-25E</td><td>P</td><td>30-015-43128</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323290</td><td>BARCLAY ALM COM #001</td><td>P</td><td>F-33-06S-26E</td><td>F</td><td>30-005-63009</td><td>G</td><td></td><td></td></tr><tr><td>323292</td><td>BARQUE BTQ FEDERAL COM #001H</td><td>F</td><td>J-06-19S-30E</td><td>J</td><td>30-015-43148</td><td>O</td><td>54600</td><td>SANTO NINO; BONE SPRING</td></tr><tr><td>323293</td><td>BARREL BFK STATE COM #001</td><td>S</td><td>D-16-25S-26E</td><td>D</td><td>30-015-33857</td><td>G</td><td>74900</td><td>CHOSA DRAW; MORROW (GAS)</td></tr><tr><td>323295</td><td>BARREL BFK STATE COM #001</td><td>S</td><td>D-16-25S-26E</td><td>D</td><td>30-015-33857</td><td>G</td><td>97334</td><td>SAGE DRAW; ATOKA (G)</td></tr><tr><td>323295</td><td>BASIL ANS COM #001</td><td>F</td><td>A-23-07S-25E</td><td>A</td><td>30-005-63012</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323297</td><td>BASKET BDT FEDERAL #001</td><td>F</td><td>E-30-10S-26E</td><td>E</td><td>30-005-64012</td><td>G</td><td>96542</td><td>WILDCAT; GRANITE</td></tr><tr><td>323298</td><td>BASKETBALL BBI FEDERAL #001</td><td>F</td><td>D-12-12S-26E</td><td>D</td><td>30-005-62792</td><td>G</td><td>96542</td><td>WILDCAT; GRANITE</td></tr><tr><td>323300</td><td>BASKETBALL BBI FEDERAL #001</td><td>F</td><td>D-12-12S-26E</td><td>D</td><td>30-005-62792</td><td>G</td><td>97361</td><td>COYOTE; WOLFCAMP (G)</td></tr><tr><td>323301</td><td>BEAN #001</td><td>P</td><td>M-20-07S-26E</td><td>M</td><td>30-005-61837</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323302</td><td>BEAN COM #002</td><td>P</td><td>H-20-07S-26E</td><td>H</td><td>30-005-61316</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323302</td><td>BEARD QQ FEDERAL #002</td><td>F</td><td>C-18-07S-26E</td><td>C</td><td>30-005-61840</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323303</td><td>BEARD QQ FEDERAL COM #001</td><td>F</td><td>4-18-07S-26E</td><td>M</td><td>30-005-60934</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323306</td><td>BEAUREGARD COM #001</td><td>S</td><td>K-23-18S-27E</td><td>K</td><td>30-015-22871</td><td>G</td><td>83620</td><td>RED LAKE; ATOKA-MORROW (GAS)</td></tr><tr><td>323307</td><td>BEDFORD FEDERAL COM #001</td><td>F</td><td>J-31-06S-25E</td><td>J</td><td>30-005-60791</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323310</td><td>BEHIKE BKE STATE COM #001</td><td>S</td><td>P-27-24S-27E</td><td>P</td><td>30-015-35208</td><td>G</td><td>97352</td><td>BLACK RIVER; MORROW, SOUTH (G)</td></tr><tr><td>323313</td><td>BELLAGIO BBY FEDERAL #001</td><td>F</td><td>D-33-20S-25E</td><td>D</td><td>30-015-32611</td><td>G</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323313</td><td>BELLAGIO BBY FEDERAL #002</td><td>F</td><td>A-33-20S-25E</td><td>A</td><td>30-015-34084</td><td>G</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323314</td><td>BENNETT FEDERAL #001</td><td>F</td><td>A-33-20S-25E</td><td>A</td><td>30-015-34084</td><td>G</td><td>74680</td><td>CEMETARY; WOLFCAMP (GAS)</td></tr><tr><td>323314</td><td>BENNETT FEDERAL #003H</td><td>F</td><td>O-30-25S-30E</td><td>O</td><td>30-015-24071</td><td>O</td><td>96620</td><td>CORRAL CANYON; DELAWARE, SOUTH</td></tr><tr><td>323315</td><td>BENSON DEEP AAS FEDERAL COM #002H</td><td>F</td><td>N-30-25S-30E</td><td>N</td><td>30-015-40872</td><td>O</td><td>13354</td><td>CORRAL CANYON; BONE SPRING, SOUTH</td></tr><tr><td>323315</td><td>BENSON DEEP AAS FEDERAL COM #003H</td><td>F</td><td>D-33-18S-30E</td><td>D</td><td>30-015-41247</td><td>O</td><td>37920</td><td>LEO; BONE SPRING; SOUTH</td></tr><tr><td>323317</td><td>BENSON DEEP BDX FEDERAL #001</td><td>F</td><td>E-33-18S-30E</td><td>E</td><td>30-015-41352</td><td>O</td><td>37920</td><td>LEO; BONE SPRING; SOUTH</td></tr><tr><td>323317</td><td>BENSON DEEP BDX FEDERAL #002H</td><td>F</td><td>O-33-18S-30E</td><td>O</td><td>30-015-22793</td><td>G</td><td>37920</td><td>LEO; BONE SPRING; SOUTH</td></tr><tr><td>323322</td><td>BESTWALL ST #002</td><td>P</td><td>M-20-08S-26E</td><td>M</td><td>30-015-41966</td><td>G</td><td>37920</td><td>LEO; BONE SPRING; SOUTH</td></tr><tr><td>323323</td><td>BESTWALL ST. COM #001</td><td>P</td><td>N-20-08S-26E</td><td>N</td><td>30-005-63229</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323326</td><td>BIG EDDY UNIT #079Y</td><td>F</td><td>J-21-21S-28E</td><td>J</td><td>30-015-23385</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td>323328</td><td>BIG MIGUEL BKN STATE COM #001H</td><td>S</td><td>M-02-16S-29E</td><td>M</td><td>30-015-36027</td><td>O</td><td>97197</td><td>COUNTY LINE TANK; ABO (O)</td></tr><tr><td>323331</td><td>BINGER AKU #002</td><td>P</td><td>G-29-19S-25E</td><td>G</td><td>30-015-28669</td><td>O</td><td>97711</td><td>WC; SEVEN RIVERS; BONE SPRINGS (O)</td></tr><tr><td>323332</td><td>BINNION TT FEDERAL #001</td><td>F</td><td>G-24-07S-25E</td><td>G</td><td>30-005-61915</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323332</td><td>BINNION TT FEDERAL #002</td><td>F</td><td>K-24-07S-25E</td><td>K</td><td>30-005-61916</td><td>G</td><td>8273</td><td></td></tr></table>",
+            "block_bbox": [
+                56,
+                42,
+                1168,
+                1528
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    42.0
+                ],
+                [
+                    1168.0,
+                    42.0
+                ],
+                [
+                    1168.0,
+                    1528.0
+                ],
+                [
+                    56.0,
+                    1528.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9876300692558289,
+                "coordinate": [
+                    56,
+                    42,
+                    1168,
+                    1528
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        42.0
+                    ],
+                    [
+                        1168.0,
+                        42.0
+                    ],
+                    [
+                        1168.0,
+                        1528.0
+                    ],
+                    [
+                        56.0,
+                        1528.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

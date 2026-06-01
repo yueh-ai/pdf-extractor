@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0083/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td>JACKSON ESTATE BY #012</td><td>P</td><td>L-22-17S-25E</td><td>L</td><td>30-015-23398</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACKSON ESTATE BY #013</td><td>P</td><td>L-22-17S-25E</td><td>L</td><td>30-015-23399</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACKSON ESTATE BY #014</td><td>P</td><td>K-22-17S-25E</td><td>K</td><td>30-015-23634</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACKSON ESTATE BY #015</td><td>P</td><td>K-22-17S-25E</td><td>K</td><td>30-015-23635</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACKSON ESTATE BY #016</td><td>P</td><td>E-22-17S-25E</td><td>E</td><td>30-015-24323</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACKSON ESTATE BY #017</td><td>P</td><td>H-21-17S-25E</td><td>H</td><td>30-015-24402</td><td>G</td><td>76320</td><td>EAGLE CREEK, STRAWN (GAS)</td></tr><tr><td></td><td>JACKSON ESTATE BY #018</td><td>P</td><td>F-22-17S-25E</td><td>F</td><td>30-015-24542</td><td>O</td><td></td><td></td></tr><tr><td>323963</td><td>JACKSON PI #001</td><td>P</td><td>H-27-18S-26E</td><td>H</td><td>30-015-23666</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>323964</td><td>JACQUE AQJ STATE #001</td><td>S</td><td>M-34-21S-31E</td><td>M</td><td>30-015-30080</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACQUE AQJ STATE #002</td><td>S</td><td>L-34-21S-31E</td><td>L</td><td>30-015-30636</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACQUE AQJ STATE #003</td><td>S</td><td>N-34-21S-31E</td><td>N</td><td>30-015-30635</td><td>O</td><td>96582</td><td>LOST TANK; DELAWARE, WEST</td></tr><tr><td></td><td>JACQUE AQJ STATE #004</td><td>S</td><td>D-34-21S-31E</td><td>D</td><td>30-015-30637</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>JACQUE AQJ STATE #005</td><td>S</td><td>D-34-21S-31E</td><td>D</td><td>30-015-30637</td><td>O</td><td>96582</td><td>LOST TANK; DELAWARE, WEST</td></tr><tr><td></td><td>JACQUE AQJ STATE #006</td><td>S</td><td>K-34-21S-31E</td><td>K</td><td>30-015-31928</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JACQUE AQJ STATE #007</td><td>S</td><td>C-34-21S-31E</td><td>C</td><td>30-015-33335</td><td>O</td><td>96582</td><td>LOST TANK; DELAWARE, WEST</td></tr><tr><td></td><td>JACQUE AQJ STATE #010</td><td>S</td><td>M-34-21S-31E</td><td>M</td><td>30-015-43860</td><td>O</td><td>96582</td><td>LOST TANK; DELAWARE, WEST</td></tr><tr><td>323965</td><td>JASPER ARJ FEDERAL #002</td><td>F</td><td>B-25-08S-26E</td><td>B</td><td>30-005-63143</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JASPER ARJ FEDERAL #005</td><td>F</td><td>M-25-08S-26E</td><td></td><td>30-005-64017</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td>323966</td><td>JASPER ARJ FEDERAL COM #001</td><td>F</td><td>O-25-08S-26E</td><td>O</td><td>30-005-63142</td><td>G</td><td>82555</td><td>PALMA MESA; PENN, SOUTH (GAS)</td></tr><tr><td></td><td>JASPER ARJ FEDERAL COM #001</td><td>F</td><td>O-25-08S-26E</td><td>O</td><td>30-005-63142</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JASPER ARJ FEDERAL COM #003</td><td>F</td><td>H-10-08S-26E</td><td>H</td><td>30-005-63221</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JASPER ARJ FEDERAL COM #003</td><td>F</td><td>H-10-08S-26E</td><td>H</td><td>30-005-63221</td><td>G</td><td>97094</td><td>FOOR RANCH; PRE-PERMIAN, N. (G)</td></tr><tr><td>323970</td><td>JERICHO BKJ STATE COM #002H</td><td>S</td><td>A-15-25S-27E</td><td>A</td><td>30-015-37500</td><td>O</td><td>97816</td><td>WC-015 G-02 S252715A; BONE SPRING</td></tr><tr><td></td><td>JERICHO BKJ STATE COM #003H</td><td>S</td><td>H-15-25S-27E</td><td>H</td><td>30-015-41860</td><td>O</td><td>97816</td><td>WC-015 G-02 S252715A; BONE SPRING</td></tr><tr><td></td><td>JERICHO BKJ STATE COM #004H</td><td>S</td><td>I-15-25S-27E</td><td>I</td><td>30-015-41916</td><td>O</td><td>97816</td><td>WC-015 G-02 S252715A; BONE SPRING</td></tr><tr><td></td><td>JERICHO BKJ STATE COM #005H</td><td>S</td><td>P-15-25S-27E</td><td>P</td><td>30-015-41895</td><td>O</td><td>97816</td><td>WC-015 G-02 S252715A; BONE SPRING</td></tr><tr><td></td><td>JERICHO BKJ STATE COM #006H</td><td>S</td><td>A-15-25S-27E</td><td>A</td><td>30-015-42955</td><td>O</td><td>97816</td><td>WC-015 G-02 S252715A; BONE SPRING</td></tr><tr><td>323972</td><td>JERVIS AYB FEDERAL #001</td><td>F</td><td>E-13-08S-26E</td><td>E</td><td>30-005-63417</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JERVIS AYB FEDERAL #006</td><td>F</td><td>L-01-08S-26E</td><td>L</td><td>30-005-63765</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JERVIS AYB FEDERAL #006</td><td>F</td><td>L-01-08S-26E</td><td>L</td><td>30-005-63765</td><td>G</td><td>97094</td><td>FOOR RANCH; PRE-PERMIAN, N. (G)</td></tr><tr><td>323973</td><td>JESTER BFJ FEDERAL #001</td><td>F</td><td>N-12-24S-29E</td><td>N</td><td>30-015-34275</td><td>O</td><td>11540</td><td>CEDAR CANYON; DELAWARE</td></tr><tr><td></td><td>JESTER BFJ FEDERAL #001</td><td>F</td><td>N-12-24S-29E</td><td>N</td><td>30-015-34275</td><td>O</td><td>96473</td><td>PIERCE CROSSING; BONE SPRING, EAST</td></tr><tr><td></td><td>JESTER BFJ FEDERAL #002</td><td>F</td><td>K-12-24S-29E</td><td></td><td>30-015-35286</td><td>G</td><td>96473</td><td>PIERCE CROSSING; BONE SPRING, EAST</td></tr><tr><td></td><td>JESTER BFJ FEDERAL #003</td><td>F</td><td>E-12-24S-29E</td><td></td><td>30-015-35285</td><td>G</td><td>96473</td><td>PIERCE CROSSING; BONE SPRING, EAST</td></tr><tr><td></td><td>JESTER BFJ FEDERAL #005H</td><td>F</td><td>C-12-24S-29E</td><td>C</td><td>30-015-43138</td><td>O</td><td>47545</td><td>NASH DRAW; DELAWARE/BS (AVALON SAND)</td></tr><tr><td></td><td>JESTER BFJ FEDERAL #009H</td><td>F</td><td>D-12-24S-29E</td><td>D</td><td>30-015-43143</td><td>O</td><td>47545</td><td>NASH DRAW; DELAWARE/BS (AVALON SAND)</td></tr><tr><td>323974</td><td>JESTER SWD #004</td><td>F</td><td>C-12-24S-29E</td><td>C</td><td>30-015-35217</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td>323977</td><td>JOHN AGU #002</td><td>P</td><td>A-14-20S-24E</td><td>A</td><td>30-015-26468</td><td>O</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td></td><td>JOHN AGU #005</td><td>P</td><td>F-14-20S-24E</td><td>F</td><td>30-015-26861</td><td>O</td><td></td><td></td></tr><tr><td></td><td>JOHN AGU #006</td><td>P</td><td>B-14-20S-24E</td><td>B</td><td>30-015-27027</td><td>O</td><td></td><td></td></tr><tr><td>323978</td><td>JOHNSON FE #001</td><td>P</td><td>A-23-17S-25E</td><td>A</td><td>30-015-21682</td><td>O</td><td></td><td></td></tr><tr><td>323979</td><td>JOHNSON IL #002</td><td>P</td><td>3-30-06S-26E</td><td>L</td><td>30-005-60741</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JOHNSON IL #003</td><td>P</td><td>I-30-06S-26E</td><td>I</td><td>30-005-62926</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JOHNSON IL #004</td><td>P</td><td>K-30-06S-26E</td><td>K</td><td>30-005-63330</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>JOHNSON IL #005</td><td>P</td><td>O-30-06S-26E</td><td>O</td><td>30-005-63340</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323981</td><td>JOKERS AWJ STATE #003</td><td>S</td><td>I-03-10S-26E</td><td>I</td><td>30-005-63470</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td></td><td>JOKERS AWJ STATE #003</td><td>S</td><td>I-03-10S-26E</td><td>I</td><td>30-005-63470</td><td>G</td><td>76730</td><td>FOOR RANCH; WOLFCAMP (GAS)</td></tr><tr><td></td><td>JOKERS AWJ STATE #003</td><td>S</td><td>I-03-10S-26E</td><td>I</td><td>30-005-63470</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323986</td><td>JOYCE FEDERAL #002</td><td>F</td><td>C-32-19S-25E</td><td>C</td><td>30-015-28491</td><td>O</td><td>97711</td><td>WC; SEVEN RIVERS; BONE SPRINGS (O)</td></tr><tr><td>323987</td><td>JOYCE FEDERAL COM #003H</td><td>F</td><td>A-32-19S-25E</td><td>A</td><td>30-015-43129</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323990</td><td>JUDITH AIJ FEDERAL #001</td><td>F</td><td>P-09-20S-24E</td><td>P</td><td>30-015-26632</td><td>O</td><td>15475</td><td>DAGGER DRAW; UP PENN, SOUTH (ASSOC)</td></tr><tr><td>323993</td><td>JULIE #002</td><td>P</td><td>B-17-19S-25E</td><td>B</td><td>30-015-27047</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td></td><td>JULIE #003</td><td>S</td><td>A-17-19S-25E</td><td>A</td><td>30-015-28489</td><td>G</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323995</td><td>JUNIOR AWW STATE #004H</td><td>S</td><td>I-17-16S-28E</td><td></td><td>30-015-36421</td><td>O</td><td>97691</td><td>WC; CROW FLATS; ABO</td></tr><tr><td>323996</td><td>JUNIOR AWW STATE COM #001</td><td>F</td><td>K-17-16S-28E</td><td>K</td><td>30-015-40773</td><td>G</td><td>75720</td><td>CROW FLATS; MORROW (GAS)</td></tr><tr><td>323997</td><td>JUNIPER BIP FEDERAL #005</td><td>F</td><td>F-04-24S-29E</td><td>F</td><td>30-015-28577</td><td>O</td><td>11520</td><td>CEDAR CANYON; BONE SPRING</td></tr><tr><td></td><td>JUNIPER BIP FEDERAL #005</td><td>F</td><td>F-04-24S-29E</td><td>F</td><td>30-015-28577</td><td>O</td><td>42940</td><td>MALAGA; DELAWARE</td></tr><tr><td></td><td>JUNIPER BIP FEDERAL #005</td><td>F</td><td>F-04-24S-29E</td><td>F</td><td>30-015-28577</td><td>O</td><td>96542</td><td>WILDCAT; GRANITE</td></tr><tr><td></td><td>JUNIPER BIP FEDERAL #006Y</td><td>F</td><td>4-04-24S-29E</td><td>D</td><td>30-015-37076</td><td>O</td><td>11520</td><td>CEDAR CANYON; BONE SPRING</td></tr><tr><td></td><td>JUNIPER BIP FEDERAL #007H</td><td>F</td><td>E-04-24S-29E</td><td>E</td><td>30-015-37212</td><td>O</td><td>11520</td><td>CEDAR CANYON; BONE SPRING</td></tr><tr><td></td><td>JUNIPER BIP FEDERAL #008H</td><td>F</td><td>L-04-24S-29E</td><td>L</td><td>30-015-37252</td><td>O</td><td>11520</td><td>CEDAR CANYON; BONE SPRING</td></tr><tr><td></td><td>JUNIPER BIP FEDERAL #009H</td><td>F</td><td>M-04-24S-29E</td><td>M</td><td>30-015-37407</td><td>O</td><td>11520</td><td>CEDAR CANYON; BONE SPRING</td></tr><tr><td></td><td>JUNIPER BIP FEDERAL #010H</td><td>F</td><td>D-04-24S-29E</td><td>D</td><td>30-015-37968</td><td>O</td><td>42940</td><td>MALAGA; DELAWARE</td></tr><tr><td>323998</td><td>JUNIPER BIP FEDERAL COM #012H</td><td>F</td><td>A-08-24S-29E</td><td>A</td><td>30-</td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                56,
+                48,
+                1168,
+                1528
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    48.0
+                ],
+                [
+                    1168.0,
+                    48.0
+                ],
+                [
+                    1168.0,
+                    1528.0
+                ],
+                [
+                    56.0,
+                    1528.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9874272346496582,
+                "coordinate": [
+                    56,
+                    48,
+                    1168,
+                    1528
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        48.0
+                    ],
+                    [
+                        1168.0,
+                        48.0
+                    ],
+                    [
+                        1168.0,
+                        1528.0
+                    ],
+                    [
+                        56.0,
+                        1528.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

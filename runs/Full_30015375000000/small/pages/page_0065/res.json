@@ -1,0 +1,949 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0065/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "Wells Selected for Transfer",
+            "block_bbox": [
+                1016,
+                60,
+                1160,
+                75
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    1016.0,
+                    60.0
+                ],
+                [
+                    1159.0,
+                    60.0
+                ],
+                [
+                    1159.0,
+                    74.0
+                ],
+                [
+                    1016.0,
+                    74.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "District I",
+            "block_bbox": [
+                63,
+                61,
+                123,
+                77
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    63.0,
+                    61.0
+                ],
+                [
+                    122.0,
+                    61.0
+                ],
+                [
+                    122.0,
+                    76.0
+                ],
+                [
+                    63.0,
+                    76.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1625 N. French Dr., Hobbs, NM 88240\nPhone: (575) 393-6161 Fax: (575) 393-0720",
+            "block_bbox": [
+                64,
+                77,
+                291,
+                107
+            ],
+            "block_id": 2,
+            "block_order": 2,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    64.0,
+                    77.0
+                ],
+                [
+                    291.0,
+                    77.0
+                ],
+                [
+                    291.0,
+                    107.0
+                ],
+                [
+                    64.0,
+                    107.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "District II",
+            "block_bbox": [
+                64,
+                107,
+                125,
+                122
+            ],
+            "block_id": 3,
+            "block_order": 3,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    64.0,
+                    107.0
+                ],
+                [
+                    124.0,
+                    107.0
+                ],
+                [
+                    124.0,
+                    121.0
+                ],
+                [
+                    64.0,
+                    121.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "811 S. First St., Artesia, NM 88210 Phone: (575) 748-1283 Fax: (575) 748-9720",
+            "block_bbox": [
+                63,
+                121,
+                292,
+                153
+            ],
+            "block_id": 4,
+            "block_order": 4,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    63.0,
+                    121.0
+                ],
+                [
+                    292.0,
+                    121.0
+                ],
+                [
+                    292.0,
+                    153.0
+                ],
+                [
+                    63.0,
+                    153.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "District III",
+            "block_bbox": [
+                64,
+                153,
+                128,
+                168
+            ],
+            "block_id": 5,
+            "block_order": 5,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    64.0,
+                    153.0
+                ],
+                [
+                    127.0,
+                    153.0
+                ],
+                [
+                    127.0,
+                    167.0
+                ],
+                [
+                    64.0,
+                    167.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1000 Rio Brazos Rd., Aztec, NM 87410\nPhone: (505) 334-6178 Fax: (505) 334-6170",
+            "block_bbox": [
+                63,
+                167,
+                292,
+                204
+            ],
+            "block_id": 6,
+            "block_order": 6,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    63.0,
+                    167.0
+                ],
+                [
+                    292.0,
+                    167.0
+                ],
+                [
+                    292.0,
+                    204.0
+                ],
+                [
+                    63.0,
+                    204.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "District IV",
+            "block_bbox": [
+                63,
+                198,
+                131,
+                213
+            ],
+            "block_id": 7,
+            "block_order": 7,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    63.0,
+                    198.0
+                ],
+                [
+                    63.0,
+                    212.0
+                ],
+                [
+                    130.0,
+                    212.0
+                ],
+                [
+                    130.0,
+                    198.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1220 S. St Francis Dr., Santa Fe, NM 87505\nPhone: (505) 476-3470 Fax: (505) 476-3462",
+            "block_bbox": [
+                63,
+                212,
+                294,
+                242
+            ],
+            "block_id": 8,
+            "block_order": 8,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    63.0,
+                    212.0
+                ],
+                [
+                    294.0,
+                    212.0
+                ],
+                [
+                    294.0,
+                    242.0
+                ],
+                [
+                    63.0,
+                    242.0
+                ]
+            ]
+        },
+        {
+            "block_label": "doc_title",
+            "block_content": "State of New Mexico\nEnergy, Minerals and Natural Resources\nOil Conservation Division\n1220 S. St Francis Dr.\nSanta Fe, NM 87505",
+            "block_bbox": [
+                392,
+                63,
+                864,
+                226
+            ],
+            "block_id": 9,
+            "block_order": 9,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    392.0,
+                    63.0
+                ],
+                [
+                    864.0,
+                    63.0
+                ],
+                [
+                    864.0,
+                    226.0
+                ],
+                [
+                    392.0,
+                    226.0
+                ]
+            ]
+        },
+        {
+            "block_label": "header",
+            "block_content": "Permit 261318",
+            "block_bbox": [
+                1073,
+                102,
+                1161,
+                119
+            ],
+            "block_id": 10,
+            "block_order": null,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    1073.0,
+                    102.0
+                ],
+                [
+                    1160.0,
+                    102.0
+                ],
+                [
+                    1160.0,
+                    118.0
+                ],
+                [
+                    1073.0,
+                    118.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "1915 Wells Selected for Transfer",
+            "block_bbox": [
+                485,
+                258,
+                795,
+                282
+            ],
+            "block_id": 11,
+            "block_order": null,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    485.0,
+                    258.0
+                ],
+                [
+                    795.0,
+                    258.0
+                ],
+                [
+                    795.0,
+                    282.0
+                ],
+                [
+                    485.0,
+                    282.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>From:</td><td>OGRID:</td></tr><tr><td>EOG Y RESOURCES, INC.</td><td>25575</td></tr><tr><td>To:</td><td>OGRID:</td></tr><tr><td>EOG RESOURCES INC</td><td>7377</td></tr></table>",
+            "block_bbox": [
+                62,
+                283,
+                1163,
+                355
+            ],
+            "block_id": 12,
+            "block_order": null,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    62.0,
+                    283.0
+                ],
+                [
+                    1163.0,
+                    283.0
+                ],
+                [
+                    1163.0,
+                    355.0
+                ],
+                [
+                    62.0,
+                    355.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "OCD District Hobbs (256 Wells selected.)",
+            "block_bbox": [
+                59,
+                366,
+                320,
+                387
+            ],
+            "block_id": 13,
+            "block_order": null,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    59.0,
+                    366.0
+                ],
+                [
+                    319.0,
+                    366.0
+                ],
+                [
+                    319.0,
+                    386.0
+                ],
+                [
+                    59.0,
+                    386.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>Property</td><td>Well</td><td>Lease Type</td><td>ULSTR</td><td>OCD Unit</td><td>API</td><td>Well Type</td><td>Pool ID</td><td>Pool Name</td></tr><tr><td>323190</td><td>ABBY BLF STATE #001</td><td>S</td><td>N-10-09S-33E</td><td>N</td><td>30-025-38951</td><td>O</td><td>24615</td><td>FLYING M; PENN</td></tr><tr><td>323196</td><td>ACTION BTI STATE COM #001H</td><td>S</td><td>D-16-24S-33E</td><td>D</td><td>30-025-40864</td><td>O</td><td>96674</td><td>TRIPLE X; BONE SPRING, WEST</td></tr><tr><td></td><td>ACTION BTI STATE COM #002H</td><td>S</td><td>C-16-24S-33E</td><td>C</td><td>30-025-41631</td><td>O</td><td>96674</td><td>TRIPLE X; BONE SPRING, WEST</td></tr><tr><td>323197</td><td>ADDER BSE STATE #001H</td><td>S</td><td>B-31-24S-33E</td><td>B</td><td>30-025-40513</td><td>O</td><td>97784</td><td>WC-025 G-06 S253201M; UPPER BONE SPRING</td></tr><tr><td>323210</td><td>ALLEN B FEDERAL SWD #001</td><td>F</td><td>G-28-24S-32E</td><td>G</td><td>30-025-28237</td><td>S</td><td>96802</td><td>SWD; BELL CANYON-CHERRY CANYON</td></tr><tr><td>323221</td><td>AMAZING BAZ FEDERAL #002</td><td>F</td><td>C-21-22S-32E</td><td>C</td><td>30-025-39699</td><td>O</td><td>39366</td><td>LIVINGSTON RIDGE; DELAWARE, EAST</td></tr><tr><td></td><td>AMAZING BAZ FEDERAL #003</td><td>F</td><td>P-30-22S-32E</td><td>P</td><td>30-025-38450</td><td>O</td><td>39380</td><td>LIVINGSTON RIDGE; DELAWARE, SE</td></tr><tr><td></td><td>AMAZING BAZ FEDERAL #005</td><td>F</td><td>M-29-22S-32E</td><td>M</td><td>30-025-41260</td><td>O</td><td>39380</td><td>LIVINGSTON RIDGE; DELAWARE, SE</td></tr><tr><td>323262</td><td>ATOKA BANK BDJ STATE COM #001</td><td>S</td><td>O-17-24S-33E</td><td>O</td><td>30-025-36594</td><td>G</td><td>86430</td><td>TRISTE DRAW; ATOKA, EAST (GAS)</td></tr><tr><td></td><td>ATOKA BANK BDJ STATE COM #001</td><td>S</td><td>O-17-24S-33E</td><td>O</td><td>30-025-36594</td><td>G</td><td>96765</td><td>TRISTE DRAW; MORROW, EAST (GAS)</td></tr><tr><td></td><td>ATOKA BANK BDJ STATE COM #002H</td><td>S</td><td>B-17-24S-33E</td><td>B</td><td>30-025-41055</td><td>O</td><td>96674</td><td>TRIPLE X; BONE SPRING, WEST</td></tr><tr><td></td><td>ATOKA BANK BDJ STATE COM #003H</td><td>S</td><td>A-17-24S-33E</td><td>A</td><td>30-025-41058</td><td>O</td><td>96674</td><td>TRIPLE X; BONE SPRING, WEST</td></tr><tr><td>323264</td><td>AUDACIOUS BTL FEDERAL #001H</td><td>F</td><td>G-19-25S-33E</td><td>G</td><td>30-025-43429</td><td>O</td><td>97903</td><td>WC-025 G-08 S253235G; LWR BONE SPRIN</td></tr><tr><td>323270</td><td>AVIAN AYA STATE #001</td><td>S</td><td>P-20-15S-32E</td><td>P</td><td>30-025-35377</td><td>G</td><td>24210</td><td>FEATHER; WOLFCAMP</td></tr><tr><td>323274</td><td>AVOCADO BRO STATE #001H</td><td>S</td><td>D-32-20S-35E</td><td>D</td><td>30-025-40472</td><td>O</td><td>5535</td><td>BERRY; BONE SPRING, NORTH</td></tr><tr><td>323275</td><td>AZURE BNE STATE COM #001</td><td>S</td><td>C-18-12S-35E</td><td>C</td><td>30-025-36916</td><td>G</td><td>97082</td><td>FOUR LAKES; MORROW (GAS)</td></tr><tr><td></td><td>AZURE BNE STATE COM #001</td><td>S</td><td>C-18-12S-35E</td><td>C</td><td>30-025-36916</td><td>G</td><td>97349</td><td>RANGER LAKE; ATOKA, NORTH (GAS)</td></tr><tr><td>323291</td><td>BARGAIN BQA FEDERAL #001H</td><td>F</td><td>J-22-22S-33E</td><td>J</td><td>30-025-33341</td><td>O</td><td>97846</td><td>WILDCAT G-06 S223322J; BONE SPRING</td></tr><tr><td>323296</td><td>BASILISK BQS STATE COM #001H</td><td>S</td><td>N-36-24S-32E</td><td>N</td><td>30-025-40054</td><td>O</td><td>97784</td><td>WC-025 G-06 S253201M; UPPER BONE SPRING</td></tr><tr><td>323311</td><td>BELCO AIA FEDERAL #001</td><td>F</td><td>J-14-20S-32E</td><td>J</td><td>30-025-26826</td><td>O</td><td>53565</td><td>SALT LAKE; DELAWARE</td></tr><tr><td></td><td>BELCO AIA FEDERAL #002H</td><td>F</td><td>M-14-20S-32E</td><td>M</td><td>30-025-38527</td><td>O</td><td>53565</td><td>SALT LAKE; DELAWARE</td></tr><tr><td></td><td>BELCO AIA FEDERAL #003H</td><td>F</td><td>J-14-20S-32E</td><td>J</td><td>30-025-38719</td><td>O</td><td>53565</td><td>SALT LAKE; DELAWARE</td></tr><tr><td></td><td>BELCO AIA FEDERAL #004H</td><td>F</td><td>M-14-20S-32E</td><td>M</td><td>30-025-38818</td><td>O</td><td>53565</td><td>SALT LAKE; DELAWARE</td></tr><tr><td>323312</td><td>BELFAST BSL STATE COM #001</td><td>S</td><td>13-06-21S-34E</td><td>E</td><td>30-025-40627</td><td>O</td><td></td><td></td></tr><tr><td></td><td>BELFAST BSL STATE COM #001Y</td><td>S</td><td>13-06-21S-34E</td><td>M</td><td>30-025-41121</td><td>O</td><td>5535</td><td>BERRY; BONE SPRING, NORTH</td></tr><tr><td>319282</td><td>BERRY APN STATE #002H</td><td>S</td><td>13-05-21S-34E</td><td>E</td><td>30-025-40374</td><td>O</td><td>5535</td><td>BERRY; BONE SPRING, NORTH</td></tr><tr><td></td><td>BERRY APN STATE #003H</td><td>S</td><td>J-05-21S-34E</td><td>J</td><td>30-025-40630</td><td>O</td><td>5535</td><td>BERRY; BONE SPRING, NORTH</td></tr><tr><td>323325</td><td>BIG HAT BKH STATE COM #001</td><td>S</td><td>L-02-16S-33E</td><td>L</td><td>30-025-12712</td><td>G</td><td>85620</td><td>SOMBRERO; MORROW (GAS)</td></tr><tr><td>323329</td><td>BIG SKY ABY STATE #001</td><td>S</td><td>M-26-08S-33E</td><td>M</td><td>30-005-21020</td><td>O</td><td></td><td></td></tr><tr><td>323330</td><td>BILBREY SWD #001</td><td>S</td><td>2-05-22S-32E</td><td>B</td><td>30-025-27620</td><td>S</td><td>96100</td><td>SWD; DELAWARE</td></tr><tr><td>323339</td><td>BLACK RAIDER BQK STATE #001H</td><td>S</td><td>M-36-24S-34E</td><td>M</td><td>30-025-40088</td><td>O</td><td>97959</td><td>WC-025 G-06 S243436M; DELAWARE</td></tr><tr><td>323340</td><td>BLACKBERRY BKB STATE COM #001H</td><td>S</td><td>16-06-21S-34E</td><td>H</td><td>30-025-39941</td><td>O</td><td>5535</td><td>BERRY; BONE SPRING, NORTH</td></tr><tr><td>323352</td><td>BLITZEN AUB STATE #002</td><td>S</td><td>P-16-11S-34E</td><td>P</td><td>30-025-34859</td><td>O</td><td>97190</td><td>EIGHT MILE DRAW; MORROW NW (GAS)</td></tr><tr><td>323365</td><td>BOMBAY BSB FEDERAL COM #001H</td><td>F</td><td>H-32-24S-32E</td><td>H</td><td>30-025-40718</td><td>O</td><td>49490</td><td>PADUCA; DELAWARE, NORTH</td></tr><tr><td>323371</td><td>BOOMERANG BTM STATE #001</td><td>S</td><td>I-26-08S-33E</td><td>I</td><td>30-005-29036</td><td>O</td><td>59350</td><td>TOBAC; UPPER PENN</td></tr><tr><td>323372</td><td>BOOMERANG BTR STATE #002</td><td>S</td><td>E-25-08S-33E</td><td>E</td><td>30-005-29084</td><td>O</td><td>59350</td><td>TOBAC; UPPER PENN</td></tr><tr><td>323373</td><td>BOOTS BOO STATE COM #001</td><td>S</td><td>E-09-11S-35E</td><td>E</td><td>30-025-36940</td><td>G</td><td>84871</td><td>SAND SPRINGS; ATOKA-MORROW (GAS)</td></tr><tr><td>323378</td><td>BOSTON BSN STATE COM #001H</td><td>S</td><td>13-06-21S-34E</td><td>E</td><td>30-025-40573</td><td>O</td><td>5535</td><td>BERRY; BONE SPRING, NORTH</td></tr><tr><td>323406</td><td>BROWN SWD #001</td><td>P</td><td>H-26-16S-37E</td><td>H</td><td>30-025-29842</td><td>S</td><td>96135</td><td>SWD; WOLFCAMP</td></tr><tr><td>323442</td><td>CAPELLA BOP FEDERAL #001</td><td>F</td><td>M-09-21S-32E</td><td>M</td><td>30-025-39528</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPELLA BOP FEDERAL #002</td><td>F</td><td>P-08-21S-32E</td><td>P</td><td>30-025-39529</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPELLA BOP FEDERAL #009H</td><td>F</td><td>A-09-21S-32E</td><td>A</td><td>30-025-43749</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td>323443</td><td>CAPER BFE FEDERAL #001</td><td>F</td><td>O-17-21S-32E</td><td>O</td><td>30-025-36954</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPER BFE FEDERAL #002</td><td>F</td><td>K-17-21S-32E</td><td>K</td><td>30-025-37439</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPER BFE FEDERAL #002</td><td>F</td><td>K-17-21S-32E</td><td>K</td><td>30-025-37439</td><td>O</td><td>97961</td><td>WC-025 G-06 S213217K; BONE SPRING</td></tr><tr><td></td><td>CAPER BFE FEDERAL #003</td><td>F</td><td>N-17-21S-32E</td><td>N</td><td>30-025-37450</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPER BFE FEDERAL #004</td><td>F</td><td>P-17-21S-32E</td><td>P</td><td>30-025-37449</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPER BFE FEDERAL #005</td><td>F</td><td>J-17-21S-32E</td><td>J</td><td>30-025-37448</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPER BFE FEDERAL #006H</td><td>F</td><td>A-17-21S-32E</td><td>A</td><td>30-025-38091</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPER BFE FEDERAL #006H</td><td>F</td><td>A-17-21S-32E</td><td>A</td><td>30-025-38091</td><td>O</td><td>96036</td><td>WILDCAT; GROUP 5</td></tr><tr><td></td><td>CAPER BFE FEDERAL #016H</td><td>F</td><td>M-17-21S-32E</td><td>M</td><td>30-025-38101</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>CAPER BFE FEDERAL #016H</td><td>F</td><td>M-17-21S-32E</td><td>M</td><td>30-025-38101</td><td>O</td><td>96036</td><td>WILDCAT; GROUP 5</td></tr></table>",
+            "block_bbox": [
+                60,
+                391,
+                1165,
+                1521
+            ],
+            "block_id": 14,
+            "block_order": null,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    60.0,
+                    391.0
+                ],
+                [
+                    1165.0,
+                    391.0
+                ],
+                [
+                    1165.0,
+                    1521.0
+                ],
+                [
+                    60.0,
+                    1521.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.7878645062446594,
+                "coordinate": [
+                    1016,
+                    60,
+                    1160,
+                    75
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1016.0,
+                        60.0
+                    ],
+                    [
+                        1159.0,
+                        60.0
+                    ],
+                    [
+                        1159.0,
+                        74.0
+                    ],
+                    [
+                        1016.0,
+                        74.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.536219596862793,
+                "coordinate": [
+                    63,
+                    61,
+                    123,
+                    77
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        63.0,
+                        61.0
+                    ],
+                    [
+                        122.0,
+                        61.0
+                    ],
+                    [
+                        122.0,
+                        76.0
+                    ],
+                    [
+                        63.0,
+                        76.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.4802883565425873,
+                "coordinate": [
+                    64,
+                    77,
+                    291,
+                    107
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        64.0,
+                        77.0
+                    ],
+                    [
+                        291.0,
+                        77.0
+                    ],
+                    [
+                        291.0,
+                        107.0
+                    ],
+                    [
+                        64.0,
+                        107.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.4770493805408478,
+                "coordinate": [
+                    64,
+                    107,
+                    125,
+                    122
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        64.0,
+                        107.0
+                    ],
+                    [
+                        124.0,
+                        107.0
+                    ],
+                    [
+                        124.0,
+                        121.0
+                    ],
+                    [
+                        64.0,
+                        121.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5887503623962402,
+                "coordinate": [
+                    63,
+                    121,
+                    292,
+                    153
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        63.0,
+                        121.0
+                    ],
+                    [
+                        292.0,
+                        121.0
+                    ],
+                    [
+                        292.0,
+                        153.0
+                    ],
+                    [
+                        63.0,
+                        153.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.48885196447372437,
+                "coordinate": [
+                    64,
+                    153,
+                    128,
+                    168
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        64.0,
+                        153.0
+                    ],
+                    [
+                        127.0,
+                        153.0
+                    ],
+                    [
+                        127.0,
+                        167.0
+                    ],
+                    [
+                        64.0,
+                        167.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5274407267570496,
+                "coordinate": [
+                    63,
+                    167,
+                    292,
+                    204
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        63.0,
+                        167.0
+                    ],
+                    [
+                        292.0,
+                        167.0
+                    ],
+                    [
+                        292.0,
+                        204.0
+                    ],
+                    [
+                        63.0,
+                        204.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.4364178478717804,
+                "coordinate": [
+                    63,
+                    198,
+                    131,
+                    213
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        63.0,
+                        198.0
+                    ],
+                    [
+                        63.0,
+                        212.0
+                    ],
+                    [
+                        130.0,
+                        212.0
+                    ],
+                    [
+                        130.0,
+                        198.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7298362255096436,
+                "coordinate": [
+                    63,
+                    212,
+                    294,
+                    242
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        63.0,
+                        212.0
+                    ],
+                    [
+                        294.0,
+                        212.0
+                    ],
+                    [
+                        294.0,
+                        242.0
+                    ],
+                    [
+                        63.0,
+                        242.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.7918428182601929,
+                "coordinate": [
+                    392,
+                    63,
+                    864,
+                    226
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        392.0,
+                        63.0
+                    ],
+                    [
+                        864.0,
+                        63.0
+                    ],
+                    [
+                        864.0,
+                        226.0
+                    ],
+                    [
+                        392.0,
+                        226.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.44466155767440796,
+                "coordinate": [
+                    1073,
+                    102,
+                    1161,
+                    119
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1073.0,
+                        102.0
+                    ],
+                    [
+                        1160.0,
+                        102.0
+                    ],
+                    [
+                        1160.0,
+                        118.0
+                    ],
+                    [
+                        1073.0,
+                        118.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.7489144802093506,
+                "coordinate": [
+                    485,
+                    258,
+                    795,
+                    282
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        485.0,
+                        258.0
+                    ],
+                    [
+                        795.0,
+                        258.0
+                    ],
+                    [
+                        795.0,
+                        282.0
+                    ],
+                    [
+                        485.0,
+                        282.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.8717796206474304,
+                "coordinate": [
+                    62,
+                    283,
+                    1163,
+                    355
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        62.0,
+                        283.0
+                    ],
+                    [
+                        1163.0,
+                        283.0
+                    ],
+                    [
+                        1163.0,
+                        355.0
+                    ],
+                    [
+                        62.0,
+                        355.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.6147914528846741,
+                "coordinate": [
+                    59,
+                    366,
+                    320,
+                    387
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        59.0,
+                        366.0
+                    ],
+                    [
+                        319.0,
+                        366.0
+                    ],
+                    [
+                        319.0,
+                        386.0
+                    ],
+                    [
+                        59.0,
+                        386.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9783144593238831,
+                "coordinate": [
+                    60,
+                    391,
+                    1165,
+                    1521
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        60.0,
+                        391.0
+                    ],
+                    [
+                        1165.0,
+                        391.0
+                    ],
+                    [
+                        1165.0,
+                        1521.0
+                    ],
+                    [
+                        60.0,
+                        1521.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

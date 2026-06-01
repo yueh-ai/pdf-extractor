@@ -1,0 +1,400 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0051/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1594,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td rowspan=\"3\">Submit 3 Copies To Appropriate District Office\\nDistrict I\\n1625 N. French Dr., Hobbs, NM 88240\\nDistrict II\\n1301 W. Grand Ave., Artesia, NM 88210\\nDistrict III\\n1000 Rio Brazos Rd., Aztec, NM 87410\\nDistrict IV\\n1220 S. St. Francis Dr., Santa Fe, NM\\n87505</td><td colspan=\"4\">State of New Mexico\\nEnergy, Minerals and Natural Resources</td><td colspan=\"3\">Form C-103\\nJune 19, 2008</td><td></td></tr><tr><td rowspan=\"2\" colspan=\"4\">OIL CONSERVATION DIVISION\\n1220 South St. Francis Dr.\\nSanta Fe, NM 87505</td><td colspan=\"3\">WELL API NO.\\n30-015-36499\\n5. Indicate Type of Lease\\nSTATE ☒ FEE ☐</td><td></td></tr><tr><td colspan=\"3\">6. State Oil &amp; Gas Lease No.\\nVB-827 &amp; VO-5867</td><td></td></tr><tr><td rowspan=\"3\" colspan=\"5\">SUNDRY NOTICES AND REPORTS ON WELLS\\n(DO NOT USE THIS FORM FOR PROPOSALS TO DRILL OR TO DEEPEN OR PLUG BACK TO A DIFFERENT RESERVOIR. USE &quot;APPLICATION FOR PERMIT&quot; (FORM C-101) FOR SUCH PROPOSALS)\\n1. Type of Well: Oil Well ☒ Gas Well ☐ Other RECEIVED\\n2. Name of Operator\\nYates Petroleum Corporation\\n3. Address of Operator\\n105 South Fourth Street, Artesia, NM 88210\\n4. Well Location\\nSurface L : 1650 feet from the South line and 660 feet from the West line\\nBIL I : 1650 feet from the South line and 330 feet from the East line</td><td colspan=\"3\">7. Lease Name or Unit Agreement Name\\nPerdomo BMP State Com\\n8. Well Number\\n1H</td><td></td></tr><tr><td colspan=\"3\">9. OGRID Number\\n025575\\n10. Pool name or Wildcat Wildcat; Morrow</td><td></td></tr><tr><td colspan=\"3\">FEB 12 2009\\nNMOCD ARTESIA</td><td></td></tr><tr><td>Section</td><td>24</td><td>Township</td><td>24S</td><td>Range</td><td>27E</td><td>NMPM</td><td>Eddy</td><td>County</td></tr><tr><td></td><td></td><td colspan=\"7\">11. Elevation (Show whether DR, RKB, RT, GR, etc.)\\n3149&#x27;GR</td></tr></table>",
+            "block_bbox": [
+                64,
+                30,
+                1195,
+                596
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    64.0,
+                    30.0
+                ],
+                [
+                    1195.0,
+                    30.0
+                ],
+                [
+                    1195.0,
+                    596.0
+                ],
+                [
+                    64.0,
+                    596.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "12. Check Appropriate Box to Indicate Nature of Notice, Report or Other Data",
+            "block_bbox": [
+                234,
+                627,
+                1002,
+                656
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    234.0,
+                    627.0
+                ],
+                [
+                    1002.0,
+                    627.0
+                ],
+                [
+                    1002.0,
+                    656.0
+                ],
+                [
+                    234.0,
+                    656.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td colspan=\"3\">NOTICE OF INTENTION TO:</td><td colspan=\"3\">SUBSEQUENT REPORT OF:</td></tr><tr><td>PERFORM REMEDIAL WORK ☐</td><td>PLUG AND ABANDON ☐</td><td></td><td>REMEDIAL WORK ☐</td><td>ALTERING CASING ☐</td><td></td></tr><tr><td>TEMPORARILY ABANDON ☐</td><td>CHANGE PLANS ☐</td><td></td><td>COMMENCE DRILLING OPNS. ☐</td><td>P AND A ☐</td><td></td></tr><tr><td>PULL OR ALTER CASING ☐</td><td>MULTIPLE COMPL ☐</td><td></td><td>CASING/CEMENT JOB ☐</td><td></td><td></td></tr><tr><td>DOWNHOLE COMMINGLE ☐</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>OTHER:</td><td>☐</td><td></td><td>OTHER:</td><td>5&#x27; new hole</td><td>☒</td></tr></table>",
+            "block_bbox": [
+                68,
+                669,
+                1162,
+                839
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    68.0,
+                    669.0
+                ],
+                [
+                    1162.0,
+                    669.0
+                ],
+                [
+                    1162.0,
+                    839.0
+                ],
+                [
+                    68.0,
+                    839.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "13. Describe proposed or completed operations. (Clearly state all pertinent details, and give pertinent dates, including estimated date of starting any proposed work). SEE RULE 1103. For Multiple Completions: Attach wellbore diagram of proposed completion or recompletion.",
+            "block_bbox": [
+                95,
+                840,
+                1167,
+                913
+            ],
+            "block_id": 3,
+            "block_order": 1,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    94.52967071533203,
+                    840.0031127929688
+                ],
+                [
+                    1165.5296630859375,
+                    833.0032348632812
+                ],
+                [
+                    1166.0001220703125,
+                    905.0001831054688
+                ],
+                [
+                    95.0001220703125,
+                    912.0000610351562
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "2/9/10 - Made 5' new hole at 11:30 AM. TD 160'. Hole size 12-1/4\".",
+            "block_bbox": [
+                60,
+                932,
+                629,
+                958
+            ],
+            "block_id": 4,
+            "block_order": 2,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    60.0,
+                    932.0
+                ],
+                [
+                    629.0,
+                    932.0
+                ],
+                [
+                    629.0,
+                    958.0
+                ],
+                [
+                    60.0,
+                    958.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>Spud Date: ☐</td><td>Rig Release Date: ☐</td></tr><tr><td>I hereby certify that the information above is true and complete to the best of my knowledge and belief.\\nSIGNATURE</td><td>TITLE  $ \\underline{\\text{Regulatory Compliance Supervisor}} $ DATE  $ \\underline{\\text{February 10, 2010}} $\\nType or print name  $ \\underline{\\text{Tina Huerta}} $ E-mail address:  $ \\underline{\\text{tinah@yatespetroleum.com}} $ PHONE:  $ \\underline{\\text{575-748-4168}} $\\nFor State Use Only\\nAPPROVED BY:  $ \\underline{\\text{David Day}} $ TITLE  $ \\underline{\\text{Field Supervisor}} $ DATE  $ \\underline{\\text{2-15-2010}} $\\nConditions of Approval (if any):</td></tr></table>",
+            "block_bbox": [
+                59,
+                1201,
+                1164,
+                1547
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    59.0,
+                    1201.0
+                ],
+                [
+                    1164.0,
+                    1201.0
+                ],
+                [
+                    1164.0,
+                    1547.0
+                ],
+                [
+                    59.0,
+                    1547.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.8487840294837952,
+                "coordinate": [
+                    64,
+                    30,
+                    1195,
+                    596
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        64.0,
+                        30.0
+                    ],
+                    [
+                        1195.0,
+                        30.0
+                    ],
+                    [
+                        1195.0,
+                        596.0
+                    ],
+                    [
+                        64.0,
+                        596.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.39401352405548096,
+                "coordinate": [
+                    234,
+                    627,
+                    1002,
+                    656
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        234.0,
+                        627.0
+                    ],
+                    [
+                        1002.0,
+                        627.0
+                    ],
+                    [
+                        1002.0,
+                        656.0
+                    ],
+                    [
+                        234.0,
+                        656.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.6540136337280273,
+                "coordinate": [
+                    68,
+                    669,
+                    1162,
+                    839
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        68.0,
+                        669.0
+                    ],
+                    [
+                        1162.0,
+                        669.0
+                    ],
+                    [
+                        1162.0,
+                        839.0
+                    ],
+                    [
+                        68.0,
+                        839.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7121484875679016,
+                "coordinate": [
+                    95,
+                    840,
+                    1167,
+                    913
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        94.52967071533203,
+                        840.0031127929688
+                    ],
+                    [
+                        1165.5296630859375,
+                        833.0032348632812
+                    ],
+                    [
+                        1166.0001220703125,
+                        905.0001831054688
+                    ],
+                    [
+                        95.0001220703125,
+                        912.0000610351562
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.645537257194519,
+                "coordinate": [
+                    60,
+                    932,
+                    629,
+                    958
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        60.0,
+                        932.0
+                    ],
+                    [
+                        629.0,
+                        932.0
+                    ],
+                    [
+                        629.0,
+                        958.0
+                    ],
+                    [
+                        60.0,
+                        958.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.3862679898738861,
+                "coordinate": [
+                    59,
+                    1201,
+                    1164,
+                    1547
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        59.0,
+                        1201.0
+                    ],
+                    [
+                        1164.0,
+                        1201.0
+                    ],
+                    [
+                        1164.0,
+                        1547.0
+                    ],
+                    [
+                        59.0,
+                        1547.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0074/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td></td><td>CHOSA ATR FEDERAL #002</td><td>F</td><td>13-05-25S-26E</td><td>M</td><td>30-015-34210</td><td>G</td><td>96542</td><td>WILDCAT, GRANITE</td></tr><tr><td></td><td>CHOSA ATR FEDERAL #002</td><td>F</td><td>13-05-25S-26E</td><td>M</td><td>30-015-34210</td><td>G</td><td>97334</td><td>SAGE DRAW, ATOKA (G)</td></tr><tr><td>323505</td><td>CHOSA ATR FEDERAL COM #003</td><td>F</td><td>J-17-25S-26E</td><td>J</td><td>30-015-34441</td><td>G</td><td>98220</td><td>PURPLE SAGE, WOLFCAMP (GAS)</td></tr><tr><td></td><td>CHOSA ATR FEDERAL COM #003</td><td>F</td><td>J-17-25S-26E</td><td>J</td><td>30-015-34441</td><td>G</td><td>74900</td><td>CHOSA DRAW, MORROW (GAS)</td></tr><tr><td>323506</td><td>CHUMBLEY XS COM #001</td><td>P</td><td>G-08-18S-26E</td><td>G</td><td>30-015-24635</td><td>G</td><td>76240</td><td>EAGLE CREEK, ATOKA-MORROW, E (GAS)</td></tr><tr><td>323507</td><td>CIGAR BCM STATE COM #002</td><td>S</td><td>P-36-23S-27E</td><td>P</td><td>30-015-33061</td><td>G</td><td>72170</td><td>BLACK RIVER, MORROW (GAS)</td></tr><tr><td></td><td>CIGAR BCM STATE COM #002</td><td>S</td><td>P-36-23S-27E</td><td>P</td><td>30-015-33061</td><td>G</td><td>80705</td><td>LOVING, ATOKA, SOUTHEAST (GAS)</td></tr><tr><td>323508</td><td>CIGARILLO SWD #001</td><td>S</td><td>G-36-23S-27E</td><td>G</td><td>30-015-21643</td><td>S</td><td>96101</td><td>SWD, DEVONIAN</td></tr><tr><td>323510</td><td>CITIES JG STATE COM #001</td><td>S</td><td>P-13-18S-24E</td><td>P</td><td>30-015-22711</td><td>G</td><td>82775</td><td>PENASCO DRAW, PERMO PENN (GAS)</td></tr><tr><td>323513</td><td>CLARENCE BCU #001</td><td>P</td><td>D-14-16S-26E</td><td>D</td><td>30-015-33148</td><td>G</td><td>97375</td><td>PECOS RIVER, MORROW</td></tr><tr><td></td><td>CLARENCE BCU #001</td><td>P</td><td>D-14-16S-26E</td><td>D</td><td>30-015-33148</td><td>G</td><td>97402</td><td>COTTONWOOD LEVEE, ATOKA (G)</td></tr><tr><td>323514</td><td>CLARENCE BCU COM #004</td><td>P</td><td>J-14-16S-26E</td><td>J</td><td>30-015-33583</td><td>G</td><td>97375</td><td>PECOS RIVER, MORROW</td></tr><tr><td></td><td>CLARENCE BCU COM #006</td><td>P</td><td>C-23-16S-26E</td><td>C</td><td>30-015-34168</td><td>G</td><td>97375</td><td>PECOS RIVER, MORROW</td></tr><tr><td>323515</td><td>CLAYTON BFO STATE COM #001</td><td>S</td><td>I-16-19S-26E</td><td>I</td><td>30-015-33733</td><td>G</td><td>76960</td><td>FOUR MILE DRAW, MORROW (GAS)</td></tr><tr><td></td><td>CLAYTON BFO STATE COM #001</td><td>S</td><td>I-16-19S-26E</td><td>I</td><td>30-015-33733</td><td>G</td><td>97642</td><td>CRANE, ATOKA (G)</td></tr><tr><td></td><td>CLAYTON BFO STATE COM #003</td><td>S</td><td>N-16-19S-26E</td><td>N</td><td>30-015-35746</td><td>G</td><td>76960</td><td>FOUR MILE DRAW, MORROW (GAS)</td></tr><tr><td></td><td>CLAYTON BFO STATE COM #003</td><td>S</td><td>N-16-19S-26E</td><td>N</td><td>30-015-35746</td><td>G</td><td>97338</td><td>WC. MISSISSIPPIAN GAS</td></tr><tr><td></td><td>CLAYTON BFO STATE COM #003</td><td>S</td><td>N-16-19S-26E</td><td>N</td><td>30-015-35746</td><td>G</td><td>97642</td><td>CRANE, ATOKA (G)</td></tr><tr><td>323518</td><td>CLEAVELAND #001</td><td>P</td><td>B-33-18S-26E</td><td>B</td><td>30-015-00259</td><td>O</td><td>3250</td><td>ATOKA, GLORIETA-YESO</td></tr><tr><td></td><td>CLEAVELAND #002</td><td>P</td><td>B-33-18S-26E</td><td>B</td><td>30-015-00260</td><td>O</td><td>16160</td><td>DAYTON, SAN ANDRES, WEST</td></tr><tr><td>323519</td><td>CLIFFORD ADD #001</td><td>P</td><td>P-35-19S-24E</td><td>P</td><td>30-015-26226</td><td>O</td><td>15472</td><td>DAGGER DRAW, UPPER PENN, NORTH</td></tr><tr><td></td><td>CLIFFORD ADD #002</td><td>P</td><td>I-35-19S-24E</td><td>I</td><td>30-015-26670</td><td>O</td><td>15472</td><td>DAGGER DRAW, UPPER PENN, NORTH</td></tr><tr><td></td><td>CLIFFORD ADD #002</td><td>P</td><td>I-35-19S-24E</td><td>I</td><td>30-015-26670</td><td>O</td><td>75960</td><td>DAGGER DRAW, WOLFCAMP (GAS)</td></tr><tr><td>323524</td><td>COFFMAN NY FEDERAL #001</td><td>F</td><td>E-25-07S-25E</td><td>E</td><td>30-005-60742</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>COFFMAN NY FEDERAL #002</td><td>F</td><td>A-25-07S-25E</td><td>A</td><td>30-005-61421</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>COFFMAN NY FEDERAL #003</td><td>F</td><td>C-25-07S-25E</td><td>C</td><td>30-005-63089</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td>323525</td><td>COHIBA BPY STATE #001</td><td>S</td><td>4-01-25S-27E</td><td>D</td><td>30-015-33999</td><td>O</td><td>96053</td><td>WC, BONE SPRING</td></tr><tr><td></td><td>COHIBA BPY STATE #001</td><td>S</td><td>4-01-25S-27E</td><td>D</td><td>30-015-33999</td><td>O</td><td>96819</td><td>SALT DRAW, MORROW, WEST (G)</td></tr><tr><td></td><td>COHIBA BPY STATE #002H</td><td>S</td><td>4-01-25S-27E</td><td>D</td><td>30-015-43877</td><td>O</td><td>96415</td><td>WILLOW LAKE, BONE SPRING, WEST</td></tr><tr><td></td><td>COHIBA BPY STATE #003H</td><td>S</td><td>E-01-25S-27E</td><td>E</td><td>30-015-41821</td><td>O</td><td>96415</td><td>WILLOW LAKE, BONE SPRING, WEST</td></tr><tr><td>323527</td><td>COLE AAE COM #001</td><td>P</td><td>J-05-18S-26E</td><td>J</td><td>30-015-25028</td><td>G</td><td>76240</td><td>EAGLE CREEK, ATOKA-MORROW, E (GAS)</td></tr><tr><td>323528</td><td>COLOSSAL BUO STATE #001H</td><td>S</td><td>I-32-23S-27E</td><td>I</td><td>30-015-42314</td><td>O</td><td>97837</td><td>WILDCAT G-02 S2427030; BONE SPRING</td></tr><tr><td>323530</td><td>COMANCHE HILLS VE STATE #001</td><td>F</td><td>B-36-10S-25E</td><td>B</td><td>30-005-61754</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td>323531</td><td>COMANCHE HILLS VE STATE COM #002</td><td>S</td><td>F-36-10S-25E</td><td>F</td><td>30-005-63757</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>COMANCHE HILLS VE STATE COM #002</td><td>S</td><td>F-36-10S-25E</td><td>F</td><td>30-005-63757</td><td>G</td><td>96542</td><td>WILDCAT, GRANITE</td></tr><tr><td>323532</td><td>COMANCHE HILLS ZU FEDERAL #001</td><td>F</td><td>N-25-10S-25E</td><td>N</td><td>30-005-62168</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td>323534</td><td>COMANCHERO BCZ FEDERAL COM #001</td><td>F</td><td>E-26-10S-25E</td><td>E</td><td>30-005-62113</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>COMANCHERO BCZ FEDERAL COM #001</td><td>F</td><td>E-26-10S-25E</td><td>E</td><td>30-005-62113</td><td>G</td><td>97347</td><td>BITTER LAKES, PENN (G)</td></tr><tr><td>323536</td><td>COMPROMISE SWD #001</td><td>F</td><td>H-30-18S-27E</td><td>H</td><td>30-015-25665</td><td>S</td><td>96134</td><td>SWD, UPPER PENN</td></tr><tr><td>323540</td><td>CONEJO RH STATE #001</td><td>S</td><td>P-02-07S-25E</td><td>P</td><td>30-005-61026</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>CONEJO RH STATE #002</td><td>S</td><td>M-02-07S-25E</td><td>M</td><td>30-005-61201</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>CONEJO RH STATE #004</td><td>S</td><td>E-02-07S-25E</td><td>E</td><td>30-005-61329</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>CONEJO RH STATE #005R</td><td>S</td><td>F-02-07S-25E</td><td>F</td><td>30-005-63233</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>CONEJO RH STATE #005R</td><td>S</td><td>F-02-07S-25E</td><td>F</td><td>30-005-63233</td><td>G</td><td>97129</td><td>FIVE MILE DRAW, PENN (G)</td></tr><tr><td>323541</td><td>CONNOR RR COM #001</td><td>P</td><td>K-23-18S-25E</td><td>K</td><td>30-015-23941</td><td>G</td><td>70760</td><td>ATOKA, MORROW, WEST (GAS)</td></tr><tr><td>323542</td><td>CONOCO #001</td><td>P</td><td>A-18-19S-25E</td><td>A</td><td>30-015-26672</td><td>O</td><td></td><td></td></tr><tr><td>323545</td><td>CONOCO AGK FEDERAL COM #001</td><td>F</td><td>C-11-20S-24E</td><td>C</td><td>30-015-26133</td><td>O</td><td>97014</td><td>DAGGER DRAW, ATOKA, SE (G)</td></tr><tr><td></td><td>CONOCO AGK FEDERAL COM #010</td><td>F</td><td>J-11-20S-24E</td><td>J</td><td>30-015-26953</td><td>O</td><td>15475</td><td>DAGGER DRAW, UP PENN, SOUTH (ASSOC)</td></tr><tr><td>323547</td><td>COOGAN AUN STATE #001</td><td>S</td><td>2-32-20H-22E</td><td>J</td><td>30-015-34351</td><td>G</td><td>80240</td><td>LITTLE BOX CANYON, MORROW (GAS)</td></tr><tr><td>323548</td><td>COOKER BCB FEDERAL COM #003</td><td>F</td><td>J-14-06S-26E</td><td></td><td>30-005-63996</td><td>G</td><td>96079</td><td>WC, SILURIAN (GAS) DO NOT USE</td></tr><tr><td></td><td>COOKER BCB FEDERAL COM #003</td><td>F</td><td>J-14-06S-26E</td><td></td><td>30-005-63996</td><td>G</td><td>96542</td><td>WILDCAT, GRANITE</td></tr><tr><td></td><td>COOKER BCB FEDERAL COM #003</td><td>F</td><td>J-14-06S-26E</td><td></td><td>30-005-63996</td><td>G</td><td>97284</td><td>ALKALI DRAW, SILURO-DEVONIAN</td></tr><tr><td>323550</td><td>COOPER AHH #001</td><td>P</td><td>F-01-20S-24E</td><td>F</td><td>30-015-26299</td><td>O</td><td></td><td></td></tr><tr><td></td><td>COOPER AHH #002</td><td>P</td><td>E-01-20S-24E</td><td>E</td><td>30-015-26693</td><td>O</td><td>15472</td><td>DAGGER DRAW, UPPER PENN, NORTH</td></tr><tr><td>323556</td><td>CORNETT TI #001</td><td>P</td><td>1-03-08S-26E</td><td>A</td><td>30-005-61575</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td>323557</td><td>CORONET TI #002</td><td>P</td><td>H-03-08S-26E</td><td>H</td><td>30-005-63231</td><td>G</td><td>82730</td><td>PECOS SLOPE: ABO (GAS)</td></tr><tr><td></td><td>CORONET TI #003</td><td>P</td><td>G-03-08S-26E</td><td>G</td><td>30-005-63369</td><td>G</td><td>97110</td><td>LESLIE SPRING, WOLFCAMP, SOUTH (G)</td></tr><tr><td>323558</td><td>CORRAL DRAW AOH FEDERAL #001</td><td>F</td><td>L-13-24S-29E</td><td>L</td><td>30-015-29396</td><td>O</td><td>11540</td><td>CEDAR CANYON, DELAWARE</td></tr><tr><td></td><td>CORRAL DRAW AOH FEDERAL #001</td><td>F</td><td>L-13-24S-29E</td><td>L</td><td>30-015-29396</td><td>O</td><td>96473</td><td>PIERCE CROSSING; BONE SPRING, EAST</td></tr><tr><td></td><td>CORRAL DRAW AOH FEDERAL #002</td><td>F</td><td>F-13-24S-29E</td><td>F</td><td>30-015-34257</td><td>O</td><td>11540</td><td>CEDAR CANYON, DELAWARE</td></tr><tr><td></td><td>CORRAL DRAW AOH FEDERAL #002</td><td>F</td><td>F-13-24S-29E</td><td>F</td><td>30-015-34257</td><td>O</td><td>96473</td><td>PIERCE CROSSING; BONE SPRING, EAST</td></tr><tr><td></td><td>CORRAL DRAW AOH FEDERAL #003H</td><td>F</td><td>N</td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                56,
+                48,
+                1168,
+                1521
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    48.0
+                ],
+                [
+                    1168.0,
+                    48.0
+                ],
+                [
+                    1168.0,
+                    1521.0
+                ],
+                [
+                    56.0,
+                    1521.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9885544180870056,
+                "coordinate": [
+                    56,
+                    48,
+                    1168,
+                    1521
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        48.0
+                    ],
+                    [
+                        1168.0,
+                        48.0
+                    ],
+                    [
+                        1168.0,
+                        1521.0
+                    ],
+                    [
+                        56.0,
+                        1521.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0009/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td colspan=\"2\">3D $ ^{{3}} $ Directional Drilling Planner - 3D View</td></tr><tr><td colspan=\"2\">Company Yates Petroleum Corporation\\nWell. Jericho BKJ State Com. #2H</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td>File: G:\\drilling toolbox wellplans\\Horizontal\\jericho2h wpp</td><td></td></tr></table>",
+            "block_bbox": [
+                149,
+                42,
+                1074,
+                1209
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    149.0,
+                    42.0
+                ],
+                [
+                    1074.0,
+                    42.0
+                ],
+                [
+                    1074.0,
+                    1209.0
+                ],
+                [
+                    149.0,
+                    1209.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.8063410520553589,
+                "coordinate": [
+                    149,
+                    42,
+                    1074,
+                    1209
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        149.0,
+                        42.0
+                    ],
+                    [
+                        1074.0,
+                        42.0
+                    ],
+                    [
+                        1074.0,
+                        1209.0
+                    ],
+                    [
+                        149.0,
+                        1209.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

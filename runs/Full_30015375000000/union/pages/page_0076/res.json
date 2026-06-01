@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0076/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>323593</td><td>DAYTON ER #003H</td><td>P</td><td>L-21-18S-26E</td><td>L</td><td>30-015-42010</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>323594</td><td>DAYTON EX #001</td><td>P</td><td>O-21-18S-26E</td><td>O</td><td>30-015-21708</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323594</td><td>DAYTON EY #002</td><td>P</td><td>P-21-18S-26E</td><td>P</td><td>30-015-21688</td><td>O</td><td></td><td></td></tr><tr><td>323595</td><td>DAYTON EZ #001</td><td>P</td><td>P-21-18S-26E</td><td>P</td><td>30-015-24517</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON EZ #002</td><td>P</td><td>H-21-18S-26E</td><td>H</td><td>30-015-21684</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON EZ #003</td><td>P</td><td>H-21-18S-26E</td><td>H</td><td>30-015-24523</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON FZ #003</td><td>P</td><td>H-21-18S-26E</td><td>H</td><td>30-015-28343</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON FG #001</td><td>P</td><td>B-28-18S-26E</td><td>B</td><td>30-015-21721</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON FI #001</td><td>P</td><td>A-28-18S-26E</td><td>A</td><td>30-015-21727</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON FI #002</td><td>P</td><td>A-28-18S-26E</td><td>A</td><td>30-015-21904</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON FN #001</td><td>P</td><td>C-28-18S-26E</td><td>C</td><td>30-015-21733</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323595</td><td>DAYTON FN #002</td><td>P</td><td>C-28-18S-26E</td><td>C</td><td>30-015-28878</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323600</td><td>DAYTON FO #002</td><td>P</td><td>F-28-18S-26E</td><td>F</td><td>30-015-22331</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323601</td><td>DAYTON FP #001</td><td>P</td><td>G-21-18S-26E</td><td>G</td><td>30-015-21738</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323602</td><td>DAYTON FP #002</td><td>P</td><td>G-21-18S-26E</td><td>G</td><td>30-015-28879</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323602</td><td>DAYTON FT #001</td><td>P</td><td>M-21-18S-26E</td><td>M</td><td>30-015-21741</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323603</td><td>DAYTON FX #001</td><td>P</td><td>K-21-18S-26E</td><td>K</td><td>30-015-21761</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323604</td><td>DAYTON FY #001</td><td>F</td><td>L-21-18S-26E</td><td>L</td><td>30-015-21770</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323606</td><td>DAZED BDZ FEDERAL COM #001</td><td>F</td><td>13-03-21S-24E</td><td>E</td><td>30-015-33090</td><td>G</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323606</td><td>DAZED BDZ FEDERAL COM #001</td><td>F</td><td>13-03-21S-24E</td><td>E</td><td>30-015-33090</td><td>G</td><td>74680</td><td>CEMETARY; WOLFCAMP (GAS)</td></tr><tr><td>323606</td><td>DAZED BDZ FEDERAL COM #002</td><td>F</td><td>13-03-21S-24E</td><td>E</td><td>30-015-33428</td><td>O</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323608</td><td>DEB STATE COM #001</td><td>S</td><td>I-16-08S-26E</td><td>I</td><td>30-005-60753</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323609</td><td>DEE 36 SE STATE #003</td><td>S</td><td>J-36-19S-24E</td><td>J</td><td>30-015-26623</td><td>M</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323609</td><td>DEE 36 SE STATE #005</td><td>S</td><td>P-36-19S-24E</td><td>P</td><td>30-015-26671</td><td>M</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323610</td><td>DEE 36 SE STATE #006</td><td>S</td><td>I-36-19S-24E</td><td>I</td><td>30-015-26980</td><td>O</td><td>97565</td><td>N. SEVEN RIVERS; GLORIETA-YESO</td></tr><tr><td>323610</td><td>DEE 36 SE STATE COM #001</td><td>S</td><td>J-36-19S-24E</td><td>J</td><td>30-015-21881</td><td>O</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323610</td><td>DEE 36 SW STATE #004</td><td>S</td><td>K-36-19S-24E</td><td>K</td><td>30-015-27221</td><td>O</td><td></td><td></td></tr><tr><td>323613</td><td>DEER CANYON SOUTH ACK FEDERAL COM #001</td><td>F</td><td>E-35-20S-21E</td><td>E</td><td>30-015-25287</td><td>G</td><td>79122</td><td>INDIAN LOAFER DRAW; UPPER PENN (GAS)</td></tr><tr><td>323614</td><td>DEETER ADV #001</td><td>P</td><td>M-27-18S-26E</td><td>M</td><td>30-015-25638</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>323616</td><td>DELHAGEN BAJ COM #001</td><td>P</td><td>3-06-10S-25E</td><td>C</td><td>30-005-63508</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323619</td><td>DESERT ROSE ALS #002</td><td>S</td><td>P-11-09S-26E</td><td>P</td><td>30-005-62569</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323620</td><td>DESERT ROSE ALS STATE #003</td><td>S</td><td>F-11-09S-26E</td><td>F</td><td>30-005-62591</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td>323621</td><td>DESIRE EDS #001</td><td>P</td><td>O-34-17S-26E</td><td>O</td><td>30-015-33036</td><td>O</td><td>79520</td><td>KENNEDY FARMS; MORROW (GAS)</td></tr><tr><td>323622</td><td>DIAMOND A #001</td><td>P</td><td>G-29-07S-26E</td><td>G</td><td>30-005-61783</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323623</td><td>DIAMOND AKI FEDERAL #001</td><td>F</td><td>N-34-20S-24E</td><td>N</td><td>30-015-27086</td><td>O</td><td>15475</td><td>DAGGER DRAW; UP PENN, SOUTH (ASSOC)</td></tr><tr><td>323623</td><td>DIAMOND AKI FEDERAL #002</td><td>F</td><td>M-34-20S-24E</td><td>M</td><td>30-015-29125</td><td>O</td><td>15475</td><td>DAGGER DRAW; UP PENN, SOUTH (ASSOC)</td></tr><tr><td>323623</td><td>DIAMOND AKI FEDERAL #004</td><td>F</td><td>I-33-20S-24E</td><td>I</td><td>30-015-35938</td><td>G</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323624</td><td>DIAMOND AKI FEDERAL #005</td><td>F</td><td>D-34-20S-24E</td><td>D</td><td>30-015-35810</td><td>O</td><td>74640</td><td>CEMETARY; MORROW (GAS)</td></tr><tr><td>323624</td><td>DIAMOND AKI FEDERAL #003</td><td>S</td><td>D-10-10S-26E</td><td>D</td><td>30-005-64110</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td>323624</td><td>DIAMOND AKI FEDERAL #003</td><td>S</td><td>D-10-10S-26E</td><td>D</td><td>30-005-64110</td><td>G</td><td>76750</td><td>FOOR RANCH; WOLFCAMP (GAS)</td></tr><tr><td>323627</td><td>DIME STATE #001</td><td>S</td><td>J-30-18S-28E</td><td>J</td><td>30-015-33659</td><td>G</td><td>96403</td><td>WILDCAT; BONE SPRING</td></tr><tr><td>323628</td><td>DIVIDE FEDERAL JW COM #001</td><td>F</td><td>K-04-17S-24E</td><td>K</td><td>30-015-22643</td><td>G</td><td>96622</td><td>EAGLE CREEK; WOLFCAMP</td></tr><tr><td>323632</td><td>DOC BHU STATE #001</td><td>S</td><td>O-05-25S-30E</td><td>O</td><td>30-015-34552</td><td>O</td><td>13360</td><td>CORRAL CANYON; DELAWARE</td></tr><tr><td>323632</td><td>DOC BHU STATE #001</td><td>S</td><td>O-05-25S-30E</td><td>O</td><td>30-015-34552</td><td>O</td><td>96403</td><td>WILDCAT; BONE SPRING</td></tr><tr><td>323633</td><td>DOC BHU STATE #001</td><td>S</td><td>O-05-25S-30E</td><td>O</td><td>30-015-34552</td><td>O</td><td>96473</td><td>PIERCE CROSSING; BONE SPRING, EAST</td></tr><tr><td>323633</td><td>DOC BHU STATE COM #005H</td><td>S</td><td>O-06-25S-30E</td><td>O</td><td>30-015-39792</td><td>O</td><td>96473</td><td>PIERCE CROSSING; BONE SPRING, EAST</td></tr><tr><td>323634</td><td>DOG CANYON DRAW UP STATE #001</td><td>S</td><td>I-02-17S-27E</td><td>I</td><td>30-015-24167</td><td>G</td><td>75720</td><td>CROW FLATS; MORROW (GAS)</td></tr><tr><td>323636</td><td>DOLORES AII FEDERAL #002</td><td>F</td><td>I-14-22S-31E</td><td>I</td><td>30-015-26548</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td>323637</td><td>DOLORES AII FEDERAL #003</td><td>F</td><td>H-14-22S-31E</td><td>H</td><td>30-015-26722</td><td>O</td><td>39360</td><td>LIVINGSTON RIDGE; DELAWARE</td></tr><tr><td>323637</td><td>DOMINO AOJ FEDERAL #003</td><td>F</td><td>L-09-19S-31E</td><td>L</td><td>30-015-30121</td><td>G</td><td>97081</td><td>HACKBERRY; WOLFCAMP (O)</td></tr><tr><td>323637</td><td>DOMINO AOJ FEDERAL #004</td><td>F</td><td>P-08-19S-31E</td><td>P</td><td>30-015-31211</td><td>G</td><td>78000</td><td>HACKBERRY; MORROW (GAS)</td></tr><tr><td>323637</td><td>DOMINO AOJ FEDERAL #011H</td><td>F</td><td>E-08-19S-31E</td><td>E</td><td>30-015-38384</td><td>O</td><td>97056</td><td>HACKBERRY; BONE SPRING, NORTH</td></tr><tr><td>323638</td><td>DOMINO AOJ FEDERAL COM #005</td><td>F</td><td>A-08-19S-31E</td><td>A</td><td>30-015-31657</td><td>O</td><td>80840</td><td>LUSK; MORROW, WEST (GAS)</td></tr><tr><td>323638</td><td>DOMINO AOJ FEDERAL COM #009H</td><td>F</td><td>M-08-19S-31E</td><td>M</td><td>30-015-35804</td><td>O</td><td>97056</td><td>HACKBERRY; BONE SPRING, NORTH</td></tr><tr><td>323638</td><td>DOMINO AOJ FEDERAL COM #010H</td><td>F</td><td>L-08-19S-31E</td><td>L</td><td>30-015-38385</td><td>O</td><td>97056</td><td>HACKBERRY; BONE SPRING, NORTH</td></tr><tr><td>323638</td><td>DOMINO AOJ FEDERAL COM #012H</td><td>F</td><td>D-08-19S-31E</td><td>D</td><td>30-015-38386</td><td>O</td><td>97056</td><td>HACKBERRY; BONE SPRING, NORTH</td></tr><tr><td>323638</td><td>DOMINO AOJ FEDERAL COM #013H</td><td>F</td><td>P-09-19S-31E</td><td>P</td><td>30-015-39544</td><td>O</td><td>97056</td><td>HACKBERRY; BONE SPRING, NORTH</td></tr><tr><td>323639</td><td>DONAHUE FEDERAL SWD #001</td><td>F</td><td>E-10-20S-24E</td><td>E</td><td>30-015-00087</td><td>S</td><td>96091</td><td>SWD; ABO</td></tr><tr><td>323640</td><td>DONEGAN CE #002</td><td>P</td><td>J-28-17S-25E</td><td>J</td><td>30-015-24212</td><td>O</td><td></td><td></td></tr><tr><td>323643</td><td>DORIS RI FEDERAL #001</td><td>F</td><td>L-27-05S-25E</td><td>L</td><td>30-005-61035</td><td>W</td><td>96221</td><td>WSW; SAN ANDRES</td></tr><tr><td>32364</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                56,
+                43,
+                1168,
+                1529
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    43.0
+                ],
+                [
+                    1168.0,
+                    43.0
+                ],
+                [
+                    1168.0,
+                    1529.0
+                ],
+                [
+                    56.0,
+                    1529.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9872072339057922,
+                "coordinate": [
+                    56,
+                    43,
+                    1168,
+                    1529
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        43.0
+                    ],
+                    [
+                        1168.0,
+                        43.0
+                    ],
+                    [
+                        1168.0,
+                        1529.0
+                    ],
+                    [
+                        56.0,
+                        1529.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "input_pdf": "/Users/yuehu/opensources/PaddleOCR/langchain-paddleocr/tests/data/sample_pdf.pdf",
+  "out": "runs/smoke_sample_page1",
+  "pages": "1",
+  "selected_pages": [
+    1
+  ],
+  "total_pages": 4,
+  "resume": true,
+  "force": false,
+  "retries": 0,
+  "fail_fast": false,
+  "timeout_sec": 900,
+  "server_url": "http://localhost:8111/",
+  "model_name": "PaddlePaddle/PaddleOCR-VL-1.6",
+  "layout_merge_bboxes_mode": null,
+  "save_page_image": true
+}

@@ -1,0 +1,461 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0093/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1598,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "doc_title",
+            "block_content": "INSTRUCTIONS",
+            "block_bbox": [
+                469,
+                35,
+                751,
+                71
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    469.0,
+                    35.0
+                ],
+                [
+                    751.0,
+                    35.0
+                ],
+                [
+                    751.0,
+                    71.0
+                ],
+                [
+                    469.0,
+                    71.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "This form is to be filed with the appropriate District Office of the Division not later than 20 days after the completion of any newly-drilled or deepened well and not later than 60 days after completion of closure. When submitted as a completion report, this shall be accompanied by one copy of all electrical and radio-activity logs run on the well and a summary of all special tests conducted, including drill stem tests. All depths reported shall be measured depths. In the case of directionally drilled wells, true vertical depths shall also be reported. For multiple completions, items 11, 12 and 26-31 shall be reported for each zone.",
+            "block_bbox": [
+                26,
+                98,
+                1192,
+                218
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    26.0,
+                    98.0
+                ],
+                [
+                    1192.0,
+                    98.0
+                ],
+                [
+                    1192.0,
+                    218.0
+                ],
+                [
+                    26.0,
+                    218.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "INDICATE FORMATION TOPS IN CONFORMANCE WITH GEOGRAPHICAL SECTION OF STATE",
+            "block_bbox": [
+                49,
+                238,
+                1179,
+                266
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    49.0,
+                    238.0
+                ],
+                [
+                    1179.0,
+                    238.0
+                ],
+                [
+                    1179.0,
+                    266.0
+                ],
+                [
+                    49.0,
+                    266.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td colspan=\"2\">Southeastern New Mexico</td><td colspan=\"2\">Northwestern New Mexico</td></tr><tr><td>T. Anhy</td><td>T. Canyon</td><td>T. Ojo Alamo</td><td>T. Penn A</td></tr><tr><td>T. Salt</td><td>T. Strawn</td><td>T. Kirtland</td><td>T. Penn. &quot;B</td></tr><tr><td>B. Salt</td><td>T. Atoka</td><td>T. Fruitland</td><td>T. Penn. &quot;C</td></tr><tr><td>T. Yates</td><td>T. Miss</td><td>T. Pictured Cliffs</td><td>T. Penn. &quot;D</td></tr><tr><td>T. 7 Rivers</td><td>T. Devonian</td><td>T. Cliff House</td><td>T. Leadville</td></tr><tr><td>T. Queen</td><td>T. Silurian</td><td>T. Menefee</td><td>T. Madison</td></tr><tr><td>T. Grayburg</td><td>T. Montoya</td><td>T. Point Lookout</td><td>T. Elbert</td></tr><tr><td>T. San Andres</td><td>T. Simpson</td><td>T. Mancos</td><td>T. McCracken</td></tr><tr><td>T. Glorieta</td><td>T. McKee</td><td>T. Gallup</td><td>T. Ignacio Otzte</td></tr><tr><td>T. Paddock</td><td>T. Ellenburger</td><td>Base Greenhorn</td><td>T. Granite</td></tr><tr><td>T. Blinebry</td><td>T. Gr. Wash</td><td>T. Dakota</td><td></td></tr><tr><td>T.Tubb</td><td>T. Delaware Sand</td><td>T. Morrison</td><td></td></tr><tr><td>T. Drinkard</td><td>T. Bone Springs 5884&#x27;</td><td>T.Todilto</td><td></td></tr><tr><td>T. Abo</td><td>T. Rustler 770&#x27;</td><td>T. Entrada</td><td></td></tr><tr><td>T. Wolfcamp</td><td>T. Bell Canyon 2442&#x27;</td><td>T. Wingate</td><td></td></tr><tr><td>T. Penn</td><td>T. Cherry Canyon 3270&#x27;</td><td>T. Chinle</td><td></td></tr><tr><td>T. Cisco</td><td>T. Brushy Canyon 4566&#x27;</td><td>T. Permian</td><td></td></tr></table>",
+            "block_bbox": [
+                26,
+                268,
+                1189,
+                713
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    26.0,
+                    268.0
+                ],
+                [
+                    1189.0,
+                    268.0
+                ],
+                [
+                    1189.0,
+                    713.0
+                ],
+                [
+                    26.0,
+                    713.0
+                ]
+            ]
+        },
+        {
+            "block_label": "vision_footnote",
+            "block_content": "OIL OR GAS\nSANDS OR ZONES",
+            "block_bbox": [
+                969,
+                711,
+                1185,
+                758
+            ],
+            "block_id": 4,
+            "block_order": null,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    969.0,
+                    711.0
+                ],
+                [
+                    1185.0,
+                    711.0
+                ],
+                [
+                    1185.0,
+                    758.0
+                ],
+                [
+                    969.0,
+                    758.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Include data on rate of water inflow and elevation to which water rose in hole.",
+            "block_bbox": [
+                25,
+                836,
+                726,
+                862
+            ],
+            "block_id": 5,
+            "block_order": 3,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    25.0,
+                    836.0
+                ],
+                [
+                    726.0,
+                    836.0
+                ],
+                [
+                    726.0,
+                    862.0
+                ],
+                [
+                    25.0,
+                    862.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>From</td><td>To</td><td>Thickness\\nIn Feet</td><td>Lithology</td><td></td><td>From</td><td>To</td><td>Thickness\\nIn Feet</td><td>Lithology</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                26,
+                971,
+                1184,
+                1541
+            ],
+            "block_id": 6,
+            "block_order": null,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    26.0,
+                    971.0
+                ],
+                [
+                    1184.0,
+                    971.0
+                ],
+                [
+                    1184.0,
+                    1541.0
+                ],
+                [
+                    26.0,
+                    1541.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.6718202233314514,
+                "coordinate": [
+                    469,
+                    35,
+                    751,
+                    71
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        469.0,
+                        35.0
+                    ],
+                    [
+                        751.0,
+                        35.0
+                    ],
+                    [
+                        751.0,
+                        71.0
+                    ],
+                    [
+                        469.0,
+                        71.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9319565296173096,
+                "coordinate": [
+                    26,
+                    98,
+                    1192,
+                    218
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        26.0,
+                        98.0
+                    ],
+                    [
+                        1192.0,
+                        98.0
+                    ],
+                    [
+                        1192.0,
+                        218.0
+                    ],
+                    [
+                        26.0,
+                        218.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.7540436387062073,
+                "coordinate": [
+                    49,
+                    238,
+                    1179,
+                    266
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        49.0,
+                        238.0
+                    ],
+                    [
+                        1179.0,
+                        238.0
+                    ],
+                    [
+                        1179.0,
+                        266.0
+                    ],
+                    [
+                        49.0,
+                        266.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.5945905447006226,
+                "coordinate": [
+                    26,
+                    268,
+                    1189,
+                    713
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        26.0,
+                        268.0
+                    ],
+                    [
+                        1189.0,
+                        268.0
+                    ],
+                    [
+                        1189.0,
+                        713.0
+                    ],
+                    [
+                        26.0,
+                        713.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.30756106972694397,
+                "coordinate": [
+                    969,
+                    711,
+                    1185,
+                    758
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        969.0,
+                        711.0
+                    ],
+                    [
+                        1185.0,
+                        711.0
+                    ],
+                    [
+                        1185.0,
+                        758.0
+                    ],
+                    [
+                        969.0,
+                        758.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.3126770555973053,
+                "coordinate": [
+                    25,
+                    836,
+                    726,
+                    862
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        25.0,
+                        836.0
+                    ],
+                    [
+                        726.0,
+                        836.0
+                    ],
+                    [
+                        726.0,
+                        862.0
+                    ],
+                    [
+                        25.0,
+                        862.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.7459768652915955,
+                "coordinate": [
+                    26,
+                    971,
+                    1184,
+                    1541
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        26.0,
+                        971.0
+                    ],
+                    [
+                        1184.0,
+                        971.0
+                    ],
+                    [
+                        1184.0,
+                        1541.0
+                    ],
+                    [
+                        26.0,
+                        1541.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

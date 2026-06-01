@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0078/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>323742</td><td>FEDERAL CX COM #001</td><td>F</td><td>H-07-18S-25E</td><td>H</td><td>30-015-20967</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td></td><td>FEDERAL CX COM #002</td><td>F</td><td>3-07-18S-25E</td><td>L</td><td>30-015-22128</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td></td><td>FEDERAL CX COM #003</td><td>F</td><td>K-07-18S-25E</td><td>K</td><td>30-015-22832</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td>323744</td><td>FEDERAL DC #001</td><td>F</td><td>L-29-20S-28E</td><td>L</td><td>30-015-21017</td><td>G</td><td>73520</td><td>BURTON FLAT; WOLFCAMP; NORTH (GAS)</td></tr><tr><td>323745</td><td>FEDERAL EF COM #001</td><td>F</td><td>O-06-18S-25E</td><td>O</td><td>30-015-21518</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td></td><td>FEDERAL EF COM #001</td><td>F</td><td>O-06-18S-25E</td><td>O</td><td>30-015-21518</td><td>G</td><td>83840</td><td>RICHARD KNOB; ATOKA-MORROW (GAS)</td></tr><tr><td>323747</td><td>FEDERAL FC COM #002H</td><td>F</td><td>M-24-20S-24E</td><td>M</td><td>30-015-26907</td><td>G</td><td>97451</td><td>LONG DRAW; GLORIETA-YESO</td></tr><tr><td>323748</td><td>FEDERAL FR #004</td><td>F</td><td>I-21-16S-30E</td><td>I</td><td>30-015-36536</td><td>O</td><td>97758</td><td>WILDCAT S163021I; ATOKA</td></tr><tr><td>323749</td><td>FEDERAL GC COM #001</td><td>F</td><td>P-32-17S-25E</td><td>P</td><td>30-015-21833</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td></td><td>FEDERAL GC COM #001</td><td>F</td><td>P-32-17S-25E</td><td>P</td><td>30-015-21833</td><td>G</td><td>76280</td><td>EAGLE CREEK; STRAWN (GAS)</td></tr><tr><td></td><td>FEDERAL GC COM #001</td><td>F</td><td>P-32-17S-25E</td><td>P</td><td>30-015-21833</td><td>G</td><td>83840</td><td>RICHARD KNOB; ATOKA-MORROW (GAS)</td></tr><tr><td>323750</td><td>FEDERAL GI #001</td><td>P</td><td>B-23-17S-23E</td><td>B</td><td>30-015-21862</td><td>G</td><td>78440</td><td>HIGH HOPE; ABO (GAS)</td></tr><tr><td>323752</td><td>FEDERAL GR COM #001</td><td>F</td><td>E-25-17S-24E</td><td>E</td><td>30-015-21950</td><td>G</td><td>76280</td><td>EAGLE CREEK; PERMO PENN (GAS)</td></tr><tr><td></td><td>FEDERAL GR COM #001</td><td>F</td><td>E-25-17S-24E</td><td>E</td><td>30-015-21950</td><td>G</td><td>76280</td><td>EAGLE CREEK; STRAWN (GAS)</td></tr><tr><td>323753</td><td>FEDERAL HF #001</td><td>F</td><td>A-10-19S-27E</td><td>A</td><td>30-015-22059</td><td>O</td><td>44980</td><td>MCMILLAN; GRAYBURG, NORTH</td></tr><tr><td>323754</td><td>FEDERAL HJ #003</td><td>F</td><td>C-31-06S-26E</td><td>C</td><td>30-005-61420</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #004</td><td>F</td><td>K-31-06S-26E</td><td>K</td><td>30-005-61484</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #005</td><td>F</td><td>2-30-06S-26E</td><td>E</td><td>30-005-61440</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #006</td><td>F</td><td>A-31-06S-26E</td><td>A</td><td>30-005-61456</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #007</td><td>F</td><td>P-31-06S-26E</td><td>P</td><td>30-005-61485</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #008</td><td>F</td><td>A-19-06S-26E</td><td>A</td><td>30-005-61486</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #011</td><td>F</td><td>G-31-06S-26E</td><td>G</td><td>30-005-63091</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #012</td><td>F</td><td>3-31-06S-26E</td><td>L</td><td>30-005-63127</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #013</td><td>F</td><td>D-31-06S-26E</td><td>D</td><td>30-005-63495</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HJ #013</td><td>F</td><td>D-31-06S-26E</td><td>D</td><td>30-005-63495</td><td>G</td><td>97303</td><td>LESLIE SPRING; WOLFCAMP; NW (GAS)</td></tr><tr><td>323755</td><td>FEDERAL HQ #001</td><td>F</td><td>N-05-21S-22E</td><td>N</td><td>30-015-22120</td><td>G</td><td>80220</td><td>LITTLE BOX CANYON; ATOKA (GAS)</td></tr><tr><td></td><td>FEDERAL HQ #002</td><td>F</td><td>M-05-21S-22E</td><td>M</td><td>30-015-35989</td><td>G</td><td>97338</td><td>WC; MISSSISPIPIAN GAS</td></tr><tr><td></td><td>FEDERAL HQ #003</td><td>F</td><td>O-32-20H-22E</td><td>O</td><td>30-015-35704</td><td>G</td><td>80240</td><td>LITTLE BOX CANYON; MORROW (GAS)</td></tr><tr><td>323756</td><td>FEDERAL HY #002</td><td>F</td><td>O-33-07S-25E</td><td>O</td><td>30-005-60555</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HY #005</td><td>F</td><td>F-34-07S-25E</td><td>F</td><td>30-005-61860</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HY #006</td><td>F</td><td>A-28-07S-25E</td><td>A</td><td>30-005-61853</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HY #007</td><td>F</td><td>A-34-07S-25E</td><td>A</td><td>30-005-61943</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HY #008</td><td>F</td><td>J-34-07S-25E</td><td>J</td><td>30-005-61957</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HY #009</td><td>F</td><td>I-28-07S-25E</td><td>I</td><td>30-005-62082</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HY #011</td><td>F</td><td>A-33-07S-25E</td><td>A</td><td>30-005-62110</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL HY #012Q</td><td>F</td><td>C-28-07S-25E</td><td>C</td><td>30-005-63503</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323757</td><td>FEDERAL IX #001</td><td>F</td><td>L-03-09S-26E</td><td>L</td><td>30-005-60467</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FEDERAL IX #002</td><td>F</td><td>4-03-09S-26E</td><td>D</td><td>30-005-62063</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323759</td><td>FEDERAL LDY DEEP COM #010</td><td>F</td><td>F-27-17S-25E</td><td>F</td><td>30-015-30974</td><td>G</td><td>76320</td><td>EAGLE CREEK; STRAWN (GAS)</td></tr><tr><td></td><td>FEDERALES BO #001</td><td>F</td><td>D-23-17S-25E</td><td>D</td><td>30-015-20274</td><td>O</td><td></td><td></td></tr><tr><td></td><td>FEDERALES BO #004</td><td>F</td><td>C-22-17S-25E</td><td>C</td><td>30-015-20474</td><td>O</td><td>20420</td><td>EAGLE CREEK; SAN ANDRES</td></tr><tr><td></td><td>FEDERALES BO #005</td><td>P</td><td>D-23-17S-25E</td><td>D</td><td>30-015-21153</td><td>O</td><td>20420</td><td>EAGLE CREEK; SAN ANDRES</td></tr><tr><td>323762</td><td>FEDERALES BO COM #010</td><td>F</td><td>B-22-17S-25E</td><td>B</td><td>30-015-24101</td><td>G</td><td>76240</td><td>EAGLE CREEK; ATOKA-MORROW, E (GAS)</td></tr><tr><td>323766</td><td>FERGUSON IF #001</td><td>P</td><td>N-28-18S-26E</td><td>N</td><td>30-015-22215</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td></td><td>FERGUSON IF #002</td><td>P</td><td>M-28-18S-26E</td><td>M</td><td>30-015-22294</td><td>O</td><td>3250</td><td>ATOKA; GLORIETA-YESO</td></tr><tr><td>323767</td><td>FILAREE AEL FEDERAL #001</td><td>F</td><td>O-33-08S-26E</td><td>O</td><td>30-005-62486</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FILAREE AEL FEDERAL #002</td><td>F</td><td>K-33-08S-26E</td><td>K</td><td>30-005-62704</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FILAREE AEL FEDERAL #004</td><td>F</td><td>M-33-08S-26E</td><td>M</td><td>30-005-63252</td><td>G</td><td>97117</td><td>FOOR RANCH; PRE-PERMIAN, NW (GAS)</td></tr><tr><td></td><td>FILAREE AEL FEDERAL #005</td><td>F</td><td>I-33-08S-26E</td><td>I</td><td>30-005-64013</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td></td><td>FILAREE AEL FEDERAL #006</td><td>F</td><td>K-26-08S-26E</td><td>K</td><td>30-005-63988</td><td>G</td><td>76730</td><td>FOOR RANCH; PRE PERMIAN (GAS)</td></tr><tr><td></td><td>FILAREE AEL FEDERAL #007</td><td>F</td><td>K-26-08S-26E</td><td>K</td><td>30-005-63988</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FILAREE AEL FEDERAL #008</td><td>F</td><td>C-26-08S-26E</td><td>C</td><td>30-005-63665</td><td>G</td><td>97066</td><td>FOOR RANCH; WOLFCAMP; NORTHWEST</td></tr><tr><td></td><td>FILAREE AEL FEDERAL #008</td><td>F</td><td>H-27-08S-26E</td><td>H</td><td>30-005-63750</td><td>G</td><td>97066</td><td>FOOR RANCH; WOLFCAMP; NORTHWEST</td></tr><tr><td>323768</td><td>FILAREE AEL FEDERAL COM #003</td><td>F</td><td>E-33-08S-26E</td><td>E</td><td>30-005-62913</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323769</td><td>FINLEY RV COM #001Y</td><td>P</td><td>K-34-06S-25E</td><td>K</td><td>30-005-61325</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td></td><td>FINLEY RV COM #002</td><td>P</td><td>H-33-06S-25E</td><td>H</td><td>30-005-62699</td><td>G</td><td>82730</td><td>PECOS SLOPE; ABO (GAS)</td></tr><tr><td>323773</td><td>FLINT GU #001</td><td>P</td><td>J-22-18S-26E</td><td>J</td><td>30-015-21933</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td></td><td>FLINT GU #002</td><td>P</td><td>I-22-18S-26E</td><td>I</td><td>30-015-22027</td><td>O</td><td></td><td></td></tr><tr><td></td><td>FLINT GU #003</td><td>P</td><td>I-22-18S-26E</td><td>I</td><td>30-015-25103</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td></td><td>FLINT GU #004</td><td>P</td><td>J-22-18S-26E</td><td>J</td><td>30-015-00221</td><td>O</td><td>3610</td><td>ATOKA; SAN ANDRES</td></tr><tr><td>323775</td><td>FLORA AKF STATE #001</td><td>S</td><td>N-02-22S-31E</td><td>N</td><td>30-015-26973</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>FLORA AKF STATE #002</td><td>S</td><td>K-02-22S-31E</td><td>N</td><td>30-015-26974</td><td>O</td><td>40299</td><td>LOST TANK; DELAWARE</td></tr><tr><td></td><td>FLORA AKF STATE #004</td><td>S</td><td>M-02-22S-31E</td><td>M</td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                56,
+                41,
+                1168,
+                1535
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    41.0
+                ],
+                [
+                    1168.0,
+                    41.0
+                ],
+                [
+                    1168.0,
+                    1535.0
+                ],
+                [
+                    56.0,
+                    1535.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9863508343696594,
+                "coordinate": [
+                    56,
+                    41,
+                    1168,
+                    1535
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        41.0
+                    ],
+                    [
+                        1168.0,
+                        41.0
+                    ],
+                    [
+                        1168.0,
+                        1535.0
+                    ],
+                    [
+                        56.0,
+                        1535.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

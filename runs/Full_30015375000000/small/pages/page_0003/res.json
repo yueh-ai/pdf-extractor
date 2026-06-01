@@ -1,0 +1,278 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0003/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1202,
+    "height": 1802,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "doc_title",
+            "block_content": "Permit Comments",
+            "block_bbox": [
+                459,
+                15,
+                743,
+                48
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    459.0,
+                    15.0
+                ],
+                [
+                    743.0,
+                    15.0
+                ],
+                [
+                    743.0,
+                    48.0
+                ],
+                [
+                    459.0,
+                    48.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Well: JERICHO BKJ STATE COM #002H",
+            "block_bbox": [
+                149,
+                86,
+                641,
+                114
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    149.0,
+                    86.0
+                ],
+                [
+                    641.0,
+                    86.0
+                ],
+                [
+                    641.0,
+                    114.0
+                ],
+                [
+                    149.0,
+                    114.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "API: 30-015-37500",
+            "block_bbox": [
+                149,
+                115,
+                397,
+                142
+            ],
+            "block_id": 2,
+            "block_order": 3,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    149.0,
+                    115.0
+                ],
+                [
+                    397.0,
+                    115.0
+                ],
+                [
+                    397.0,
+                    142.0
+                ],
+                [
+                    149.0,
+                    142.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td>Created By</td><td>Comment</td><td>Comment Date</td></tr><tr><td>MSANDERS</td><td>MUD PROGRAM: 0-400&#x27; Fresh Water; 400&#x27;-2400&#x27; Brine Water; 2400&#x27;-8500&#x27; Cut Brine; 8500&#x27;-11375&#x27; Cut Brine (lateral).</td><td>1/5/2010</td></tr><tr><td>MSANDERS</td><td>BOPE PROGRAM: 3000# psi system nippled up on 13 3/8&quot; and 9 5/8&quot; casing.</td><td>1/5/2010</td></tr><tr><td>MSANDERS</td><td>MAXIMUM ANTICIPATED BHP: 0-400&#x27; 191 PSI; 400&#x27;-2400&#x27; 1248 PSI; 2400&#x27;-8500&#x27; 4199 PSI. Depths are TVD.</td><td>1/5/2010</td></tr><tr><td>MSANDERS</td><td>Pilot hole drilled vertically to 8500&#x27;. Well will be plugged back with 400&#x27;-500&#x27; kick off plug at approx. 6483&#x27; and directionally drilled at 12 degrees per 100&#x27; with a 8 3/4&quot; hole to 7233&#x27; MD (6960&#x27; TVD). If hole conditions dictate, 7&quot; casing will be set.</td><td>1/5/2010</td></tr><tr><td>MSANDERS</td><td>A 6 1/8&quot; hole will then be drilled to 11375&#x27; MD (6960&#x27; TVD) where 4 1/2&quot; casing will be set and cemented. If 7&quot; casing is not set, then hole size will be reduced to 7 7/8&quot; and drilled to 11375&#x27; MD (6960&#x27; TVD) where 5 1/2&quot; casing will be set and cemented.</td><td>1/5/2010</td></tr><tr><td>MSANDERS</td><td>Penetration point of producing zone will be encountered at 660&#x27; FNL and 808&#x27; FEL, 15-25S-27E. Deepest TVD in the well is 8500&#x27; in the pilot hole. Deepest TVD in the lateral will be 6960&#x27;.</td><td>1/5/2010</td></tr><tr><td>MSANDERS</td><td>C-144; Casing Design Plan and Drilling Plan to follow by mail.</td><td>1/5/2010</td></tr></table>",
+            "block_bbox": [
+                151,
+                167,
+                1050,
+                557
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    151.0,
+                    167.0
+                ],
+                [
+                    1050.0,
+                    167.0
+                ],
+                [
+                    1050.0,
+                    557.0
+                ],
+                [
+                    151.0,
+                    557.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.5873742699623108,
+                "coordinate": [
+                    459,
+                    15,
+                    743,
+                    48
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        459.0,
+                        15.0
+                    ],
+                    [
+                        743.0,
+                        15.0
+                    ],
+                    [
+                        743.0,
+                        48.0
+                    ],
+                    [
+                        459.0,
+                        48.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.31765231490135193,
+                "coordinate": [
+                    149,
+                    86,
+                    641,
+                    114
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        149.0,
+                        86.0
+                    ],
+                    [
+                        641.0,
+                        86.0
+                    ],
+                    [
+                        641.0,
+                        114.0
+                    ],
+                    [
+                        149.0,
+                        114.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.672535240650177,
+                "coordinate": [
+                    149,
+                    115,
+                    397,
+                    142
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        149.0,
+                        115.0
+                    ],
+                    [
+                        397.0,
+                        115.0
+                    ],
+                    [
+                        397.0,
+                        142.0
+                    ],
+                    [
+                        149.0,
+                        142.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9704124331474304,
+                "coordinate": [
+                    151,
+                    167,
+                    1050,
+                    557
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        151.0,
+                        167.0
+                    ],
+                    [
+                        1050.0,
+                        167.0
+                    ],
+                    [
+                        1050.0,
+                        557.0
+                    ],
+                    [
+                        151.0,
+                        557.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

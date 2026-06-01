@@ -1,0 +1,339 @@
+{
+    "input_path": "runs/input_vl/pages/page_0143/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1584,
+    "height": 1224,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "aside_text",
+            "block_content": "Released to Imaging: 5/20/2026 1:11:31 PM",
+            "block_bbox": [
+                18,
+                30,
+                45,
+                411
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    18.0,
+                    30.0
+                ],
+                [
+                    45.0,
+                    30.0
+                ],
+                [
+                    45.0,
+                    411.0
+                ],
+                [
+                    18.0,
+                    411.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "Figure D2 Formation Table",
+            "block_bbox": [
+                655,
+                119,
+                924,
+                146
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    655.0,
+                    119.0
+                ],
+                [
+                    924.0,
+                    119.0
+                ],
+                [
+                    924.0,
+                    146.0
+                ],
+                [
+                    655.0,
+                    146.0
+                ]
+            ]
+        },
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td colspan=\"7\">100&#x27; Plug to isolate upper and lower fresh water zones (typically 250&#x27; to 350&#x27;)</td></tr><tr><td>Northwest Shelf</td><td>Captan Reef Area</td><td>Transition Zone</td><td>San Simon Channel</td><td>South Vacuum Structure</td><td>Delaware Basin</td><td>Central Basin Platform</td></tr><tr><td>Granit Wash (Detrital basement material and fractured pre-Cambrian basement rock)</td><td>Siluro-Devonian</td><td>Morrow</td><td>Siluro-Devonian</td><td>Ellenburger</td><td>Siluro-Devonian</td><td>Granit Wash (Detrital basement material, fractured pre-Cambrian basement rock and fracture Mafic Volcanic intrusives)</td></tr><tr><td>Montoya</td><td>Mississippian</td><td>Atoka</td><td>Morrow</td><td>Mckee</td><td>Morrow</td><td>Ellenburger</td></tr><tr><td>Fusselman</td><td>Morrow</td><td>Strawn</td><td>Wolfcamp</td><td>Siluro-Devonian</td><td>Atoka</td><td>Connell</td></tr><tr><td>Woodford</td><td>Atoka</td><td>Cisco</td><td>Abo Reef</td><td>Woodford</td><td>Strawn</td><td>Waddell</td></tr><tr><td>Siluro-Devonian</td><td>Strawn</td><td>Pennsylvania</td><td>Bone Spring</td><td>Mississippian</td><td>Pennsylvania</td><td>Mckee</td></tr><tr><td>Chester</td><td>Pennsylvania</td><td>Wolfcamp</td><td>Delaware</td><td>Barnett Shale</td><td>Lower Wolfcamp</td><td>Simpson Group</td></tr><tr><td>Austin</td><td>Wolfcamp</td><td>Bone Spring</td><td>San Andres</td><td>Morrow</td><td>Upper Wolfcamp</td><td>Montoya</td></tr><tr><td>Mississippian</td><td>Abo Reef, if present</td><td>Delaware</td><td>Queen</td><td>Atoka</td><td>Wolfcamp</td><td>Fusselman</td></tr><tr><td>Morrow</td><td>Abo, if present</td><td>San Andres</td><td>Yates</td><td>Strawn</td><td>Third Bone Spring Sand (Top of Wolfcone)</td><td>Silurian</td></tr><tr><td>Atoka</td><td>Queen, if present</td><td>Grayburg-San Andres</td><td>Base of Salt</td><td>Canyon</td><td>First Bone Spring Sand (Top of Lower Bone Spring)</td><td>Devonian</td></tr><tr><td>Lower Pennsylvanian</td><td>Bone Spring</td><td>Queen</td><td>Rustler</td><td>Pennsylvanian</td><td>Bone Spring</td><td>Strawn</td></tr><tr><td>Cisco-Canyon</td><td>Delaware</td><td>Seven Rivers</td><td></td><td>Blinebry</td><td>Brushy Canyon</td><td>Pennsylvanian</td></tr><tr><td>Pennsylvanian</td><td>Base Capitan Reef</td><td>Yates</td><td></td><td>Bone Spring</td><td>Delaware (Base of Salt)</td><td>Wolfcamp</td></tr><tr><td>Bough</td><td>Seven Rivers</td><td>Base of Salt</td><td></td><td>San Andres</td><td>Rustler</td><td>Abo</td></tr><tr><td>Wolfcamp</td><td>Yates</td><td>Rustler</td><td></td><td>Queen</td><td></td><td>Abo Reef</td></tr><tr><td>Abo</td><td>Top Capitan Reef</td><td></td><td></td><td>Base of Salt</td><td></td><td>Drinkard</td></tr><tr><td>Abo Reef, if present</td><td>Base of Salt</td><td></td><td></td><td>Rustler</td><td></td><td>Tubb</td></tr><tr><td>Yeso (Township 15 South to Township 17 South)</td><td>Rustler</td><td></td><td></td><td></td><td></td><td>Blinebry</td></tr><tr><td>Drinkard or Lower Yeso (Township 15 South to Township 17 South)</td><td></td><td></td><td></td><td></td><td></td><td>Paddock</td></tr><tr><td>Tubb (Township 15 South to Township 17 South)</td><td></td><td></td><td></td><td></td><td></td><td>Glorieta</td></tr><tr><td>Blinebry (Township 15 South to Township 17 South)</td><td></td><td></td><td></td><td></td><td></td><td>San Andres</td></tr><tr><td>Paddock (Township 15 South to Township 17 South)</td><td></td><td></td><td></td><td></td><td></td><td>Grayburg</td></tr><tr><td>Glorieta</td><td></td><td></td><td></td><td></td><td></td><td>Grayburg-San Andres</td></tr><tr><td>San Andres</td><td></td><td></td><td></td><td></td><td></td><td>Queen</td></tr><tr><td>Queen (Township 15 South to Township 17 South)</td><td></td><td></td><td></td><td></td><td></td><td>Seven Rivers</td></tr><tr><td>Seven Rivers (Township 15 South to Township 17 South)</td><td></td><td></td><td></td><td></td><td></td><td>Yates</td></tr><tr><td>Yates (Township 15 South to Township 17 South)</td><td></td><td></td><td></td><td></td><td></td><td>Base of Salt</td></tr><tr><td>Base of Salt</td><td></td><td></td><td></td><td></td><td></td><td>Rustler</td></tr><tr><td>Rustler</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+            "block_bbox": [
+                71,
+                177,
+                1518,
+                1134
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    71.0,
+                    177.0
+                ],
+                [
+                    1518.0,
+                    177.0
+                ],
+                [
+                    1518.0,
+                    1134.0
+                ],
+                [
+                    71.0,
+                    1134.0
+                ]
+            ]
+        },
+        {
+            "block_label": "aside_text",
+            "block_content": "Received by OCD: 4/23/2026 11:06:25 AM",
+            "block_bbox": [
+                1538,
+                30,
+                1564,
+                398
+            ],
+            "block_id": 3,
+            "block_order": null,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    1538.0,
+                    30.0
+                ],
+                [
+                    1564.0,
+                    30.0
+                ],
+                [
+                    1564.0,
+                    398.0
+                ],
+                [
+                    1538.0,
+                    398.0
+                ]
+            ]
+        },
+        {
+            "block_label": "aside_text",
+            "block_content": "Page 10 of 22",
+            "block_bbox": [
+                1538,
+                1080,
+                1564,
+                1203
+            ],
+            "block_id": 4,
+            "block_order": null,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    1538.0,
+                    1080.0
+                ],
+                [
+                    1564.0,
+                    1080.0
+                ],
+                [
+                    1564.0,
+                    1203.0
+                ],
+                [
+                    1538.0,
+                    1203.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 2,
+                "label": "aside_text",
+                "score": 0.8328907489776611,
+                "coordinate": [
+                    18,
+                    30,
+                    45,
+                    411
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        18.0,
+                        30.0
+                    ],
+                    [
+                        45.0,
+                        30.0
+                    ],
+                    [
+                        45.0,
+                        411.0
+                    ],
+                    [
+                        18.0,
+                        411.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.4943216145038605,
+                "coordinate": [
+                    655,
+                    119,
+                    924,
+                    146
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        655.0,
+                        119.0
+                    ],
+                    [
+                        924.0,
+                        119.0
+                    ],
+                    [
+                        924.0,
+                        146.0
+                    ],
+                    [
+                        655.0,
+                        146.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9664629101753235,
+                "coordinate": [
+                    71,
+                    177,
+                    1518,
+                    1134
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        71.0,
+                        177.0
+                    ],
+                    [
+                        1518.0,
+                        177.0
+                    ],
+                    [
+                        1518.0,
+                        1134.0
+                    ],
+                    [
+                        71.0,
+                        1134.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "aside_text",
+                "score": 0.7889583706855774,
+                "coordinate": [
+                    1538,
+                    30,
+                    1564,
+                    398
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1538.0,
+                        30.0
+                    ],
+                    [
+                        1564.0,
+                        30.0
+                    ],
+                    [
+                        1564.0,
+                        398.0
+                    ],
+                    [
+                        1538.0,
+                        398.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "aside_text",
+                "score": 0.7151047587394714,
+                "coordinate": [
+                    1538,
+                    1080,
+                    1564,
+                    1203
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1538.0,
+                        1080.0
+                    ],
+                    [
+                        1564.0,
+                        1080.0
+                    ],
+                    [
+                        1564.0,
+                        1203.0
+                    ],
+                    [
+                        1538.0,
+                        1203.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

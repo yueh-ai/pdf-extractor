@@ -1,0 +1,1132 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0006/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1589,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "doc_title",
+            "block_content": "Yates Petroleum Corporation\nClosed Loop System",
+            "block_bbox": [
+                426,
+                132,
+                804,
+                202
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    426.0,
+                    132.0
+                ],
+                [
+                    804.0,
+                    132.0
+                ],
+                [
+                    804.0,
+                    202.0
+                ],
+                [
+                    426.0,
+                    202.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": " $ \\underline{\\text{Equipment Design Plan}} $",
+            "block_bbox": [
+                180,
+                236,
+                453,
+                269
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    236.0
+                ],
+                [
+                    453.0,
+                    236.0
+                ],
+                [
+                    453.0,
+                    269.0
+                ],
+                [
+                    180.0,
+                    269.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Closed Loop System will consist of:",
+            "block_bbox": [
+                176,
+                299,
+                536,
+                327
+            ],
+            "block_id": 2,
+            "block_order": 3,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    176.0,
+                    299.0
+                ],
+                [
+                    536.0,
+                    299.0
+                ],
+                [
+                    536.0,
+                    327.0
+                ],
+                [
+                    176.0,
+                    327.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1 – double panel shale shaker",
+            "block_bbox": [
+                180,
+                329,
+                473,
+                355
+            ],
+            "block_id": 3,
+            "block_order": 4,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    329.0
+                ],
+                [
+                    473.0,
+                    329.0
+                ],
+                [
+                    473.0,
+                    355.0
+                ],
+                [
+                    180.0,
+                    355.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1 – (minimum) Centrifuge, certain wells and flow rates may require 2 centrifuges",
+            "block_bbox": [
+                180,
+                355,
+                975,
+                384
+            ],
+            "block_id": 4,
+            "block_order": 5,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    355.0
+                ],
+                [
+                    975.0,
+                    355.0
+                ],
+                [
+                    975.0,
+                    384.0
+                ],
+                [
+                    180.0,
+                    384.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "On certain wells, the Centrifuge will be replaced by a Clackco Settling Tank System",
+            "block_bbox": [
+                180,
+                384,
+                996,
+                412
+            ],
+            "block_id": 5,
+            "block_order": 6,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    384.0
+                ],
+                [
+                    996.0,
+                    384.0
+                ],
+                [
+                    996.0,
+                    412.0
+                ],
+                [
+                    180.0,
+                    412.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1 – minimum centrifugal pump to transfer fluids",
+            "block_bbox": [
+                181,
+                412,
+                652,
+                440
+            ],
+            "block_id": 6,
+            "block_order": 7,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    181.0,
+                    412.0
+                ],
+                [
+                    652.0,
+                    412.0
+                ],
+                [
+                    652.0,
+                    440.0
+                ],
+                [
+                    181.0,
+                    440.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "2-500 bbl. FW Tanks",
+            "block_bbox": [
+                182,
+                439,
+                401,
+                465
+            ],
+            "block_id": 7,
+            "block_order": 8,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    182.0,
+                    439.0
+                ],
+                [
+                    401.0,
+                    439.0
+                ],
+                [
+                    401.0,
+                    465.0
+                ],
+                [
+                    182.0,
+                    465.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1 – 500 bbl. BW Tank",
+            "block_bbox": [
+                182,
+                466,
+                403,
+                492
+            ],
+            "block_id": 8,
+            "block_order": 9,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    182.0,
+                    466.0
+                ],
+                [
+                    403.0,
+                    466.0
+                ],
+                [
+                    403.0,
+                    492.0
+                ],
+                [
+                    182.0,
+                    492.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1 – half round frac tank – 250 bbl. capacity as necessary to catch cement / excess",
+            "block_bbox": [
+                180,
+                495,
+                963,
+                521
+            ],
+            "block_id": 9,
+            "block_order": 10,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    495.0
+                ],
+                [
+                    963.0,
+                    495.0
+                ],
+                [
+                    963.0,
+                    521.0
+                ],
+                [
+                    180.0,
+                    521.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "mud returns generated during a cement job.",
+            "block_bbox": [
+                180,
+                522,
+                604,
+                549
+            ],
+            "block_id": 10,
+            "block_order": 11,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    522.0
+                ],
+                [
+                    604.0,
+                    522.0
+                ],
+                [
+                    604.0,
+                    549.0
+                ],
+                [
+                    180.0,
+                    549.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1 Set of rail cars / catch bins",
+            "block_bbox": [
+                181,
+                549,
+                463,
+                575
+            ],
+            "block_id": 11,
+            "block_order": 12,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    181.0,
+                    549.0
+                ],
+                [
+                    463.0,
+                    549.0
+                ],
+                [
+                    463.0,
+                    575.0
+                ],
+                [
+                    181.0,
+                    575.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Certain wells will use an ASC Auger Tank",
+            "block_bbox": [
+                180,
+                576,
+                599,
+                605
+            ],
+            "block_id": 12,
+            "block_order": 13,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    576.0
+                ],
+                [
+                    599.0,
+                    576.0
+                ],
+                [
+                    599.0,
+                    605.0
+                ],
+                [
+                    180.0,
+                    605.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": " $ \\underline{\\text{Operation Plan}} $",
+            "block_bbox": [
+                179,
+                633,
+                356,
+                665
+            ],
+            "block_id": 13,
+            "block_order": 14,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    179.0,
+                    633.0
+                ],
+                [
+                    356.0,
+                    633.0
+                ],
+                [
+                    356.0,
+                    665.0
+                ],
+                [
+                    179.0,
+                    665.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "All equipment will be inspected at least hourly by rig personnel and daily by contractors' personnel.",
+            "block_bbox": [
+                179,
+                692,
+                1038,
+                747
+            ],
+            "block_id": 14,
+            "block_order": 15,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    179.0,
+                    692.0
+                ],
+                [
+                    1038.0,
+                    692.0
+                ],
+                [
+                    1038.0,
+                    747.0
+                ],
+                [
+                    179.0,
+                    747.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Any spills / leaks will be reported to YPC, NMOCD, and cleaned up without delay.",
+            "block_bbox": [
+                179,
+                748,
+                987,
+                778
+            ],
+            "block_id": 15,
+            "block_order": 16,
+            "group_id": 15,
+            "block_polygon_points": [
+                [
+                    179.0,
+                    748.0
+                ],
+                [
+                    987.0,
+                    748.0
+                ],
+                [
+                    987.0,
+                    778.0
+                ],
+                [
+                    179.0,
+                    778.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": " $ \\underline{\\text{Closure Plan}} $",
+            "block_bbox": [
+                180,
+                804,
+                331,
+                835
+            ],
+            "block_id": 16,
+            "block_order": 17,
+            "group_id": 16,
+            "block_polygon_points": [
+                [
+                    180.0,
+                    804.0
+                ],
+                [
+                    331.0,
+                    804.0
+                ],
+                [
+                    331.0,
+                    835.0
+                ],
+                [
+                    180.0,
+                    835.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Drilling with Closed Loop System, haul off bins will be taken to Gandy Marley, Lea Land Farm, CRI or Sundance Services Inc.",
+            "block_bbox": [
+                178,
+                867,
+                997,
+                924
+            ],
+            "block_id": 17,
+            "block_order": 18,
+            "group_id": 17,
+            "block_polygon_points": [
+                [
+                    178.0,
+                    867.0
+                ],
+                [
+                    997.0,
+                    867.0
+                ],
+                [
+                    997.0,
+                    924.0
+                ],
+                [
+                    178.0,
+                    924.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.929654061794281,
+                "coordinate": [
+                    426,
+                    132,
+                    804,
+                    202
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        426.0,
+                        132.0
+                    ],
+                    [
+                        804.0,
+                        132.0
+                    ],
+                    [
+                        804.0,
+                        202.0
+                    ],
+                    [
+                        426.0,
+                        202.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8500264286994934,
+                "coordinate": [
+                    180,
+                    236,
+                    453,
+                    269
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        180.0,
+                        236.0
+                    ],
+                    [
+                        453.0,
+                        236.0
+                    ],
+                    [
+                        453.0,
+                        269.0
+                    ],
+                    [
+                        180.0,
+                        269.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7935255765914917,
+                "coordinate": [
+                    176,
+                    299,
+                    536,
+                    327
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        176.0,
+                        299.0
+                    ],
+                    [
+                        536.0,
+                        299.0
+                    ],
+                    [
+                        536.0,
+                        327.0
+                    ],
+                    [
+                        176.0,
+                        327.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7633771300315857,
+                "coordinate": [
+                    180,
+                    329,
+                    473,
+                    355
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        180.0,
+                        329.0
+                    ],
+                    [
+                        473.0,
+                        329.0
+                    ],
+                    [
+                        473.0,
+                        355.0
+                    ],
+                    [
+                        180.0,
+                        355.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5498666167259216,
+                "coordinate": [
+                    180,
+                    355,
+                    975,
+                    384
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        180.0,
+                        355.0
+                    ],
+                    [
+                        975.0,
+                        355.0
+                    ],
+                    [
+                        975.0,
+                        384.0
+                    ],
+                    [
+                        180.0,
+                        384.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.42374616861343384,
+                "coordinate": [
+                    180,
+                    384,
+                    996,
+                    412
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        180.0,
+                        384.0
+                    ],
+                    [
+                        996.0,
+                        384.0
+                    ],
+                    [
+                        996.0,
+                        412.0
+                    ],
+                    [
+                        180.0,
+                        412.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6214638352394104,
+                "coordinate": [
+                    181,
+                    412,
+                    652,
+                    440
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        181.0,
+                        412.0
+                    ],
+                    [
+                        652.0,
+                        412.0
+                    ],
+                    [
+                        652.0,
+                        440.0
+                    ],
+                    [
+                        181.0,
+                        440.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7812914252281189,
+                "coordinate": [
+                    182,
+                    439,
+                    401,
+                    465
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        182.0,
+                        439.0
+                    ],
+                    [
+                        401.0,
+                        439.0
+                    ],
+                    [
+                        401.0,
+                        465.0
+                    ],
+                    [
+                        182.0,
+                        465.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7875552773475647,
+                "coordinate": [
+                    182,
+                    466,
+                    403,
+                    492
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        182.0,
+                        466.0
+                    ],
+                    [
+                        403.0,
+                        466.0
+                    ],
+                    [
+                        403.0,
+                        492.0
+                    ],
+                    [
+                        182.0,
+                        492.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.37084904313087463,
+                "coordinate": [
+                    180,
+                    495,
+                    963,
+                    521
+                ],
+                "order": 10,
+                "polygon_points": [
+                    [
+                        180.0,
+                        495.0
+                    ],
+                    [
+                        963.0,
+                        495.0
+                    ],
+                    [
+                        963.0,
+                        521.0
+                    ],
+                    [
+                        180.0,
+                        521.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.34791433811187744,
+                "coordinate": [
+                    180,
+                    522,
+                    604,
+                    549
+                ],
+                "order": 11,
+                "polygon_points": [
+                    [
+                        180.0,
+                        522.0
+                    ],
+                    [
+                        604.0,
+                        522.0
+                    ],
+                    [
+                        604.0,
+                        549.0
+                    ],
+                    [
+                        180.0,
+                        549.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7705761790275574,
+                "coordinate": [
+                    181,
+                    549,
+                    463,
+                    575
+                ],
+                "order": 12,
+                "polygon_points": [
+                    [
+                        181.0,
+                        549.0
+                    ],
+                    [
+                        463.0,
+                        549.0
+                    ],
+                    [
+                        463.0,
+                        575.0
+                    ],
+                    [
+                        181.0,
+                        575.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7930422425270081,
+                "coordinate": [
+                    180,
+                    576,
+                    599,
+                    605
+                ],
+                "order": 13,
+                "polygon_points": [
+                    [
+                        180.0,
+                        576.0
+                    ],
+                    [
+                        599.0,
+                        576.0
+                    ],
+                    [
+                        599.0,
+                        605.0
+                    ],
+                    [
+                        180.0,
+                        605.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8435346484184265,
+                "coordinate": [
+                    179,
+                    633,
+                    356,
+                    665
+                ],
+                "order": 14,
+                "polygon_points": [
+                    [
+                        179.0,
+                        633.0
+                    ],
+                    [
+                        356.0,
+                        633.0
+                    ],
+                    [
+                        356.0,
+                        665.0
+                    ],
+                    [
+                        179.0,
+                        665.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9056506156921387,
+                "coordinate": [
+                    179,
+                    692,
+                    1038,
+                    747
+                ],
+                "order": 15,
+                "polygon_points": [
+                    [
+                        179.0,
+                        692.0
+                    ],
+                    [
+                        1038.0,
+                        692.0
+                    ],
+                    [
+                        1038.0,
+                        747.0
+                    ],
+                    [
+                        179.0,
+                        747.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8401963114738464,
+                "coordinate": [
+                    179,
+                    748,
+                    987,
+                    778
+                ],
+                "order": 16,
+                "polygon_points": [
+                    [
+                        179.0,
+                        748.0
+                    ],
+                    [
+                        987.0,
+                        748.0
+                    ],
+                    [
+                        987.0,
+                        778.0
+                    ],
+                    [
+                        179.0,
+                        778.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8431460857391357,
+                "coordinate": [
+                    180,
+                    804,
+                    331,
+                    835
+                ],
+                "order": 17,
+                "polygon_points": [
+                    [
+                        180.0,
+                        804.0
+                    ],
+                    [
+                        331.0,
+                        804.0
+                    ],
+                    [
+                        331.0,
+                        835.0
+                    ],
+                    [
+                        180.0,
+                        835.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9174303412437439,
+                "coordinate": [
+                    178,
+                    867,
+                    997,
+                    924
+                ],
+                "order": 18,
+                "polygon_points": [
+                    [
+                        178.0,
+                        867.0
+                    ],
+                    [
+                        997.0,
+                        867.0
+                    ],
+                    [
+                        997.0,
+                        924.0
+                    ],
+                    [
+                        178.0,
+                        924.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+An Operating Unit of Smith International, Inc.
+
+# DIRECTIONAL SURVEY REPORT
+
+YATES PETROLEUM
+
+JERICHO "BKJ" STATE COM #2H- PILOT HOLE
+
+EDDY COUNTY, NEW MEXICO
+
+PREPARED BY: FRANCISCO SINISTERRA
+
+Pathfinder Energy Services, Inc.
+
+6213 W. Interstate 20 • Midland, TX • 79706
+
+(432) 681-6000

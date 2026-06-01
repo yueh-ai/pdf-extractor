@@ -1,0 +1,217 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0145/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "aside_text",
+            "block_content": "Received by OCD: 4/23/2026 11:06:25 AM",
+            "block_bbox": [
+                18,
+                1179,
+                44,
+                1552
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    18.0,
+                    1179.0
+                ],
+                [
+                    44.0,
+                    1179.0
+                ],
+                [
+                    44.0,
+                    1552.0
+                ],
+                [
+                    18.0,
+                    1552.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Section 24: NW/4. NW/4 SW/4 and S/2 SW/4",
+            "block_bbox": [
+                337,
+                143,
+                736,
+                171
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    337.0,
+                    143.0
+                ],
+                [
+                    736.0,
+                    143.0
+                ],
+                [
+                    736.0,
+                    171.0
+                ],
+                [
+                    337.0,
+                    171.0
+                ]
+            ]
+        },
+        {
+            "block_label": "aside_text",
+            "block_content": "Released to Imaging: 5/20/2026 1:11:31 PM",
+            "block_bbox": [
+                1177,
+                1167,
+                1204,
+                1553
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    1177.0,
+                    1167.0
+                ],
+                [
+                    1204.0,
+                    1167.0
+                ],
+                [
+                    1204.0,
+                    1553.0
+                ],
+                [
+                    1177.0,
+                    1553.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 2,
+                "label": "aside_text",
+                "score": 0.7700905799865723,
+                "coordinate": [
+                    18,
+                    1179,
+                    44,
+                    1552
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        18.0,
+                        1179.0
+                    ],
+                    [
+                        44.0,
+                        1179.0
+                    ],
+                    [
+                        44.0,
+                        1552.0
+                    ],
+                    [
+                        18.0,
+                        1552.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6955219507217407,
+                "coordinate": [
+                    337,
+                    143,
+                    736,
+                    171
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        337.0,
+                        143.0
+                    ],
+                    [
+                        736.0,
+                        143.0
+                    ],
+                    [
+                        736.0,
+                        171.0
+                    ],
+                    [
+                        337.0,
+                        171.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "aside_text",
+                "score": 0.7761275172233582,
+                "coordinate": [
+                    1177,
+                    1167,
+                    1204,
+                    1553
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1177.0,
+                        1167.0
+                    ],
+                    [
+                        1204.0,
+                        1167.0
+                    ],
+                    [
+                        1204.0,
+                        1553.0
+                    ],
+                    [
+                        1177.0,
+                        1553.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

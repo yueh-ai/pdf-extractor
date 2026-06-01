@@ -1,0 +1,522 @@
+{
+    "input_path": "runs/Full_30015375000000/small/pages/page_0142/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1224,
+    "height": 1584,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "Received by OCD: 4/23/2026 11:06:25 AM",
+            "block_bbox": [
+                29,
+                18,
+                401,
+                44
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    29.0,
+                    18.0
+                ],
+                [
+                    401.0,
+                    18.0
+                ],
+                [
+                    401.0,
+                    44.0
+                ],
+                [
+                    29.0,
+                    44.0
+                ]
+            ]
+        },
+        {
+            "block_label": "number",
+            "block_content": "Page 9 of 22",
+            "block_bbox": [
+                1092,
+                19,
+                1205,
+                45
+            ],
+            "block_id": 1,
+            "block_order": null,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    1092.0,
+                    19.0
+                ],
+                [
+                    1205.0,
+                    19.0
+                ],
+                [
+                    1205.0,
+                    45.0
+                ],
+                [
+                    1092.0,
+                    45.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Figure D1 and D2",
+            "block_bbox": [
+                528,
+                164,
+                689,
+                190
+            ],
+            "block_id": 2,
+            "block_order": 1,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    528.0,
+                    164.0
+                ],
+                [
+                    689.0,
+                    164.0
+                ],
+                [
+                    689.0,
+                    190.0
+                ],
+                [
+                    528.0,
+                    190.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "South (Hobbs) Formations to be isolated with cement plugs are:",
+            "block_bbox": [
+                319,
+                209,
+                896,
+                236
+            ],
+            "block_id": 3,
+            "block_order": 2,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    319.0,
+                    209.0
+                ],
+                [
+                    896.0,
+                    209.0
+                ],
+                [
+                    896.0,
+                    236.0
+                ],
+                [
+                    319.0,
+                    236.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The plugging requirements in the Hobbs Area are based on the well location within specific areas of the Area (See Figure D1). The Formations in the Hobbs Area to be isolated with cement plugs are (see Figure D2)",
+            "block_bbox": [
+                138,
+                254,
+                1077,
+                335
+            ],
+            "block_id": 4,
+            "block_order": 3,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    138.0,
+                    254.0
+                ],
+                [
+                    1077.0,
+                    254.0
+                ],
+                [
+                    1077.0,
+                    335.0
+                ],
+                [
+                    138.0,
+                    335.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "Figure D1 Map",
+            "block_bbox": [
+                536,
+                537,
+                689,
+                567
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    536.0,
+                    537.0
+                ],
+                [
+                    689.0,
+                    537.0
+                ],
+                [
+                    689.0,
+                    567.0
+                ],
+                [
+                    536.0,
+                    567.0
+                ]
+            ]
+        },
+        {
+            "block_label": "chart",
+            "block_content": "",
+            "block_bbox": [
+                359,
+                627,
+                920,
+                1481
+            ],
+            "block_id": 6,
+            "block_order": null,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    359.0,
+                    627.0
+                ],
+                [
+                    920.0,
+                    627.0
+                ],
+                [
+                    920.0,
+                    1481.0
+                ],
+                [
+                    359.0,
+                    1481.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "Released to Imaging: 5/20/2026 1:11:31 PM",
+            "block_bbox": [
+                30,
+                1540,
+                415,
+                1564
+            ],
+            "block_id": 7,
+            "block_order": null,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    30.0,
+                    1540.0
+                ],
+                [
+                    415.0,
+                    1540.0
+                ],
+                [
+                    415.0,
+                    1564.0
+                ],
+                [
+                    30.0,
+                    1564.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.8541074991226196,
+                "coordinate": [
+                    29,
+                    18,
+                    401,
+                    44
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        29.0,
+                        18.0
+                    ],
+                    [
+                        401.0,
+                        18.0
+                    ],
+                    [
+                        401.0,
+                        44.0
+                    ],
+                    [
+                        29.0,
+                        44.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.8262292146682739,
+                "coordinate": [
+                    1092,
+                    19,
+                    1205,
+                    45
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        1092.0,
+                        19.0
+                    ],
+                    [
+                        1205.0,
+                        19.0
+                    ],
+                    [
+                        1205.0,
+                        45.0
+                    ],
+                    [
+                        1092.0,
+                        45.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8288544416427612,
+                "coordinate": [
+                    528,
+                    164,
+                    689,
+                    190
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        528.0,
+                        164.0
+                    ],
+                    [
+                        689.0,
+                        164.0
+                    ],
+                    [
+                        689.0,
+                        190.0
+                    ],
+                    [
+                        528.0,
+                        190.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8182744979858398,
+                "coordinate": [
+                    319,
+                    209,
+                    896,
+                    236
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        319.0,
+                        209.0
+                    ],
+                    [
+                        896.0,
+                        209.0
+                    ],
+                    [
+                        896.0,
+                        236.0
+                    ],
+                    [
+                        319.0,
+                        236.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9163346290588379,
+                "coordinate": [
+                    138,
+                    254,
+                    1077,
+                    335
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        138.0,
+                        254.0
+                    ],
+                    [
+                        1077.0,
+                        254.0
+                    ],
+                    [
+                        1077.0,
+                        335.0
+                    ],
+                    [
+                        138.0,
+                        335.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.8298469185829163,
+                "coordinate": [
+                    536,
+                    537,
+                    689,
+                    567
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        536.0,
+                        537.0
+                    ],
+                    [
+                        689.0,
+                        537.0
+                    ],
+                    [
+                        689.0,
+                        567.0
+                    ],
+                    [
+                        536.0,
+                        567.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 3,
+                "label": "chart",
+                "score": 0.8308964371681213,
+                "coordinate": [
+                    359,
+                    627,
+                    920,
+                    1481
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        359.0,
+                        627.0
+                    ],
+                    [
+                        920.0,
+                        627.0
+                    ],
+                    [
+                        920.0,
+                        1481.0
+                    ],
+                    [
+                        359.0,
+                        1481.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.8392261862754822,
+                "coordinate": [
+                    30,
+                    1540,
+                    415,
+                    1564
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        30.0,
+                        1540.0
+                    ],
+                    [
+                        415.0,
+                        1540.0
+                    ],
+                    [
+                        415.0,
+                        1564.0
+                    ],
+                    [
+                        30.0,
+                        1564.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

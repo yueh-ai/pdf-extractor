@@ -1,0 +1,1132 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0015/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1592,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "text",
+            "block_content": "Submit Entries To Appropriate District Office\nDistrict I\n1625 N. French Dr., Hobbs, NM 88240\nDistrict II\n1301 W. Grand Ave., Artesia, NM 88210\nDistrict III\n1000 Rio Brazos Rd., Aztec, NM 87410\nDistrict IV\n1220 S. St. Francis Dr., Santa Fe, NM\n87505",
+            "block_bbox": [
+                69,
+                12,
+                340,
+                228
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    69.0,
+                    12.0
+                ],
+                [
+                    340.0,
+                    12.0
+                ],
+                [
+                    340.0,
+                    228.0
+                ],
+                [
+                    69.0,
+                    228.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Form C-103",
+            "block_bbox": [
+                1032,
+                31,
+                1154,
+                56
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    1032.0,
+                    31.0
+                ],
+                [
+                    1154.0,
+                    31.0
+                ],
+                [
+                    1154.0,
+                    56.0
+                ],
+                [
+                    1032.0,
+                    56.0
+                ]
+            ]
+        },
+        {
+            "block_label": "doc_title",
+            "block_content": "State of New Mexico\nEnergy, Minerals and Natural Resources",
+            "block_bbox": [
+                396,
+                31,
+                760,
+                86
+            ],
+            "block_id": 2,
+            "block_order": 3,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    396.0,
+                    31.0
+                ],
+                [
+                    760.0,
+                    31.0
+                ],
+                [
+                    760.0,
+                    86.0
+                ],
+                [
+                    396.0,
+                    86.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "OIL CONSERVATION DIVISION\n1220 South St. Francis Dr.\nSanta Fe, NM 87505",
+            "block_bbox": [
+                399,
+                109,
+                748,
+                196
+            ],
+            "block_id": 3,
+            "block_order": 4,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    399.0,
+                    109.0
+                ],
+                [
+                    748.0,
+                    109.0
+                ],
+                [
+                    748.0,
+                    196.0
+                ],
+                [
+                    399.0,
+                    196.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "June 19, 2008",
+            "block_bbox": [
+                1050,
+                59,
+                1155,
+                78
+            ],
+            "block_id": 4,
+            "block_order": 5,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    1050.0,
+                    59.0
+                ],
+                [
+                    1154.0,
+                    59.0
+                ],
+                [
+                    1154.0,
+                    77.0
+                ],
+                [
+                    1050.0,
+                    77.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "12. Check Appropriate Box to Indicate Nature of Notice, Report or Other Data",
+            "block_bbox": [
+                233,
+                592,
+                997,
+                622
+            ],
+            "block_id": 5,
+            "block_order": 6,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    233.0,
+                    592.0
+                ],
+                [
+                    997.0,
+                    592.0
+                ],
+                [
+                    997.0,
+                    622.0
+                ],
+                [
+                    233.0,
+                    622.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "NOTICE OF INTENTION TO:",
+            "block_bbox": [
+                190,
+                635,
+                509,
+                663
+            ],
+            "block_id": 6,
+            "block_order": 7,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    190.0,
+                    635.0
+                ],
+                [
+                    509.0,
+                    635.0
+                ],
+                [
+                    509.0,
+                    663.0
+                ],
+                [
+                    190.0,
+                    663.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "SUBSEQUENT REPORT OF:",
+            "block_bbox": [
+                735,
+                635,
+                1058,
+                663
+            ],
+            "block_id": 7,
+            "block_order": 8,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    735.0,
+                    635.0
+                ],
+                [
+                    1058.0,
+                    635.0
+                ],
+                [
+                    1058.0,
+                    663.0
+                ],
+                [
+                    735.0,
+                    663.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "OTHER:",
+            "block_bbox": [
+                61,
+                781,
+                147,
+                805
+            ],
+            "block_id": 8,
+            "block_order": 9,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    61.0,
+                    781.0
+                ],
+                [
+                    146.0,
+                    781.0
+                ],
+                [
+                    146.0,
+                    804.0
+                ],
+                [
+                    61.0,
+                    804.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "OTHER: 5' new hole",
+            "block_bbox": [
+                646,
+                779,
+                835,
+                805
+            ],
+            "block_id": 9,
+            "block_order": 10,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    646.0,
+                    779.0
+                ],
+                [
+                    835.0,
+                    779.0
+                ],
+                [
+                    835.0,
+                    805.0
+                ],
+                [
+                    646.0,
+                    805.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "13. Describe proposed or completed operations. (Clearly state all pertinent details, and give pertinent dates, including estimated date of starting any proposed work). SEE RULE 1103. For Multiple Completions: Attach wellbore diagram of proposed completion or recompletion.",
+            "block_bbox": [
+                92,
+                805,
+                1165,
+                878
+            ],
+            "block_id": 10,
+            "block_order": 11,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    92.0,
+                    805.0
+                ],
+                [
+                    1165.0,
+                    805.0
+                ],
+                [
+                    1165.0,
+                    878.0
+                ],
+                [
+                    92.0,
+                    878.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "12/10/08 - Made 5' new hole at 11:00 AM. TD 45'. Hole size 12-1/4\".",
+            "block_bbox": [
+                60,
+                896,
+                634,
+                924
+            ],
+            "block_id": 11,
+            "block_order": 12,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    60.0,
+                    896.0
+                ],
+                [
+                    634.0,
+                    896.0
+                ],
+                [
+                    634.0,
+                    924.0
+                ],
+                [
+                    60.0,
+                    924.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "ACCEPTED FOR RECORD",
+            "block_bbox": [
+                751,
+                1008,
+                1015,
+                1038
+            ],
+            "block_id": 12,
+            "block_order": 13,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    751.0,
+                    1008.0
+                ],
+                [
+                    1015.0,
+                    1008.0
+                ],
+                [
+                    1015.0,
+                    1038.0
+                ],
+                [
+                    751.0,
+                    1038.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "DEC 17 2008",
+            "block_bbox": [
+                806,
+                1079,
+                947,
+                1116
+            ],
+            "block_id": 13,
+            "block_order": 14,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    806.0,
+                    1079.0
+                ],
+                [
+                    947.0,
+                    1079.0
+                ],
+                [
+                    947.0,
+                    1116.0
+                ],
+                [
+                    806.0,
+                    1116.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Spud Date:",
+            "block_bbox": [
+                57,
+                1193,
+                153,
+                1221
+            ],
+            "block_id": 14,
+            "block_order": 15,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    57.0,
+                    1193.0
+                ],
+                [
+                    153.0,
+                    1193.0
+                ],
+                [
+                    153.0,
+                    1221.0
+                ],
+                [
+                    57.0,
+                    1221.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Gerry Guye, Deputy Field Inspector NMOCD-District II ARTESIA",
+            "block_bbox": [
+                737,
+                1125,
+                1024,
+                1181
+            ],
+            "block_id": 15,
+            "block_order": 16,
+            "group_id": 15,
+            "block_polygon_points": [
+                [
+                    737.0,
+                    1125.0
+                ],
+                [
+                    1024.0,
+                    1125.0
+                ],
+                [
+                    1024.0,
+                    1181.0
+                ],
+                [
+                    737.0,
+                    1181.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Rig Release Date:",
+            "block_bbox": [
+                511,
+                1195,
+                660,
+                1221
+            ],
+            "block_id": 16,
+            "block_order": 17,
+            "group_id": 16,
+            "block_polygon_points": [
+                [
+                    511.0,
+                    1195.0
+                ],
+                [
+                    660.0,
+                    1195.0
+                ],
+                [
+                    660.0,
+                    1221.0
+                ],
+                [
+                    511.0,
+                    1221.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "I hereby certify that the information above is true and complete to the best of my knowledge and belief.",
+            "block_bbox": [
+                56,
+                1274,
+                888,
+                1301
+            ],
+            "block_id": 17,
+            "block_order": 18,
+            "group_id": 17,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    1274.0
+                ],
+                [
+                    888.0,
+                    1274.0
+                ],
+                [
+                    888.0,
+                    1301.0
+                ],
+                [
+                    56.0,
+                    1301.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.32703670859336853,
+                "coordinate": [
+                    69,
+                    12,
+                    340,
+                    228
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        69.0,
+                        12.0
+                    ],
+                    [
+                        340.0,
+                        12.0
+                    ],
+                    [
+                        340.0,
+                        228.0
+                    ],
+                    [
+                        69.0,
+                        228.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.362883597612381,
+                "coordinate": [
+                    1032,
+                    31,
+                    1154,
+                    56
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        1032.0,
+                        31.0
+                    ],
+                    [
+                        1154.0,
+                        31.0
+                    ],
+                    [
+                        1154.0,
+                        56.0
+                    ],
+                    [
+                        1032.0,
+                        56.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.3681927025318146,
+                "coordinate": [
+                    396,
+                    31,
+                    760,
+                    86
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        396.0,
+                        31.0
+                    ],
+                    [
+                        760.0,
+                        31.0
+                    ],
+                    [
+                        760.0,
+                        86.0
+                    ],
+                    [
+                        396.0,
+                        86.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.46772560477256775,
+                "coordinate": [
+                    399,
+                    109,
+                    748,
+                    196
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        399.0,
+                        109.0
+                    ],
+                    [
+                        748.0,
+                        109.0
+                    ],
+                    [
+                        748.0,
+                        196.0
+                    ],
+                    [
+                        399.0,
+                        196.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.38067904114723206,
+                "coordinate": [
+                    1050,
+                    59,
+                    1155,
+                    78
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        1050.0,
+                        59.0
+                    ],
+                    [
+                        1154.0,
+                        59.0
+                    ],
+                    [
+                        1154.0,
+                        77.0
+                    ],
+                    [
+                        1050.0,
+                        77.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.6032688617706299,
+                "coordinate": [
+                    233,
+                    592,
+                    997,
+                    622
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        233.0,
+                        592.0
+                    ],
+                    [
+                        997.0,
+                        592.0
+                    ],
+                    [
+                        997.0,
+                        622.0
+                    ],
+                    [
+                        233.0,
+                        622.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.359372079372406,
+                "coordinate": [
+                    190,
+                    635,
+                    509,
+                    663
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        190.0,
+                        635.0
+                    ],
+                    [
+                        509.0,
+                        635.0
+                    ],
+                    [
+                        509.0,
+                        663.0
+                    ],
+                    [
+                        190.0,
+                        663.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.34973984956741333,
+                "coordinate": [
+                    735,
+                    635,
+                    1058,
+                    663
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        735.0,
+                        635.0
+                    ],
+                    [
+                        1058.0,
+                        635.0
+                    ],
+                    [
+                        1058.0,
+                        663.0
+                    ],
+                    [
+                        735.0,
+                        663.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.3246499001979828,
+                "coordinate": [
+                    61,
+                    781,
+                    147,
+                    805
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        61.0,
+                        781.0
+                    ],
+                    [
+                        146.0,
+                        781.0
+                    ],
+                    [
+                        146.0,
+                        804.0
+                    ],
+                    [
+                        61.0,
+                        804.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.3707152307033539,
+                "coordinate": [
+                    646,
+                    779,
+                    835,
+                    805
+                ],
+                "order": 10,
+                "polygon_points": [
+                    [
+                        646.0,
+                        779.0
+                    ],
+                    [
+                        835.0,
+                        779.0
+                    ],
+                    [
+                        835.0,
+                        805.0
+                    ],
+                    [
+                        646.0,
+                        805.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8251559734344482,
+                "coordinate": [
+                    92,
+                    805,
+                    1165,
+                    878
+                ],
+                "order": 11,
+                "polygon_points": [
+                    [
+                        92.0,
+                        805.0
+                    ],
+                    [
+                        1165.0,
+                        805.0
+                    ],
+                    [
+                        1165.0,
+                        878.0
+                    ],
+                    [
+                        92.0,
+                        878.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7723661065101624,
+                "coordinate": [
+                    60,
+                    896,
+                    634,
+                    924
+                ],
+                "order": 12,
+                "polygon_points": [
+                    [
+                        60.0,
+                        896.0
+                    ],
+                    [
+                        634.0,
+                        896.0
+                    ],
+                    [
+                        634.0,
+                        924.0
+                    ],
+                    [
+                        60.0,
+                        924.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6356217861175537,
+                "coordinate": [
+                    751,
+                    1008,
+                    1015,
+                    1038
+                ],
+                "order": 13,
+                "polygon_points": [
+                    [
+                        751.0,
+                        1008.0
+                    ],
+                    [
+                        1015.0,
+                        1008.0
+                    ],
+                    [
+                        1015.0,
+                        1038.0
+                    ],
+                    [
+                        751.0,
+                        1038.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7321487069129944,
+                "coordinate": [
+                    806,
+                    1079,
+                    947,
+                    1116
+                ],
+                "order": 14,
+                "polygon_points": [
+                    [
+                        806.0,
+                        1079.0
+                    ],
+                    [
+                        947.0,
+                        1079.0
+                    ],
+                    [
+                        947.0,
+                        1116.0
+                    ],
+                    [
+                        806.0,
+                        1116.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.3931255042552948,
+                "coordinate": [
+                    57,
+                    1193,
+                    153,
+                    1221
+                ],
+                "order": 15,
+                "polygon_points": [
+                    [
+                        57.0,
+                        1193.0
+                    ],
+                    [
+                        153.0,
+                        1193.0
+                    ],
+                    [
+                        153.0,
+                        1221.0
+                    ],
+                    [
+                        57.0,
+                        1221.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.670504629611969,
+                "coordinate": [
+                    737,
+                    1125,
+                    1024,
+                    1181
+                ],
+                "order": 16,
+                "polygon_points": [
+                    [
+                        737.0,
+                        1125.0
+                    ],
+                    [
+                        1024.0,
+                        1125.0
+                    ],
+                    [
+                        1024.0,
+                        1181.0
+                    ],
+                    [
+                        737.0,
+                        1181.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5992169976234436,
+                "coordinate": [
+                    511,
+                    1195,
+                    660,
+                    1221
+                ],
+                "order": 17,
+                "polygon_points": [
+                    [
+                        511.0,
+                        1195.0
+                    ],
+                    [
+                        660.0,
+                        1195.0
+                    ],
+                    [
+                        660.0,
+                        1221.0
+                    ],
+                    [
+                        511.0,
+                        1221.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.49059051275253296,
+                "coordinate": [
+                    56,
+                    1274,
+                    888,
+                    1301
+                ],
+                "order": 18,
+                "polygon_points": [
+                    [
+                        56.0,
+                        1274.0
+                    ],
+                    [
+                        888.0,
+                        1274.0
+                    ],
+                    [
+                        888.0,
+                        1301.0
+                    ],
+                    [
+                        56.0,
+                        1301.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

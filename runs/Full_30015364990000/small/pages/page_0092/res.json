@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0092/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1598,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "seal",
+            "block_content": "",
+            "block_bbox": [
+                133,
+                1373,
+                361,
+                1458
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    133.0,
+                    1373.0
+                ],
+                [
+                    361.0,
+                    1373.0
+                ],
+                [
+                    361.0,
+                    1458.0
+                ],
+                [
+                    133.0,
+                    1458.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 20,
+                "label": "seal",
+                "score": 0.3969007134437561,
+                "coordinate": [
+                    133,
+                    1373,
+                    361,
+                    1458
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        133.0,
+                        1373.0
+                    ],
+                    [
+                        361.0,
+                        1373.0
+                    ],
+                    [
+                        361.0,
+                        1458.0
+                    ],
+                    [
+                        133.0,
+                        1458.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,1254 @@
+{
+    "input_path": "runs/Full_30015364990000/small/pages/page_0110/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1214,
+    "height": 1588,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "doc_title",
+            "block_content": "State of New Mexico\nEnergy, Minerals and Natural Resources Department",
+            "block_bbox": [
+                291,
+                138,
+                919,
+                201
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    291.0,
+                    138.0
+                ],
+                [
+                    919.0,
+                    138.0
+                ],
+                [
+                    919.0,
+                    201.0
+                ],
+                [
+                    291.0,
+                    201.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Susana Martinez\nGovernor",
+            "block_bbox": [
+                155,
+                239,
+                301,
+                283
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    155.0,
+                    239.0
+                ],
+                [
+                    301.0,
+                    239.0
+                ],
+                [
+                    301.0,
+                    283.0
+                ],
+                [
+                    155.0,
+                    283.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "John Bemis\nCabinet Secretary",
+            "block_bbox": [
+                155,
+                296,
+                286,
+                336
+            ],
+            "block_id": 2,
+            "block_order": 3,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    155.0,
+                    296.0
+                ],
+                [
+                    286.0,
+                    296.0
+                ],
+                [
+                    286.0,
+                    336.0
+                ],
+                [
+                    155.0,
+                    336.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "David Catanach\nDivision Director\nOil Conservation Division",
+            "block_bbox": [
+                696,
+                297,
+                889,
+                354
+            ],
+            "block_id": 3,
+            "block_order": 4,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    696.0,
+                    297.0
+                ],
+                [
+                    889.0,
+                    297.0
+                ],
+                [
+                    889.0,
+                    354.0
+                ],
+                [
+                    696.0,
+                    354.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Brett F. Woods, Ph.D.\nDeputy Cabinet Secretary",
+            "block_bbox": [
+                153,
+                349,
+                337,
+                391
+            ],
+            "block_id": 4,
+            "block_order": 5,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    153.0,
+                    349.0
+                ],
+                [
+                    337.0,
+                    349.0
+                ],
+                [
+                    337.0,
+                    391.0
+                ],
+                [
+                    153.0,
+                    391.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                911,
+                242,
+                1051,
+                378
+            ],
+            "block_id": 5,
+            "block_order": null,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    911.0,
+                    242.0
+                ],
+                [
+                    1051.0,
+                    242.0
+                ],
+                [
+                    1051.0,
+                    378.0
+                ],
+                [
+                    911.0,
+                    378.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "March 19, 2013\nFOR IMMEDIATE RELEASE\nContact: Jim Winchester (505)231-8800 E-Mail: jim.winchester@state.nm.us",
+            "block_bbox": [
+                99,
+                437,
+                710,
+                505
+            ],
+            "block_id": 6,
+            "block_order": 6,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    99.0,
+                    437.0
+                ],
+                [
+                    710.0,
+                    437.0
+                ],
+                [
+                    710.0,
+                    505.0
+                ],
+                [
+                    99.0,
+                    505.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Notice to Oil and Gas Facilities and Operators Flaring Gas in New Mexico",
+            "block_bbox": [
+                146,
+                525,
+                1085,
+                557
+            ],
+            "block_id": 7,
+            "block_order": 7,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    146.0,
+                    525.0
+                ],
+                [
+                    1085.0,
+                    525.0
+                ],
+                [
+                    1085.0,
+                    557.0
+                ],
+                [
+                    146.0,
+                    557.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "SANTA FE, NM – The Oil Conservation Division (OCD) encourages all oil and gas facilities with flare stacks and well operators that are flaring gas to upgrade their Fire Awareness Programs this year. New Mexico State Forestry reports that 460 fires have burned 25,475 acres on state and private land in calendar year 2012.",
+            "block_bbox": [
+                92,
+                579,
+                1126,
+                688
+            ],
+            "block_id": 8,
+            "block_order": 8,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    92.0,
+                    579.0
+                ],
+                [
+                    1126.0,
+                    579.0
+                ],
+                [
+                    1126.0,
+                    688.0
+                ],
+                [
+                    92.0,
+                    688.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Forecasts remain dismal this spring with fewer chances for normal precipitation, particularly in southwestern New Mexico and southeastern Arizona. Temperatures could also be higher than normal.",
+            "block_bbox": [
+                89,
+                711,
+                1134,
+                766
+            ],
+            "block_id": 9,
+            "block_order": 9,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    89.0,
+                    711.0
+                ],
+                [
+                    1134.0,
+                    711.0
+                ],
+                [
+                    1134.0,
+                    766.0
+                ],
+                [
+                    89.0,
+                    766.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Open flames and gas flares should be monitored carefully and oil and gas operators should create a defensible space to help prevent wildfires. Defensible Space is the area around a structure where combustible vegetation that can spread fire has been cleared, reduced or replaced. This space acts as a barrier between a structure and an advancing wildfire.",
+            "block_bbox": [
+                85,
+                789,
+                1112,
+                898
+            ],
+            "block_id": 10,
+            "block_order": 10,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    85.0,
+                    789.0
+                ],
+                [
+                    1112.0,
+                    789.0
+                ],
+                [
+                    1112.0,
+                    898.0
+                ],
+                [
+                    85.0,
+                    898.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "During the course of the upcoming fire season, it may become necessary for New Mexico State Forestry to issue fire restriction on State and private land. Log on to  $ \\underline{\\text{www.nmforestry.com}} $ for updates or call your local district office.",
+            "block_bbox": [
+                82,
+                921,
+                1117,
+                1003
+            ],
+            "block_id": 11,
+            "block_order": 11,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    82.0,
+                    921.0
+                ],
+                [
+                    1117.0,
+                    921.0
+                ],
+                [
+                    1117.0,
+                    1003.0
+                ],
+                [
+                    82.0,
+                    1003.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "New Mexico State Forestry offers the following guidelines for establishing effective defensible space:",
+            "block_bbox": [
+                80,
+                1026,
+                1108,
+                1055
+            ],
+            "block_id": 12,
+            "block_order": 12,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    80.0,
+                    1026.0
+                ],
+                [
+                    1108.0,
+                    1026.0
+                ],
+                [
+                    1108.0,
+                    1055.0
+                ],
+                [
+                    80.0,
+                    1055.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "- Create a “Lean, Clean and Green” firebreak area by removing flammable vegetation and growth within 30 feet of each structure. Single trees and shrubs may be retained if they are well spaced, pruned and placed so they avoid the spread of fire. Maintain an irrigation system for any vegetation near structures.",
+            "block_bbox": [
+                112,
+                1078,
+                1116,
+                1186
+            ],
+            "block_id": 13,
+            "block_order": 13,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    112.0,
+                    1078.0
+                ],
+                [
+                    1116.0,
+                    1078.0
+                ],
+                [
+                    1116.0,
+                    1186.0
+                ],
+                [
+                    112.0,
+                    1186.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "• Keep grass and weeds mowed.",
+            "block_bbox": [
+                110,
+                1186,
+                462,
+                1212
+            ],
+            "block_id": 14,
+            "block_order": 14,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    110.0,
+                    1186.0
+                ],
+                [
+                    462.0,
+                    1186.0
+                ],
+                [
+                    462.0,
+                    1212.0
+                ],
+                [
+                    110.0,
+                    1212.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "• Prune lower tree limbs to at least 6 feet up to 15 feet (or lower 1/3 of branches on smaller trees).",
+            "block_bbox": [
+                109,
+                1214,
+                1112,
+                1242
+            ],
+            "block_id": 15,
+            "block_order": 15,
+            "group_id": 15,
+            "block_polygon_points": [
+                [
+                    109.0,
+                    1214.0
+                ],
+                [
+                    1112.0,
+                    1214.0
+                ],
+                [
+                    1112.0,
+                    1242.0
+                ],
+                [
+                    109.0,
+                    1242.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "- Remove vegetation and debris around propane tanks.",
+            "block_bbox": [
+                106,
+                1243,
+                689,
+                1271
+            ],
+            "block_id": 16,
+            "block_order": 16,
+            "group_id": 16,
+            "block_polygon_points": [
+                [
+                    106.0,
+                    1243.0
+                ],
+                [
+                    689.0,
+                    1243.0
+                ],
+                [
+                    689.0,
+                    1271.0
+                ],
+                [
+                    106.0,
+                    1271.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "For the latest fire weather information please visit USDA Forest Service website: http://activefiremaps.fs.fed.us/current.php",
+            "block_bbox": [
+                72,
+                1294,
+                888,
+                1352
+            ],
+            "block_id": 17,
+            "block_order": 17,
+            "group_id": 17,
+            "block_polygon_points": [
+                [
+                    72.0,
+                    1294.0
+                ],
+                [
+                    888.0,
+                    1294.0
+                ],
+                [
+                    888.0,
+                    1352.0
+                ],
+                [
+                    72.0,
+                    1352.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "#",
+            "block_bbox": [
+                569,
+                1375,
+                615,
+                1402
+            ],
+            "block_id": 18,
+            "block_order": 18,
+            "group_id": 18,
+            "block_polygon_points": [
+                [
+                    569.0,
+                    1375.0
+                ],
+                [
+                    614.0,
+                    1375.0
+                ],
+                [
+                    614.0,
+                    1401.0
+                ],
+                [
+                    569.0,
+                    1401.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The Energy, Minerals and Natural Resources Department provides resource protection and renewable energy resource development services to the public and other state agencies.",
+            "block_bbox": [
+                122,
+                1429,
+                1051,
+                1482
+            ],
+            "block_id": 19,
+            "block_order": 19,
+            "group_id": 19,
+            "block_polygon_points": [
+                [
+                    122.0,
+                    1429.0
+                ],
+                [
+                    1051.0,
+                    1429.0
+                ],
+                [
+                    1051.0,
+                    1482.0
+                ],
+                [
+                    122.0,
+                    1482.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.7802616953849792,
+                "coordinate": [
+                    291,
+                    138,
+                    919,
+                    201
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        291.0,
+                        138.0
+                    ],
+                    [
+                        919.0,
+                        138.0
+                    ],
+                    [
+                        919.0,
+                        201.0
+                    ],
+                    [
+                        291.0,
+                        201.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8647326231002808,
+                "coordinate": [
+                    155,
+                    239,
+                    301,
+                    283
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        155.0,
+                        239.0
+                    ],
+                    [
+                        301.0,
+                        239.0
+                    ],
+                    [
+                        301.0,
+                        283.0
+                    ],
+                    [
+                        155.0,
+                        283.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8625779151916504,
+                "coordinate": [
+                    155,
+                    296,
+                    286,
+                    336
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        155.0,
+                        296.0
+                    ],
+                    [
+                        286.0,
+                        296.0
+                    ],
+                    [
+                        286.0,
+                        336.0
+                    ],
+                    [
+                        155.0,
+                        336.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8221796751022339,
+                "coordinate": [
+                    696,
+                    297,
+                    889,
+                    354
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        696.0,
+                        297.0
+                    ],
+                    [
+                        889.0,
+                        297.0
+                    ],
+                    [
+                        889.0,
+                        354.0
+                    ],
+                    [
+                        696.0,
+                        354.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8505372405052185,
+                "coordinate": [
+                    153,
+                    349,
+                    337,
+                    391
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        153.0,
+                        349.0
+                    ],
+                    [
+                        337.0,
+                        349.0
+                    ],
+                    [
+                        337.0,
+                        391.0
+                    ],
+                    [
+                        153.0,
+                        391.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.8805223703384399,
+                "coordinate": [
+                    911,
+                    242,
+                    1051,
+                    378
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        911.0,
+                        242.0
+                    ],
+                    [
+                        1051.0,
+                        242.0
+                    ],
+                    [
+                        1051.0,
+                        378.0
+                    ],
+                    [
+                        911.0,
+                        378.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8613877296447754,
+                "coordinate": [
+                    99,
+                    437,
+                    710,
+                    505
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        99.0,
+                        437.0
+                    ],
+                    [
+                        710.0,
+                        437.0
+                    ],
+                    [
+                        710.0,
+                        505.0
+                    ],
+                    [
+                        99.0,
+                        505.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8586313128471375,
+                "coordinate": [
+                    146,
+                    525,
+                    1085,
+                    557
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        146.0,
+                        525.0
+                    ],
+                    [
+                        1085.0,
+                        525.0
+                    ],
+                    [
+                        1085.0,
+                        557.0
+                    ],
+                    [
+                        146.0,
+                        557.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9507774710655212,
+                "coordinate": [
+                    92,
+                    579,
+                    1126,
+                    688
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        92.0,
+                        579.0
+                    ],
+                    [
+                        1126.0,
+                        579.0
+                    ],
+                    [
+                        1126.0,
+                        688.0
+                    ],
+                    [
+                        92.0,
+                        688.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9154028296470642,
+                "coordinate": [
+                    89,
+                    711,
+                    1134,
+                    766
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        89.0,
+                        711.0
+                    ],
+                    [
+                        1134.0,
+                        711.0
+                    ],
+                    [
+                        1134.0,
+                        766.0
+                    ],
+                    [
+                        89.0,
+                        766.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9448804259300232,
+                "coordinate": [
+                    85,
+                    789,
+                    1112,
+                    898
+                ],
+                "order": 10,
+                "polygon_points": [
+                    [
+                        85.0,
+                        789.0
+                    ],
+                    [
+                        1112.0,
+                        789.0
+                    ],
+                    [
+                        1112.0,
+                        898.0
+                    ],
+                    [
+                        85.0,
+                        898.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9394411444664001,
+                "coordinate": [
+                    82,
+                    921,
+                    1117,
+                    1003
+                ],
+                "order": 11,
+                "polygon_points": [
+                    [
+                        82.0,
+                        921.0
+                    ],
+                    [
+                        1117.0,
+                        921.0
+                    ],
+                    [
+                        1117.0,
+                        1003.0
+                    ],
+                    [
+                        82.0,
+                        1003.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8628522157669067,
+                "coordinate": [
+                    80,
+                    1026,
+                    1108,
+                    1055
+                ],
+                "order": 12,
+                "polygon_points": [
+                    [
+                        80.0,
+                        1026.0
+                    ],
+                    [
+                        1108.0,
+                        1026.0
+                    ],
+                    [
+                        1108.0,
+                        1055.0
+                    ],
+                    [
+                        80.0,
+                        1055.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.942722499370575,
+                "coordinate": [
+                    112,
+                    1078,
+                    1116,
+                    1186
+                ],
+                "order": 13,
+                "polygon_points": [
+                    [
+                        112.0,
+                        1078.0
+                    ],
+                    [
+                        1116.0,
+                        1078.0
+                    ],
+                    [
+                        1116.0,
+                        1186.0
+                    ],
+                    [
+                        112.0,
+                        1186.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8533303737640381,
+                "coordinate": [
+                    110,
+                    1186,
+                    462,
+                    1212
+                ],
+                "order": 14,
+                "polygon_points": [
+                    [
+                        110.0,
+                        1186.0
+                    ],
+                    [
+                        462.0,
+                        1186.0
+                    ],
+                    [
+                        462.0,
+                        1212.0
+                    ],
+                    [
+                        110.0,
+                        1212.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8176808953285217,
+                "coordinate": [
+                    109,
+                    1214,
+                    1112,
+                    1242
+                ],
+                "order": 15,
+                "polygon_points": [
+                    [
+                        109.0,
+                        1214.0
+                    ],
+                    [
+                        1112.0,
+                        1214.0
+                    ],
+                    [
+                        1112.0,
+                        1242.0
+                    ],
+                    [
+                        109.0,
+                        1242.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8377377390861511,
+                "coordinate": [
+                    106,
+                    1243,
+                    689,
+                    1271
+                ],
+                "order": 16,
+                "polygon_points": [
+                    [
+                        106.0,
+                        1243.0
+                    ],
+                    [
+                        689.0,
+                        1243.0
+                    ],
+                    [
+                        689.0,
+                        1271.0
+                    ],
+                    [
+                        106.0,
+                        1271.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8046428561210632,
+                "coordinate": [
+                    72,
+                    1294,
+                    888,
+                    1352
+                ],
+                "order": 17,
+                "polygon_points": [
+                    [
+                        72.0,
+                        1294.0
+                    ],
+                    [
+                        888.0,
+                        1294.0
+                    ],
+                    [
+                        888.0,
+                        1352.0
+                    ],
+                    [
+                        72.0,
+                        1352.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7134627103805542,
+                "coordinate": [
+                    569,
+                    1375,
+                    615,
+                    1402
+                ],
+                "order": 18,
+                "polygon_points": [
+                    [
+                        569.0,
+                        1375.0
+                    ],
+                    [
+                        614.0,
+                        1375.0
+                    ],
+                    [
+                        614.0,
+                        1401.0
+                    ],
+                    [
+                        569.0,
+                        1401.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6557702422142029,
+                "coordinate": [
+                    122,
+                    1429,
+                    1051,
+                    1482
+                ],
+                "order": 19,
+                "polygon_points": [
+                    [
+                        122.0,
+                        1429.0
+                    ],
+                    [
+                        1051.0,
+                        1429.0
+                    ],
+                    [
+                        1051.0,
+                        1482.0
+                    ],
+                    [
+                        122.0,
+                        1482.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

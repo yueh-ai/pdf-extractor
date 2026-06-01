@@ -1,0 +1,95 @@
+{
+    "input_path": "runs/input_vl/pages/page_0028/page.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 1222,
+    "height": 1598,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "table",
+            "block_content": "<table><tr><td colspan=\"2\">Submit To Appropriate District Office\nTwo Copies\nDistrict I</td><td colspan=\"3\">State of New Mexico\nEnergy, Minerals and Natural Resources</td><td colspan=\"3\">Form C-105\nJuly 17, 2008</td></tr><tr><td colspan=\"2\">1625 N. French Dr., Hobbs, NM 88240\nDistrict II</td><td rowspan=\"4\" colspan=\"3\">Oil Conservation Division\n1220 South St. Francis Dr.\nSanta Fe, NM 87505</td><td colspan=\"3\">1. WELL API NO.\n30-015-37500</td></tr><tr><td colspan=\"2\">1301 W. Grand Avenue, Artesia, NM 88210\nDistrict III</td><td colspan=\"3\">2. Type of Lease\n☒ STATE ☐ FEE ☐ FED/INDIAN</td></tr><tr><td colspan=\"2\">1000 Rio Brazos Rd., Aztec, NM 87410\nDistrict IV</td><td rowspan=\"2\" colspan=\"3\">3. State Oil &amp; Gas Lease No.\nV-7318</td></tr><tr><td colspan=\"2\">1220 S. St. Francis Dr., Santa Fe, NM 87505</td></tr><tr><td colspan=\"5\">WELL COMPLETION OR RECOMPLETION REPORT AND LOG</td><td colspan=\"3\">5. Lease Name or Unit Agreement Name\nJericho BKJ State Com</td></tr><tr><td colspan=\"5\">4. Reason for filing:\n☒ COMPLETION REPORT (Fill in boxes #1 through #31 for State and Fee wells only)\n☐ C-144 CLOSURE ATTACHMENT (Fill in boxes #1 through #9, #15 Date Rig Released and #32 and/or #33; attach this and the plat to the C-144 closure report in accordance with 19.15.17.13.K NMAC)</td><td rowspan=\"2\" colspan=\"2\">6. Well Number:\n2H</td><td rowspan=\"2\">RECEIVED\nOCT 18 2010</td></tr><tr><td colspan=\"5\">7. Type of Completion:\n☒ NEW WELL ☐ WORKOVER ☐ DEEPENING ☐ PLUGBACK ☐ DIFFERENT RESERVOIR ☐ OTHER</td></tr><tr><td colspan=\"5\">8. Name of Operator\nYates Petroleum Corporation</td><td colspan=\"2\">9. OGRID\n025575</td><td>NMOCD ARTESIA</td></tr><tr><td colspan=\"5\">10. Address of Operator\n105 South Fourth Street, Artesia, NM 88210</td><td colspan=\"3\">11. Pool name or Wildcat Wildcat 6-02 S25271A Wildcat Bone Spring (Oil)</td></tr><tr><td>12. Location</td><td>Unit Ltr</td><td>Section</td><td>Township</td><td>Range</td><td>Lot</td><td>Feet from the</td><td>N/S Line</td></tr><tr><td>Surface:</td><td>A</td><td>15</td><td>25S</td><td>27E</td><td>660</td><td>North</td><td>330</td></tr><tr><td>BH:</td><td>D</td><td>15</td><td>25S</td><td>27E</td><td>703</td><td>North</td><td>4518</td></tr><tr><td>13. Date Spudded RH 2/1/10\nRT 6/18/10</td><td>14. Date T.D. Reached\n7/1/10</td><td>15. Date Rig Released\n7/14/10</td><td>16. Date Completed (Ready to Produce)\n9/20/10</td><td colspan=\"4\">17. Elevations (DF and RKB, RT, GR, etc.)\n3172&#x27;GR 3191&#x27;KB</td></tr><tr><td>18. Total Measured Depth of Well\n10,495&#x27;</td><td>19. Plug Back Measured Depth\n10,440&#x27;</td><td>20. Was Directional Survey Made?\nYes (Attached)</td><td colspan=\"5\">21. Type Electric and Other Logs Run\nCNL, Hi-Res Laterolog Array, CBL</td></tr><tr><td colspan=\"5\">22. Producing Interval(s), of this completion - Top, Bottom, Name\n6384&#x27;- 10,434&#x27; Bone Spring</td><td colspan=\"3\"></td></tr><tr><td colspan=\"8\">23. CASING RECORD (Report all strings set in well)</td></tr><tr><td colspan=\"2\">CASING SIZE</td><td>WEIGHT LB./FT.</td><td>DEPTH SET</td><td>HOLE SIZE</td><td>CEMENTING RECORD</td><td colspan=\"2\">AMOUNT PULLED</td></tr><tr><td colspan=\"2\">20&quot;</td><td>Conductor</td><td>40&#x27;</td><td>26&quot;</td><td>Redi-mix</td><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">13-3/8&quot;</td><td>48#</td><td>470&#x27;</td><td>17-1/2&quot;</td><td>365 sx (circ)</td><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">9-5/8&quot;</td><td>36#</td><td>2232&#x27;</td><td>12-1/4&quot;</td><td>760 sx (circ)</td><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">5-1/2&quot;</td><td>17#</td><td>10,490&#x27;</td><td>8-3/4&quot;</td><td>1380 sx (TOC 1700&#x27;est)</td><td colspan=\"2\"></td></tr><tr><td colspan=\"5\">24. LINER RECORD</td><td colspan=\"3\">25. TUBING RECORD</td></tr><tr><td>SIZE</td><td>TOP</td><td>BOTTOM</td><td>SACKS CEMENT</td><td>SCREEN</td><td>SIZE</td><td>DEPTH SET</td><td>PACKER SET</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>2-7/8&quot;</td><td>5600&#x27;</td></tr><tr><td rowspan=\"4\" colspan=\"5\">26. Perforation record (interval, size, and number)\nSEE ATTACHED SHEET</td><td colspan=\"3\">27. ACID, SHOT, FRACTURE, CEMENT, SQUEEZE, ETC.</td></tr><tr><td>DEPTH INTERVAL</td><td colspan=\"2\">AMOUNT AND KIND MATERIAL USED</td></tr><tr><td></td><td colspan=\"2\"></td></tr><tr><td colspan=\"3\">SEE ATTACHED SHEET</td></tr><tr><td colspan=\"8\">28. PRODUCTION</td></tr><tr><td colspan=\"2\">Date First Production\n9/21/10</td><td colspan=\"3\">Production Method (Flowing, gas lift, pumping - Size and type pump)\nPumping</td><td colspan=\"3\">Well Status (Prod. or Shut-in)\nProducing</td></tr><tr><td>Date of Test\n10/7/10</td><td>Hours Tested\n24 hrs</td><td>Choke Size\nNA</td><td>Prod&#x27;n For\nTest Period</td><td>Oil - Bbl\n81</td><td>Gas - MCF\n4729</td><td>Water - Bbl.\n818</td><td>Gas - Oil Ratio\nNA</td></tr><tr><td>Flow Tubing Press.\n200 psi</td><td>Casing Pressure\n760 psi</td><td>Calculated 24-\nHour Rate</td><td>Oil - Bbl.\n81</td><td>Gas - MCF\n4729</td><td>Water - Bbl.\n818</td><td colspan=\"2\">Oil Gravity - API - (Corr.)\nNA</td></tr><tr><td colspan=\"6\">29. Disposition of Gas (Sold, used for fuel, vented, etc.)</td><td colspan=\"2\">30. Test Witnessed By\nR. Smith</td></tr><tr><td colspan=\"8\">31. List Attachments</td></tr><tr><td colspan=\"8\">Logs, Directional and Deviation Surveys</td></tr><tr><td colspan=\"8\">32. If a temporary pit was used at the well, attach a plat with the location of the temporary pit.</td></tr><tr><td colspan=\"8\">33. If an on-site burial was used at the well, report the exact location of the on-site burial:\nLatitude Longitude NAD 1927 1983</td></tr><tr><td colspan=\"8\">I hereby certify that the information shown on both sides of this form is true and complete to the best of my knowledge and belief\nSignature Name Printed\nName Tina Huerta Title Regulatory Compliance Supervisor Date October 15, 2010</td></tr><tr><td colspan=\"8\">E-mail Address linah@vatespetroleum.com</td></tr></table>",
+            "block_bbox": [
+                29,
+                25,
+                1219,
+                1507
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    29.0,
+                    25.0
+                ],
+                [
+                    1219.0,
+                    25.0
+                ],
+                [
+                    1219.0,
+                    1507.0
+                ],
+                [
+                    29.0,
+                    1507.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9788694977760315,
+                "coordinate": [
+                    29,
+                    25,
+                    1219,
+                    1507
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        29.0,
+                        25.0
+                    ],
+                    [
+                        1219.0,
+                        25.0
+                    ],
+                    [
+                        1219.0,
+                        1507.0
+                    ],
+                    [
+                        29.0,
+                        1507.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

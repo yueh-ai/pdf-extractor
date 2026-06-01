@@ -1,0 +1,1 @@
+Section 24: NW/4. NW/4 SW/4 and S/2 SW/4
