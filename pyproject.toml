@@ -1,0 +1,43 @@
+[project]
+name = "pdf-extract"
+version = "0.1.0"
+description = "Resumable PaddleOCR-VL PDF extraction runner"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+  "numpy",
+  "pypdfium2",
+  "pillow",
+  "tqdm",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+paddle = [
+    "paddleocr[doc-parser]",
+    "paddlepaddle>=3.2.1,<3.4",
+    "python-docx>=0.8.11",
+]
+mlx = [
+    "mlx-vlm>=0.5.0",
+]
+
+[project.scripts]
+run-pdf-vl = "pdf_extract.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["pdf_extract*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+paddlepaddle = { index = "paddle-cpu" }
+
+[[tool.uv.index]]
+name = "paddle-cpu"
+url = "https://www.paddlepaddle.org.cn/packages/stable/cpu/"
+explicit = true
