@@ -1,5 +1,6 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { ErrorBoundary } from './ErrorBoundary';
 import { MarkdownPane } from './MarkdownPane';
 import type { ViewerPage } from './manifest';
 
@@ -40,6 +41,38 @@ function makePage(markdown: string): ViewerPage {
     ],
   };
 }
+
+function MaybeThrows({ shouldThrow }: { shouldThrow: boolean }) {
+  if (shouldThrow) {
+    throw new Error('boom');
+  }
+  return <div>Recovered render</div>;
+}
+
+describe('ErrorBoundary', () => {
+  it('clears fallback state when resetKey changes', () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      const { rerender } = render(
+        <ErrorBoundary resetKey="first" fallback={(error) => <div>Fallback: {error.message}</div>}>
+          <MaybeThrows shouldThrow />
+        </ErrorBoundary>,
+      );
+
+      expect(screen.getByText('Fallback: boom')).toBeInTheDocument();
+
+      rerender(
+        <ErrorBoundary resetKey="second" fallback={(error) => <div>Fallback: {error.message}</div>}>
+          <MaybeThrows shouldThrow={false} />
+        </ErrorBoundary>,
+      );
+
+      expect(screen.getByText('Recovered render')).toBeInTheDocument();
+    } finally {
+      consoleError.mockRestore();
+    }
+  });
+});
 
 describe('MarkdownPane', () => {
   it('renders raw HTML tables and resolves asset images', () => {

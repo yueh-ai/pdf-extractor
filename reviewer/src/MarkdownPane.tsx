@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import Markdown, { defaultUrlTransform } from 'react-markdown';
 import rehypeMathjax from 'rehype-mathjax';
 import rehypeRaw from 'rehype-raw';
@@ -18,22 +18,47 @@ function transformUrl(url: string): string {
 
 export function MarkdownPane({ page }: Props) {
   const [mode, setMode] = useState<'rendered' | 'raw'>('rendered');
+  const paneId = useId();
   const assetMap = useMemo(() => buildAssetMap(page), [page]);
+  const resetKey = page.markdown_sha256 ?? `${page.page}:${page.markdown_text.length}`;
+  const renderedTabId = `${paneId}-rendered-tab`;
+  const renderedPanelId = `${paneId}-rendered-panel`;
+  const rawTabId = `${paneId}-raw-tab`;
+  const rawPanelId = `${paneId}-raw-panel`;
 
   return (
     <section className="markdown-pane" aria-label="Markdown output">
       <div className="pane-toolbar" role="tablist" aria-label="Markdown view mode">
-        <button className={mode === 'rendered' ? 'active' : ''} role="tab" aria-selected={mode === 'rendered'} onClick={() => setMode('rendered')}>
+        <button
+          id={renderedTabId}
+          className={mode === 'rendered' ? 'active' : ''}
+          type="button"
+          role="tab"
+          aria-selected={mode === 'rendered'}
+          aria-controls={renderedPanelId}
+          onClick={() => setMode('rendered')}
+        >
           Rendered
         </button>
-        <button className={mode === 'raw' ? 'active' : ''} role="tab" aria-selected={mode === 'raw'} onClick={() => setMode('raw')}>
+        <button
+          id={rawTabId}
+          className={mode === 'raw' ? 'active' : ''}
+          type="button"
+          role="tab"
+          aria-selected={mode === 'raw'}
+          aria-controls={rawPanelId}
+          onClick={() => setMode('raw')}
+        >
           Raw Markdown
         </button>
       </div>
       {mode === 'raw' ? (
-        <pre className="raw-markdown">{page.markdown_text}</pre>
+        <pre id={rawPanelId} className="raw-markdown" role="tabpanel" aria-labelledby={rawTabId}>
+          {page.markdown_text}
+        </pre>
       ) : (
         <ErrorBoundary
+          resetKey={resetKey}
           fallback={(error) => (
             <div className="render-error">
               <strong>Render error</strong>
@@ -42,9 +67,10 @@ export function MarkdownPane({ page }: Props) {
             </div>
           )}
         >
-          <div className="rendered-markdown">
+          <div id={renderedPanelId} className="rendered-markdown" role="tabpanel" aria-labelledby={renderedTabId}>
             <Markdown
               remarkPlugins={[remarkGfm, remarkMath]}
+              // Raw HTML is intentional for local, trusted PaddleOCR pipeline output; revisit before hosted or public use.
               rehypePlugins={[rehypeRaw, rehypeMathjax]}
               urlTransform={transformUrl}
               components={{
