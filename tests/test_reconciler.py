@@ -283,6 +283,338 @@ def test_run_reconciliation_skips_published_pages_unless_forced(tmp_path):
     assert forced_client.pages == [2]
 
 
+def test_run_reconciliation_mixed_page_can_publish_page_local_assets(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    union_page = write_page(run_root, "union", 6, "# union")
+    write_page(run_root, "small", 6, "# small")
+    (union_page / "imgs").mkdir()
+    (union_page / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    client = FakeVisionClient(
+        {
+            "reconciled_markdown": "![seal](imgs/seal.jpg)",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+
+    result = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=client,
+        pages=[6],
+    )
+
+    assert result["published_pages"] == [6]
+    output = (
+        tmp_path
+        / "object_store"
+        / "pdf-extract"
+        / "reconciled"
+        / "sample-doc"
+        / "pages"
+        / "page_0006"
+        / "output.md"
+    ).read_text(encoding="utf-8")
+    assert "asset://pdf-extract/reconciled/sample-doc/pages/page_0006/assets/seal.jpg" in output
+
+
+def test_run_reconciliation_mixed_page_can_publish_small_only_assets(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 7, "# union")
+    small_page = write_page(run_root, "small", 7, "# small")
+    (small_page / "imgs").mkdir()
+    (small_page / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    client = FakeVisionClient(
+        {
+            "reconciled_markdown": "![seal](imgs/seal.jpg)",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+
+    result = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=client,
+        pages=[7],
+    )
+
+    assert result["published_pages"] == [7]
+    asset_path = (
+        tmp_path
+        / "object_store"
+        / "pdf-extract"
+        / "reconciled"
+        / "sample-doc"
+        / "pages"
+        / "page_0007"
+        / "assets"
+        / "seal.jpg"
+    )
+    assert asset_path.read_bytes() == b"jpeg"
+
+
+def test_run_reconciliation_mixed_page_can_publish_assets_split_across_modes(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    union_page = write_page(run_root, "union", 11, "# union")
+    small_page = write_page(run_root, "small", 11, "# small")
+    (union_page / "imgs").mkdir()
+    (small_page / "imgs").mkdir()
+    (union_page / "imgs" / "union.jpg").write_bytes(b"union-jpeg")
+    (small_page / "imgs" / "small.jpg").write_bytes(b"small-jpeg")
+    client = FakeVisionClient(
+        {
+            "reconciled_markdown": (
+                "![union](imgs/union.jpg)\n\n"
+                "![small](imgs/small.jpg)"
+            ),
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+
+    result = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=client,
+        pages=[11],
+    )
+
+    assert result["published_pages"] == [11]
+    asset_dir = (
+        tmp_path
+        / "object_store"
+        / "pdf-extract"
+        / "reconciled"
+        / "sample-doc"
+        / "pages"
+        / "page_0011"
+        / "assets"
+    )
+    assert (asset_dir / "union.jpg").read_bytes() == b"union-jpeg"
+    assert (asset_dir / "small.jpg").read_bytes() == b"small-jpeg"
+
+
+def test_prepared_mixed_publish_does_not_allow_unresolved_sibling_absolute_asset(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    union_page = write_page(run_root, "union", 14, "# union")
+    write_page(run_root, "small", 14, "# small")
+    (union_page / "imgs").mkdir()
+    (union_page / "imgs" / "union.jpg").write_bytes(b"union-jpeg")
+    sibling_asset = tmp_path / "runs" / "other-doc" / "union" / "leak.jpg"
+    sibling_asset.parent.mkdir(parents=True)
+    sibling_asset.write_bytes(b"leak")
+    client = FakeVisionClient(
+        {
+            "reconciled_markdown": (
+                "![union](imgs/union.jpg)\n\n"
+                f"![leak]({sibling_asset})"
+            ),
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+
+    result = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=client,
+        pages=[14],
+    )
+
+    assert result["failed_pages"] == [14]
+    assert result["published_pages"] == []
+
+
+def test_real_run_does_not_skip_prior_dry_run_publication(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 9, "union draft")
+    write_page(run_root, "small", 9, "small draft")
+    dry_run_client = FakeVisionClient(
+        {
+            "reconciled_markdown": "<!-- dry-run -->",
+            "winner": "uncertain",
+            "warnings": ["dry run"],
+            "needs_human_review": True,
+        },
+        model="dry-run-no-llm",
+    )
+    real_client = FakeVisionClient(
+        {
+            "reconciled_markdown": "# real",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        },
+        model="gpt-5.4-mini",
+    )
+
+    dry_run = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=dry_run_client,
+        pages=[9],
+    )
+    real_run = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=real_client,
+        pages=[9],
+    )
+
+    assert dry_run["published_pages"] == [9]
+    assert real_run["processed_pages"] == [9]
+    assert real_run["skipped_pages"] == []
+    assert real_client.calls
+
+
+def test_real_run_does_not_skip_prior_publication_with_missing_decision(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 12, "union draft")
+    write_page(run_root, "small", 12, "small draft")
+    dry_run_client = FakeVisionClient(
+        {
+            "reconciled_markdown": "<!-- dry-run -->",
+            "winner": "uncertain",
+            "warnings": ["dry run"],
+            "needs_human_review": True,
+        },
+        model="dry-run-no-llm",
+    )
+    real_client = FakeVisionClient(
+        {
+            "reconciled_markdown": "# real",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        },
+        model="gpt-5.4-mini",
+    )
+    object_store_root = tmp_path / "object_store"
+    sqlite_path = tmp_path / "catalog.sqlite"
+
+    run_reconciliation(
+        run_root=run_root,
+        object_store_root=object_store_root,
+        sqlite_path=sqlite_path,
+        viewer_dir=None,
+        client=dry_run_client,
+        pages=[12],
+    )
+    (
+        object_store_root
+        / "pdf-extract"
+        / "reconciled"
+        / "sample-doc"
+        / "pages"
+        / "page_0012"
+        / "decision.json"
+    ).unlink()
+    real_run = run_reconciliation(
+        run_root=run_root,
+        object_store_root=object_store_root,
+        sqlite_path=sqlite_path,
+        viewer_dir=None,
+        client=real_client,
+        pages=[12],
+    )
+
+    assert real_run["processed_pages"] == [12]
+    assert real_run["skipped_pages"] == []
+    assert real_client.calls
+
+
+def test_real_run_does_not_crash_or_skip_prior_publication_with_corrupt_decision(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 13, "union draft")
+    write_page(run_root, "small", 13, "small draft")
+    dry_run_client = FakeVisionClient(
+        {
+            "reconciled_markdown": "<!-- dry-run -->",
+            "winner": "uncertain",
+            "warnings": ["dry run"],
+            "needs_human_review": True,
+        },
+        model="dry-run-no-llm",
+    )
+    real_client = FakeVisionClient(
+        {
+            "reconciled_markdown": "# real",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        },
+        model="gpt-5.4-mini",
+    )
+    object_store_root = tmp_path / "object_store"
+    sqlite_path = tmp_path / "catalog.sqlite"
+
+    run_reconciliation(
+        run_root=run_root,
+        object_store_root=object_store_root,
+        sqlite_path=sqlite_path,
+        viewer_dir=None,
+        client=dry_run_client,
+        pages=[13],
+    )
+    (
+        object_store_root
+        / "pdf-extract"
+        / "reconciled"
+        / "sample-doc"
+        / "pages"
+        / "page_0013"
+        / "decision.json"
+    ).write_text("{not json", encoding="utf-8")
+    real_run = run_reconciliation(
+        run_root=run_root,
+        object_store_root=object_store_root,
+        sqlite_path=sqlite_path,
+        viewer_dir=None,
+        client=real_client,
+        pages=[13],
+    )
+
+    assert real_run["processed_pages"] == [13]
+    assert real_run["skipped_pages"] == []
+    assert real_client.calls
+
+
+def test_uncertain_winner_forces_human_review(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 8, "union draft")
+    write_page(run_root, "small", 8, "small draft")
+    client = FakeVisionClient(
+        {
+            "reconciled_markdown": "# uncertain",
+            "winner": "uncertain",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+
+    result = VisionReconciler(client=client).reconcile_page(load_page_inputs(run_root, 8))
+
+    assert result.winner == "uncertain"
+    assert result.needs_human_review is True
+
+
 def test_openai_responses_vision_client_sends_image_and_json_schema(tmp_path):
     image_path = tmp_path / "page.png"
     image_path.write_bytes(b"\x89PNG\r\n\x1a\n")

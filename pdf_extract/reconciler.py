@@ -4,6 +4,7 @@ import base64
 import json
 import mimetypes
 import os
+import shutil
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Protocol
@@ -15,6 +16,10 @@ from .reconciled_store import (
     PageReconciliationResult,
     ReconciledPagePublisher,
     assemble_document,
+    iter_markdown_image_refs,
+    resolve_asset_path,
+    rewrite_markdown_image_refs,
+    sha256_text,
 )
 from .reconciled_viewer import write_viewer_manifest
 from .render import page_dir_name
@@ -178,8 +183,8 @@ def build_reconcile_prompt(inputs: PageReconcileInputs) -> str:
         "- Produce clean Markdown for this one page only.\n"
         "- Preserve visible text, headings, lists, tables, checkbox states, symbols, "
         "footnotes, and image references when they are supported by the page.\n"
-        "- Keep relative image references if they are present in the drafts and still "
-        "match the page.\n"
+        "- Keep relative image references only when they are present in the drafts "
+        "and still match visible image content on the page.\n"
         "- Do not invent content that is not visible in the image or reasonably "
         "supported by the drafts.\n"
         "- Set needs_human_review to true if the page is unreadable, materially "
@@ -220,7 +225,7 @@ class VisionReconciler:
             reconciled_markdown=response.reconciled_markdown,
             winner=response.winner,
             warnings=response.warnings,
-            needs_human_review=response.needs_human_review,
+            needs_human_review=response.needs_human_review or response.winner == "uncertain",
             model=self.client.model,
             prompt_version=self.prompt_version,
             source_refs={
@@ -279,8 +284,25 @@ class OpenAIResponsesVisionClient:
         return json.loads(response.output_text)
 
 
-def _published_page_set(catalog: PageCatalog, document_id: str) -> set[int]:
-    return {int(row["page"]) for row in catalog.list_pages(document_id, status=PUBLISHED)}
+def _published_page_set(
+    *,
+    catalog: PageCatalog,
+    store: LocalObjectStore,
+    document_id: str,
+    ignored_models: set[str] | None = None,
+) -> set[int]:
+    ignored_models = ignored_models or set()
+    pages: set[int] = set()
+    for row in catalog.list_pages(document_id, status=PUBLISHED):
+        if row["decision_key"] and ignored_models:
+            try:
+                decision = json.loads(store.read_text(row["decision_key"]))
+            except (OSError, json.JSONDecodeError):
+                continue
+            if decision.get("model") in ignored_models:
+                continue
+        pages.add(int(row["page"]))
+    return pages
 
 
 def _selected_pages(run_root: Path, pages: Iterable[int] | None) -> list[int]:
@@ -296,9 +318,78 @@ def _selected_pages(run_root: Path, pages: Iterable[int] | None) -> list[int]:
 
 
 def _asset_base_dir_for(inputs: PageReconcileInputs, result: PageReconciliationResult) -> Path:
-    if result.winner == "small":
-        return inputs.small_markdown_path.parent
-    return inputs.union_markdown_path.parent
+    union_page_dir = inputs.union_markdown_path.parent
+    small_page_dir = inputs.small_markdown_path.parent
+    refs = iter_markdown_image_refs(result.reconciled_markdown)
+    if not refs:
+        return small_page_dir if result.winner == "small" else union_page_dir
+
+    ordered_candidates = (
+        [small_page_dir, union_page_dir]
+        if result.winner == "small"
+        else [union_page_dir, small_page_dir]
+    )
+    for candidate in ordered_candidates:
+        try:
+            if all(resolve_asset_path(ref, candidate).exists() for ref in refs):
+                return candidate
+        except FileNotFoundError:
+            continue
+    return ordered_candidates[0]
+
+
+def _prepare_result_for_publish(
+    inputs: PageReconcileInputs,
+    result: PageReconciliationResult,
+) -> tuple[PageReconciliationResult, Path]:
+    refs = iter_markdown_image_refs(result.reconciled_markdown)
+    if not refs:
+        return result, _asset_base_dir_for(inputs, result)
+
+    union_page_dir = inputs.union_markdown_path.parent
+    small_page_dir = inputs.small_markdown_path.parent
+    ordered_candidates = (
+        [small_page_dir, union_page_dir]
+        if result.winner == "small"
+        else [union_page_dir, small_page_dir]
+    )
+    replacements: dict[str, str] = {}
+    prepared_dir = inputs.union_markdown_path.parent / ".reconcile_assets" / "publish"
+    prepared_imgs_dir = prepared_dir / "imgs"
+    for ref in refs:
+        for candidate in ordered_candidates:
+            try:
+                source_path = resolve_asset_path(ref, candidate)
+            except FileNotFoundError:
+                continue
+            if source_path.exists():
+                prepared_imgs_dir.mkdir(parents=True, exist_ok=True)
+                prepared_path = prepared_imgs_dir / source_path.name
+                if prepared_path.exists() and prepared_path.read_bytes() != source_path.read_bytes():
+                    suffix = source_path.suffix
+                    stem = source_path.stem
+                    source_hash = sha256_text(source_path.as_posix())[:8]
+                    prepared_path = prepared_imgs_dir / f"{stem}_{source_hash}{suffix}"
+                shutil.copy2(source_path, prepared_path)
+                replacements[ref] = f"imgs/{prepared_path.name}"
+                break
+
+    if not replacements:
+        return result, _asset_base_dir_for(inputs, result)
+
+    prepared_markdown = rewrite_markdown_image_refs(result.reconciled_markdown, replacements)
+    prepared_result = PageReconciliationResult(
+        document_id=result.document_id,
+        page=result.page,
+        reconciled_markdown=prepared_markdown,
+        winner=result.winner,
+        warnings=result.warnings,
+        needs_human_review=result.needs_human_review,
+        model=result.model,
+        prompt_version=result.prompt_version,
+        source_refs=result.source_refs,
+    )
+    return prepared_result, prepared_dir
 
 
 def run_reconciliation(
@@ -318,7 +409,13 @@ def run_reconciliation(
     publisher = ReconciledPagePublisher(store=store, catalog=catalog)
     reconciler = VisionReconciler(client=client)
 
-    published_before = _published_page_set(catalog, run_root.name)
+    ignored_models = set() if client.model == "dry-run-no-llm" else {"dry-run-no-llm"}
+    published_before = _published_page_set(
+        catalog=catalog,
+        store=store,
+        document_id=run_root.name,
+        ignored_models=ignored_models,
+    )
     processed_pages: list[int] = []
     skipped_pages: list[int] = []
     published_pages: list[int] = []
@@ -331,7 +428,8 @@ def run_reconciliation(
 
         inputs = load_page_inputs(run_root, page)
         result = reconciler.reconcile_page(inputs)
-        published = publisher.publish(result, asset_base_dir=_asset_base_dir_for(inputs, result))
+        publish_result, asset_base_dir = _prepare_result_for_publish(inputs, result)
+        published = publisher.publish(publish_result, asset_base_dir=asset_base_dir)
         processed_pages.append(page)
         if published.status == PUBLISHED:
             published_pages.append(page)
