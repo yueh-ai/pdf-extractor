@@ -8,7 +8,7 @@ from pdf_extract.reconciled_prototype import run_three_page_prototype
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Publish a three-page reconciled store prototype.")
+    parser = argparse.ArgumentParser(description="Publish reconciled prototype pages and write a React reviewer manifest.")
     parser.add_argument(
         "--run-root",
         type=Path,
@@ -31,7 +31,7 @@ def main() -> int:
         "--viewer-dir",
         type=Path,
         default=Path("runs/Full_30015375000000/reconciled_viewer"),
-        help="Directory for static viewer files.",
+        help="Directory for viewer-manifest.json.",
     )
     parser.add_argument(
         "--pages",
