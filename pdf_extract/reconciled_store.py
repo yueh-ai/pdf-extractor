@@ -242,8 +242,14 @@ def iter_markdown_image_refs(markdown: str) -> list[str]:
 
 def resolve_asset_path(ref: str, asset_base_dir: Path) -> Path:
     normalized_ref = Path(ref)
+    allowed_root = asset_base_dir.parent.parent.resolve()
     if normalized_ref.is_absolute():
-        return normalized_ref.resolve()
+        candidate = normalized_ref.resolve()
+        try:
+            candidate.relative_to(allowed_root)
+        except ValueError:
+            raise FileNotFoundError(f"Unsafe referenced asset path: {ref}")
+        return candidate
     if ".." in normalized_ref.parts:
         raise FileNotFoundError(f"Unsafe referenced asset path: {ref}")
     if normalized_ref.parts and normalized_ref.parts[0] == "pages":

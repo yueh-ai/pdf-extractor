@@ -46,6 +46,24 @@ def make_result(markdown: str, page: int = 2) -> PageReconciliationResult:
     )
 
 
+def make_result_with_markdown(markdown: str, page: int = 2) -> PageReconciliationResult:
+    return PageReconciliationResult(
+        document_id="Full_30015375000000",
+        page=page,
+        reconciled_markdown=markdown,
+        winner="mixed",
+        warnings=["prototype warning"],
+        needs_human_review=True,
+        model="prototype",
+        prompt_version="reconcile-page-v1",
+        source_refs={
+            "page_image": f"runs/doc/union/pages/page_{page:04d}/page.png",
+            "union_markdown": f"runs/doc/union/pages/page_{page:04d}/output.md",
+            "small_markdown": f"runs/doc/small/pages/page_{page:04d}/output.md",
+        },
+    )
+
+
 def test_page_result_validates_required_fields():
     result = PageReconciliationResult(**_result_args())
     payload = result.decision_payload()
@@ -296,5 +314,62 @@ def test_publish_page_with_unsafe_relative_ref_records_failure(tmp_path):
         ).fetchone()
     assert row["status"] == "publish_failed"
     assert "Unsafe referenced asset path: ../secret.jpg" in row["error_message"]
+    assert row["asset_count"] == 0
+    assert row["markdown_text"] is None
+
+
+def test_publish_page_with_absolute_ref_inside_allowed_root_publishes(tmp_path):
+    source = tmp_path / "union" / "pages" / "page_0002"
+    (source / "imgs").mkdir(parents=True)
+    allowed_root_asset = source.parent.parent / "assets" / "seal.jpg"
+    allowed_root_asset.parent.mkdir(parents=True)
+    allowed_root_asset.write_bytes(b"jpeg")
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(
+        make_result_with_markdown(f"![abs]({allowed_root_asset})"),
+        asset_base_dir=source,
+    )
+    expected_asset_key = "pdf-extract/reconciled/Full_30015375000000/pages/page_0002/assets/seal.jpg"
+    expected_asset_uri = f"asset://{expected_asset_key}"
+
+    assert published.status == "published"
+    assert published.asset_count == 1
+    rewritten = publisher.store.read_text(published.markdown_key)
+    assert expected_asset_uri in rewritten
+    assert publisher.store.path_for_key(expected_asset_key).read_bytes() == b"jpeg"
+
+
+def test_publish_page_with_absolute_ref_outside_allowed_root_records_failure(tmp_path):
+    source = tmp_path / "union" / "pages" / "page_0002"
+    (source / "imgs").mkdir(parents=True)
+    outside_root_asset = tmp_path / "outside_root" / "forbidden.jpg"
+    outside_root_asset.parent.mkdir(parents=True)
+    outside_root_asset.write_bytes(b"not-allowed")
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(
+        make_result_with_markdown(f"![abs]({outside_root_asset})"),
+        asset_base_dir=source,
+    )
+    expected_output_key = "pdf-extract/reconciled/Full_30015375000000/pages/page_0002/output.md"
+
+    assert published.status == "publish_failed"
+    assert f"Unsafe referenced asset path: {outside_root_asset}" in published.error_message
+    assert not publisher.store.path_for_key(expected_output_key).exists()
+
+    with publisher.catalog.connect() as conn:
+        row = conn.execute(
+            "SELECT status, error_message, asset_count, markdown_text FROM pages WHERE document_id = ? AND page = ?",
+            ("Full_30015375000000", 2),
+        ).fetchone()
+    assert row["status"] == "publish_failed"
+    assert f"Unsafe referenced asset path: {outside_root_asset}" in row["error_message"]
     assert row["asset_count"] == 0
     assert row["markdown_text"] is None
