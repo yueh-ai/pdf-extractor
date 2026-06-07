@@ -402,6 +402,7 @@ def test_run_reconciliation_mixed_page_can_publish_assets_split_across_modes(tmp
     )
     assert (asset_dir / "union.jpg").read_bytes() == b"union-jpeg"
     assert (asset_dir / "small.jpg").read_bytes() == b"small-jpeg"
+    assert not (union_page / ".reconcile_assets").exists()
 
 
 def test_prepared_mixed_publish_does_not_allow_unresolved_sibling_absolute_asset(tmp_path):

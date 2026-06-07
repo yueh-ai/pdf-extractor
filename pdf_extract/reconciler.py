@@ -355,6 +355,8 @@ def _prepare_result_for_publish(
     )
     replacements: dict[str, str] = {}
     prepared_dir = inputs.union_markdown_path.parent / ".reconcile_assets" / "publish"
+    if prepared_dir.exists():
+        shutil.rmtree(prepared_dir)
     prepared_imgs_dir = prepared_dir / "imgs"
     for ref in refs:
         for candidate in ordered_candidates:
@@ -429,7 +431,12 @@ def run_reconciliation(
         inputs = load_page_inputs(run_root, page)
         result = reconciler.reconcile_page(inputs)
         publish_result, asset_base_dir = _prepare_result_for_publish(inputs, result)
-        published = publisher.publish(publish_result, asset_base_dir=asset_base_dir)
+        try:
+            published = publisher.publish(publish_result, asset_base_dir=asset_base_dir)
+        finally:
+            staging_root = inputs.union_markdown_path.parent / ".reconcile_assets"
+            if asset_base_dir == staging_root / "publish":
+                shutil.rmtree(staging_root, ignore_errors=True)
         processed_pages.append(page)
         if published.status == PUBLISHED:
             published_pages.append(page)
