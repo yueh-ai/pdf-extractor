@@ -5,6 +5,7 @@ import pytest
 from pdf_extract.reconciled_store import (
     LocalObjectStore,
     PageCatalog,
+    assemble_document,
     ReconciledPagePublisher,
     PageReconciliationResult,
 )
@@ -373,3 +374,39 @@ def test_publish_page_with_absolute_ref_outside_allowed_root_records_failure(tmp
     assert f"Unsafe referenced asset path: {outside_root_asset}" in row["error_message"]
     assert row["asset_count"] == 0
     assert row["markdown_text"] is None
+
+
+def test_republishing_page_updates_one_catalog_row(tmp_path):
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    publisher.publish(make_result("first"), asset_base_dir=tmp_path)
+    publisher.publish(make_result("second"), asset_base_dir=tmp_path)
+
+    rows = publisher.catalog.list_pages("Full_30015375000000")
+    assert len(rows) == 1
+    assert rows[0]["markdown_text"] == "second"
+
+
+def test_assemble_document_joins_published_pages_and_reports_missing(tmp_path):
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+    publisher.publish(make_result("page two", page=2), asset_base_dir=tmp_path)
+    publisher.publish(make_result("page one", page=1), asset_base_dir=tmp_path)
+
+    result = assemble_document(
+        document_id="Full_30015375000000",
+        store=publisher.store,
+        catalog=publisher.catalog,
+        expected_pages=[1, 2, 3],
+    )
+
+    combined = publisher.store.read_text(result["combined_markdown_key"])
+    manifest = json.loads(publisher.store.read_text(result["manifest_key"]))
+    assert combined == "# Page 1\n\npage one\n\n# Page 2\n\npage two\n"
+    assert manifest["included_pages"] == [1, 2]
+    assert manifest["missing_pages"] == [3]

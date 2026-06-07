@@ -203,6 +203,16 @@ class PageCatalog:
                 ),
             )
 
+    def list_pages(self, document_id: str, *, status: str | None = None) -> list[sqlite3.Row]:
+        sql = "SELECT * FROM pages WHERE document_id = ?"
+        params: list[Any] = [document_id]
+        if status is not None:
+            sql += " AND status = ?"
+            params.append(status)
+        sql += " ORDER BY page"
+        with self.connect() as conn:
+            return conn.execute(sql, params).fetchall()
+
 
 _HTML_IMAGE_SRC_RE = re.compile(
     r'(<img\b[^>]*\bsrc\s*=\s*)(?P<quote>["\'])(?P<path>[^"\']+)(?P=quote)',
@@ -387,3 +397,53 @@ class ReconciledPagePublisher:
             warning_count=result.warning_count,
         )
         return published
+
+
+def assemble_document(
+    *,
+    document_id: str,
+    store: LocalObjectStore,
+    catalog: PageCatalog,
+    expected_pages: list[int] | None = None,
+) -> dict[str, Any]:
+    rows = catalog.list_pages(document_id, status=PUBLISHED)
+    included_pages = [int(row["page"]) for row in rows]
+    expected = expected_pages if expected_pages is not None else included_pages
+    included_page_set = set(included_pages)
+    missing_pages = [page for page in expected if page not in included_page_set]
+
+    parts: list[str] = []
+    page_hashes: list[dict[str, Any]] = []
+    for row in rows:
+        page = int(row["page"])
+        markdown = store.read_text(row["markdown_key"])
+        parts.append(f"# Page {page}\n\n{markdown.strip()}\n")
+        page_hashes.append(
+            {
+                "page": page,
+                "markdown_key": row["markdown_key"],
+                "markdown_sha256": row["markdown_sha256"],
+            }
+        )
+
+    combined = "\n".join(parts)
+    combined_key = f"pdf-extract/reconciled/{document_id}/combined/combined.md"
+    manifest_key = f"pdf-extract/reconciled/{document_id}/combined/manifest.json"
+    store.write_text(combined_key, combined)
+    manifest = {
+        "document_id": document_id,
+        "included_pages": included_pages,
+        "missing_pages": missing_pages,
+        "page_count": len(included_pages),
+        "combined_markdown_key": combined_key,
+        "combined_sha256": sha256_text(combined),
+        "pages": page_hashes,
+        "generated_at": utc_now_iso(),
+    }
+    store.write_json(manifest_key, manifest)
+    return {
+        "combined_markdown_key": combined_key,
+        "manifest_key": manifest_key,
+        "included_pages": included_pages,
+        "missing_pages": missing_pages,
+    }
