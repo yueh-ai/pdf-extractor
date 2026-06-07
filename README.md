@@ -258,6 +258,37 @@ Useful flags:
 - `--resume`: skip complete pages. This is the default.
 - `--no-resume`: process selected pages again.
 - `--force`: rerun selected pages even if they already look complete.
+
+## Reconciled Asset Store Prototype
+
+The reconciled asset store prototype publishes three page-level reconciled
+Markdown artifacts into a local fake-S3 directory and a SQLite catalog. It does
+not call an LLM. It fakes the reconciliation pipeline output from existing
+`union` and `small` page Markdown so the storage contract can be tested first.
+
+```bash
+uv run python scripts/run_reconciled_store_prototype.py \
+  --run-root runs/Full_30015375000000 \
+  --object-store-root object_store \
+  --sqlite-path reconciled_catalog.sqlite \
+  --viewer-dir runs/Full_30015375000000/reconciled_viewer \
+  --pages 1,2,40
+```
+
+Open the generated viewer:
+
+```text
+runs/Full_30015375000000/reconciled_viewer/index.html
+```
+
+The prototype writes page artifacts under:
+
+```text
+object_store/pdf-extract/reconciled/Full_30015375000000/
+```
+
+SQLite stores one thin `pages` row per published page. Rich page details remain
+in `decision.json`, `assets.json`, and `output.md`.
 - `--retries 1`: retry a failed page once before moving on.
 - `--fail-fast`: stop after the first unrecovered page failure.
 - `--no-save-page-image`: do not keep `page.png`.
