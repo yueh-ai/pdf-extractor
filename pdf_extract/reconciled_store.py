@@ -356,15 +356,16 @@ class ReconciledPagePublisher:
             self.store.write_bytes(asset_key, asset_data)
             replacements[ref] = asset_uri_for_key(asset_key)
 
-            mime_type, _ = mimetypes.guess_type(source_path.as_posix())
+            mime_type = mimetypes.guess_type(source_path.as_posix())[0] or "application/octet-stream"
             asset_payload: dict[str, Any] = {
                 "source_path": str(source_path),
-                "dest_key": asset_key,
+                "asset_uri": asset_uri_for_key(asset_key),
+                "object_key": asset_key,
                 "sha256": sha256_bytes(asset_data),
-                "size": len(asset_data),
+                "byte_size": len(asset_data),
+                "content_type": mime_type,
+                "description": source_path.stem.replace("_", " "),
             }
-            if mime_type is not None:
-                asset_payload["mimetype"] = mime_type
             assets.append(asset_payload)
 
         rewritten_markdown = rewrite_markdown_image_refs(result.reconciled_markdown, replacements)
@@ -407,10 +408,16 @@ def assemble_document(
     expected_pages: list[int] | None = None,
 ) -> dict[str, Any]:
     rows = catalog.list_pages(document_id, status=PUBLISHED)
-    included_pages = [int(row["page"]) for row in rows]
-    expected = expected_pages if expected_pages is not None else included_pages
-    included_page_set = set(included_pages)
-    missing_pages = [page for page in expected if page not in included_page_set]
+    if expected_pages is not None:
+        expected_page_set = set(expected_pages)
+        rows = [row for row in rows if int(row["page"]) in expected_page_set]
+        rows.sort(key=lambda row: int(row["page"]))
+        included_pages = sorted(int(row["page"]) for row in rows)
+        included_page_set = set(included_pages)
+        missing_pages = [page for page in sorted(expected_pages) if page not in included_page_set]
+    else:
+        included_pages = [int(row["page"]) for row in rows]
+        missing_pages = []
 
     parts: list[str] = []
     page_hashes: list[dict[str, Any]] = []

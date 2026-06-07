@@ -72,14 +72,14 @@ def write_static_viewer(
         )
         asset_items_list: list[str] = []
         for asset in assets["assets"]:
-            asset_uri = asset.get("asset_uri")
-            if not asset_uri:
-                dest_key = asset.get("dest_key", "")
-                asset_uri = f"asset://{dest_key}" if dest_key else ""
-            asset_description = asset.get("description", asset.get("source_path", ""))
             asset_items_list.append(
-                f'<li><code>{html.escape(asset_uri)}</code><br>'
-                f'{html.escape(asset_description)}</li>'
+                "<li>"
+                f"<strong>URI:</strong> {html.escape(asset['asset_uri'])}<br>"
+                f"<strong>Description:</strong> {html.escape(asset['description'])}<br>"
+                f"<strong>Content Type:</strong> {html.escape(asset['content_type'])}<br>"
+                f"<strong>Byte Size:</strong> {asset['byte_size']}<br>"
+                f"<strong>SHA256:</strong> {html.escape(asset['sha256'])}"
+                "</li>"
             )
         asset_items = "".join(asset_items_list)
         page_sections.append(

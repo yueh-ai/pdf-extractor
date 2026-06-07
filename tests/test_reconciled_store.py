@@ -229,11 +229,18 @@ def test_publish_page_with_duplicate_basenames_uses_collision_suffix(tmp_path):
 
     assets = json.loads(publisher.store.read_text(published.assets_key))
     assert len(assets["assets"]) == 2
-    dest_keys = [asset["dest_key"] for asset in assets["assets"]]
-    assert len(dest_keys) == 2
-    assert any(key.endswith("/seal.jpg") for key in dest_keys)
-    assert any(key.endswith(".jpg") and "/seal_" in key for key in dest_keys)
-    assert len(set(dest_keys)) == 2
+    object_keys = [asset["object_key"] for asset in assets["assets"]]
+    assert len(object_keys) == 2
+    assert any(key.endswith("/seal.jpg") for key in object_keys)
+    assert any(key.endswith(".jpg") and "/seal_" in key for key in object_keys)
+    assert len(set(object_keys)) == 2
+
+    for asset in assets["assets"]:
+        assert "asset_uri" in asset
+        assert asset["asset_uri"].startswith("asset://")
+        assert asset["content_type"] == "image/jpeg"
+        assert isinstance(asset["byte_size"], int)
+        assert asset["description"] == "seal"
 
 
 def test_publish_page_with_missing_asset_then_failure_clears_stale_row_fields(tmp_path):
@@ -342,6 +349,30 @@ def test_publish_page_with_absolute_ref_inside_allowed_root_publishes(tmp_path):
     rewritten = publisher.store.read_text(published.markdown_key)
     assert expected_asset_uri in rewritten
     assert publisher.store.path_for_key(expected_asset_key).read_bytes() == b"jpeg"
+
+
+def test_assemble_document_joins_expected_pages_subset_and_ignores_stale_rows(tmp_path):
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+    publisher.publish(make_result("page one", page=1), asset_base_dir=tmp_path)
+    publisher.publish(make_result("page two", page=2), asset_base_dir=tmp_path)
+    publisher.publish(make_result("page forty", page=40), asset_base_dir=tmp_path)
+
+    result = assemble_document(
+        document_id="Full_30015375000000",
+        store=publisher.store,
+        catalog=publisher.catalog,
+        expected_pages=[1, 2],
+    )
+
+    combined = publisher.store.read_text(result["combined_markdown_key"])
+    manifest = json.loads(publisher.store.read_text(result["manifest_key"]))
+    assert manifest["included_pages"] == [1, 2]
+    assert "# Page 1" in combined
+    assert "# Page 2" in combined
+    assert "# Page 40" not in combined
 
 
 def test_publish_page_with_absolute_ref_outside_allowed_root_records_failure(tmp_path):

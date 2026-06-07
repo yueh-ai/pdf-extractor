@@ -47,3 +47,10 @@ def test_three_page_prototype_publishes_assembles_and_writes_viewer(tmp_path):
         )
     )
     assert manifest["included_pages"] == [1, 2, 40]
+
+    viewer_html = (tmp_path / "viewer" / "index.html").read_text(encoding="utf-8")
+    assert "asset://pdf-extract/reconciled/Full_30015375000000/pages/page_0040/assets/seal.jpg" in viewer_html
+    assert "Description:" in viewer_html
+    assert "Content Type:" in viewer_html
+    assert "Byte Size:" in viewer_html
+    assert "SHA256:" in viewer_html
