@@ -5,6 +5,7 @@ import pytest
 from pdf_extract.reconciled_store import (
     LocalObjectStore,
     PageCatalog,
+    ReconciledPagePublisher,
     PageReconciliationResult,
 )
 
@@ -25,6 +26,24 @@ def _result_args() -> dict:
             "small_markdown": "runs/doc/small/pages/page_0002/output.md",
         },
     }
+
+
+def make_result(markdown: str, page: int = 2) -> PageReconciliationResult:
+    return PageReconciliationResult(
+        document_id="Full_30015375000000",
+        page=page,
+        reconciled_markdown=markdown,
+        winner="mixed",
+        warnings=["prototype warning"],
+        needs_human_review=True,
+        model="prototype",
+        prompt_version="reconcile-page-v1",
+        source_refs={
+            "page_image": f"runs/doc/union/pages/page_{page:04d}/page.png",
+            "union_markdown": f"runs/doc/union/pages/page_{page:04d}/output.md",
+            "small_markdown": f"runs/doc/small/pages/page_{page:04d}/output.md",
+        },
+    )
 
 
 def test_page_result_validates_required_fields():
@@ -98,3 +117,76 @@ def test_page_catalog_creates_thin_pages_table(tmp_path):
         "error_message",
         "published_at",
     ]
+
+
+def test_publish_page_with_no_assets_writes_page_artifacts(tmp_path):
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(make_result("# Page body\n\nNo image."), asset_base_dir=tmp_path)
+
+    assert published.status == "published"
+    assert published.asset_count == 0
+    assert publisher.store.read_text(published.markdown_key) == "# Page body\n\nNo image."
+    assets = json.loads(publisher.store.read_text(published.assets_key))
+    decision = json.loads(publisher.store.read_text(published.decision_key))
+    assert assets == {"document_id": "Full_30015375000000", "page": 2, "assets": []}
+    assert decision["winner"] == "mixed"
+
+    with publisher.catalog.connect() as conn:
+        row = conn.execute(
+            "SELECT status, warning_count, asset_count, markdown_text FROM pages WHERE document_id = ? AND page = ?",
+            ("Full_30015375000000", 2),
+        ).fetchone()
+    assert row["status"] == "published"
+    assert row["warning_count"] == 1
+    assert row["asset_count"] == 0
+    assert row["markdown_text"] == "# Page body\n\nNo image."
+
+
+def test_publish_page_copies_imgs_reference_and_rewrites_to_asset_uri(tmp_path):
+    source = tmp_path / "page_0002"
+    (source / "imgs").mkdir(parents=True)
+    (source / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(
+        make_result('<img src="imgs/seal.jpg" alt="Seal" />'),
+        asset_base_dir=source,
+    )
+
+    rewritten = publisher.store.read_text(published.markdown_key)
+    assert 'src="asset://pdf-extract/reconciled/Full_30015375000000/pages/page_0002/assets/seal.jpg"' in rewritten
+    assert publisher.store.path_for_key(
+        "pdf-extract/reconciled/Full_30015375000000/pages/page_0002/assets/seal.jpg"
+    ).read_bytes() == b"jpeg"
+    assets = json.loads(publisher.store.read_text(published.assets_key))
+    assert assets["assets"][0]["source_path"].endswith("page_0002/imgs/seal.jpg")
+    assert assets["assets"][0]["sha256"] == "41e5787e9f28562d07b891b1816b492309d646c0f2829743fa4963a9f9cc1d61"
+
+
+def test_publish_page_with_missing_asset_records_failure(tmp_path):
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(make_result("![missing](imgs/missing.jpg)"), asset_base_dir=tmp_path)
+
+    assert published.status == "publish_failed"
+    assert "Missing referenced asset: imgs/missing.jpg" in published.error_message
+
+    with publisher.catalog.connect() as conn:
+        row = conn.execute(
+            "SELECT status, error_message, asset_count, markdown_text FROM pages WHERE document_id = ? AND page = ?",
+            ("Full_30015375000000", 2),
+        ).fetchone()
+    assert row["status"] == "publish_failed"
+    assert "Missing referenced asset: imgs/missing.jpg" in row["error_message"]
+    assert row["asset_count"] == 0
+    assert row["markdown_text"] is None
