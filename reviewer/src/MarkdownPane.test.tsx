@@ -128,6 +128,12 @@ describe('MarkdownPane', () => {
     expect(screen.getByText(markdown)).toBeInTheDocument();
   });
 
+  it('keeps math visible in rendered markdown', () => {
+    render(<MarkdownPane page={makePage('Dip Angle: $60.02^{\\circ}$')} />);
+
+    expect(screen.getByText(/60.02/)).toBeInTheDocument();
+  });
+
   it('shows unresolved image fallback', () => {
     render(<MarkdownPane page={makePage('<img src="missing.jpg" alt="Missing seal" />')} />);
 
