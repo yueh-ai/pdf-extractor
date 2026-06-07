@@ -16,11 +16,15 @@ function transformUrl(url: string): string {
   return url.startsWith('asset://') ? url : defaultUrlTransform(url);
 }
 
+export function markdownPaneResetKey(page: ViewerPage): string {
+  return `${page.page}:${page.markdown_sha256 ?? page.markdown_text.length}`;
+}
+
 export function MarkdownPane({ page }: Props) {
   const [mode, setMode] = useState<'rendered' | 'raw'>('rendered');
   const paneId = useId();
   const assetMap = useMemo(() => buildAssetMap(page), [page]);
-  const resetKey = page.markdown_sha256 ?? `${page.page}:${page.markdown_text.length}`;
+  const resetKey = markdownPaneResetKey(page);
   const renderedTabId = `${paneId}-rendered-tab`;
   const renderedPanelId = `${paneId}-rendered-panel`;
   const rawTabId = `${paneId}-raw-tab`;
@@ -60,7 +64,7 @@ export function MarkdownPane({ page }: Props) {
         <ErrorBoundary
           resetKey={resetKey}
           fallback={(error) => (
-            <div className="render-error">
+            <div id={renderedPanelId} className="render-error" role="tabpanel" aria-labelledby={renderedTabId}>
               <strong>Render error</strong>
               <p>{error.message}</p>
               <pre className="raw-markdown">{page.markdown_text}</pre>

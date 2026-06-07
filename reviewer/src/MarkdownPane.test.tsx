@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ErrorBoundary } from './ErrorBoundary';
-import { MarkdownPane } from './MarkdownPane';
+import { MarkdownPane, markdownPaneResetKey } from './MarkdownPane';
 import type { ViewerPage } from './manifest';
 
 afterEach(() => {
@@ -75,6 +75,30 @@ describe('ErrorBoundary', () => {
 });
 
 describe('MarkdownPane', () => {
+  it('includes page identity before markdown content identity in reset keys', () => {
+    expect(markdownPaneResetKey(makePage('same'))).toBe('40:hash');
+    expect(markdownPaneResetKey({ ...makePage('same'), page: 41 })).toBe('41:hash');
+    expect(markdownPaneResetKey({ ...makePage('fallback'), markdown_sha256: null })).toBe('40:8');
+  });
+
+  it('links rendered and raw tabs to their panels', () => {
+    render(<MarkdownPane page={makePage('Rendered text')} />);
+
+    const renderedTab = screen.getByRole('tab', { name: 'Rendered' });
+    const renderedPanel = screen.getByRole('tabpanel');
+
+    expect(renderedTab).toHaveAttribute('aria-controls', renderedPanel.id);
+    expect(renderedPanel).toHaveAttribute('aria-labelledby', renderedTab.id);
+
+    fireEvent.click(screen.getByRole('tab', { name: 'Raw Markdown' }));
+
+    const rawTab = screen.getByRole('tab', { name: 'Raw Markdown' });
+    const rawPanel = screen.getByRole('tabpanel');
+
+    expect(rawTab).toHaveAttribute('aria-controls', rawPanel.id);
+    expect(rawPanel).toHaveAttribute('aria-labelledby', rawTab.id);
+  });
+
   it('renders raw HTML tables and resolves asset images', () => {
     render(
       <MarkdownPane
