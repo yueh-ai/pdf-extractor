@@ -1,0 +1,370 @@
+from __future__ import annotations
+
+import base64
+import json
+import mimetypes
+import os
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Iterable, Mapping, Protocol
+
+from .reconciled_store import (
+    PUBLISHED,
+    LocalObjectStore,
+    PageCatalog,
+    PageReconciliationResult,
+    ReconciledPagePublisher,
+    assemble_document,
+)
+from .reconciled_viewer import write_viewer_manifest
+from .render import page_dir_name
+
+
+DEFAULT_RECONCILE_MODEL = "gpt-5.4-mini"
+DEFAULT_RECONCILE_PROMPT_VERSION = "reconcile-page-v1"
+
+VALID_WINNERS = {"union", "small", "mixed", "uncertain"}
+
+RECONCILE_RESPONSE_FORMAT: dict[str, Any] = {
+    "type": "json_schema",
+    "name": "page_reconciliation_result",
+    "strict": True,
+    "schema": {
+        "type": "object",
+        "additionalProperties": False,
+        "required": [
+            "reconciled_markdown",
+            "winner",
+            "warnings",
+            "needs_human_review",
+        ],
+        "properties": {
+            "reconciled_markdown": {"type": "string"},
+            "winner": {"type": "string", "enum": sorted(VALID_WINNERS)},
+            "warnings": {"type": "array", "items": {"type": "string"}},
+            "needs_human_review": {"type": "boolean"},
+        },
+    },
+}
+
+
+@dataclass(frozen=True)
+class PageReconcileInputs:
+    document_id: str
+    page: int
+    page_image_path: Path
+    union_markdown_path: Path
+    small_markdown_path: Path
+    union_markdown: str
+    small_markdown: str
+
+
+@dataclass(frozen=True)
+class ModelReconcileResponse:
+    reconciled_markdown: str
+    winner: str
+    warnings: tuple[str, ...]
+    needs_human_review: bool
+
+    @classmethod
+    def from_payload(cls, payload: Mapping[str, Any]) -> "ModelReconcileResponse":
+        required = (
+            "reconciled_markdown",
+            "winner",
+            "warnings",
+            "needs_human_review",
+        )
+        missing = [field for field in required if field not in payload]
+        if missing:
+            raise ValueError(f"Model response missing required fields: {', '.join(missing)}")
+
+        reconciled_markdown = payload["reconciled_markdown"]
+        winner = payload["winner"]
+        warnings = payload["warnings"]
+        needs_human_review = payload["needs_human_review"]
+
+        if not isinstance(reconciled_markdown, str):
+            raise ValueError("Model response field reconciled_markdown must be a string")
+        if winner not in VALID_WINNERS:
+            raise ValueError(f"Model response field winner must be one of {sorted(VALID_WINNERS)}")
+        if not isinstance(warnings, list) or not all(isinstance(item, str) for item in warnings):
+            raise ValueError("Model response field warnings must be a list[str]")
+        if not isinstance(needs_human_review, bool):
+            raise ValueError("Model response field needs_human_review must be a bool")
+
+        return cls(
+            reconciled_markdown=reconciled_markdown,
+            winner=winner,
+            warnings=tuple(warnings),
+            needs_human_review=needs_human_review,
+        )
+
+
+class VisionModelClient(Protocol):
+    model: str
+
+    def reconcile(self, *, image_path: Path, prompt: str) -> dict[str, Any]:
+        ...
+
+
+def _page_number_from_dir(path: Path) -> int | None:
+    name = path.name
+    if not name.startswith("page_"):
+        return None
+    suffix = name.removeprefix("page_")
+    if not suffix.isdigit():
+        return None
+    return int(suffix)
+
+
+def discover_reconcile_pages(run_root: Path) -> list[int]:
+    union_pages_dir = run_root / "union" / "pages"
+    small_pages_dir = run_root / "small" / "pages"
+    if not union_pages_dir.is_dir() or not small_pages_dir.is_dir():
+        return []
+
+    union_pages = {
+        page
+        for page in (_page_number_from_dir(path) for path in union_pages_dir.iterdir())
+        if page is not None
+    }
+    small_pages = {
+        page
+        for page in (_page_number_from_dir(path) for path in small_pages_dir.iterdir())
+        if page is not None
+    }
+    return sorted(union_pages & small_pages)
+
+
+def _require_file(path: Path, label: str) -> Path:
+    if not path.is_file():
+        raise FileNotFoundError(f"Missing {label}: {path}")
+    return path
+
+
+def load_page_inputs(run_root: Path, page: int) -> PageReconcileInputs:
+    page_label = page_dir_name(page)
+    union_page_dir = run_root / "union" / "pages" / page_label
+    small_page_dir = run_root / "small" / "pages" / page_label
+    union_markdown_path = _require_file(union_page_dir / "output.md", "union markdown")
+    small_markdown_path = _require_file(small_page_dir / "output.md", "small markdown")
+
+    union_image_path = union_page_dir / "page.png"
+    small_image_path = small_page_dir / "page.png"
+    if union_image_path.is_file():
+        page_image_path = union_image_path
+    elif small_image_path.is_file():
+        page_image_path = small_image_path
+    else:
+        raise FileNotFoundError(f"Missing page image: {union_image_path} or {small_image_path}")
+
+    return PageReconcileInputs(
+        document_id=run_root.name,
+        page=page,
+        page_image_path=page_image_path,
+        union_markdown_path=union_markdown_path,
+        small_markdown_path=small_markdown_path,
+        union_markdown=union_markdown_path.read_text(encoding="utf-8"),
+        small_markdown=small_markdown_path.read_text(encoding="utf-8"),
+    )
+
+
+def build_reconcile_prompt(inputs: PageReconcileInputs) -> str:
+    return (
+        "You are reconciling OCR drafts for a single PDF page.\n\n"
+        "Use the page image as the authoritative source of truth. Treat the two "
+        "Markdown drafts as fallible hints.\n\n"
+        "Goals:\n"
+        "- Produce clean Markdown for this one page only.\n"
+        "- Preserve visible text, headings, lists, tables, checkbox states, symbols, "
+        "footnotes, and image references when they are supported by the page.\n"
+        "- Keep relative image references if they are present in the drafts and still "
+        "match the page.\n"
+        "- Do not invent content that is not visible in the image or reasonably "
+        "supported by the drafts.\n"
+        "- Set needs_human_review to true if the page is unreadable, materially "
+        "ambiguous, or structurally incomplete.\n"
+        "- Keep warnings short and concrete.\n\n"
+        "Return only the structured fields requested by the schema.\n\n"
+        f"Document ID: {inputs.document_id}\n"
+        f"Page: {inputs.page}\n\n"
+        "Union OCR draft Markdown:\n"
+        "```markdown\n"
+        f"{inputs.union_markdown}\n"
+        "```\n\n"
+        "Small OCR draft Markdown:\n"
+        "```markdown\n"
+        f"{inputs.small_markdown}\n"
+        "```"
+    )
+
+
+class VisionReconciler:
+    def __init__(
+        self,
+        *,
+        client: VisionModelClient,
+        prompt_version: str = DEFAULT_RECONCILE_PROMPT_VERSION,
+    ):
+        self.client = client
+        self.prompt_version = prompt_version
+
+    def reconcile_page(self, inputs: PageReconcileInputs) -> PageReconciliationResult:
+        prompt = build_reconcile_prompt(inputs)
+        response = ModelReconcileResponse.from_payload(
+            self.client.reconcile(image_path=inputs.page_image_path, prompt=prompt)
+        )
+        return PageReconciliationResult(
+            document_id=inputs.document_id,
+            page=inputs.page,
+            reconciled_markdown=response.reconciled_markdown,
+            winner=response.winner,
+            warnings=response.warnings,
+            needs_human_review=response.needs_human_review,
+            model=self.client.model,
+            prompt_version=self.prompt_version,
+            source_refs={
+                "page_image": inputs.page_image_path.as_posix(),
+                "union_markdown": inputs.union_markdown_path.as_posix(),
+                "small_markdown": inputs.small_markdown_path.as_posix(),
+            },
+        )
+
+
+def image_data_url(image_path: Path) -> str:
+    content_type = mimetypes.guess_type(image_path.as_posix())[0] or "image/png"
+    encoded = base64.b64encode(image_path.read_bytes()).decode("ascii")
+    return f"data:{content_type};base64,{encoded}"
+
+
+class OpenAIResponsesVisionClient:
+    def __init__(
+        self,
+        *,
+        model: str,
+        api_key_env: str = "OPENAI_API_KEY",
+        sdk_client: Any | None = None,
+    ):
+        self.model = model
+        if sdk_client is not None:
+            self._client = sdk_client
+            return
+
+        api_key = os.environ.get(api_key_env)
+        if not api_key:
+            raise RuntimeError(f"{api_key_env} is required for OpenAI reconciliation")
+
+        from openai import OpenAI
+
+        self._client = OpenAI(api_key=api_key)
+
+    def reconcile(self, *, image_path: Path, prompt: str) -> dict[str, Any]:
+        response = self._client.responses.create(
+            model=self.model,
+            input=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "input_text", "text": prompt},
+                        {
+                            "type": "input_image",
+                            "image_url": image_data_url(image_path),
+                            "detail": "high",
+                        },
+                    ],
+                }
+            ],
+            text={"format": RECONCILE_RESPONSE_FORMAT},
+        )
+        return json.loads(response.output_text)
+
+
+def _published_page_set(catalog: PageCatalog, document_id: str) -> set[int]:
+    return {int(row["page"]) for row in catalog.list_pages(document_id, status=PUBLISHED)}
+
+
+def _selected_pages(run_root: Path, pages: Iterable[int] | None) -> list[int]:
+    available_pages = discover_reconcile_pages(run_root)
+    if pages is None:
+        return available_pages
+    available_set = set(available_pages)
+    selected = sorted(set(int(page) for page in pages))
+    missing = [page for page in selected if page not in available_set]
+    if missing:
+        raise ValueError(f"Selected pages are not available in both modes: {missing}")
+    return selected
+
+
+def _asset_base_dir_for(inputs: PageReconcileInputs, result: PageReconciliationResult) -> Path:
+    if result.winner == "small":
+        return inputs.small_markdown_path.parent
+    return inputs.union_markdown_path.parent
+
+
+def run_reconciliation(
+    *,
+    run_root: Path,
+    object_store_root: Path,
+    sqlite_path: Path,
+    viewer_dir: Path | None,
+    client: VisionModelClient,
+    pages: Iterable[int] | None = None,
+    force: bool = False,
+    assemble: bool = True,
+) -> dict[str, Any]:
+    selected_pages = _selected_pages(run_root, pages)
+    store = LocalObjectStore(object_store_root)
+    catalog = PageCatalog(sqlite_path)
+    publisher = ReconciledPagePublisher(store=store, catalog=catalog)
+    reconciler = VisionReconciler(client=client)
+
+    published_before = _published_page_set(catalog, run_root.name)
+    processed_pages: list[int] = []
+    skipped_pages: list[int] = []
+    published_pages: list[int] = []
+    failed_pages: list[int] = []
+
+    for page in selected_pages:
+        if not force and page in published_before:
+            skipped_pages.append(page)
+            continue
+
+        inputs = load_page_inputs(run_root, page)
+        result = reconciler.reconcile_page(inputs)
+        published = publisher.publish(result, asset_base_dir=_asset_base_dir_for(inputs, result))
+        processed_pages.append(page)
+        if published.status == PUBLISHED:
+            published_pages.append(page)
+        else:
+            failed_pages.append(page)
+
+    assembly_result: dict[str, Any] | None = None
+    if assemble:
+        assembly_result = assemble_document(
+            document_id=run_root.name,
+            store=store,
+            catalog=catalog,
+            expected_pages=selected_pages,
+        )
+
+    viewer_manifest_path: str | None = None
+    if viewer_dir is not None:
+        repo_root = run_root.resolve().parent.parent
+        viewer_manifest_path = write_viewer_manifest(
+            catalog=catalog,
+            store=store,
+            document_id=run_root.name,
+            viewer_dir=viewer_dir,
+            repo_root=repo_root,
+        ).as_posix()
+
+    return {
+        "document_id": run_root.name,
+        "selected_pages": selected_pages,
+        "processed_pages": processed_pages,
+        "skipped_pages": skipped_pages,
+        "published_pages": published_pages,
+        "failed_pages": failed_pages,
+        "assembly": assembly_result,
+        "viewer_manifest_path": viewer_manifest_path,
+    }

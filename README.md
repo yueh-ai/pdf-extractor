@@ -293,6 +293,62 @@ in `decision.json`, `assets.json`, and `output.md`.
 - `--fail-fast`: stop after the first unrecovered page failure.
 - `--no-save-page-image`: do not keep `page.png`.
 
+## Page OCR Reconciliation
+
+After you have both `union/` and `small/` page outputs for the same document,
+you can run page-level reconciliation to publish reconciled page Markdown,
+assemble a combined Markdown file, and optionally write a reviewer manifest.
+
+Real OpenAI runs use `gpt-5.4-mini` by default. You can override that with
+`OPENAI_RECONCILE_MODEL` or `--model`.
+
+If `OPENAI_API_KEY` is not already set in the shell, `scripts/run_reconcile.py`
+will try to load it from a repo-root `.env` file such as:
+
+```text
+OPENAI_API_KEY=sk-...
+```
+
+Example OpenAI run:
+
+```bash
+uv run python scripts/run_reconcile.py \
+  --run-root runs/Full_30015375000000 \
+  --object-store-root object_store \
+  --sqlite-path reconciled_catalog.sqlite \
+  --viewer-dir runs/Full_30015375000000/reconciled_viewer \
+  --provider openai
+```
+
+Limit reconciliation to specific pages:
+
+```bash
+uv run python scripts/run_reconcile.py \
+  --run-root runs/Full_30015375000000 \
+  --pages 1,2,40 \
+  --provider openai
+```
+
+By default the runner skips pages that are already published in the SQLite
+catalog. Use `--force` to regenerate those pages:
+
+```bash
+uv run python scripts/run_reconcile.py \
+  --run-root runs/Full_30015375000000 \
+  --pages 40 \
+  --force \
+  --provider openai
+```
+
+For local pipeline validation without a model call, use dry-run mode:
+
+```bash
+uv run python scripts/run_reconcile.py \
+  --run-root runs/Full_30015375000000 \
+  --viewer-dir runs/Full_30015375000000/reconciled_viewer \
+  --provider dry-run
+```
+
 There is no `--isolate-pages` mode in this version. `--timeout-sec` is recorded in `config.json`, but same-process PaddleOCR calls are not hard-killed.
 
 ## Diagnostic Layout Mode
