@@ -3,12 +3,11 @@ from __future__ import annotations
 import hashlib
 import json
 import sqlite3
+from types import MappingProxyType
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
-
-from .render import page_dir_name
+from typing import Any, Mapping, Sequence
 
 
 PUBLISHED = "published"
@@ -33,11 +32,11 @@ class PageReconciliationResult:
     page: int
     reconciled_markdown: str
     winner: str
-    warnings: list[str]
+    warnings: Sequence[str]
     needs_human_review: bool
     model: str | None
     prompt_version: str | None
-    source_refs: dict[str, str]
+    source_refs: Mapping[str, str]
 
     def __post_init__(self) -> None:
         if not self.document_id:
@@ -51,6 +50,8 @@ class PageReconciliationResult:
         for key in ("page_image", "union_markdown", "small_markdown"):
             if key not in self.source_refs:
                 raise ValueError(f"source_refs.{key} is required")
+        object.__setattr__(self, "warnings", tuple(self.warnings))
+        object.__setattr__(self, "source_refs", MappingProxyType(dict(self.source_refs)))
 
     @property
     def warning_count(self) -> int:
@@ -61,11 +62,11 @@ class PageReconciliationResult:
             "document_id": self.document_id,
             "page": self.page,
             "winner": self.winner,
-            "warnings": self.warnings,
+            "warnings": list(self.warnings),
             "needs_human_review": self.needs_human_review,
             "model": self.model,
             "prompt_version": self.prompt_version,
-            "source_refs": self.source_refs,
+            "source_refs": dict(self.source_refs),
         }
 
 
