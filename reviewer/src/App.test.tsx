@@ -21,7 +21,7 @@ const manifest: ViewerManifest = {
       source_page_image_path: 'runs/doc/page.png',
       source_page_image_url: '/runs/doc/page.png',
       markdown_sha256: 'hash',
-      markdown_text: '# Page 40',
+      markdown_text: 'Rendered body for page 40',
       error_message: null,
       decision: { winner: 'union' },
       assets: [],

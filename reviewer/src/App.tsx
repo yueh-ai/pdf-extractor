@@ -50,7 +50,7 @@ export function App() {
           <div className="page-heading">
             <div>
               <div className="section-label">Page {page.page}</div>
-              <h2 aria-label={`Reviewer page ${page.page}`}>Page {page.page}</h2>
+              <h2>Page {page.page}</h2>
             </div>
             <div className="status-line">
               {page.status} | warnings {page.warning_count} | assets {page.asset_count}
