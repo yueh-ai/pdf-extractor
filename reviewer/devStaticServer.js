@@ -1,4 +1,4 @@
-import { createReadStream, statSync } from 'node:fs';
+import { createReadStream, realpathSync, statSync } from 'node:fs';
 import { extname, resolve, sep } from 'node:path';
 
 const SERVED_PREFIXES = ['/runs/', '/object_store/'];
@@ -21,6 +21,24 @@ export function defaultRepoRoot() {
 }
 
 export function filePathForRepoRequest(pathname, repoRoot = defaultRepoRoot()) {
+  const allowedRoot = allowedRootForRepoRequest(pathname, repoRoot);
+  if (!allowedRoot) {
+    return null;
+  }
+
+  let decodedPathname;
+  try {
+    decodedPathname = decodeURIComponent(pathname);
+  } catch {
+    return null;
+  }
+
+  const normalizedRepoRoot = resolve(repoRoot);
+  const candidatePath = resolve(normalizedRepoRoot, decodedPathname.slice(1));
+  return pathIsInside(candidatePath, allowedRoot) ? candidatePath : null;
+}
+
+export function allowedRootForRepoRequest(pathname, repoRoot = defaultRepoRoot()) {
   const prefix = SERVED_PREFIXES.find((candidate) => pathname.startsWith(candidate));
   if (!prefix) {
     return null;
@@ -33,11 +51,20 @@ export function filePathForRepoRequest(pathname, repoRoot = defaultRepoRoot()) {
     return null;
   }
 
-  const normalizedRepoRoot = resolve(repoRoot);
-  const allowedRoot = resolve(normalizedRepoRoot, prefix.slice(1, -1));
-  const candidatePath = resolve(normalizedRepoRoot, decodedPathname.slice(1));
-  const isInsideAllowedRoot = candidatePath === allowedRoot || candidatePath.startsWith(allowedRoot + sep);
-  return isInsideAllowedRoot ? candidatePath : null;
+  if (!decodedPathname.startsWith(prefix)) {
+    return null;
+  }
+
+  return resolve(repoRoot, prefix.slice(1, -1));
+}
+
+function pathIsInside(candidatePath, allowedRoot) {
+  const normalizedAllowedRoot = resolve(allowedRoot);
+  const normalizedCandidatePath = resolve(candidatePath);
+  return (
+    normalizedCandidatePath === normalizedAllowedRoot ||
+    normalizedCandidatePath.startsWith(normalizedAllowedRoot + sep)
+  );
 }
 
 export function createRepoRootStaticMiddleware(repoRoot = defaultRepoRoot()) {
@@ -64,6 +91,14 @@ export function createRepoRootStaticMiddleware(repoRoot = defaultRepoRoot()) {
     }
 
     if (!stat.isFile()) {
+      next();
+      return;
+    }
+
+    const allowedRoot = allowedRootForRepoRequest(url.pathname, repoRoot);
+    const realFilePath = realpathSync(filePath);
+    const realAllowedRoot = realpathSync(allowedRoot);
+    if (!pathIsInside(realFilePath, realAllowedRoot)) {
       next();
       return;
     }

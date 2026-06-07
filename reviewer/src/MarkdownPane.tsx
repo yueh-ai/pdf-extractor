@@ -44,7 +44,12 @@ export function markdownPaneResetKey(page: ViewerPage): string {
 }
 
 function containsMath(markdown: string): boolean {
-  return markdown.includes('$') || markdown.includes('\\(') || markdown.includes('\\[');
+  return (
+    markdown.includes('$') ||
+    markdown.includes('\\(') ||
+    markdown.includes('\\[') ||
+    /(^|\n)(```|~~~)math(\s|\n)/.test(markdown)
+  );
 }
 
 function ensureMathJaxLoaded(): Promise<void> {

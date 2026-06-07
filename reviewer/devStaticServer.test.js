@@ -1,4 +1,4 @@
-import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
@@ -50,6 +50,34 @@ describe('dev static server helpers', () => {
     expect(res.headers.get('Content-Type')).toBe('application/json; charset=utf-8');
     expect(res.end).toHaveBeenCalledOnce();
   });
+
+  it('does not serve symlinks that resolve outside allowed artifact roots', () => {
+    const repoRoot = mkdtempSync(join(tmpdir(), 'reviewer-repo-'));
+    mkdirSync(join(repoRoot, 'runs'), { recursive: true });
+    writeFileSync(join(repoRoot, 'secret.txt'), 'private', 'utf8');
+    symlinkSync(join(repoRoot, 'secret.txt'), join(repoRoot, 'runs/secret.txt'));
+
+    const middleware = createRepoRootStaticMiddleware(repoRoot);
+    const req = {
+      method: 'HEAD',
+      url: '/runs/secret.txt',
+    };
+    const res = {
+      statusCode: 0,
+      headers: new Map(),
+      setHeader(name, value) {
+        this.headers.set(name, value);
+      },
+      end: vi.fn(),
+    };
+    const next = vi.fn();
+
+    middleware(req, res, next);
+
+    expect(next).toHaveBeenCalledOnce();
+    expect(res.end).not.toHaveBeenCalled();
+  });
+
 
   it('uses image content types for source pages and object-store assets', () => {
     expect(contentTypeForPath('page.png')).toBe('image/png');

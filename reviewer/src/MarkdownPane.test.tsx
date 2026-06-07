@@ -134,6 +134,12 @@ describe('MarkdownPane', () => {
     expect(screen.getByText(/60.02/)).toBeInTheDocument();
   });
 
+  it('keeps fenced math visible in rendered markdown', () => {
+    render(<MarkdownPane page={makePage('```math\nA=\\pi r^2\n```')} />);
+
+    expect(screen.getByText(/A=/)).toBeInTheDocument();
+  });
+
   it('shows unresolved image fallback', () => {
     render(<MarkdownPane page={makePage('<img src="missing.jpg" alt="Missing seal" />')} />);
 
