@@ -241,11 +241,14 @@ def iter_markdown_image_refs(markdown: str) -> list[str]:
 
 
 def resolve_asset_path(ref: str, asset_base_dir: Path) -> Path:
-    if Path(ref).is_absolute():
-        return Path(ref)
-    if ref.startswith("pages/"):
-        return asset_base_dir.parent.parent / ref
-    return asset_base_dir / ref
+    normalized_ref = Path(ref)
+    if normalized_ref.is_absolute():
+        return normalized_ref.resolve()
+    if ".." in normalized_ref.parts:
+        raise FileNotFoundError(f"Unsafe referenced asset path: {ref}")
+    if normalized_ref.parts and normalized_ref.parts[0] == "pages":
+        return (asset_base_dir.parent.parent / normalized_ref).resolve()
+    return (asset_base_dir / normalized_ref).resolve()
 
 
 def stable_asset_name(source_path: Path, used_names: set[str]) -> str:
@@ -287,7 +290,7 @@ class ReconciledPagePublisher:
     def publish(self, result: PageReconciliationResult, asset_base_dir: Path) -> PublishedPage:
         try:
             return self._publish_success(result, asset_base_dir)
-        except FileNotFoundError as exc:
+        except OSError as exc:
             published = PublishedPage(
                 document_id=result.document_id,
                 page=result.page,
@@ -324,6 +327,8 @@ class ReconciledPagePublisher:
         assets: list[dict[str, Any]] = []
 
         for ref in referenced_assets:
+            if ref in replacements:
+                continue
             source_path = resolve_asset_path(ref, asset_base_dir)
             if not source_path.exists():
                 raise FileNotFoundError(f"Missing referenced asset: {ref}")

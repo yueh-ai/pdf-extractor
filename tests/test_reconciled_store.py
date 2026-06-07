@@ -170,6 +170,92 @@ def test_publish_page_copies_imgs_reference_and_rewrites_to_asset_uri(tmp_path):
     assert assets["assets"][0]["sha256"] == "41e5787e9f28562d07b891b1816b492309d646c0f2829743fa4963a9f9cc1d61"
 
 
+def test_publish_page_duplicates_same_ref_only_once(tmp_path):
+    source = tmp_path / "page_0002"
+    (source / "imgs").mkdir(parents=True)
+    (source / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(
+        make_result('<img src="imgs/seal.jpg" alt="Seal" /><img src="imgs/seal.jpg" alt="Seal again" />'),
+        asset_base_dir=source,
+    )
+
+    assets = json.loads(publisher.store.read_text(published.assets_key))
+    assert len(assets["assets"]) == 1
+    assert published.asset_count == 1
+    rewritten = publisher.store.read_text(published.markdown_key)
+    expected = 'src="asset://pdf-extract/reconciled/Full_30015375000000/pages/page_0002/assets/seal.jpg"'
+    assert rewritten.count(expected) == 2
+
+
+def test_publish_page_with_duplicate_basenames_uses_collision_suffix(tmp_path):
+    source = tmp_path / "page_0002"
+    (source / "imgs").mkdir(parents=True)
+    (source / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    (source / "assets").mkdir()
+    (source / "assets" / "seal.jpg").write_bytes(b"other-jpeg")
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(
+        make_result('![left](imgs/seal.jpg) and ![right](assets/seal.jpg)'),
+        asset_base_dir=source,
+    )
+
+    assets = json.loads(publisher.store.read_text(published.assets_key))
+    assert len(assets["assets"]) == 2
+    dest_keys = [asset["dest_key"] for asset in assets["assets"]]
+    assert len(dest_keys) == 2
+    assert any(key.endswith("/seal.jpg") for key in dest_keys)
+    assert any(key.endswith(".jpg") and "/seal_" in key for key in dest_keys)
+    assert len(set(dest_keys)) == 2
+
+
+def test_publish_page_with_missing_asset_then_failure_clears_stale_row_fields(tmp_path):
+    source = tmp_path / "page_0002"
+    (source / "imgs").mkdir(parents=True)
+    (source / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    success = publisher.publish(make_result("![seal](imgs/seal.jpg)"), asset_base_dir=source)
+    assert success.status == "published"
+
+    with publisher.catalog.connect() as conn:
+        row = conn.execute(
+            "SELECT status, markdown_key, assets_key, decision_key, markdown_text, asset_count FROM pages WHERE document_id = ? AND page = ?",
+            ("Full_30015375000000", 2),
+        ).fetchone()
+    assert row["status"] == "published"
+    assert row["markdown_text"] is not None
+    assert row["asset_count"] == 1
+
+    failed = publisher.publish(make_result("![missing](imgs/missing.jpg)"), asset_base_dir=source)
+    assert failed.status == "publish_failed"
+    assert "Missing referenced asset: imgs/missing.jpg" in failed.error_message
+
+    with publisher.catalog.connect() as conn:
+        row = conn.execute(
+            "SELECT status, markdown_key, assets_key, decision_key, markdown_text, asset_count, error_message FROM pages WHERE document_id = ? AND page = ?",
+            ("Full_30015375000000", 2),
+        ).fetchone()
+    assert row["status"] == "publish_failed"
+    assert row["markdown_key"] is None
+    assert row["assets_key"] is None
+    assert row["decision_key"] is None
+    assert row["markdown_text"] is None
+    assert row["asset_count"] == 0
+    assert "Missing referenced asset: imgs/missing.jpg" in row["error_message"]
+
+
 def test_publish_page_with_missing_asset_records_failure(tmp_path):
     publisher = ReconciledPagePublisher(
         store=LocalObjectStore(tmp_path / "object_store"),
@@ -188,5 +274,27 @@ def test_publish_page_with_missing_asset_records_failure(tmp_path):
         ).fetchone()
     assert row["status"] == "publish_failed"
     assert "Missing referenced asset: imgs/missing.jpg" in row["error_message"]
+    assert row["asset_count"] == 0
+    assert row["markdown_text"] is None
+
+
+def test_publish_page_with_unsafe_relative_ref_records_failure(tmp_path):
+    publisher = ReconciledPagePublisher(
+        store=LocalObjectStore(tmp_path / "object_store"),
+        catalog=PageCatalog(tmp_path / "catalog.sqlite"),
+    )
+
+    published = publisher.publish(make_result('<img src="../secret.jpg" alt="secret" />'), asset_base_dir=tmp_path / "page_0002")
+
+    assert published.status == "publish_failed"
+    assert "Unsafe referenced asset path: ../secret.jpg" in published.error_message
+
+    with publisher.catalog.connect() as conn:
+        row = conn.execute(
+            "SELECT status, error_message, asset_count, markdown_text FROM pages WHERE document_id = ? AND page = ?",
+            ("Full_30015375000000", 2),
+        ).fetchone()
+    assert row["status"] == "publish_failed"
+    assert "Unsafe referenced asset path: ../secret.jpg" in row["error_message"]
     assert row["asset_count"] == 0
     assert row["markdown_text"] is None
