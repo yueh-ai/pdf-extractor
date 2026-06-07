@@ -11,3 +11,76 @@
 body {
   margin: 0;
 }
+
+.markdown-pane {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.pane-toolbar {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid #d0d5dd;
+  padding: 8px;
+}
+
+.pane-toolbar button {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #344054;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pane-toolbar button.active {
+  background: #e8f1ff;
+  border-color: #7aa7f7;
+  color: #1849a9;
+}
+
+.rendered-markdown,
+.raw-markdown {
+  flex: 1;
+  overflow: auto;
+  padding: 14px;
+}
+
+.raw-markdown {
+  margin: 0;
+  white-space: pre-wrap;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: #101828;
+  color: #f9fafb;
+}
+
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.rendered-markdown table {
+  border-collapse: collapse;
+}
+
+.rendered-markdown td,
+.rendered-markdown th {
+  border: 1px solid #98a2b3;
+  padding: 4px 6px;
+}
+
+.rendered-markdown img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-fallback,
+.render-error {
+  display: block;
+  border: 1px solid #f79009;
+  background: #fffaeb;
+  color: #7a2e0e;
+  padding: 8px;
+  border-radius: 6px;
+}
