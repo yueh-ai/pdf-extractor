@@ -87,3 +87,156 @@ body {
   padding: 8px;
   border-radius: 6px;
 }
+
+.app-shell {
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #d0d5dd;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.section-label {
+  color: #667085;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.header-meta,
+.status-line,
+.path-text {
+  color: #667085;
+  font-size: 12px;
+}
+
+.reviewer-grid {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.page-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid #d0d5dd;
+  padding-right: 12px;
+}
+
+.page-sidebar button {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 8px;
+  text-align: left;
+}
+
+.page-sidebar button.selected {
+  background: #e8f1ff;
+  border-color: #7aa7f7;
+}
+
+.page-review {
+  min-width: 0;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.split-view {
+  display: grid;
+  grid-template-columns: minmax(300px, 48%) minmax(360px, 52%);
+  gap: 14px;
+  min-height: 70vh;
+}
+
+.pane {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.pane-title {
+  border-bottom: 1px solid #d0d5dd;
+  font-weight: 700;
+  padding: 8px 10px;
+}
+
+.source-pane {
+  display: flex;
+  flex-direction: column;
+}
+
+.source-pane img {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  background: #f2f4f7;
+}
+
+.path-text {
+  border-top: 1px solid #d0d5dd;
+  overflow-wrap: anywhere;
+  padding: 8px 10px;
+}
+
+.markdown-shell {
+  display: flex;
+  flex-direction: column;
+}
+
+.metadata-panel {
+  border-top: 1px solid #d0d5dd;
+  color: #344054;
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.metadata-panel code {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .reviewer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid #d0d5dd;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0 0 12px;
+  }
+
+  .split-view {
+    grid-template-columns: 1fr;
+  }
+}
