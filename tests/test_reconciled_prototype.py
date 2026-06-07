@@ -37,7 +37,8 @@ def test_three_page_prototype_publishes_assembles_and_writes_viewer(tmp_path):
 
     assert result["document_id"] == "Full_30015375000000"
     assert result["published_pages"] == [1, 2, 40]
-    assert (tmp_path / "viewer" / "index.html").is_file()
+    assert (tmp_path / "viewer" / "viewer-manifest.json").is_file()
+    assert result["viewer_manifest_path"].endswith("viewer/viewer-manifest.json")
     with sqlite3.connect(tmp_path / "catalog.sqlite") as conn:
         rows = conn.execute("SELECT page, status, asset_count FROM pages ORDER BY page").fetchall()
     assert rows == [(1, "published", 0), (2, "published", 0), (40, "published", 1)]
@@ -48,9 +49,14 @@ def test_three_page_prototype_publishes_assembles_and_writes_viewer(tmp_path):
     )
     assert manifest["included_pages"] == [1, 2, 40]
 
-    viewer_html = (tmp_path / "viewer" / "index.html").read_text(encoding="utf-8")
-    assert "asset://pdf-extract/reconciled/Full_30015375000000/pages/page_0040/assets/seal.jpg" in viewer_html
-    assert "Description:" in viewer_html
-    assert "Content Type:" in viewer_html
-    assert "Byte Size:" in viewer_html
-    assert "SHA256:" in viewer_html
+    viewer_manifest = json.loads((tmp_path / "viewer" / "viewer-manifest.json").read_text(encoding="utf-8"))
+    assert [page["page"] for page in viewer_manifest["pages"]] == [1, 2, 40]
+    page_40 = viewer_manifest["pages"][2]
+    assert page_40["source_page_image_url"].endswith("/runs/Full_30015375000000/union/pages/page_0040/page.png")
+    assert page_40["assets"][0]["asset_uri"] == (
+        "asset://pdf-extract/reconciled/Full_30015375000000/pages/page_0040/assets/seal.jpg"
+    )
+    assert page_40["assets"][0]["local_url"].endswith(
+        "/object_store/pdf-extract/reconciled/Full_30015375000000/pages/page_0040/assets/seal.jpg"
+    )
+    assert "Description:" not in json.dumps(viewer_manifest)
