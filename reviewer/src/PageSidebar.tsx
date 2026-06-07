@@ -14,6 +14,7 @@ export function PageSidebar({ pages, selectedPage, onSelectPage }: Props) {
         <button
           key={page.page}
           className={page.page === selectedPage ? 'selected' : ''}
+          aria-current={page.page === selectedPage ? 'page' : undefined}
           onClick={() => onSelectPage(page.page)}
         >
           Page {page.page} | {page.status} | assets {page.asset_count}
