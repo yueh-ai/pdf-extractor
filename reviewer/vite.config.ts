@@ -1,9 +1,10 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { repoRootStaticPlugin } from './devStaticServer.js';
 
 export default defineConfig({
   base: './',
-  plugins: [react()],
+  plugins: [repoRootStaticPlugin(), react()],
   test: {
     environment: 'jsdom',
     passWithNoTests: true,
