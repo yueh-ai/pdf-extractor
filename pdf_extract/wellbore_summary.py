@@ -460,3 +460,68 @@ def parse_batch_fact_result(
         facts=facts,
         warnings=tuple(raw_warnings),
     )
+
+
+def run_fact_scout_batches(
+    batches: Sequence[SummaryBatch],
+    *,
+    client: TextModelClient,
+) -> tuple[BatchFactResult, ...]:
+    results: list[BatchFactResult] = []
+    for batch in batches:
+        source_ids = tuple(page.source_id for page in batch.pages)
+        payload = client.create_json(
+            prompt=build_fact_scout_prompt(batch),
+            response_format=build_fact_scout_response_format(source_ids),
+        )
+        results.append(
+            parse_batch_fact_result(
+                payload=payload,
+                document_id=batch.document_id,
+                batch_id=batch.batch_id,
+                batch_pages=tuple(page.page for page in batch.pages),
+                allowed_source_ids=source_ids,
+                model=client.model,
+                prompt_version=FACT_SCOUT_PROMPT_VERSION,
+            )
+        )
+    return tuple(results)
+
+
+def _fact_to_dict(fact: CandidateFact) -> dict[str, Any]:
+    return {
+        "section": fact.section,
+        "field": fact.field,
+        "value": fact.value,
+        "source_page_ids": list(fact.source_page_ids),
+        "source_context": fact.source_context,
+        "source_snippet": fact.source_snippet,
+        "status_hint": fact.status_hint,
+        "confidence": fact.confidence,
+        "notes": fact.notes,
+    }
+
+
+def batch_result_to_dict(result: BatchFactResult) -> dict[str, Any]:
+    return {
+        "document_id": result.document_id,
+        "batch_id": result.batch_id,
+        "batch_pages": list(result.batch_pages),
+        "model": result.model,
+        "prompt_version": result.prompt_version,
+        "facts": [_fact_to_dict(fact) for fact in result.facts],
+        "warnings": list(result.warnings),
+    }
+
+
+def write_fact_ledger(
+    path: Path,
+    results: Sequence[BatchFactResult],
+) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lines = [
+        json.dumps(batch_result_to_dict(result), ensure_ascii=False, sort_keys=True)
+        for result in results
+    ]
+    path.write_text("".join(f"{line}\n" for line in lines), encoding="utf-8")
+    return path

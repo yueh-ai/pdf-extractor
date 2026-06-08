@@ -10,6 +10,7 @@ from pdf_extract.wellbore_summary import (
     CandidateFact,
     ReconciledSummaryPage,
     SummaryBatch,
+    run_fact_scout_batches,
     build_fact_scout_prompt,
     build_fact_scout_response_format,
     build_summary_batches,
@@ -17,6 +18,7 @@ from pdf_extract.wellbore_summary import (
     page_number_from_source_id,
     parse_batch_fact_result,
     source_id_for_page,
+    write_fact_ledger,
 )
 
 
@@ -37,6 +39,32 @@ def valid_payload() -> dict:
         ],
         "warnings": [],
     }
+
+
+class FakeTextClient:
+    model = "fake-text-model"
+
+    def __init__(
+        self,
+        json_responses: list[dict] | None = None,
+        text_response: str = "",
+    ):
+        self.json_responses = list(json_responses or [])
+        self.text_response = text_response
+        self.json_calls: list[dict] = []
+        self.text_calls: list[dict] = []
+
+    def create_json(self, *, prompt: str, response_format: dict) -> dict:
+        self.json_calls.append(
+            {"prompt": prompt, "response_format": response_format}
+        )
+        if not self.json_responses:
+            raise AssertionError("Unexpected create_json call")
+        return self.json_responses.pop(0)
+
+    def create_text(self, *, prompt: str) -> str:
+        self.text_calls.append({"prompt": prompt})
+        return self.text_response
 
 
 def test_source_id_for_page_formats_four_digits():
@@ -354,3 +382,53 @@ def test_build_fact_scout_prompt_uses_source_manifest_and_boundaries():
     assert "source_page_ids" in prompt
     assert "C-105 casing table" in prompt
     assert "Formation tops table" in prompt
+
+
+def test_run_fact_scout_batches_calls_client_with_batch_schema():
+    page = ReconciledSummaryPage(
+        document_id="doc",
+        page=28,
+        source_id="page_0028",
+        markdown_key="key",
+        markdown="5-1/2 casing",
+        needs_human_review=False,
+    )
+    batch = SummaryBatch(
+        document_id="doc",
+        batch_id="pages_0028_0028",
+        pages=(page,),
+    )
+    client = FakeTextClient(json_responses=[valid_payload()])
+
+    results = run_fact_scout_batches((batch,), client=client)
+
+    assert len(results) == 1
+    assert results[0].facts[0].field == "production_casing"
+    fact_properties = client.json_calls[0]["response_format"]["schema"]["properties"][
+        "facts"
+    ]["items"]["properties"]
+    assert fact_properties["source_page_ids"]["items"]["enum"] == ["page_0028"]
+    assert "===== BEGIN SOURCE page_0028 =====" in client.json_calls[0]["prompt"]
+
+
+def test_write_fact_ledger_writes_one_json_object_per_batch(tmp_path):
+    result = parse_batch_fact_result(
+        payload=valid_payload(),
+        document_id="doc",
+        batch_id="pages_0028_0028",
+        batch_pages=(28,),
+        allowed_source_ids=("page_0028",),
+        model="fake-model",
+        prompt_version="wellbore-fact-scout-v1",
+    )
+    path = tmp_path / "nested" / "fact_ledger.jsonl"
+
+    written = write_fact_ledger(path, (result,))
+
+    rows = [
+        json.loads(line)
+        for line in path.read_text(encoding="utf-8").splitlines()
+    ]
+    assert written == path
+    assert rows[0]["batch_id"] == "pages_0028_0028"
+    assert rows[0]["facts"][0]["source_page_ids"] == ["page_0028"]
