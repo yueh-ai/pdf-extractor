@@ -518,36 +518,128 @@ def run_fact_scout_batches(
     *,
     client: TextModelClient,
 ) -> tuple[BatchFactResult, ...]:
-    results: list[BatchFactResult] = []
-    for batch in batches:
-        source_ids = tuple(page.source_id for page in batch.pages)
-        payload = client.create_json(
-            prompt=build_fact_scout_prompt(batch),
-            response_format=build_fact_scout_response_format(source_ids),
-        )
-        results.append(
-            parse_batch_fact_result(
-                payload=payload,
-                document_id=batch.document_id,
-                batch_id=batch.batch_id,
-                batch_pages=tuple(page.page for page in batch.pages),
-                allowed_source_ids=source_ids,
-                model=client.model,
-                prompt_version=FACT_SCOUT_PROMPT_VERSION,
-            )
-        )
-    return tuple(results)
+    return tuple(_run_fact_scout_batch(batch, client=client) for batch in batches)
+
+
+def _run_fact_scout_batch(
+    batch: SummaryBatch,
+    *,
+    client: TextModelClient,
+) -> BatchFactResult:
+    source_ids = tuple(page.source_id for page in batch.pages)
+    payload = client.create_json(
+        prompt=build_fact_scout_prompt(batch),
+        response_format=build_fact_scout_response_format(source_ids),
+    )
+    return parse_batch_fact_result(
+        payload=payload,
+        document_id=batch.document_id,
+        batch_id=batch.batch_id,
+        batch_pages=tuple(page.page for page in batch.pages),
+        allowed_source_ids=source_ids,
+        model=client.model,
+        prompt_version=FACT_SCOUT_PROMPT_VERSION,
+    )
 
 
 def _normalize_text(value: str) -> str:
     return re.sub(r"\s+", " ", value.strip().lower().replace(",", ""))
 
 
+def _format_decimal(value: float) -> str:
+    return f"{value:.6f}".rstrip("0").rstrip(".")
+
+
+def _normalize_api_number(value: str) -> str | None:
+    digits = re.sub(r"\D", "", value)
+    if len(digits) == 14 and digits.endswith("0000"):
+        digits = digits[:10]
+    if len(digits) == 10:
+        return f"api:{digits}"
+    if len(digits) == 14:
+        return f"api:{digits}"
+    return None
+
+
+def _normalize_date(value: str) -> str | None:
+    text = value.strip()
+    iso_match = re.fullmatch(r"(\d{4})-(\d{1,2})-(\d{1,2})", text)
+    if iso_match:
+        year, month, day = (int(part) for part in iso_match.groups())
+    else:
+        slash_match = re.fullmatch(r"(\d{1,2})/(\d{1,2})/(\d{2}|\d{4})", text)
+        if not slash_match:
+            return None
+        month, day = (int(part) for part in slash_match.groups()[:2])
+        raw_year = slash_match.group(3)
+        year = int(raw_year)
+        if len(raw_year) == 2:
+            year += 2000 if year <= 68 else 1900
+
+    if not (1 <= month <= 12 and 1 <= day <= 31):
+        return None
+    return f"date:{year:04d}-{month:02d}-{day:02d}"
+
+
+def _normalize_depth(value: str) -> str | None:
+    text = value.strip().lower().replace(",", "")
+    match = re.fullmatch(r"(\d+(?:\.\d+)?)\s*(?:'|ft|feet)", text)
+    if not match:
+        return None
+    return f"depth:{_format_decimal(float(match.group(1)))}"
+
+
+def _normalize_size(value: str) -> str | None:
+    text = value.strip().lower()
+    mixed_match = re.fullmatch(
+        r"(\d+)\s*[- ]\s*(\d+)\s*/\s*(\d+)\s*(?:\"|in|inch|inches)?",
+        text,
+    )
+    if mixed_match:
+        whole, numerator, denominator = (int(part) for part in mixed_match.groups())
+        if denominator == 0:
+            return None
+        return f"size:{_format_decimal(whole + numerator / denominator)}"
+
+    decimal_match = re.fullmatch(
+        r"(\d+(?:\.\d+)?)\s*(?:\"|in|inch|inches)?",
+        text,
+    )
+    if decimal_match:
+        return f"size:{_format_decimal(float(decimal_match.group(1)))}"
+    return None
+
+
+def _normalize_value(field: str, value: str) -> str:
+    normalized_field = _normalize_text(field)
+    if "api" in normalized_field:
+        normalized_api = _normalize_api_number(value)
+        if normalized_api is not None:
+            return normalized_api
+
+    if "date" in normalized_field:
+        normalized_date = _normalize_date(value)
+        if normalized_date is not None:
+            return normalized_date
+
+    if "depth" in normalized_field:
+        normalized_depth = _normalize_depth(value)
+        if normalized_depth is not None:
+            return normalized_depth
+
+    if "size" in normalized_field or "diameter" in normalized_field:
+        normalized_size = _normalize_size(value)
+        if normalized_size is not None:
+            return normalized_size
+
+    return _normalize_text(value)
+
+
 def _dedupe_key(fact: CandidateFact) -> tuple[str, str, str, str, str]:
     return (
         fact.section,
         _normalize_text(fact.field),
-        _normalize_text(fact.value),
+        _normalize_value(fact.field, fact.value),
         fact.status_hint,
         _normalize_text(fact.source_context),
     )
@@ -735,7 +827,18 @@ def run_wellbore_summary(
         batch_size=batch_size,
         overlap=overlap,
     )
-    batch_results = run_fact_scout_batches(batches, client=client)
+    batch_results: list[BatchFactResult] = []
+    failed_batches: list[dict[str, str]] = []
+    for batch in batches:
+        try:
+            batch_results.append(_run_fact_scout_batch(batch, client=client))
+        except ValueError as error:
+            failed_batches.append(
+                {
+                    "batch_id": batch.batch_id,
+                    "error": str(error),
+                }
+            )
     ledger_path = write_fact_ledger(out_dir / "fact_ledger.jsonl", batch_results)
 
     facts = dedupe_candidate_facts(
@@ -753,6 +856,7 @@ def run_wellbore_summary(
         "page_count": len(pages),
         "batch_count": len(batches),
         "fact_count": len(facts),
+        "failed_batches": failed_batches,
         "fact_ledger_path": ledger_path.as_posix(),
         "summary_path": summary_path.as_posix(),
     }

@@ -524,6 +524,56 @@ def test_dedupe_candidate_facts_keeps_different_status_separate():
     assert len(merged) == 2
 
 
+@pytest.mark.parametrize(
+    ("field", "first_value", "second_value"),
+    [
+        ("setting_depth", "10490'", "10,490 ft"),
+        ("setting_depth", "10490 ft", "10,490 ft"),
+        ("api_number", "30-015-37500", "3001537500"),
+        ("api_number", "30-015-37500", "30015375000000"),
+        ("completion_date", "9/20/10", "2010-09-20"),
+        ("casing_size", '5.5"', '5-1/2"'),
+    ],
+)
+def test_dedupe_candidate_facts_normalizes_spec_value_variants(
+    field,
+    first_value,
+    second_value,
+):
+    first = make_fact(
+        field=field,
+        value=first_value,
+        source_page_ids=("page_0010",),
+    )
+    second = make_fact(
+        field=field,
+        value=second_value,
+        source_page_ids=("page_0011",),
+    )
+
+    merged = dedupe_candidate_facts((first, second))
+
+    assert len(merged) == 1
+    assert merged[0].source_page_ids == ("page_0010", "page_0011")
+
+
+def test_dedupe_candidate_facts_keeps_same_normalized_value_different_context_separate():
+    completion = make_fact(
+        field="completion_date",
+        value="9/20/10",
+        source_context="C-105 completion report",
+    )
+    transfer = make_fact(
+        field="completion_date",
+        value="2010-09-20",
+        source_context="operator transfer",
+    )
+
+    merged = dedupe_candidate_facts((completion, transfer))
+
+    assert len(merged) == 2
+
+
 def test_build_reducer_prompt_includes_source_display_mapping():
     facts = (make_fact(source_page_ids=("page_0028",)),)
 
@@ -587,6 +637,103 @@ def test_run_wellbore_summary_writes_ledger_and_summary(tmp_path):
     assert result["batch_count"] == 1
     assert result["fact_count"] == 1
     assert len(client.json_calls) == 1
+    assert len(client.text_calls) == 1
+
+
+def test_run_wellbore_summary_reports_failed_batches_without_aborting(tmp_path):
+    object_store = tmp_path / "object_store"
+    for page in range(1, 7):
+        write_reconciled_page(
+            object_store,
+            "doc",
+            page,
+            f"reconciled markdown page {page}",
+        )
+    client = FakeTextClient(
+        json_responses=[
+            {
+                "facts": [
+                    {
+                        "section": "well_identity",
+                        "field": "api_number",
+                        "value": "30-015-37500",
+                        "source_page_ids": ["page_0001"],
+                        "source_context": "C-105 completion report header",
+                        "source_snippet": "API 30-015-37500",
+                        "status_hint": "actual",
+                        "confidence": "high",
+                        "notes": "API from completion report.",
+                    }
+                ],
+                "warnings": [],
+            },
+            {
+                "facts": [
+                    {
+                        "section": "well_identity",
+                        "field": "api_number",
+                        "value": "30-015-37500",
+                        "source_page_ids": ["page_9999"],
+                        "source_context": "C-105 completion report header",
+                        "source_snippet": "API 30-015-37500",
+                        "status_hint": "actual",
+                        "confidence": "high",
+                        "notes": "Invalid page citation.",
+                    }
+                ],
+                "warnings": [],
+            },
+            {
+                "facts": [
+                    {
+                        "section": "elevations",
+                        "field": "ground_level_elevation",
+                        "value": "3172'GR",
+                        "source_page_ids": ["page_0005"],
+                        "source_context": "C-103 subsequent report header",
+                        "source_snippet": "3172'GR",
+                        "status_hint": "actual",
+                        "confidence": "high",
+                        "notes": "Ground elevation from report header.",
+                    }
+                ],
+                "warnings": [],
+            },
+        ],
+        text_response="### Summary\n",
+    )
+
+    result = run_wellbore_summary(
+        object_store_root=object_store,
+        document_id="doc",
+        out_dir=tmp_path / "summary",
+        client=client,
+        batch_size=2,
+        overlap=0,
+    )
+
+    rows = [
+        json.loads(line)
+        for line in Path(result["fact_ledger_path"])
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+
+    assert result["batch_count"] == 3
+    assert result["fact_count"] == 2
+    assert result["failed_batches"] == [
+        {
+            "batch_id": "pages_0003_0004",
+            "error": "source_page_ids outside batch source manifest: ['page_9999']",
+        }
+    ]
+    assert [row["batch_id"] for row in rows] == [
+        "pages_0001_0002",
+        "pages_0005_0006",
+    ]
+    assert rows[0]["facts"][0]["source_page_ids"] == ["page_0001"]
+    assert rows[1]["facts"][0]["source_page_ids"] == ["page_0005"]
+    assert len(client.json_calls) == 3
     assert len(client.text_calls) == 1
 
 
