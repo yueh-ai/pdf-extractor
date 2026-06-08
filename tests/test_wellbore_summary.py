@@ -737,6 +737,28 @@ def test_run_wellbore_summary_reports_failed_batches_without_aborting(tmp_path):
     assert len(client.text_calls) == 1
 
 
+def test_run_wellbore_summary_propagates_client_value_errors(tmp_path):
+    class FailingJsonClient:
+        model = "failing-json-client"
+
+        def create_json(self, *, prompt: str, response_format: dict) -> dict:
+            raise ValueError("client JSON decode failed")
+
+        def create_text(self, *, prompt: str) -> str:
+            raise AssertionError("Reducer should not run after client failure")
+
+    object_store = tmp_path / "object_store"
+    write_reconciled_page(object_store, "doc", 1, "C-105 completion report")
+
+    with pytest.raises(ValueError, match="client JSON decode failed"):
+        run_wellbore_summary(
+            object_store_root=object_store,
+            document_id="doc",
+            out_dir=tmp_path / "summary",
+            client=FailingJsonClient(),
+        )
+
+
 def test_run_wellbore_summary_accepts_positional_required_arguments(tmp_path):
     object_store = tmp_path / "object_store"
     write_reconciled_page(

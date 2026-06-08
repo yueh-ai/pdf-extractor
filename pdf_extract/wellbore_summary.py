@@ -527,10 +527,34 @@ def _run_fact_scout_batch(
     client: TextModelClient,
 ) -> BatchFactResult:
     source_ids = tuple(page.source_id for page in batch.pages)
-    payload = client.create_json(
+    payload = _create_batch_fact_payload(batch, client=client, source_ids=source_ids)
+    return _parse_batch_fact_payload(
+        batch,
+        payload=payload,
+        source_ids=source_ids,
+        client=client,
+    )
+
+
+def _create_batch_fact_payload(
+    batch: SummaryBatch,
+    *,
+    client: TextModelClient,
+    source_ids: Sequence[str],
+) -> Mapping[str, Any]:
+    return client.create_json(
         prompt=build_fact_scout_prompt(batch),
         response_format=build_fact_scout_response_format(source_ids),
     )
+
+
+def _parse_batch_fact_payload(
+    batch: SummaryBatch,
+    *,
+    payload: Mapping[str, Any],
+    source_ids: Sequence[str],
+    client: TextModelClient,
+) -> BatchFactResult:
     return parse_batch_fact_result(
         payload=payload,
         document_id=batch.document_id,
@@ -830,8 +854,21 @@ def run_wellbore_summary(
     batch_results: list[BatchFactResult] = []
     failed_batches: list[dict[str, str]] = []
     for batch in batches:
+        source_ids = tuple(page.source_id for page in batch.pages)
+        payload = _create_batch_fact_payload(
+            batch,
+            client=client,
+            source_ids=source_ids,
+        )
         try:
-            batch_results.append(_run_fact_scout_batch(batch, client=client))
+            batch_results.append(
+                _parse_batch_fact_payload(
+                    batch,
+                    payload=payload,
+                    source_ids=source_ids,
+                    client=client,
+                )
+            )
         except ValueError as error:
             failed_batches.append(
                 {
