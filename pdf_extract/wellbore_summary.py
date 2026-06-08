@@ -661,3 +661,99 @@ def write_fact_ledger(
     ]
     path.write_text("".join(f"{line}\n" for line in lines), encoding="utf-8")
     return path
+
+
+class OpenAIResponsesTextClient:
+    def __init__(
+        self,
+        model: str = DEFAULT_FACT_SCOUT_MODEL,
+        api_key_env: str = "OPENAI_API_KEY",
+        sdk_client: Any | None = None,
+    ):
+        self.model = model
+        if sdk_client is not None:
+            self._client = sdk_client
+            return
+
+        import os
+
+        api_key = os.environ.get(api_key_env)
+        if not api_key:
+            raise RuntimeError(
+                f"{api_key_env} is required for OpenAI summary extraction"
+            )
+
+        from openai import OpenAI
+
+        self._client = OpenAI(api_key=api_key)
+
+    def create_json(
+        self,
+        *,
+        prompt: str,
+        response_format: dict[str, Any],
+    ) -> Mapping[str, Any]:
+        response = self._client.responses.create(
+            model=self.model,
+            input=[
+                {
+                    "role": "user",
+                    "content": [{"type": "input_text", "text": prompt}],
+                }
+            ],
+            text={"format": response_format},
+        )
+        return json.loads(response.output_text)
+
+    def create_text(self, *, prompt: str) -> str:
+        response = self._client.responses.create(
+            model=self.model,
+            input=[
+                {
+                    "role": "user",
+                    "content": [{"type": "input_text", "text": prompt}],
+                }
+            ],
+        )
+        return response.output_text
+
+
+def run_wellbore_summary(
+    *,
+    object_store_root: Path,
+    document_id: str,
+    out_dir: Path,
+    client: TextModelClient,
+    batch_size: int = 10,
+    overlap: int = 1,
+) -> dict[str, Any]:
+    pages = discover_reconciled_summary_pages(
+        object_store_root=object_store_root,
+        document_id=document_id,
+    )
+    batches = build_summary_batches(
+        pages,
+        batch_size=batch_size,
+        overlap=overlap,
+    )
+    batch_results = run_fact_scout_batches(batches, client=client)
+    ledger_path = write_fact_ledger(out_dir / "fact_ledger.jsonl", batch_results)
+
+    facts = dedupe_candidate_facts(
+        tuple(fact for result in batch_results for fact in result.facts)
+    )
+    summary_markdown = client.create_text(
+        prompt=build_reducer_prompt(facts, document_id=document_id)
+    )
+    summary_path = out_dir / "combined_summary_current.md"
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
+    summary_path.write_text(summary_markdown, encoding="utf-8")
+
+    return {
+        "document_id": document_id,
+        "page_count": len(pages),
+        "batch_count": len(batches),
+        "fact_count": len(facts),
+        "fact_ledger_path": ledger_path.as_posix(),
+        "summary_path": summary_path.as_posix(),
+    }

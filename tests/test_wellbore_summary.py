@@ -8,6 +8,7 @@ import pytest
 from pdf_extract.wellbore_summary import (
     BatchFactResult,
     CandidateFact,
+    OpenAIResponsesTextClient,
     ReconciledSummaryPage,
     SummaryBatch,
     build_reducer_prompt,
@@ -20,6 +21,7 @@ from pdf_extract.wellbore_summary import (
     display_pages_for_fact,
     page_number_from_source_id,
     parse_batch_fact_result,
+    run_wellbore_summary,
     source_id_for_page,
     write_fact_ledger,
 )
@@ -528,3 +530,97 @@ def test_build_reducer_prompt_includes_source_display_mapping():
     assert "Display source pages: 28" in prompt
     assert "page_0028" in prompt
     assert "Do not mention batches, prompts, fact IDs, or model behavior." in prompt
+
+
+def test_run_wellbore_summary_writes_ledger_and_summary(tmp_path):
+    object_store = tmp_path / "object_store"
+    write_reconciled_page(
+        object_store,
+        "doc",
+        1,
+        "C-105 completion report 5-1/2 casing",
+    )
+    write_reconciled_page(object_store, "doc", 2, "Formation tops table")
+    client = FakeTextClient(
+        json_responses=[
+            {
+                "facts": [
+                    {
+                        "section": "casing_and_tubing_strings",
+                        "field": "production_casing",
+                        "value": "5-1/2 casing set at 10,490 ft",
+                        "source_page_ids": ["page_0001"],
+                        "source_context": "C-105 completion report casing table",
+                        "source_snippet": "5-1/2 casing ... 10,490",
+                        "status_hint": "actual",
+                        "confidence": "high",
+                        "notes": "Actual completion casing.",
+                    }
+                ],
+                "warnings": [],
+            }
+        ],
+        text_response=(
+            "### Casing And Tubing Strings\n\n"
+            "| Diameter | Setting Depth | Source PDF Page | Notes |\n"
+            "| --- | --- | --- | --- |\n"
+            "| 5-1/2 in | 10,490 ft | 1 | Actual completion casing. |\n"
+        ),
+    )
+
+    result = run_wellbore_summary(
+        object_store_root=object_store,
+        document_id="doc",
+        out_dir=tmp_path / "summary",
+        client=client,
+    )
+
+    assert Path(result["fact_ledger_path"]).is_file()
+    summary_path = Path(result["summary_path"])
+    assert summary_path.is_file()
+    assert summary_path.read_text(encoding="utf-8").startswith("### Casing")
+    assert result["document_id"] == "doc"
+    assert result["page_count"] == 2
+    assert result["batch_count"] == 1
+    assert result["fact_count"] == 1
+    assert len(client.json_calls) == 1
+    assert len(client.text_calls) == 1
+
+
+def test_openai_responses_text_client_uses_json_schema_and_text_calls():
+    class FakeResponses:
+        def __init__(self):
+            self.calls = []
+
+        def create(self, **kwargs):
+            self.calls.append(kwargs)
+            if "text" in kwargs:
+                return type(
+                    "Response",
+                    (),
+                    {"output_text": json.dumps({"facts": [], "warnings": []})},
+                )()
+            return type("Response", (), {"output_text": "### Summary\n"})()
+
+    class FakeSDK:
+        def __init__(self):
+            self.responses = FakeResponses()
+
+    sdk = FakeSDK()
+    client = OpenAIResponsesTextClient(model="fake-openai", sdk_client=sdk)
+
+    payload = client.create_json(
+        prompt="extract",
+        response_format=build_fact_scout_response_format(("page_0001",)),
+    )
+    text = client.create_text(prompt="reduce")
+
+    assert payload == {"facts": [], "warnings": []}
+    assert text == "### Summary\n"
+    assert sdk.responses.calls[0]["model"] == "fake-openai"
+    assert sdk.responses.calls[0]["text"]["format"]["name"] == (
+        "wellbore_batch_fact_result"
+    )
+    assert sdk.responses.calls[0]["input"][0]["content"][0]["text"] == "extract"
+    assert "text" not in sdk.responses.calls[1]
+    assert sdk.responses.calls[1]["input"][0]["content"][0]["text"] == "reduce"
