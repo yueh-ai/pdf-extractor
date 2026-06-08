@@ -418,6 +418,41 @@ uv run python scripts/run_reconcile.py \
 
 There is no `--isolate-pages` mode in this version. `--timeout-sec` is recorded in `config.json`, but same-process PaddleOCR calls are not hard-killed.
 
+## Wellbore Current Summary
+
+After page reconciliation has published reconciled page Markdown, generate a
+current wellbore data summary from the reconciled Markdown:
+
+```bash
+uv run python scripts/run_wellbore_summary.py \
+  --document-id Full_30015375000000 \
+  --object-store-root object_store \
+  --out-dir summary_runs/Full_30015375000000 \
+  --provider openai
+```
+
+The summary pipeline writes:
+
+```text
+summary_runs/<document_id>/
+  fact_ledger.jsonl
+  combined_summary_current.md
+```
+
+For local file-flow validation without model calls:
+
+```bash
+uv run python scripts/run_wellbore_summary.py \
+  --document-id Full_30015375000000 \
+  --object-store-root object_store \
+  --out-dir summary_runs/Full_30015375000000_dry_run \
+  --provider dry-run
+```
+
+V1 uses reconciled Markdown only. It does not send PDF page images to the model.
+Fact citations use internal source IDs such as `page_0028`; the renderer maps
+those IDs back to display page numbers in `combined_summary_current.md`.
+
 ## Diagnostic Layout Mode
 
 The default layout behavior is the safest general-purpose path. You can try PaddleOCR's smaller layout merge mode for diagnostics:
