@@ -248,6 +248,31 @@ def test_discover_reconciled_summary_pages_reads_sorted_pages_and_metadata(tmp_p
     assert pages[1].markdown == "second page"
 
 
+def test_discover_reconciled_summary_pages_defaults_false_for_malformed_decision(
+    tmp_path,
+):
+    root = tmp_path / "object_store"
+    write_reconciled_page(root, "doc", 1, "first page", review=True)
+    decision_path = (
+        root
+        / "pdf-extract"
+        / "reconciled"
+        / "doc"
+        / "pages"
+        / "page_0001"
+        / "decision.json"
+    )
+    decision_path.write_text("{not json", encoding="utf-8")
+
+    pages = discover_reconciled_summary_pages(
+        object_store_root=root,
+        document_id="doc",
+    )
+
+    assert len(pages) == 1
+    assert pages[0].needs_human_review is False
+
+
 def test_build_summary_batches_uses_ten_pages_with_one_overlap():
     pages = tuple(
         ReconciledSummaryPage(

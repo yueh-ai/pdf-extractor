@@ -108,6 +108,18 @@ def _page_number_from_page_dir(path: Path) -> int | None:
         return None
 
 
+def _needs_human_review_from_decision(path: Path) -> bool:
+    if not path.is_file():
+        return False
+    try:
+        decision = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return False
+    if not isinstance(decision, Mapping):
+        return False
+    return decision.get("needs_human_review") is True
+
+
 def discover_reconciled_summary_pages(
     object_store_root: Path,
     document_id: str,
@@ -126,11 +138,7 @@ def discover_reconciled_summary_pages(
             continue
 
         decision_path = page_dir / "decision.json"
-        needs_human_review = False
-        if decision_path.is_file():
-            decision = json.loads(decision_path.read_text(encoding="utf-8"))
-            if isinstance(decision, Mapping):
-                needs_human_review = decision.get("needs_human_review") is True
+        needs_human_review = _needs_human_review_from_decision(decision_path)
 
         pages.append(
             ReconciledSummaryPage(
