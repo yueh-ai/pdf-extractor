@@ -1,11 +1,19 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
 
 from pdf_extract.wellbore_summary import (
     BatchFactResult,
     CandidateFact,
+    ReconciledSummaryPage,
+    SummaryBatch,
     build_fact_scout_response_format,
+    build_summary_batches,
+    discover_reconciled_summary_pages,
+    page_number_from_source_id,
     parse_batch_fact_result,
     source_id_for_page,
 )
@@ -184,3 +192,101 @@ def test_build_fact_scout_response_format_limits_source_ids_to_batch():
 
     assert facts["source_page_ids"]["items"]["enum"] == ["page_0028", "page_0029"]
     assert schema["schema"]["additionalProperties"] is False
+
+
+def write_reconciled_page(
+    root: Path,
+    document_id: str,
+    page: int,
+    markdown: str,
+    *,
+    review: bool = False,
+) -> None:
+    page_dir = (
+        root
+        / "pdf-extract"
+        / "reconciled"
+        / document_id
+        / "pages"
+        / f"page_{page:04d}"
+    )
+    page_dir.mkdir(parents=True)
+    (page_dir / "output.md").write_text(markdown, encoding="utf-8")
+    (page_dir / "decision.json").write_text(
+        json.dumps({"needs_human_review": review}) + "\n",
+        encoding="utf-8",
+    )
+
+
+def test_page_number_from_source_id_parses_source_id():
+    assert page_number_from_source_id("page_0028") == 28
+    with pytest.raises(ValueError, match="Invalid source_id"):
+        page_number_from_source_id("28")
+
+
+def test_discover_reconciled_summary_pages_reads_sorted_pages_and_metadata(tmp_path):
+    root = tmp_path / "object_store"
+    write_reconciled_page(root, "doc", 2, "second page", review=True)
+    write_reconciled_page(root, "doc", 1, "first page")
+
+    pages_root = root / "pdf-extract" / "reconciled" / "doc" / "pages"
+    (pages_root / "page_0003").mkdir()
+    (pages_root / "not-a-page").mkdir()
+
+    pages = discover_reconciled_summary_pages(
+        object_store_root=root,
+        document_id="doc",
+    )
+
+    assert [page.page for page in pages] == [1, 2]
+    assert pages[0].source_id == "page_0001"
+    assert pages[0].markdown_key == (
+        "pdf-extract/reconciled/doc/pages/page_0001/output.md"
+    )
+    assert pages[0].needs_human_review is False
+    assert pages[1].needs_human_review is True
+    assert pages[1].markdown == "second page"
+
+
+def test_build_summary_batches_uses_ten_pages_with_one_overlap():
+    pages = tuple(
+        ReconciledSummaryPage(
+            document_id="doc",
+            page=page,
+            source_id=source_id_for_page(page),
+            markdown_key=f"key-{page}",
+            markdown=f"page {page}",
+            needs_human_review=False,
+        )
+        for page in range(1, 22)
+    )
+
+    batches = build_summary_batches(pages, batch_size=10, overlap=1)
+
+    assert all(isinstance(batch, SummaryBatch) for batch in batches)
+    assert [batch.batch_id for batch in batches] == [
+        "pages_0001_0010",
+        "pages_0010_0019",
+        "pages_0019_0021",
+    ]
+    assert [[page.page for page in batch.pages] for batch in batches] == [
+        list(range(1, 11)),
+        list(range(10, 20)),
+        [19, 20, 21],
+    ]
+
+
+def test_build_summary_batches_rejects_overlap_not_less_than_batch_size():
+    pages = (
+        ReconciledSummaryPage(
+            document_id="doc",
+            page=1,
+            source_id="page_0001",
+            markdown_key="key",
+            markdown="text",
+            needs_human_review=False,
+        ),
+    )
+
+    with pytest.raises(ValueError, match="overlap must be smaller"):
+        build_summary_batches(pages, batch_size=10, overlap=10)

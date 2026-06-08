@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import json
+import re
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Mapping, Protocol, Sequence
 
 
@@ -28,6 +31,7 @@ CONFIDENCE_LEVELS: tuple[str, ...] = ("high", "medium", "low")
 DEFAULT_FACT_SCOUT_MODEL = "gpt-5.4-mini"
 FACT_SCOUT_PROMPT_VERSION = "wellbore-fact-scout-v1"
 REDUCER_PROMPT_VERSION = "wellbore-current-reducer-v1"
+_SOURCE_ID_RE = re.compile(r"^page_(\d{4,})$")
 
 
 @dataclass(frozen=True)
@@ -85,6 +89,99 @@ def source_id_for_page(page: int) -> str:
     if page < 1:
         raise ValueError("page must be >= 1")
     return f"page_{page:04d}"
+
+
+def page_number_from_source_id(source_id: str) -> int:
+    match = _SOURCE_ID_RE.match(source_id)
+    if not match:
+        raise ValueError(f"Invalid source_id: {source_id}")
+    page = int(match.group(1))
+    if page < 1:
+        raise ValueError(f"Invalid source_id: {source_id}")
+    return page
+
+
+def _page_number_from_page_dir(path: Path) -> int | None:
+    try:
+        return page_number_from_source_id(path.name)
+    except ValueError:
+        return None
+
+
+def discover_reconciled_summary_pages(
+    object_store_root: Path,
+    document_id: str,
+) -> tuple[ReconciledSummaryPage, ...]:
+    pages_root = object_store_root / "pdf-extract" / "reconciled" / document_id / "pages"
+    if not pages_root.is_dir():
+        raise FileNotFoundError(f"Missing reconciled pages directory: {pages_root}")
+
+    pages: list[ReconciledSummaryPage] = []
+    for page_dir in pages_root.iterdir():
+        page = _page_number_from_page_dir(page_dir)
+        if page is None:
+            continue
+        output_path = page_dir / "output.md"
+        if not output_path.is_file():
+            continue
+
+        decision_path = page_dir / "decision.json"
+        needs_human_review = False
+        if decision_path.is_file():
+            decision = json.loads(decision_path.read_text(encoding="utf-8"))
+            if isinstance(decision, Mapping):
+                needs_human_review = decision.get("needs_human_review") is True
+
+        pages.append(
+            ReconciledSummaryPage(
+                document_id=document_id,
+                page=page,
+                source_id=source_id_for_page(page),
+                markdown_key=output_path.relative_to(object_store_root).as_posix(),
+                markdown=output_path.read_text(encoding="utf-8"),
+                needs_human_review=needs_human_review,
+            )
+        )
+
+    return tuple(sorted(pages, key=lambda item: item.page))
+
+
+def build_summary_batches(
+    pages: Sequence[ReconciledSummaryPage],
+    *,
+    batch_size: int = 10,
+    overlap: int = 1,
+) -> tuple[SummaryBatch, ...]:
+    if batch_size < 1:
+        raise ValueError("batch_size must be >= 1")
+    if overlap < 0:
+        raise ValueError("overlap must be >= 0")
+    if overlap >= batch_size:
+        raise ValueError("overlap must be smaller than batch_size")
+
+    ordered = tuple(sorted(pages, key=lambda item: item.page))
+    if not ordered:
+        return ()
+
+    step = batch_size - overlap
+    batches: list[SummaryBatch] = []
+    start = 0
+    while start < len(ordered):
+        batch_pages = ordered[start : start + batch_size]
+        first_page = batch_pages[0].page
+        last_page = batch_pages[-1].page
+        batches.append(
+            SummaryBatch(
+                document_id=batch_pages[0].document_id,
+                batch_id=f"pages_{first_page:04d}_{last_page:04d}",
+                pages=tuple(batch_pages),
+            )
+        )
+        if start + batch_size >= len(ordered):
+            break
+        start += step
+
+    return tuple(batches)
 
 
 def build_fact_scout_response_format(source_ids: Sequence[str]) -> dict[str, Any]:
