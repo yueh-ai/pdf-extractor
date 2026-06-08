@@ -430,5 +430,6 @@ def test_write_fact_ledger_writes_one_json_object_per_batch(tmp_path):
         for line in path.read_text(encoding="utf-8").splitlines()
     ]
     assert written == path
+    assert len(rows) == 1
     assert rows[0]["batch_id"] == "pages_0028_0028"
     assert rows[0]["facts"][0]["source_page_ids"] == ["page_0028"]
