@@ -8,6 +8,7 @@ from typing import Any
 
 from pdf_extract.reconciler import (
     DEFAULT_RECONCILE_MODEL,
+    ModelCallResult,
     OpenAIResponsesVisionClient,
     run_reconciliation,
 )
@@ -16,13 +17,29 @@ from pdf_extract.reconciler import (
 class DryRunVisionClient:
     model = "dry-run-no-llm"
 
-    def reconcile(self, *, image_path: Path, prompt: str) -> dict[str, Any]:
-        return {
-            "reconciled_markdown": "<!-- dry-run reconciliation did not call a vision model -->\n",
-            "winner": "uncertain",
-            "warnings": ["dry-run client did not call a vision model"],
-            "needs_human_review": True,
-        }
+    def reconcile(self, *, image_path: Path, prompt: str) -> ModelCallResult:
+        return ModelCallResult(
+            payload={
+                "reconciled_markdown": "<!-- dry-run reconciliation did not call a vision model -->\n",
+                "winner": "uncertain",
+                "warnings": ["dry-run client did not call a vision model"],
+                "needs_human_review": True,
+            },
+            call_metadata={
+                "response_id": "dry-run",
+                "input_tokens": None,
+                "cached_input_tokens": None,
+                "output_tokens": None,
+                "reasoning_tokens": None,
+                "total_tokens": None,
+                "input_text_tokens_derived": None,
+                "input_image_tokens_derived": None,
+                "input_split_method": "unavailable",
+                "image_count": 1,
+                "image_detail": "high",
+                "estimated_cost_usd": 0.0,
+            },
+        )
 
 
 def load_openai_api_key_from_repo_env(repo_root: Path) -> bool:

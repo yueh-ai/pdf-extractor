@@ -507,6 +507,54 @@ def test_uncertain_round_one_winner_runs_round_two(tmp_path):
     assert [call["round"] for call in result.llm_calls] == [1, 2]
 
 
+def test_run_reconciliation_decision_records_two_llm_calls(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 22, "union draft")
+    write_page(run_root, "small", 22, "small draft")
+    client = SequencedVisionClient(
+        [
+            {
+                "reconciled_markdown": "# round one",
+                "winner": "mixed",
+                "warnings": ["verify this"],
+                "needs_human_review": True,
+            },
+            {
+                "reconciled_markdown": "# round two final",
+                "winner": "mixed",
+                "warnings": [],
+                "needs_human_review": False,
+            },
+        ]
+    )
+
+    result = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=client,
+        pages=[22],
+    )
+
+    assert result["published_pages"] == [22]
+    decision = json.loads(
+        (
+            tmp_path
+            / "object_store"
+            / "pdf-extract"
+            / "reconciled"
+            / "sample-doc"
+            / "pages"
+            / "page_0022"
+            / "decision.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert [call["round"] for call in decision["llm_calls"]] == [1, 2]
+    assert decision["needs_human_review"] is False
+    assert decision["warnings"] == []
+
+
 def test_run_reconciliation_processes_all_discovered_pages_and_writes_viewer_manifest(tmp_path):
     run_root = tmp_path / "runs" / "sample-doc"
     write_page(run_root, "union", 1, "# union one")
@@ -1122,6 +1170,19 @@ def test_openai_responses_vision_client_keeps_content_when_input_token_endpoint_
     assert response.call_metadata["input_text_tokens_derived"] is None
     assert response.call_metadata["input_image_tokens_derived"] is None
     assert response.call_metadata["input_split_method"] == "unavailable"
+
+
+def test_dry_run_client_returns_call_metadata():
+    helpers = load_run_reconcile_script()
+    client = helpers["create_client"](provider="dry-run", model=None)
+
+    response = client.reconcile(image_path=Path("page.png"), prompt="prompt")
+
+    assert isinstance(response, ModelCallResult)
+    assert response.payload["winner"] == "uncertain"
+    assert response.call_metadata["response_id"] == "dry-run"
+    assert response.call_metadata["input_tokens"] is None
+    assert response.call_metadata["output_tokens"] is None
 
 
 def test_cli_helpers_support_env_model_and_repo_dotenv(monkeypatch, tmp_path):
