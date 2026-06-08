@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import os
 import runpy
+import sys
 from pathlib import Path
 
 import pytest
@@ -705,3 +707,132 @@ def test_run_wellbore_summary_dry_run_client_returns_empty_summary():
     assert client.create_text(prompt="anything").startswith(
         "<!-- dry-run reducer did not call a model -->"
     )
+
+
+def test_run_wellbore_summary_loads_openai_api_key_from_repo_env(
+    tmp_path,
+    monkeypatch,
+):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    (tmp_path / ".env").write_text(
+        "# ignored comment\n"
+        "export OPENAI_API_KEY=\"test-key\"\n",
+        encoding="utf-8",
+    )
+    script = load_run_wellbore_summary_script()
+
+    loaded = script["load_openai_api_key_from_repo_env"](tmp_path)
+
+    assert loaded is True
+    assert os.environ["OPENAI_API_KEY"] == "test-key"
+
+
+def test_run_wellbore_summary_preserves_existing_openai_api_key(
+    tmp_path,
+    monkeypatch,
+):
+    monkeypatch.setenv("OPENAI_API_KEY", "existing-key")
+    (tmp_path / ".env").write_text(
+        "OPENAI_API_KEY=\"new-key\"\n",
+        encoding="utf-8",
+    )
+    script = load_run_wellbore_summary_script()
+
+    loaded = script["load_openai_api_key_from_repo_env"](tmp_path)
+
+    assert loaded is False
+    assert os.environ["OPENAI_API_KEY"] == "existing-key"
+
+
+def test_run_wellbore_summary_create_client_rejects_unsupported_provider():
+    script = load_run_wellbore_summary_script()
+
+    with pytest.raises(ValueError, match="Unsupported provider"):
+        script["create_client"](provider="unsupported", model=None)
+
+
+def test_run_wellbore_summary_create_client_uses_explicit_openai_model():
+    script = load_run_wellbore_summary_script()
+
+    class FakeOpenAIResponsesTextClient:
+        def __init__(self, *, model: str):
+            self.model = model
+
+    script["create_client"].__globals__[
+        "OpenAIResponsesTextClient"
+    ] = FakeOpenAIResponsesTextClient
+
+    client = script["create_client"](
+        provider="openai",
+        model="explicit-model",
+    )
+
+    assert isinstance(client, FakeOpenAIResponsesTextClient)
+    assert client.model == "explicit-model"
+
+
+def test_run_wellbore_summary_main_wires_arguments_and_prints_json(
+    monkeypatch,
+    capsys,
+):
+    script = load_run_wellbore_summary_script()
+    captured = {}
+
+    def fake_load_openai_api_key_from_repo_env(repo_root: Path) -> bool:
+        captured["repo_root"] = repo_root
+        return False
+
+    def fake_run_wellbore_summary(
+        *,
+        object_store_root: Path,
+        document_id: str,
+        out_dir: Path,
+        client,
+        batch_size: int,
+        overlap: int,
+    ) -> dict:
+        captured.update(
+            {
+                "object_store_root": object_store_root,
+                "document_id": document_id,
+                "out_dir": out_dir,
+                "client": client,
+                "batch_size": batch_size,
+                "overlap": overlap,
+            }
+        )
+        return {"ok": True, "document_id": document_id}
+
+    script["main"].__globals__["load_openai_api_key_from_repo_env"] = (
+        fake_load_openai_api_key_from_repo_env
+    )
+    script["main"].__globals__["run_wellbore_summary"] = fake_run_wellbore_summary
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "scripts/run_wellbore_summary.py",
+            "--document-id",
+            "doc",
+            "--provider",
+            "dry-run",
+            "--object-store-root",
+            "object_store",
+            "--out-dir",
+            "out",
+        ],
+    )
+
+    exit_code = script["main"]()
+
+    assert exit_code == 0
+    assert captured["document_id"] == "doc"
+    assert captured["object_store_root"] == Path("object_store")
+    assert captured["out_dir"] == Path("out")
+    assert captured["client"].model == "dry-run-no-llm"
+    assert captured["batch_size"] == 10
+    assert captured["overlap"] == 1
+    assert json.loads(capsys.readouterr().out) == {
+        "ok": True,
+        "document_id": "doc",
+    }
