@@ -4,6 +4,7 @@ import base64
 import json
 import mimetypes
 import os
+import re
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -28,6 +29,7 @@ from .render import page_dir_name
 DEFAULT_RECONCILE_MODEL = "gpt-5.4-mini"
 DEFAULT_RECONCILE_PROMPT_VERSION = "reconcile-page-v5"
 DEFAULT_IMAGE_DETAIL = "high"
+DEFAULT_RECONCILE_TEMPERATURE = 0
 OPENAI_PRICING_CAPTURED_AT = "2026-06-08"
 OPENAI_PRICING_SOURCE = "https://openai.com/api/pricing/"
 OPENAI_MODEL_PRICING: dict[str, dict[str, float]] = {
@@ -39,6 +41,13 @@ OPENAI_MODEL_PRICING: dict[str, dict[str, float]] = {
 }
 
 VALID_WINNERS = {"union", "small", "mixed", "uncertain"}
+SYMBOLIC_ASSET_URI_PREFIX = "asset://IMAGE_"
+
+_HTML_IMAGE_SRC_RE = re.compile(
+    r'(<img\b[^>]*\bsrc\s*=\s*)(?P<quote>["\'])(?P<path>[^"\']+)(?P=quote)',
+    re.IGNORECASE,
+)
+_MARKDOWN_IMAGE_RE = re.compile(r"(!\[[^\]]*\]\()(?P<path>[^)\s]+)(\))")
 
 RECONCILE_RESPONSE_FORMAT: dict[str, Any] = {
     "type": "json_schema",
@@ -72,6 +81,7 @@ class PageReconcileInputs:
     small_markdown_path: Path
     union_markdown: str
     small_markdown: str
+    symbolic_asset_refs: Mapping[str, str] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -179,15 +189,79 @@ def load_page_inputs(run_root: Path, page: int) -> PageReconcileInputs:
     else:
         raise FileNotFoundError(f"Missing page image: {union_image_path} or {small_image_path}")
 
+    union_markdown = union_markdown_path.read_text(encoding="utf-8")
+    small_markdown = small_markdown_path.read_text(encoding="utf-8")
     return PageReconcileInputs(
         document_id=run_root.name,
         page=page,
         page_image_path=page_image_path,
         union_markdown_path=union_markdown_path,
         small_markdown_path=small_markdown_path,
-        union_markdown=union_markdown_path.read_text(encoding="utf-8"),
-        small_markdown=small_markdown_path.read_text(encoding="utf-8"),
+        union_markdown=union_markdown,
+        small_markdown=small_markdown,
+        symbolic_asset_refs=_build_symbolic_asset_refs(
+            union_markdown=union_markdown,
+            small_markdown=small_markdown,
+            union_page_dir=union_page_dir,
+            small_page_dir=small_page_dir,
+        ),
     )
+
+
+def _build_symbolic_asset_refs(
+    *,
+    union_markdown: str,
+    small_markdown: str,
+    union_page_dir: Path,
+    small_page_dir: Path,
+) -> dict[str, str]:
+    local_refs: list[str] = []
+    seen: set[str] = set()
+    for markdown in (union_markdown, small_markdown):
+        for ref in iter_markdown_image_refs(markdown):
+            if ref in seen:
+                continue
+            if not _page_asset_ref_exists(ref, union_page_dir, small_page_dir):
+                continue
+            seen.add(ref)
+            local_refs.append(ref)
+    return {
+        f"{SYMBOLIC_ASSET_URI_PREFIX}{index}": ref
+        for index, ref in enumerate(local_refs, start=1)
+    }
+
+
+def _page_asset_ref_exists(ref: str, union_page_dir: Path, small_page_dir: Path) -> bool:
+    for page_dir in (union_page_dir, small_page_dir):
+        try:
+            if resolve_asset_path(ref, page_dir).exists():
+                return True
+        except FileNotFoundError:
+            continue
+    return False
+
+
+def _symbolic_asset_replacements(inputs: PageReconcileInputs) -> dict[str, str]:
+    return {local_ref: symbol for symbol, local_ref in inputs.symbolic_asset_refs.items()}
+
+
+def _symbolic_asset_section(inputs: PageReconcileInputs) -> str:
+    if not inputs.symbolic_asset_refs:
+        return ""
+    lines = [
+        "Allowed image references:",
+        "Use only these symbolic image references when preserving page images. "
+        "Do not output raw imgs/... filenames.",
+    ]
+    lines.extend(f"- {symbol} = {local_ref}" for symbol, local_ref in inputs.symbolic_asset_refs.items())
+    return "\n".join(lines) + "\n\n"
+
+
+def _prompt_markdown(markdown: str, inputs: PageReconcileInputs) -> str:
+    replacements = _symbolic_asset_replacements(inputs)
+    if not replacements:
+        return markdown
+    return rewrite_markdown_image_refs(markdown, replacements)
 
 
 def build_reconcile_prompt(inputs: PageReconcileInputs) -> str:
@@ -258,13 +332,14 @@ def build_reconcile_prompt(inputs: PageReconcileInputs) -> str:
         "Return only the structured fields requested by the schema.\n\n"
         f"Document ID: {inputs.document_id}\n"
         f"Page: {inputs.page}\n\n"
+        f"{_symbolic_asset_section(inputs)}"
         "Union OCR draft Markdown:\n"
         "```markdown\n"
-        f"{inputs.union_markdown}\n"
+        f"{_prompt_markdown(inputs.union_markdown, inputs)}\n"
         "```\n\n"
         "Small OCR draft Markdown:\n"
         "```markdown\n"
-        f"{inputs.small_markdown}\n"
+        f"{_prompt_markdown(inputs.small_markdown, inputs)}\n"
         "```"
     )
 
@@ -307,6 +382,7 @@ def build_verify_prompt(inputs: PageReconcileInputs, round_one_markdown: str) ->
         "Return only the structured fields requested by the schema.\n\n"
         f"Document ID: {inputs.document_id}\n"
         f"Page: {inputs.page}\n\n"
+        f"{_symbolic_asset_section(inputs)}"
         "Candidate round-one Markdown:\n"
         "```markdown\n"
         f"{round_one_markdown}\n"
@@ -544,6 +620,7 @@ class OpenAIResponsesVisionClient:
             model=self.model,
             input=full_input,
             text={"format": RECONCILE_RESPONSE_FORMAT},
+            temperature=DEFAULT_RECONCILE_TEMPERATURE,
         )
         usage_metadata = _usage_metadata(getattr(response, "usage", None))
         token_split = self._token_split_metadata(
@@ -620,6 +697,64 @@ def _asset_base_dir_for(inputs: PageReconcileInputs, result: PageReconciliationR
         except FileNotFoundError:
             continue
     return ordered_candidates[0]
+
+
+def _iter_markdown_image_refs_with_asset_uris(markdown: str) -> list[str]:
+    refs: list[str] = []
+    for match in _HTML_IMAGE_SRC_RE.finditer(markdown):
+        refs.append(match.group("path"))
+    for match in _MARKDOWN_IMAGE_RE.finditer(markdown):
+        refs.append(match.group("path"))
+    return refs
+
+
+def _materialize_symbolic_asset_refs(
+    inputs: PageReconcileInputs,
+    result: PageReconciliationResult,
+) -> PageReconciliationResult:
+    if not inputs.symbolic_asset_refs:
+        return result
+
+    refs = _iter_markdown_image_refs_with_asset_uris(result.reconciled_markdown)
+    local_refs = iter_markdown_image_refs(result.reconciled_markdown)
+    if local_refs:
+        raise FileNotFoundError(
+            "Unsupported non-symbolic image reference in model output: "
+            + ", ".join(sorted(set(local_refs)))
+        )
+
+    unknown_symbols = sorted(
+        {
+            ref
+            for ref in refs
+            if ref.startswith(SYMBOLIC_ASSET_URI_PREFIX)
+            and ref not in inputs.symbolic_asset_refs
+        }
+    )
+    if unknown_symbols:
+        raise FileNotFoundError(
+            "Unknown symbolic image reference in model output: " + ", ".join(unknown_symbols)
+        )
+
+    if not any(ref in inputs.symbolic_asset_refs for ref in refs):
+        return result
+
+    materialized_markdown = rewrite_markdown_image_refs(
+        result.reconciled_markdown,
+        dict(inputs.symbolic_asset_refs),
+    )
+    return PageReconciliationResult(
+        document_id=result.document_id,
+        page=result.page,
+        reconciled_markdown=materialized_markdown,
+        winner=result.winner,
+        warnings=result.warnings,
+        needs_human_review=result.needs_human_review,
+        model=result.model,
+        prompt_version=result.prompt_version,
+        source_refs=result.source_refs,
+        llm_calls=result.llm_calls,
+    )
 
 
 def _prepare_result_for_publish(
@@ -715,9 +850,19 @@ def run_reconciliation(
 
         inputs = load_page_inputs(run_root, page)
         result = reconciler.reconcile_page(inputs)
-        publish_result, asset_base_dir = _prepare_result_for_publish(inputs, result)
+        asset_base_dir: Path | None = None
         try:
+            materialized_result = _materialize_symbolic_asset_refs(inputs, result)
+            publish_result, asset_base_dir = _prepare_result_for_publish(
+                inputs,
+                materialized_result,
+            )
             published = publisher.publish(publish_result, asset_base_dir=asset_base_dir)
+        except OSError as exc:
+            published = publisher.publish_failure(
+                result,
+                error_message=str(exc),
+            )
         finally:
             staging_root = inputs.union_markdown_path.parent / ".reconcile_assets"
             if asset_base_dir == staging_root / "publish":

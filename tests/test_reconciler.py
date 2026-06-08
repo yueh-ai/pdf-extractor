@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import runpy
+import sqlite3
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -314,6 +315,41 @@ def test_build_reconcile_prompt_rejects_chart_grid_noise_as_tables(tmp_path):
     assert "Do not convert charts, plots, graph grids" in prompt
     assert "long repeated-character runs" in prompt
     assert "keep supported image references instead of inventing tabular data" in prompt
+
+
+def test_build_reconcile_prompt_uses_symbolic_image_refs(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    union_page = write_page(
+        run_root,
+        "union",
+        34,
+        '<img src="imgs/logo.jpg" alt="Logo">\n\n![plot](imgs/plot.jpg)',
+    )
+    small_page = write_page(
+        run_root,
+        "small",
+        34,
+        "![plot](imgs/plot.jpg)\n\n![seal](imgs/seal.jpg)",
+    )
+    (union_page / "imgs").mkdir()
+    (small_page / "imgs").mkdir()
+    (union_page / "imgs" / "logo.jpg").write_bytes(b"logo")
+    (union_page / "imgs" / "plot.jpg").write_bytes(b"union-plot")
+    (small_page / "imgs" / "plot.jpg").write_bytes(b"small-plot")
+    (small_page / "imgs" / "seal.jpg").write_bytes(b"seal")
+
+    prompt = build_reconcile_prompt(load_page_inputs(run_root, 34))
+
+    assert "Allowed image references:" in prompt
+    assert "- asset://IMAGE_1 = imgs/logo.jpg" in prompt
+    assert "- asset://IMAGE_2 = imgs/plot.jpg" in prompt
+    assert "- asset://IMAGE_3 = imgs/seal.jpg" in prompt
+    assert '<img src="asset://IMAGE_1" alt="Logo">' in prompt
+    assert "![plot](asset://IMAGE_2)" in prompt
+    assert "![seal](asset://IMAGE_3)" in prompt
+    assert '<img src="imgs/logo.jpg"' not in prompt
+    assert "![plot](imgs/plot.jpg)" not in prompt
+    assert "![seal](imgs/seal.jpg)" not in prompt
 
 
 def test_vision_reconciler_validates_structured_fields(tmp_path):
@@ -653,13 +689,13 @@ def test_run_reconciliation_skips_published_pages_unless_forced(tmp_path):
 
 def test_run_reconciliation_mixed_page_can_publish_page_local_assets(tmp_path):
     run_root = tmp_path / "runs" / "sample-doc"
-    union_page = write_page(run_root, "union", 6, "# union")
+    union_page = write_page(run_root, "union", 6, "![seal](imgs/seal.jpg)")
     write_page(run_root, "small", 6, "# small")
     (union_page / "imgs").mkdir()
     (union_page / "imgs" / "seal.jpg").write_bytes(b"jpeg")
     client = FakeVisionClient(
         {
-            "reconciled_markdown": "![seal](imgs/seal.jpg)",
+            "reconciled_markdown": "![seal](asset://IMAGE_1)",
             "winner": "mixed",
             "warnings": [],
             "needs_human_review": False,
@@ -687,17 +723,18 @@ def test_run_reconciliation_mixed_page_can_publish_page_local_assets(tmp_path):
         / "output.md"
     ).read_text(encoding="utf-8")
     assert "asset://pdf-extract/reconciled/sample-doc/pages/page_0006/assets/seal.jpg" in output
+    assert "asset://IMAGE_1" not in output
 
 
 def test_run_reconciliation_mixed_page_can_publish_small_only_assets(tmp_path):
     run_root = tmp_path / "runs" / "sample-doc"
     write_page(run_root, "union", 7, "# union")
-    small_page = write_page(run_root, "small", 7, "# small")
+    small_page = write_page(run_root, "small", 7, "![seal](imgs/seal.jpg)")
     (small_page / "imgs").mkdir()
     (small_page / "imgs" / "seal.jpg").write_bytes(b"jpeg")
     client = FakeVisionClient(
         {
-            "reconciled_markdown": "![seal](imgs/seal.jpg)",
+            "reconciled_markdown": "![seal](asset://IMAGE_1)",
             "winner": "mixed",
             "warnings": [],
             "needs_human_review": False,
@@ -763,8 +800,8 @@ def test_prepared_publish_preserves_llm_calls(tmp_path):
 
 def test_run_reconciliation_mixed_page_can_publish_assets_split_across_modes(tmp_path):
     run_root = tmp_path / "runs" / "sample-doc"
-    union_page = write_page(run_root, "union", 11, "# union")
-    small_page = write_page(run_root, "small", 11, "# small")
+    union_page = write_page(run_root, "union", 11, "![union](imgs/union.jpg)")
+    small_page = write_page(run_root, "small", 11, "![small](imgs/small.jpg)")
     (union_page / "imgs").mkdir()
     (small_page / "imgs").mkdir()
     (union_page / "imgs" / "union.jpg").write_bytes(b"union-jpeg")
@@ -772,8 +809,8 @@ def test_run_reconciliation_mixed_page_can_publish_assets_split_across_modes(tmp
     client = FakeVisionClient(
         {
             "reconciled_markdown": (
-                "![union](imgs/union.jpg)\n\n"
-                "![small](imgs/small.jpg)"
+                "![union](asset://IMAGE_1)\n\n"
+                "![small](asset://IMAGE_2)"
             ),
             "winner": "mixed",
             "warnings": [],
@@ -804,6 +841,40 @@ def test_run_reconciliation_mixed_page_can_publish_assets_split_across_modes(tmp
     assert (asset_dir / "union.jpg").read_bytes() == b"union-jpeg"
     assert (asset_dir / "small.jpg").read_bytes() == b"small-jpeg"
     assert not (union_page / ".reconcile_assets").exists()
+
+
+def test_run_reconciliation_rejects_local_image_refs_when_symbolic_assets_exist(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    union_page = write_page(run_root, "union", 34, "![seal](imgs/seal.jpg)")
+    write_page(run_root, "small", 34, "# small")
+    (union_page / "imgs").mkdir()
+    (union_page / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    client = FakeVisionClient(
+        {
+            "reconciled_markdown": "![seal](imgs/seal.jpg)",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+
+    result = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=client,
+        pages=[34],
+    )
+
+    assert result["published_pages"] == []
+    assert result["failed_pages"] == [34]
+    with sqlite3.connect(tmp_path / "catalog.sqlite") as conn:
+        error_message = conn.execute(
+            "select error_message from pages where document_id = ? and page = ?",
+            ("sample-doc", 34),
+        ).fetchone()[0]
+    assert "non-symbolic image reference" in error_message
 
 
 def test_prepared_mixed_publish_does_not_allow_unresolved_sibling_absolute_asset(tmp_path):
@@ -1044,6 +1115,7 @@ def test_openai_responses_vision_client_sends_image_and_json_schema(tmp_path):
     assert image_item["image_url"].startswith("data:image/png;base64,")
     assert call["text"]["format"]["type"] == "json_schema"
     assert call["text"]["format"]["strict"] is True
+    assert call["temperature"] == 0
     assert call["text"]["format"]["schema"]["required"] == [
         "reconciled_markdown",
         "winner",

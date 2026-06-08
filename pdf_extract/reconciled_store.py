@@ -314,24 +314,32 @@ class ReconciledPagePublisher:
         try:
             return self._publish_success(result, asset_base_dir)
         except OSError as exc:
-            published = PublishedPage(
-                document_id=result.document_id,
-                page=result.page,
-                status=PUBLISH_FAILED,
-                markdown_key=None,
-                assets_key=None,
-                decision_key=None,
-                markdown_sha256=None,
-                asset_count=0,
-                error_message=str(exc),
-            )
-            self.catalog.upsert_page(
-                published,
-                markdown_text=None,
-                needs_human_review=result.needs_human_review,
-                warning_count=result.warning_count,
-            )
-            return published
+            return self.publish_failure(result, error_message=str(exc))
+
+    def publish_failure(
+        self,
+        result: PageReconciliationResult,
+        *,
+        error_message: str,
+    ) -> PublishedPage:
+        published = PublishedPage(
+            document_id=result.document_id,
+            page=result.page,
+            status=PUBLISH_FAILED,
+            markdown_key=None,
+            assets_key=None,
+            decision_key=None,
+            markdown_sha256=None,
+            asset_count=0,
+            error_message=error_message,
+        )
+        self.catalog.upsert_page(
+            published,
+            markdown_text=None,
+            needs_human_review=result.needs_human_review,
+            warning_count=result.warning_count,
+        )
+        return published
 
     def _publish_success(
         self,
