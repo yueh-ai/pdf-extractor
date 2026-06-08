@@ -27,6 +27,16 @@ from .render import page_dir_name
 
 DEFAULT_RECONCILE_MODEL = "gpt-5.4-mini"
 DEFAULT_RECONCILE_PROMPT_VERSION = "reconcile-page-v5"
+DEFAULT_IMAGE_DETAIL = "high"
+OPENAI_PRICING_CAPTURED_AT = "2026-06-08"
+OPENAI_PRICING_SOURCE = "https://openai.com/api/pricing/"
+OPENAI_MODEL_PRICING: dict[str, dict[str, float]] = {
+    "gpt-5.4-mini": {
+        "input_per_1m": 0.75,
+        "cached_input_per_1m": 0.075,
+        "output_per_1m": 4.5,
+    }
+}
 
 VALID_WINNERS = {"union", "small", "mixed", "uncertain"}
 
@@ -401,6 +411,55 @@ def image_data_url(image_path: Path) -> str:
     return f"data:{content_type};base64,{encoded}"
 
 
+def _get_attr_or_key(value: Any, key: str, default: Any = None) -> Any:
+    if value is None:
+        return default
+    if isinstance(value, Mapping):
+        return value.get(key, default)
+    return getattr(value, key, default)
+
+
+def _usage_metadata(usage: Any) -> dict[str, int | None]:
+    input_details = _get_attr_or_key(usage, "input_tokens_details", {})
+    output_details = _get_attr_or_key(usage, "output_tokens_details", {})
+    return {
+        "input_tokens": _get_attr_or_key(usage, "input_tokens"),
+        "cached_input_tokens": _get_attr_or_key(input_details, "cached_tokens", 0),
+        "output_tokens": _get_attr_or_key(usage, "output_tokens"),
+        "reasoning_tokens": _get_attr_or_key(output_details, "reasoning_tokens", 0),
+        "total_tokens": _get_attr_or_key(usage, "total_tokens"),
+    }
+
+
+def _pricing_for_model(model: str) -> dict[str, Any] | None:
+    rates = OPENAI_MODEL_PRICING.get(model)
+    if rates is None:
+        return None
+    return {
+        **rates,
+        "currency": "USD",
+        "source": OPENAI_PRICING_SOURCE,
+        "captured_at": OPENAI_PRICING_CAPTURED_AT,
+    }
+
+
+def _estimated_cost_usd(*, model: str, usage: Mapping[str, int | None]) -> float | None:
+    pricing = _pricing_for_model(model)
+    if pricing is None:
+        return None
+    input_tokens = usage.get("input_tokens")
+    cached_input_tokens = usage.get("cached_input_tokens") or 0
+    output_tokens = usage.get("output_tokens")
+    if input_tokens is None or output_tokens is None:
+        return None
+    uncached_input_tokens = max(input_tokens - cached_input_tokens, 0)
+    return (
+        uncached_input_tokens / 1_000_000 * pricing["input_per_1m"]
+        + cached_input_tokens / 1_000_000 * pricing["cached_input_per_1m"]
+        + output_tokens / 1_000_000 * pricing["output_per_1m"]
+    )
+
+
 class OpenAIResponsesVisionClient:
     def __init__(
         self,
@@ -422,25 +481,89 @@ class OpenAIResponsesVisionClient:
 
         self._client = OpenAI(api_key=api_key)
 
-    def reconcile(self, *, image_path: Path, prompt: str) -> dict[str, Any]:
+    def _input_payload(
+        self,
+        *,
+        image_path: Path,
+        prompt: str,
+        include_image: bool,
+    ) -> list[dict[str, Any]]:
+        content: list[dict[str, Any]] = [{"type": "input_text", "text": prompt}]
+        if include_image:
+            content.append(
+                {
+                    "type": "input_image",
+                    "image_url": image_data_url(image_path),
+                    "detail": DEFAULT_IMAGE_DETAIL,
+                }
+            )
+        return [{"role": "user", "content": content}]
+
+    def _count_input_tokens(self, *, input_payload: list[dict[str, Any]]) -> int:
+        input_tokens_api = getattr(self._client.responses, "input_tokens", None)
+        if input_tokens_api is None:
+            input_tokens_api = getattr(self._client.responses, "inputTokens", None)
+        create = getattr(input_tokens_api, "create")
+        result = create(model=self.model, input=input_payload)
+        return int(_get_attr_or_key(result, "input_tokens"))
+
+    def _token_split_metadata(
+        self,
+        *,
+        image_path: Path,
+        prompt: str,
+        full_input: list[dict[str, Any]],
+    ) -> dict[str, Any]:
+        try:
+            full_tokens = self._count_input_tokens(input_payload=full_input)
+            text_tokens = self._count_input_tokens(
+                input_payload=self._input_payload(
+                    image_path=image_path,
+                    prompt=prompt,
+                    include_image=False,
+                )
+            )
+            return {
+                "input_text_tokens_derived": text_tokens,
+                "input_image_tokens_derived": max(full_tokens - text_tokens, 0),
+                "input_split_method": "responses.input_tokens_delta",
+            }
+        except Exception as exc:
+            return {
+                "input_text_tokens_derived": None,
+                "input_image_tokens_derived": None,
+                "input_split_method": "unavailable",
+                "accounting_warning": str(exc),
+            }
+
+    def reconcile(self, *, image_path: Path, prompt: str) -> ModelCallResult:
+        full_input = self._input_payload(image_path=image_path, prompt=prompt, include_image=True)
         response = self._client.responses.create(
             model=self.model,
-            input=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "input_text", "text": prompt},
-                        {
-                            "type": "input_image",
-                            "image_url": image_data_url(image_path),
-                            "detail": "high",
-                        },
-                    ],
-                }
-            ],
+            input=full_input,
             text={"format": RECONCILE_RESPONSE_FORMAT},
         )
-        return json.loads(response.output_text)
+        usage_metadata = _usage_metadata(getattr(response, "usage", None))
+        token_split = self._token_split_metadata(
+            image_path=image_path,
+            prompt=prompt,
+            full_input=full_input,
+        )
+        pricing = _pricing_for_model(self.model)
+        call_metadata: dict[str, Any] = {
+            "response_id": getattr(response, "id", None),
+            **usage_metadata,
+            **token_split,
+            "image_count": 1,
+            "image_detail": DEFAULT_IMAGE_DETAIL,
+            "estimated_cost_usd": _estimated_cost_usd(model=self.model, usage=usage_metadata),
+        }
+        if pricing is not None:
+            call_metadata["pricing"] = pricing
+        return ModelCallResult(
+            payload=json.loads(response.output_text),
+            call_metadata=call_metadata,
+        )
 
 
 def _published_page_set(

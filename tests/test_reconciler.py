@@ -108,19 +108,59 @@ class CountingVisionClient:
         }
 
 
-class FakeResponsesAPI:
-    def __init__(self, payload: dict):
-        self.payload = payload
+class FakeInputTokensAPI:
+    def __init__(self, counts: list[int] | None = None, *, fail: bool = False):
+        self.counts = list(counts or [])
+        self.fail = fail
         self.calls: list[dict[str, object]] = []
 
     def create(self, **kwargs):
         self.calls.append(kwargs)
-        return SimpleNamespace(output_text=json.dumps(self.payload))
+        if self.fail:
+            raise RuntimeError("input token preflight failed")
+        if not self.counts:
+            raise AssertionError("No fake input token count queued")
+        return SimpleNamespace(input_tokens=self.counts.pop(0))
+
+
+class FakeResponsesAPI:
+    def __init__(
+        self,
+        payload: dict,
+        *,
+        usage: object | None = None,
+        input_token_counts: list[int] | None = None,
+        input_tokens_fail: bool = False,
+    ):
+        self.payload = payload
+        self.usage = usage
+        self.calls: list[dict[str, object]] = []
+        self.input_tokens = FakeInputTokensAPI(input_token_counts, fail=input_tokens_fail)
+
+    def create(self, **kwargs):
+        self.calls.append(kwargs)
+        return SimpleNamespace(
+            id="resp_test",
+            output_text=json.dumps(self.payload),
+            usage=self.usage,
+        )
 
 
 class FakeOpenAISDK:
-    def __init__(self, payload: dict):
-        self.responses = FakeResponsesAPI(payload)
+    def __init__(
+        self,
+        payload: dict,
+        *,
+        usage: object | None = None,
+        input_token_counts: list[int] | None = None,
+        input_tokens_fail: bool = False,
+    ):
+        self.responses = FakeResponsesAPI(
+            payload,
+            usage=usage,
+            input_token_counts=input_token_counts,
+            input_tokens_fail=input_tokens_fail,
+        )
 
 
 def load_run_reconcile_script() -> dict[str, object]:
@@ -926,13 +966,14 @@ def test_openai_responses_vision_client_sends_image_and_json_schema(tmp_path):
             "winner": "mixed",
             "warnings": ["table uncertain"],
             "needs_human_review": True,
-        }
+        },
+        input_token_counts=[100, 20],
     )
     client = OpenAIResponsesVisionClient(model="gpt-test-vision", sdk_client=fake_sdk)
 
     response = client.reconcile(image_path=image_path, prompt="reconcile this page")
 
-    assert response["winner"] == "mixed"
+    assert response.payload["winner"] == "mixed"
     call = fake_sdk.responses.calls[0]
     assert call["model"] == "gpt-test-vision"
     assert call["input"][0]["role"] == "user"
@@ -949,6 +990,78 @@ def test_openai_responses_vision_client_sends_image_and_json_schema(tmp_path):
         "warnings",
         "needs_human_review",
     ]
+
+
+def test_openai_responses_vision_client_returns_usage_and_token_split_metadata(tmp_path):
+    image_path = tmp_path / "page.png"
+    image_path.write_bytes(b"\x89PNG\r\n\x1a\n")
+    usage = SimpleNamespace(
+        input_tokens=1200,
+        input_tokens_details=SimpleNamespace(cached_tokens=100),
+        output_tokens=300,
+        output_tokens_details=SimpleNamespace(reasoning_tokens=40),
+        total_tokens=1500,
+    )
+    fake_sdk = FakeOpenAISDK(
+        {
+            "reconciled_markdown": "# merged",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        },
+        usage=usage,
+        input_token_counts=[1200, 200],
+    )
+    client = OpenAIResponsesVisionClient(model="gpt-5.4-mini", sdk_client=fake_sdk)
+
+    response = client.reconcile(image_path=image_path, prompt="reconcile this page")
+
+    assert isinstance(response, ModelCallResult)
+    assert response.payload["winner"] == "mixed"
+    assert response.call_metadata["response_id"] == "resp_test"
+    assert response.call_metadata["input_tokens"] == 1200
+    assert response.call_metadata["cached_input_tokens"] == 100
+    assert response.call_metadata["output_tokens"] == 300
+    assert response.call_metadata["reasoning_tokens"] == 40
+    assert response.call_metadata["total_tokens"] == 1500
+    assert response.call_metadata["input_text_tokens_derived"] == 200
+    assert response.call_metadata["input_image_tokens_derived"] == 1000
+    assert response.call_metadata["input_split_method"] == "responses.input_tokens_delta"
+    assert response.call_metadata["image_count"] == 1
+    assert response.call_metadata["image_detail"] == "high"
+    assert response.call_metadata["estimated_cost_usd"] > 0
+    assert response.call_metadata["pricing"]["captured_at"] == "2026-06-08"
+
+
+def test_openai_responses_vision_client_keeps_content_when_token_preflight_fails(tmp_path):
+    image_path = tmp_path / "page.png"
+    image_path.write_bytes(b"\x89PNG\r\n\x1a\n")
+    usage = {
+        "input_tokens": 1200,
+        "input_tokens_details": {"cached_tokens": 0},
+        "output_tokens": 300,
+        "output_tokens_details": {"reasoning_tokens": 0},
+        "total_tokens": 1500,
+    }
+    fake_sdk = FakeOpenAISDK(
+        {
+            "reconciled_markdown": "# merged",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        },
+        usage=usage,
+        input_tokens_fail=True,
+    )
+    client = OpenAIResponsesVisionClient(model="gpt-5.4-mini", sdk_client=fake_sdk)
+
+    response = client.reconcile(image_path=image_path, prompt="reconcile this page")
+
+    assert response.payload["reconciled_markdown"] == "# merged"
+    assert response.call_metadata["input_text_tokens_derived"] is None
+    assert response.call_metadata["input_image_tokens_derived"] is None
+    assert response.call_metadata["input_split_method"] == "unavailable"
+    assert "input token preflight failed" in response.call_metadata["accounting_warning"]
 
 
 def test_cli_helpers_support_env_model_and_repo_dotenv(monkeypatch, tmp_path):
