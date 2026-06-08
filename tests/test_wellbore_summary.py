@@ -10,6 +10,7 @@ from pdf_extract.wellbore_summary import (
     CandidateFact,
     ReconciledSummaryPage,
     SummaryBatch,
+    build_fact_scout_prompt,
     build_fact_scout_response_format,
     build_summary_batches,
     discover_reconciled_summary_pages,
@@ -315,3 +316,41 @@ def test_build_summary_batches_rejects_overlap_not_less_than_batch_size():
 
     with pytest.raises(ValueError, match="overlap must be smaller"):
         build_summary_batches(pages, batch_size=10, overlap=10)
+
+
+def test_build_fact_scout_prompt_uses_source_manifest_and_boundaries():
+    batch = SummaryBatch(
+        document_id="doc",
+        batch_id="pages_0028_0029",
+        pages=(
+            ReconciledSummaryPage(
+                document_id="doc",
+                page=28,
+                source_id="page_0028",
+                markdown_key="key-28",
+                markdown="C-105 casing table",
+                needs_human_review=False,
+            ),
+            ReconciledSummaryPage(
+                document_id="doc",
+                page=29,
+                source_id="page_0029",
+                markdown_key="key-29",
+                markdown="Formation tops table",
+                needs_human_review=False,
+            ),
+        ),
+    )
+
+    prompt = build_fact_scout_prompt(batch)
+
+    assert "Document ID: doc" in prompt
+    assert "Batch ID: pages_0028_0029" in prompt
+    assert "Source manifest:" in prompt
+    assert "- source_id: page_0028" in prompt
+    assert "===== BEGIN SOURCE page_0028 =====" in prompt
+    assert "===== END SOURCE page_0029 =====" in prompt
+    assert "Do not cite page numbers printed inside the PDF/form/Markdown." in prompt
+    assert "source_page_ids" in prompt
+    assert "C-105 casing table" in prompt
+    assert "Formation tops table" in prompt

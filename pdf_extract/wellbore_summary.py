@@ -34,6 +34,91 @@ REDUCER_PROMPT_VERSION = "wellbore-current-reducer-v1"
 _SOURCE_ID_RE = re.compile(r"^page_(\d{4,})$")
 
 
+FACT_SCOUT_INSTRUCTIONS = """You are extracting wellbore-diagram/current-data candidate facts from reconciled PDF Markdown.
+
+You receive a batch of PDF page sources. Each source has a system-provided source_id such as `page_0028`. Use source IDs for citations. Use only the provided Markdown. Do not use outside knowledge. Do not guess.
+
+Important source citation rule:
+- Every fact must cite source_page_ids from the provided source manifest.
+- Use source IDs exactly; use source_id values such as page_0028.
+- Do not cite batch positions or the page's position inside this batch.
+- Do not cite page numbers printed inside the PDF/form/Markdown.
+- Do not invent source IDs.
+- If one fact is supported by multiple sources in this batch, include all supporting source IDs.
+
+Your job is not to write the final summary. Your job is to collect candidate facts that may help fill a current wellbore data summary.
+
+Target sections:
+- well_identity
+- elevations
+- operation_timeline
+- hole_sections
+- casing_and_tubing_strings
+- downhole_items_and_reference_depths
+- cement_jobs
+- plugs
+- perforations_and_treatments
+- directional_and_lateral_details
+- formation_tops
+
+Extract facts about:
+- well name, API, operator, location, county/state, coordinates, spud/completion dates
+- GL/GR/KB/RKB/elevation datum values
+- drilling/completion timeline events
+- hole sizes and intervals
+- casing/tubing strings, weights, grades, connections, setting depths
+- TD, PBTD, KOP, TOC, DV tool, float collar, casing shoes, packers, plugs
+- cement jobs, volumes, classes/blends, top/bottom depths, returns/circulation
+- perforation depths, treatment intervals, acid/frac/squeeze/cement treatments
+- directional/lateral MD/TVD ranges, azimuth/direction, pilot-hole details
+- formation tops
+
+Common source contexts you may see:
+- APD / C-101 permit or application: often proposed well plan, proposed casing, proposed cement, proposed TD, proposed location.
+- C-102 plat: location, SHL/BHL, section-township-range, county, coordinates, lease/well name.
+- C-103 subsequent report / sundry notice: actual operations, casing set, cement jobs, plugs, drilling progress, TD, rig release, changes.
+- C-104 request for allowable / authorization to transport: completion status, producing interval, first production, operator/well identity.
+- C-105 well completion report: final TD/PBTD, casing/tubing, cement, formations, perforations, dates, elevations.
+- C-105 continuation / attachment: perforation lists, treatment stages, casing/cement details.
+- Directional plan: proposed KOP, planned MD/TVD, planned lateral, planned azimuth, target details.
+- Directional survey / final survey: actual survey stations, MD/TVD, inclination, azimuth, closure, BHL, lateral direction.
+- Formation tops table: formation names and top depths.
+- Operator change / C-145 / transfer material: later/current operator, OGRID, effective dates.
+- C-129 or production/transport forms: operator identity, API, well status, production/admin data.
+- Wellbore diagram / schematic: visual summary of casing, cement, plugs, perforations, TD/PBTD, formation tops.
+- Daily completion/workover narrative: tubing, packer, acid/frac/perforation stages, plugs, DV tool, cleanup.
+- Unknown form/table/header: use this when the source type is not clear.
+
+Use these labels inside source_context when they fit. Do not invent a form name when the provided source does not make it clear.
+
+For each fact, return:
+- section
+- field
+- value
+- source_page_ids
+- source_context
+- source_snippet
+- status_hint
+- confidence
+- notes
+
+Rules:
+- source_page_ids must contain one or more source_id values from the source manifest.
+- source_snippet is required. Keep it short: enough to recognize the source evidence, not a long copy.
+- source_context should describe the form/table/narrative context when clear. If unclear, use a generic context such as operation narrative, completion table, directional survey table, formation tops table, proposed plan, or unknown form.
+- status_hint must be one of: actual, proposed, historical, uncertain, unknown.
+- confidence must be one of: high, medium, low.
+- Mark APD, permit plans, drilling plans, directional plans, revised plans, and contingency designs as proposed unless the source clearly reports actual execution.
+- Mark completion reports, subsequent reports, actual operation narratives, final survey/control records, and operator-change/current operator records as actual when they report executed/current facts.
+- Mark superseded real values as historical when the batch itself makes that clear.
+- Use uncertain when the value is ambiguous, malformed, contradicted, or low-confidence.
+- Preserve proposed values as facts; the later reducer will decide whether they belong in the current summary.
+- Do not deduplicate aggressively inside the batch. If two facts differ in value, context, status, datum, or source ID, keep both.
+- Do not invent missing values.
+- If a source contains no relevant wellbore facts, return no facts for that source.
+"""
+
+
 @dataclass(frozen=True)
 class ReconciledSummaryPage:
     document_id: str
@@ -190,6 +275,32 @@ def build_summary_batches(
         start += step
 
     return tuple(batches)
+
+
+def build_fact_scout_prompt(batch: SummaryBatch) -> str:
+    manifest = "\n".join(f"- source_id: {page.source_id}" for page in batch.pages)
+    source_blocks = []
+    for page in batch.pages:
+        source_blocks.append(
+            "\n".join(
+                (
+                    f"===== BEGIN SOURCE {page.source_id} =====",
+                    page.markdown,
+                    f"===== END SOURCE {page.source_id} =====",
+                )
+            )
+        )
+
+    return (
+        FACT_SCOUT_INSTRUCTIONS
+        + "\n\n"
+        + f"Document ID: {batch.document_id}\n"
+        + f"Batch ID: {batch.batch_id}\n\n"
+        + "Source manifest:\n"
+        + manifest
+        + "\n\n"
+        + "\n\n".join(source_blocks)
+    )
 
 
 def build_fact_scout_response_format(source_ids: Sequence[str]) -> dict[str, Any]:
