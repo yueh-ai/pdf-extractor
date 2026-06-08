@@ -10,11 +10,14 @@ from pdf_extract.wellbore_summary import (
     CandidateFact,
     ReconciledSummaryPage,
     SummaryBatch,
+    build_reducer_prompt,
     run_fact_scout_batches,
     build_fact_scout_prompt,
     build_fact_scout_response_format,
     build_summary_batches,
+    dedupe_candidate_facts,
     discover_reconciled_summary_pages,
+    display_pages_for_fact,
     page_number_from_source_id,
     parse_batch_fact_result,
     source_id_for_page,
@@ -65,6 +68,22 @@ class FakeTextClient:
     def create_text(self, *, prompt: str) -> str:
         self.text_calls.append({"prompt": prompt})
         return self.text_response
+
+
+def make_fact(**overrides) -> CandidateFact:
+    data = {
+        "section": "elevations",
+        "field": "ground_level_elevation",
+        "value": "3172'GR",
+        "source_page_ids": ("page_0010",),
+        "source_context": "C-103 subsequent report header",
+        "source_snippet": "3172'GR",
+        "status_hint": "actual",
+        "confidence": "high",
+        "notes": "Repeated GR elevation.",
+    }
+    data.update(overrides)
+    return CandidateFact(**data)
 
 
 def test_source_id_for_page_formats_four_digits():
@@ -433,3 +452,50 @@ def test_write_fact_ledger_writes_one_json_object_per_batch(tmp_path):
     assert len(rows) == 1
     assert rows[0]["batch_id"] == "pages_0028_0028"
     assert rows[0]["facts"][0]["source_page_ids"] == ["page_0028"]
+
+
+def test_display_pages_for_fact_maps_source_ids_to_numbers():
+    fact = make_fact(source_page_ids=("page_0028", "page_0030"))
+
+    assert display_pages_for_fact(fact) == "28, 30"
+
+
+def test_dedupe_candidate_facts_merges_duplicate_overlap_pages():
+    first = make_fact(
+        source_page_ids=("page_0010",),
+        notes="First copy.",
+        source_snippet="3172 GR",
+    )
+    second = make_fact(
+        source_page_ids=("page_0010", "page_0011"),
+        notes="Second copy.",
+        source_snippet="3172'GR",
+    )
+
+    merged = dedupe_candidate_facts((first, second))
+
+    assert len(merged) == 1
+    assert merged[0].source_page_ids == ("page_0010", "page_0011")
+    assert merged[0].source_snippet == "3172 GR | 3172'GR"
+    assert "First copy." in merged[0].notes
+    assert "Second copy." in merged[0].notes
+
+
+def test_dedupe_candidate_facts_keeps_different_status_separate():
+    actual = make_fact(status_hint="actual")
+    proposed = make_fact(status_hint="proposed")
+
+    merged = dedupe_candidate_facts((actual, proposed))
+
+    assert len(merged) == 2
+
+
+def test_build_reducer_prompt_includes_source_display_mapping():
+    facts = (make_fact(source_page_ids=("page_0028",)),)
+
+    prompt = build_reducer_prompt(facts, document_id="doc")
+
+    assert "Source PDF Page" in prompt
+    assert "Display source pages: 28" in prompt
+    assert "page_0028" in prompt
+    assert "Do not mention batches, prompts, fact IDs, or model behavior." in prompt

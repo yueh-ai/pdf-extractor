@@ -119,6 +119,49 @@ Rules:
 """
 
 
+REDUCER_INSTRUCTIONS = """You are creating a current wellbore data summary from extracted candidate facts.
+
+Use only the provided fact ledger. Do not use outside knowledge. Do not guess.
+
+Write a Markdown report shaped like:
+
+### Well Identity
+| Field | Value | Source PDF Page | Notes |
+
+### Elevations
+...
+
+Use these sections:
+- Well Identity
+- Elevations
+- Operation Timeline
+- Hole Sections
+- Casing And Tubing Strings
+- Downhole Items And Reference Depths
+- Cement Jobs
+- Plugs
+- Perforations And Treatments
+- Directional And Lateral Details
+- Formation Tops
+- Consolidated Conflicts And Uncertain Data
+
+Current-value rules:
+- Prefer actual facts over proposed facts.
+- Use proposed facts only when no actual/current fact exists, and clearly label them as proposed.
+- Preserve important proposed-vs-actual differences in conflicts/uncertain data when they explain why a value was not selected.
+- Collapse repeated duplicate values into one row with combined source pages.
+- Keep same-looking values separate when they have different datum, context, status, or meaning.
+- Later/current operator-change facts can supersede earlier operator facts.
+- Completion reports and actual operation reports generally beat APD/proposed plan values.
+- Survey report "Date Completed" values should not become well completion dates unless the fact specifically says it is the well completion/ready-to-produce date.
+- If facts conflict and no clear current value can be selected, keep the conflict in Consolidated Conflicts And Uncertain Data.
+- Every selected value must cite source PDF page(s).
+- Notes should explain why the value was selected, merged, or kept separate.
+- Do not include raw fact IDs.
+- Do not mention batches, prompts, fact IDs, or model behavior.
+"""
+
+
 @dataclass(frozen=True)
 class ReconciledSummaryPage:
     document_id: str
@@ -184,6 +227,14 @@ def page_number_from_source_id(source_id: str) -> int:
     if page < 1:
         raise ValueError(f"Invalid source_id: {source_id}")
     return page
+
+
+def display_pages_for_fact(fact: CandidateFact) -> str:
+    pages = sorted(
+        page_number_from_source_id(source_id)
+        for source_id in fact.source_page_ids
+    )
+    return ", ".join(str(page) for page in pages)
 
 
 def _page_number_from_page_dir(path: Path) -> int | None:
@@ -486,6 +537,83 @@ def run_fact_scout_batches(
             )
         )
     return tuple(results)
+
+
+def _normalize_text(value: str) -> str:
+    return re.sub(r"\s+", " ", value.strip().lower().replace(",", ""))
+
+
+def _dedupe_key(fact: CandidateFact) -> tuple[str, str, str, str, str]:
+    return (
+        fact.section,
+        _normalize_text(fact.field),
+        _normalize_text(fact.value),
+        fact.status_hint,
+        _normalize_text(fact.source_context),
+    )
+
+
+def _join_unique(values: Sequence[str]) -> str:
+    return " | ".join(dict.fromkeys(values))
+
+
+def dedupe_candidate_facts(
+    facts: Sequence[CandidateFact],
+) -> tuple[CandidateFact, ...]:
+    merged: dict[tuple[str, str, str, str, str], CandidateFact] = {}
+    for fact in facts:
+        key = _dedupe_key(fact)
+        existing = merged.get(key)
+        if existing is None:
+            merged[key] = fact
+            continue
+
+        merged[key] = CandidateFact(
+            section=existing.section,
+            field=existing.field,
+            value=existing.value,
+            source_page_ids=tuple(
+                sorted(set(existing.source_page_ids) | set(fact.source_page_ids))
+            ),
+            source_context=existing.source_context,
+            source_snippet=_join_unique(
+                (existing.source_snippet, fact.source_snippet)
+            ),
+            status_hint=existing.status_hint,
+            confidence=existing.confidence,
+            notes=_join_unique((existing.notes, fact.notes)),
+        )
+    return tuple(merged.values())
+
+
+def build_reducer_prompt(
+    facts: Sequence[CandidateFact],
+    *,
+    document_id: str,
+) -> str:
+    lines = [
+        REDUCER_INSTRUCTIONS,
+        "",
+        f"Document ID: {document_id}",
+        "",
+        "Candidate facts:",
+    ]
+    for index, fact in enumerate(facts, start=1):
+        lines.extend(
+            [
+                f"{index}. section: {fact.section}",
+                f"   field: {fact.field}",
+                f"   value: {fact.value}",
+                f"   source_page_ids: {', '.join(fact.source_page_ids)}",
+                f"   Display source pages: {display_pages_for_fact(fact)}",
+                f"   source_context: {fact.source_context}",
+                f"   source_snippet: {fact.source_snippet}",
+                f"   status_hint: {fact.status_hint}",
+                f"   confidence: {fact.confidence}",
+                f"   notes: {fact.notes}",
+            ]
+        )
+    return "\n".join(lines)
 
 
 def _fact_to_dict(fact: CandidateFact) -> dict[str, Any]:
