@@ -142,6 +142,11 @@ def create_arg_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Rerun selected pages even if already published.",
     )
+    parser.add_argument(
+        "--no-assemble",
+        action="store_true",
+        help="Skip combined document assembly after page reconciliation.",
+    )
     return parser
 
 
@@ -159,6 +164,7 @@ def main() -> int:
         client=create_client(provider=args.provider, model=args.model),
         pages=parse_pages_arg(args.pages),
         force=args.force,
+        assemble=not args.no_assemble,
     )
     print(json.dumps(result, indent=2))
     return 0

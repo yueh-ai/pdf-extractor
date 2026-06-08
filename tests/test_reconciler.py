@@ -1185,6 +1185,15 @@ def test_dry_run_client_returns_call_metadata():
     assert response.call_metadata["output_tokens"] is None
 
 
+def test_cli_parser_supports_no_assemble():
+    helpers = load_run_reconcile_script()
+    parser = helpers["create_arg_parser"]()
+
+    args = parser.parse_args(["--provider", "dry-run", "--no-assemble"])
+
+    assert args.no_assemble is True
+
+
 def test_cli_helpers_support_env_model_and_repo_dotenv(monkeypatch, tmp_path):
     helpers = load_run_reconcile_script()
     create_client = helpers["create_client"]
