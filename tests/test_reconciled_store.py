@@ -97,6 +97,17 @@ def test_page_result_decision_payload_includes_llm_calls():
     assert isinstance(result.llm_calls, tuple)
 
 
+def test_page_result_llm_calls_are_not_mutable_through_attribute():
+    args = _result_args()
+    args["llm_calls"] = [{"round": 1, "model": "gpt-5"}]
+
+    result = PageReconciliationResult(**args)
+
+    assert isinstance(result.llm_calls, tuple)
+    with pytest.raises(TypeError):
+        result.llm_calls[0]["new"] = "value"
+
+
 def test_page_result_rejects_invalid_page():
     args = _result_args()
     args["page"] = 0

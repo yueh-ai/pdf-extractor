@@ -57,7 +57,11 @@ class PageReconciliationResult:
                 raise ValueError(f"source_refs.{key} is required")
         object.__setattr__(self, "warnings", tuple(self.warnings))
         object.__setattr__(self, "source_refs", MappingProxyType(dict(self.source_refs)))
-        object.__setattr__(self, "llm_calls", tuple(dict(call) for call in self.llm_calls))
+        object.__setattr__(
+            self,
+            "llm_calls",
+            tuple(MappingProxyType(dict(call)) for call in self.llm_calls),
+        )
 
     @property
     def warning_count(self) -> int:
