@@ -53,6 +53,59 @@ def test_parse_batch_fact_result_accepts_valid_payload():
     assert result.facts[0].status_hint == "actual"
 
 
+def test_parse_batch_fact_result_rejects_malformed_fact_entry():
+    payload = {"facts": ["bad"], "warnings": []}
+
+    with pytest.raises(ValueError, match="fact must be an object"):
+        parse_batch_fact_result(
+            payload=payload,
+            document_id="doc",
+            batch_id="pages_0028_0037",
+            batch_pages=(28,),
+            allowed_source_ids=("page_0028",),
+            model="fake-model",
+            prompt_version="wellbore-fact-scout-v1",
+        )
+
+
+@pytest.mark.parametrize("warnings", ["bad", [1]])
+def test_parse_batch_fact_result_rejects_invalid_warnings_shape(warnings):
+    payload = valid_payload()
+    payload["warnings"] = warnings
+
+    with pytest.raises(ValueError, match=r"warnings must be a list\[str\]"):
+        parse_batch_fact_result(
+            payload=payload,
+            document_id="doc",
+            batch_id="pages_0028_0037",
+            batch_pages=(28,),
+            allowed_source_ids=("page_0028",),
+            model="fake-model",
+            prompt_version="wellbore-fact-scout-v1",
+        )
+
+
+def test_parse_batch_fact_result_dedupes_source_ids_in_first_seen_order():
+    payload = valid_payload()
+    payload["facts"][0]["source_page_ids"] = [
+        "page_0029",
+        "page_0028",
+        "page_0029",
+    ]
+
+    result = parse_batch_fact_result(
+        payload=payload,
+        document_id="doc",
+        batch_id="pages_0028_0037",
+        batch_pages=(28, 29),
+        allowed_source_ids=("page_0028", "page_0029"),
+        model="fake-model",
+        prompt_version="wellbore-fact-scout-v1",
+    )
+
+    assert result.facts[0].source_page_ids == ("page_0029", "page_0028")
+
+
 @pytest.mark.parametrize(
     ("field", "value", "message"),
     [

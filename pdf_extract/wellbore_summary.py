@@ -166,6 +166,9 @@ def _candidate_fact_from_payload(
     *,
     allowed_source_ids: set[str],
 ) -> CandidateFact:
+    if not isinstance(payload, Mapping):
+        raise ValueError("fact must be an object")
+
     section = _require_string(payload, "section")
     if section not in SUMMARY_SECTIONS:
         raise ValueError(f"Unsupported section: {section}")
