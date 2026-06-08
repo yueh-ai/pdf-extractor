@@ -481,6 +481,35 @@ def test_dedupe_candidate_facts_merges_duplicate_overlap_pages():
     assert "Second copy." in merged[0].notes
 
 
+def test_dedupe_candidate_facts_uses_highest_confidence():
+    low = make_fact(confidence="low")
+    high = make_fact(confidence="high")
+
+    merged = dedupe_candidate_facts((low, high))
+
+    assert len(merged) == 1
+    assert merged[0].confidence == "high"
+
+
+def test_dedupe_candidate_facts_keeps_different_context_separate():
+    header = make_fact(source_context="C-103 subsequent report header")
+    diagram = make_fact(source_context="Wellbore diagram")
+
+    merged = dedupe_candidate_facts((header, diagram))
+
+    assert len(merged) == 2
+
+
+def test_dedupe_candidate_facts_orders_source_ids_by_page_number():
+    first = make_fact(source_page_ids=("page_10000",))
+    second = make_fact(source_page_ids=("page_9999",))
+
+    merged = dedupe_candidate_facts((first, second))
+
+    assert len(merged) == 1
+    assert merged[0].source_page_ids == ("page_9999", "page_10000")
+
+
 def test_dedupe_candidate_facts_keeps_different_status_separate():
     actual = make_fact(status_hint="actual")
     proposed = make_fact(status_hint="proposed")

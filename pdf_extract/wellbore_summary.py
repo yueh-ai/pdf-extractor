@@ -557,6 +557,11 @@ def _join_unique(values: Sequence[str]) -> str:
     return " | ".join(dict.fromkeys(values))
 
 
+def _highest_confidence(first: str, second: str) -> str:
+    rank = {"low": 0, "medium": 1, "high": 2}
+    return first if rank[first] >= rank[second] else second
+
+
 def dedupe_candidate_facts(
     facts: Sequence[CandidateFact],
 ) -> tuple[CandidateFact, ...]:
@@ -573,14 +578,17 @@ def dedupe_candidate_facts(
             field=existing.field,
             value=existing.value,
             source_page_ids=tuple(
-                sorted(set(existing.source_page_ids) | set(fact.source_page_ids))
+                sorted(
+                    set(existing.source_page_ids) | set(fact.source_page_ids),
+                    key=page_number_from_source_id,
+                )
             ),
             source_context=existing.source_context,
             source_snippet=_join_unique(
                 (existing.source_snippet, fact.source_snippet)
             ),
             status_hint=existing.status_hint,
-            confidence=existing.confidence,
+            confidence=_highest_confidence(existing.confidence, fact.confidence),
             notes=_join_unique((existing.notes, fact.notes)),
         )
     return tuple(merged.values())
