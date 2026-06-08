@@ -259,6 +259,51 @@ def build_reconcile_prompt(inputs: PageReconcileInputs) -> str:
     )
 
 
+def build_verify_prompt(inputs: PageReconcileInputs, round_one_markdown: str) -> str:
+    return (
+        "You are a verifier and finalizer for a single PDF page reconciliation.\n\n"
+        "Use the page image as the authoritative source of truth. Treat the candidate "
+        "Markdown as fallible.\n\n"
+        "Goals:\n"
+        "- Produce final clean Markdown for this one page only.\n"
+        "- Correct factual, structural, table, checkbox, date, email, coordinate, "
+        "location, and omission errors when the page image supports the correction.\n"
+        "- Preserve visible text, headings, lists, tables, checkbox states, symbols, "
+        "footnotes, and image references when they are supported by the page.\n"
+        "- Table rules:\n"
+        "  - Prefer GFM pipe tables for simple rectangular data tables.\n"
+        "  - Every GFM table row must have the same number of cells as the separator row.\n"
+        "  - Use raw HTML <table> markup only when the visible table needs structure "
+        "that GFM cannot represent, such as merged cells, nested headers, rowspan, "
+        "colspan, or irregular form layout.\n"
+        "  - If the candidate contains raw HTML but the visible table is simple and "
+        "rectangular, convert it to a clean GFM pipe table.\n"
+        "  - If the candidate contains a GFM pipe table but the visible table has "
+        "merged or irregular cells, convert it to raw HTML <table>.\n"
+        "  - Preserve raw HTML <table> markup when the page image shows a real merged "
+        "or irregular table.\n"
+        "  - Do not preserve table markup blindly. The page image decides whether "
+        "something is a real table.\n"
+        "- Do not invent content that is not visible in the image or reasonably "
+        "supported by the candidate.\n"
+        "- Set needs_human_review=false only when the final Markdown is faithful to "
+        "the page image and no material ambiguity remains.\n"
+        "- Set needs_human_review=true when any unresolved material ambiguity remains.\n"
+        "- Set winner=mixed when you make corrections to the candidate Markdown.\n"
+        "- Set winner=uncertain only when unresolved ambiguity remains after "
+        "verification.\n"
+        "- Keep warnings short and concrete; warnings are audit notes, not a routing "
+        "signal.\n\n"
+        "Return only the structured fields requested by the schema.\n\n"
+        f"Document ID: {inputs.document_id}\n"
+        f"Page: {inputs.page}\n\n"
+        "Candidate round-one Markdown:\n"
+        "```markdown\n"
+        f"{round_one_markdown}\n"
+        "```"
+    )
+
+
 def _normalize_model_call(raw: Mapping[str, Any] | ModelCallResult) -> ModelCallResult:
     if isinstance(raw, ModelCallResult):
         return raw
@@ -267,14 +312,14 @@ def _normalize_model_call(raw: Mapping[str, Any] | ModelCallResult) -> ModelCall
 
 def _llm_call_record(
     *,
-    round: int,
+    round_number: int,
     model: str,
     prompt_version: str,
     call_metadata: Mapping[str, Any],
 ) -> dict[str, Any]:
     return {
         **dict(call_metadata),
-        "round": round,
+        "round": round_number,
         "model": model,
         "prompt_version": prompt_version,
     }
@@ -290,20 +335,55 @@ class VisionReconciler:
         self.client = client
         self.prompt_version = prompt_version
 
-    def reconcile_page(self, inputs: PageReconcileInputs) -> PageReconciliationResult:
-        prompt = build_reconcile_prompt(inputs)
+    def _run_model_round(
+        self,
+        inputs: PageReconcileInputs,
+        prompt: str,
+        round_number: int,
+    ) -> tuple[ModelReconcileResponse, dict[str, Any]]:
         raw_call = _normalize_model_call(
             self.client.reconcile(image_path=inputs.page_image_path, prompt=prompt)
         )
         response = ModelReconcileResponse.from_payload(raw_call.payload)
-        needs_human_review = response.needs_human_review or response.winner == "uncertain"
+        if response.winner == "uncertain" and not response.needs_human_review:
+            response = ModelReconcileResponse(
+                reconciled_markdown=response.reconciled_markdown,
+                winner=response.winner,
+                warnings=response.warnings,
+                needs_human_review=True,
+            )
+        call_record = _llm_call_record(
+            round_number=round_number,
+            model=self.client.model,
+            prompt_version=self.prompt_version,
+            call_metadata=raw_call.call_metadata,
+        )
+        return response, call_record
+
+    def reconcile_page(self, inputs: PageReconcileInputs) -> PageReconciliationResult:
+        round_one, round_one_call = self._run_model_round(
+            inputs,
+            build_reconcile_prompt(inputs),
+            1,
+        )
+        llm_calls = [round_one_call]
+        final_response = round_one
+        if round_one.needs_human_review:
+            round_two, round_two_call = self._run_model_round(
+                inputs,
+                build_verify_prompt(inputs, round_one.reconciled_markdown),
+                2,
+            )
+            llm_calls.append(round_two_call)
+            final_response = round_two
+
         return PageReconciliationResult(
             document_id=inputs.document_id,
             page=inputs.page,
-            reconciled_markdown=response.reconciled_markdown,
-            winner=response.winner,
-            warnings=response.warnings,
-            needs_human_review=needs_human_review,
+            reconciled_markdown=final_response.reconciled_markdown,
+            winner=final_response.winner,
+            warnings=final_response.warnings,
+            needs_human_review=final_response.needs_human_review,
             model=self.client.model,
             prompt_version=self.prompt_version,
             source_refs={
@@ -311,14 +391,7 @@ class VisionReconciler:
                 "union_markdown": inputs.union_markdown_path.as_posix(),
                 "small_markdown": inputs.small_markdown_path.as_posix(),
             },
-            llm_calls=(
-                _llm_call_record(
-                    round=1,
-                    model=self.client.model,
-                    prompt_version=self.prompt_version,
-                    call_metadata=raw_call.call_metadata,
-                ),
-            ),
+            llm_calls=llm_calls,
         )
 
 

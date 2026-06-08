@@ -42,6 +42,20 @@ class FakeVisionClient:
         return dict(self.response)
 
 
+class SequencedVisionClient:
+    model = "sequenced-fake-model"
+
+    def __init__(self, responses: list[dict[str, object]]):
+        self.responses = list(responses)
+        self.calls: list[dict[str, object]] = []
+
+    def reconcile(self, *, image_path: Path, prompt: str) -> dict[str, object]:
+        self.calls.append({"image_path": image_path, "prompt": prompt})
+        if not self.responses:
+            raise AssertionError("SequencedVisionClient received an unexpected call")
+        return dict(self.responses.pop(0))
+
+
 class MetadataVisionClient:
     model = "metadata-fake-model"
 
@@ -90,7 +104,7 @@ class CountingVisionClient:
             "reconciled_markdown": f"# Page {page}\n\nmerged markdown",
             "winner": "mixed",
             "warnings": [f"warning {page}"],
-            "needs_human_review": page % 2 == 0,
+            "needs_human_review": False,
         }
 
 
@@ -318,6 +332,127 @@ def test_vision_reconciler_records_llm_call_metadata(tmp_path):
             "total_tokens": 120,
         },
     )
+
+
+def test_round_one_false_does_not_run_round_two(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 18, "union draft")
+    write_page(run_root, "small", 18, "small draft")
+    client = SequencedVisionClient(
+        [
+            {
+                "reconciled_markdown": "# round one",
+                "winner": "mixed",
+                "warnings": ["audit only"],
+                "needs_human_review": False,
+            },
+            {
+                "reconciled_markdown": "# round two should not run",
+                "winner": "mixed",
+                "warnings": [],
+                "needs_human_review": False,
+            },
+        ]
+    )
+
+    result = VisionReconciler(client=client).reconcile_page(load_page_inputs(run_root, 18))
+
+    assert len(client.calls) == 1
+    assert result.reconciled_markdown == "# round one"
+    assert result.needs_human_review is False
+    assert [call["round"] for call in result.llm_calls] == [1]
+
+
+def test_round_one_true_runs_round_two_and_publishes_round_two_result(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 19, "union draft")
+    write_page(run_root, "small", 19, "small draft")
+    client = SequencedVisionClient(
+        [
+            {
+                "reconciled_markdown": "# round one\n\nNeeds verification.",
+                "winner": "mixed",
+                "warnings": ["table alignment uncertain"],
+                "needs_human_review": True,
+            },
+            {
+                "reconciled_markdown": "# round two final",
+                "winner": "mixed",
+                "warnings": [],
+                "needs_human_review": False,
+            },
+        ]
+    )
+
+    result = VisionReconciler(client=client).reconcile_page(load_page_inputs(run_root, 19))
+
+    assert len(client.calls) == 2
+    assert result.reconciled_markdown == "# round two final"
+    assert result.needs_human_review is False
+    assert [call["round"] for call in result.llm_calls] == [1, 2]
+    round_two_prompt = client.calls[1]["prompt"]
+    assert "# round one\n\nNeeds verification." in round_two_prompt
+    assert "Candidate round-one Markdown:" in round_two_prompt
+    assert "Union OCR draft Markdown:" not in round_two_prompt
+    assert "Small OCR draft Markdown:" not in round_two_prompt
+
+
+def test_round_two_true_leaves_final_page_for_human_review(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 20, "union draft")
+    write_page(run_root, "small", 20, "small draft")
+    client = SequencedVisionClient(
+        [
+            {
+                "reconciled_markdown": "# round one",
+                "winner": "mixed",
+                "warnings": ["ambiguous checkbox"],
+                "needs_human_review": True,
+            },
+            {
+                "reconciled_markdown": "# round two unresolved",
+                "winner": "uncertain",
+                "warnings": ["checkbox remains ambiguous"],
+                "needs_human_review": True,
+            },
+        ]
+    )
+
+    result = VisionReconciler(client=client).reconcile_page(load_page_inputs(run_root, 20))
+
+    assert len(client.calls) == 2
+    assert result.reconciled_markdown == "# round two unresolved"
+    assert result.needs_human_review is True
+    assert [call["round"] for call in result.llm_calls] == [1, 2]
+
+
+def test_uncertain_round_one_winner_runs_round_two(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 21, "union draft")
+    write_page(run_root, "small", 21, "small draft")
+    client = SequencedVisionClient(
+        [
+            {
+                "reconciled_markdown": "# uncertain round one",
+                "winner": "uncertain",
+                "warnings": [],
+                "needs_human_review": False,
+            },
+            {
+                "reconciled_markdown": "# verified round two",
+                "winner": "mixed",
+                "warnings": [],
+                "needs_human_review": False,
+            },
+        ]
+    )
+
+    result = VisionReconciler(client=client).reconcile_page(load_page_inputs(run_root, 21))
+
+    assert len(client.calls) == 2
+    assert result.reconciled_markdown == "# verified round two"
+    assert result.needs_human_review is False
+    assert [call["round"] for call in result.llm_calls] == [1, 2]
 
 
 def test_run_reconciliation_processes_all_discovered_pages_and_writes_viewer_manifest(tmp_path):
