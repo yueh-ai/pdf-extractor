@@ -139,6 +139,63 @@ def test_build_reconcile_prompt_is_general_and_uses_image_as_authority(tmp_path)
     assert "oil" not in prompt.lower()
 
 
+def test_build_reconcile_prompt_preserves_complex_html_tables(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(
+        run_root,
+        "union",
+        2,
+        '<table><tr><td colspan="2">Merged header</td></tr><tr><td>A</td><td>B</td></tr></table>',
+    )
+    write_page(run_root, "small", 2, "<table><tr><td>A</td><td>B</td></tr></table>")
+
+    prompt = build_reconcile_prompt(load_page_inputs(run_root, 2))
+
+    assert "preserve raw HTML <table>" in prompt
+    assert "Use raw HTML <table> markup only when the visible table needs structure" in prompt
+    assert "rowspan, colspan, or irregular form layout" in prompt
+    assert "needs_human_review=true" in prompt
+
+
+def test_build_reconcile_prompt_prefers_gfm_for_simple_tables(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(
+        run_root,
+        "union",
+        2,
+        "| Depth | Value |\n|---|---:|\n| 100 | 42 |",
+    )
+    write_page(run_root, "small", 2, "| Depth | Value |\n|---|---:|\n| 100 | 42 |")
+
+    prompt = build_reconcile_prompt(load_page_inputs(run_root, 2))
+
+    assert "Prefer GFM pipe tables for simple rectangular data tables" in prompt
+    assert "Every GFM table row must have the same number of cells" in prompt
+    assert "If an OCR draft contains raw HTML but the visible table is simple and rectangular" in prompt
+
+
+def test_build_reconcile_prompt_rejects_chart_grid_noise_as_tables(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(
+        run_root,
+        "union",
+        2,
+        "<table><tr><td>5600</td><td>000000000000000000000000000000</td></tr></table>",
+    )
+    write_page(
+        run_root,
+        "small",
+        2,
+        "<table><tr><td>5600</td><td>000000000000000000000000000000</td></tr></table>",
+    )
+
+    prompt = build_reconcile_prompt(load_page_inputs(run_root, 2))
+
+    assert "Do not convert charts, plots, graph grids" in prompt
+    assert "long repeated-character runs" in prompt
+    assert "keep supported image references instead of inventing tabular data" in prompt
+
+
 def test_vision_reconciler_validates_structured_fields(tmp_path):
     run_root = tmp_path / "runs" / "sample-doc"
     write_page(run_root, "union", 1, "union draft")
