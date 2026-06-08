@@ -11,6 +11,7 @@ from pdf_extract.reconciled_store import PUBLISHED
 from pdf_extract.reconciler import (
     DEFAULT_RECONCILE_MODEL,
     DEFAULT_RECONCILE_PROMPT_VERSION,
+    ModelCallResult,
     OpenAIResponsesVisionClient,
     PageReconcileInputs,
     VisionReconciler,
@@ -39,6 +40,41 @@ class FakeVisionClient:
     def reconcile(self, *, image_path: Path, prompt: str) -> dict:
         self.calls.append({"image_path": image_path, "prompt": prompt})
         return dict(self.response)
+
+
+class MetadataVisionClient:
+    model = "metadata-fake-model"
+
+    def reconcile(self, *, image_path: Path, prompt: str) -> ModelCallResult:
+        return ModelCallResult(
+            payload={
+                "reconciled_markdown": "# merged",
+                "winner": "mixed",
+                "warnings": [],
+                "needs_human_review": False,
+            },
+            call_metadata={
+                "response_id": "resp_test",
+                "input_tokens": 100,
+                "output_tokens": 20,
+                "total_tokens": 120,
+            },
+        )
+
+
+class MetadataAssetVisionClient:
+    model = "metadata-fake-model"
+
+    def reconcile(self, *, image_path: Path, prompt: str) -> ModelCallResult:
+        return ModelCallResult(
+            payload={
+                "reconciled_markdown": "![seal](imgs/seal.jpg)",
+                "winner": "mixed",
+                "warnings": [],
+                "needs_human_review": False,
+            },
+            call_metadata={"response_id": "resp_test"},
+        )
 
 
 class CountingVisionClient:
@@ -244,6 +280,28 @@ def test_vision_reconciler_returns_page_result_and_uses_prompt_version(tmp_path)
     assert "res.json" not in client.calls[0]["prompt"]
 
 
+def test_vision_reconciler_records_llm_call_metadata(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 15, "union draft")
+    write_page(run_root, "small", 15, "small draft")
+
+    result = VisionReconciler(client=MetadataVisionClient()).reconcile_page(
+        load_page_inputs(run_root, 15)
+    )
+
+    assert result.llm_calls == (
+        {
+            "round": 1,
+            "model": "metadata-fake-model",
+            "prompt_version": DEFAULT_RECONCILE_PROMPT_VERSION,
+            "response_id": "resp_test",
+            "input_tokens": 100,
+            "output_tokens": 20,
+            "total_tokens": 120,
+        },
+    )
+
+
 def test_run_reconciliation_processes_all_discovered_pages_and_writes_viewer_manifest(tmp_path):
     run_root = tmp_path / "runs" / "sample-doc"
     write_page(run_root, "union", 1, "# union one")
@@ -415,6 +473,39 @@ def test_run_reconciliation_mixed_page_can_publish_small_only_assets(tmp_path):
         / "seal.jpg"
     )
     assert asset_path.read_bytes() == b"jpeg"
+
+
+def test_prepared_publish_preserves_llm_calls(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 16, "# union")
+    small_page = write_page(run_root, "small", 16, "# small")
+    (small_page / "imgs").mkdir()
+    (small_page / "imgs" / "seal.jpg").write_bytes(b"jpeg")
+    client = MetadataAssetVisionClient()
+
+    result = run_reconciliation(
+        run_root=run_root,
+        object_store_root=tmp_path / "object_store",
+        sqlite_path=tmp_path / "catalog.sqlite",
+        viewer_dir=None,
+        client=client,
+        pages=[16],
+    )
+
+    assert result["published_pages"] == [16]
+    decision = json.loads(
+        (
+            tmp_path
+            / "object_store"
+            / "pdf-extract"
+            / "reconciled"
+            / "sample-doc"
+            / "pages"
+            / "page_0016"
+            / "decision.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert decision["llm_calls"][0]["response_id"] == "resp_test"
 
 
 def test_run_reconciliation_mixed_page_can_publish_assets_split_across_modes(tmp_path):

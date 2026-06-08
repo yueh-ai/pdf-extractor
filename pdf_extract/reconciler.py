@@ -5,7 +5,7 @@ import json
 import mimetypes
 import os
 import shutil
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Protocol
 
@@ -105,10 +105,16 @@ class ModelReconcileResponse:
         )
 
 
+@dataclass(frozen=True)
+class ModelCallResult:
+    payload: Mapping[str, Any]
+    call_metadata: Mapping[str, Any] = field(default_factory=dict)
+
+
 class VisionModelClient(Protocol):
     model: str
 
-    def reconcile(self, *, image_path: Path, prompt: str) -> dict[str, Any]:
+    def reconcile(self, *, image_path: Path, prompt: str) -> dict[str, Any] | ModelCallResult:
         ...
 
 
@@ -229,6 +235,27 @@ def build_reconcile_prompt(inputs: PageReconcileInputs) -> str:
     )
 
 
+def _normalize_model_call(raw: Mapping[str, Any] | ModelCallResult) -> ModelCallResult:
+    if isinstance(raw, ModelCallResult):
+        return raw
+    return ModelCallResult(payload=raw)
+
+
+def _llm_call_record(
+    *,
+    round: int,
+    model: str,
+    prompt_version: str,
+    call_metadata: Mapping[str, Any],
+) -> dict[str, Any]:
+    return {
+        **dict(call_metadata),
+        "round": round,
+        "model": model,
+        "prompt_version": prompt_version,
+    }
+
+
 class VisionReconciler:
     def __init__(
         self,
@@ -241,16 +268,18 @@ class VisionReconciler:
 
     def reconcile_page(self, inputs: PageReconcileInputs) -> PageReconciliationResult:
         prompt = build_reconcile_prompt(inputs)
-        response = ModelReconcileResponse.from_payload(
+        raw_call = _normalize_model_call(
             self.client.reconcile(image_path=inputs.page_image_path, prompt=prompt)
         )
+        response = ModelReconcileResponse.from_payload(raw_call.payload)
+        needs_human_review = response.needs_human_review or response.winner == "uncertain"
         return PageReconciliationResult(
             document_id=inputs.document_id,
             page=inputs.page,
             reconciled_markdown=response.reconciled_markdown,
             winner=response.winner,
             warnings=response.warnings,
-            needs_human_review=response.needs_human_review or response.winner == "uncertain",
+            needs_human_review=needs_human_review,
             model=self.client.model,
             prompt_version=self.prompt_version,
             source_refs={
@@ -258,6 +287,14 @@ class VisionReconciler:
                 "union_markdown": inputs.union_markdown_path.as_posix(),
                 "small_markdown": inputs.small_markdown_path.as_posix(),
             },
+            llm_calls=(
+                _llm_call_record(
+                    round=1,
+                    model=self.client.model,
+                    prompt_version=self.prompt_version,
+                    call_metadata=raw_call.call_metadata,
+                ),
+            ),
         )
 
 
@@ -415,6 +452,7 @@ def _prepare_result_for_publish(
         model=result.model,
         prompt_version=result.prompt_version,
         source_refs=result.source_refs,
+        llm_calls=result.llm_calls,
     )
     return prepared_result, prepared_dir
 
