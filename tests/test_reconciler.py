@@ -123,6 +123,18 @@ class FakeInputTokensAPI:
         return SimpleNamespace(input_tokens=self.counts.pop(0))
 
 
+class FakeCountOnlyInputTokensAPI:
+    def __init__(self, counts: list[int] | None = None):
+        self.counts = list(counts or [])
+        self.calls: list[dict[str, object]] = []
+
+    def count(self, **kwargs):
+        self.calls.append(kwargs)
+        if not self.counts:
+            raise AssertionError("No fake input token count queued")
+        return SimpleNamespace(input_tokens=self.counts.pop(0))
+
+
 class FakeResponsesAPI:
     def __init__(
         self,
@@ -1029,8 +1041,34 @@ def test_openai_responses_vision_client_returns_usage_and_token_split_metadata(t
     assert response.call_metadata["input_split_method"] == "responses.input_tokens_delta"
     assert response.call_metadata["image_count"] == 1
     assert response.call_metadata["image_detail"] == "high"
-    assert response.call_metadata["estimated_cost_usd"] > 0
+    expected_cost = (
+        (1100 / 1_000_000 * 0.75)
+        + (100 / 1_000_000 * 0.075)
+        + (300 / 1_000_000 * 4.5)
+    )
+    assert response.call_metadata["estimated_cost_usd"] == pytest.approx(expected_cost)
     assert response.call_metadata["pricing"]["captured_at"] == "2026-06-08"
+
+
+def test_openai_responses_vision_client_uses_input_token_count_endpoint(tmp_path):
+    image_path = tmp_path / "page.png"
+    image_path.write_bytes(b"\x89PNG\r\n\x1a\n")
+    fake_sdk = FakeOpenAISDK(
+        {
+            "reconciled_markdown": "# merged",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+    fake_sdk.responses.input_tokens = FakeCountOnlyInputTokensAPI([1200, 200])
+    client = OpenAIResponsesVisionClient(model="gpt-5.4-mini", sdk_client=fake_sdk)
+
+    response = client.reconcile(image_path=image_path, prompt="reconcile this page")
+
+    assert response.call_metadata["input_split_method"] == "responses.input_tokens_delta"
+    assert response.call_metadata["input_text_tokens_derived"] == 200
+    assert response.call_metadata["input_image_tokens_derived"] == 1000
 
 
 def test_openai_responses_vision_client_keeps_content_when_token_preflight_fails(tmp_path):
@@ -1062,6 +1100,28 @@ def test_openai_responses_vision_client_keeps_content_when_token_preflight_fails
     assert response.call_metadata["input_image_tokens_derived"] is None
     assert response.call_metadata["input_split_method"] == "unavailable"
     assert "input token preflight failed" in response.call_metadata["accounting_warning"]
+
+
+def test_openai_responses_vision_client_keeps_content_when_input_token_endpoint_missing(tmp_path):
+    image_path = tmp_path / "page.png"
+    image_path.write_bytes(b"\x89PNG\r\n\x1a\n")
+    fake_sdk = FakeOpenAISDK(
+        {
+            "reconciled_markdown": "# merged",
+            "winner": "mixed",
+            "warnings": [],
+            "needs_human_review": False,
+        }
+    )
+    del fake_sdk.responses.input_tokens
+    client = OpenAIResponsesVisionClient(model="gpt-5.4-mini", sdk_client=fake_sdk)
+
+    response = client.reconcile(image_path=image_path, prompt="reconcile this page")
+
+    assert response.payload["reconciled_markdown"] == "# merged"
+    assert response.call_metadata["input_text_tokens_derived"] is None
+    assert response.call_metadata["input_image_tokens_derived"] is None
+    assert response.call_metadata["input_split_method"] == "unavailable"
 
 
 def test_cli_helpers_support_env_model_and_repo_dotenv(monkeypatch, tmp_path):

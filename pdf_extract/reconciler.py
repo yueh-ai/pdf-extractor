@@ -503,8 +503,10 @@ class OpenAIResponsesVisionClient:
         input_tokens_api = getattr(self._client.responses, "input_tokens", None)
         if input_tokens_api is None:
             input_tokens_api = getattr(self._client.responses, "inputTokens", None)
-        create = getattr(input_tokens_api, "create")
-        result = create(model=self.model, input=input_payload)
+        count = getattr(input_tokens_api, "count", None)
+        if count is None:
+            count = getattr(input_tokens_api, "create")
+        result = count(model=self.model, input=input_payload)
         return int(_get_attr_or_key(result, "input_tokens"))
 
     def _token_split_metadata(
