@@ -210,6 +210,24 @@ def test_build_reconcile_prompt_prefers_gfm_for_simple_tables(tmp_path):
     assert "If an OCR draft contains raw HTML but the visible table is simple and rectangular" in prompt
 
 
+def test_build_reconcile_prompt_names_high_risk_and_ambiguity_policy(tmp_path):
+    run_root = tmp_path / "runs" / "sample-doc"
+    write_page(run_root, "union", 17, "union draft")
+    write_page(run_root, "small", 17, "small draft")
+
+    prompt = build_reconcile_prompt(load_page_inputs(run_root, 17))
+
+    assert "Narrow high-risk structures" in prompt
+    assert "casing, tubing, cement, formation tops" in prompt
+    assert "directional survey, directional targets, and coordinate tables" in prompt
+    assert "latitude, longitude, +N/-S offsets, +E/-W offsets" in prompt
+    assert "Checkbox groups where the checked or unchecked state changes meaning" in prompt
+    assert "Handwritten or crossed-out corrections" in prompt
+    assert "Material ambiguity" in prompt
+    assert "Do not set needs_human_review=true merely because" in prompt
+    assert "warnings are audit notes" in prompt
+
+
 def test_build_reconcile_prompt_rejects_chart_grid_noise_as_tables(tmp_path):
     run_root = tmp_path / "runs" / "sample-doc"
     write_page(
