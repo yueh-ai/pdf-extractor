@@ -702,4 +702,6 @@ def test_run_wellbore_summary_dry_run_client_returns_empty_summary():
         "facts": [],
         "warnings": ["dry-run summary client did not call a model"],
     }
-    assert client.create_text(prompt="anything").startswith("<!-- dry-run reducer")
+    assert client.create_text(prompt="anything").startswith(
+        "<!-- dry-run reducer did not call a model -->"
+    )
