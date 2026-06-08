@@ -6,7 +6,7 @@ import json
 import sqlite3
 import re
 from types import MappingProxyType
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping, Sequence
@@ -41,6 +41,7 @@ class PageReconciliationResult:
     model: str | None
     prompt_version: str | None
     source_refs: Mapping[str, str]
+    llm_calls: Sequence[Mapping[str, Any]] = field(default_factory=tuple)
 
     def __post_init__(self) -> None:
         if not self.document_id:
@@ -56,6 +57,7 @@ class PageReconciliationResult:
                 raise ValueError(f"source_refs.{key} is required")
         object.__setattr__(self, "warnings", tuple(self.warnings))
         object.__setattr__(self, "source_refs", MappingProxyType(dict(self.source_refs)))
+        object.__setattr__(self, "llm_calls", tuple(dict(call) for call in self.llm_calls))
 
     @property
     def warning_count(self) -> int:
@@ -71,6 +73,7 @@ class PageReconciliationResult:
             "model": self.model,
             "prompt_version": self.prompt_version,
             "source_refs": dict(self.source_refs),
+            "llm_calls": [dict(call) for call in self.llm_calls],
         }
 
 

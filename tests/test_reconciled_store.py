@@ -77,6 +77,26 @@ def test_page_result_validates_required_fields():
     assert isinstance(payload["source_refs"], dict)
 
 
+def test_page_result_decision_payload_includes_llm_calls():
+    args = _result_args()
+    args["llm_calls"] = [
+        {
+            "round": 1,
+            "model": "gpt-5",
+            "prompt_version": "reconcile-page-v1",
+            "input_tokens": 1200,
+            "output_tokens": 300,
+            "total_tokens": 1500,
+        }
+    ]
+
+    result = PageReconciliationResult(**args)
+    payload = result.decision_payload()
+
+    assert payload["llm_calls"] == args["llm_calls"]
+    assert isinstance(result.llm_calls, tuple)
+
+
 def test_page_result_rejects_invalid_page():
     args = _result_args()
     args["page"] = 0
