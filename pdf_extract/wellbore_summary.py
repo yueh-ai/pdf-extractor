@@ -719,7 +719,6 @@ class OpenAIResponsesTextClient:
 
 
 def run_wellbore_summary(
-    *,
     object_store_root: Path,
     document_id: str,
     out_dir: Path,

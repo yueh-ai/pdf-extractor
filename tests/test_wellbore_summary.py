@@ -587,6 +587,51 @@ def test_run_wellbore_summary_writes_ledger_and_summary(tmp_path):
     assert len(client.text_calls) == 1
 
 
+def test_run_wellbore_summary_accepts_positional_required_arguments(tmp_path):
+    object_store = tmp_path / "object_store"
+    write_reconciled_page(
+        object_store,
+        "doc",
+        1,
+        "C-105 completion report 5-1/2 casing",
+    )
+    client = FakeTextClient(
+        json_responses=[
+            {
+                "facts": [
+                    {
+                        "section": "casing_and_tubing_strings",
+                        "field": "production_casing",
+                        "value": "5-1/2 casing set at 10,490 ft",
+                        "source_page_ids": ["page_0001"],
+                        "source_context": "C-105 completion report casing table",
+                        "source_snippet": "5-1/2 casing ... 10,490",
+                        "status_hint": "actual",
+                        "confidence": "high",
+                        "notes": "Actual completion casing.",
+                    }
+                ],
+                "warnings": [],
+            }
+        ],
+        text_response="### Casing And Tubing Strings\n",
+    )
+
+    result = run_wellbore_summary(
+        object_store,
+        "doc",
+        tmp_path / "summary",
+        client,
+    )
+
+    assert Path(result["fact_ledger_path"]).is_file()
+    assert Path(result["summary_path"]).is_file()
+    assert result["batch_count"] == 1
+    assert result["fact_count"] == 1
+    assert len(client.json_calls) == 1
+    assert len(client.text_calls) == 1
+
+
 def test_openai_responses_text_client_uses_json_schema_and_text_calls():
     class FakeResponses:
         def __init__(self):
