@@ -4,6 +4,73 @@ Resumable PDF extraction runner for `PaddleOCR-VL-1.6` with the MLX VLM server b
 
 The runner processes a PDF one rendered page at a time. For each page it saves the original rendered page image, PaddleOCR layout visualization, JSON, DOCX, and Markdown immediately, then writes combined Markdown/JSONL outputs for the pages that completed.
 
+## Start This Project
+
+From a fresh clone:
+
+```bash
+git clone <repo-url>
+cd pdf-extract
+uv sync --extra dev
+```
+
+If you only want to work with the reconciled catalog, reviewer manifest, or
+storage layer, seed the local SQLite database and fake object store from the
+existing checked-in OCR run artifacts:
+
+```bash
+uv run python scripts/run_reconciled_store_prototype.py \
+  --run-root runs/Full_30015375000000 \
+  --object-store-root object_store \
+  --sqlite-path reconciled_catalog.sqlite \
+  --viewer-dir runs/Full_30015375000000/reconciled_viewer \
+  --pages 1,2,40
+```
+
+That command does not call an LLM and does not rerun real reconciliation. It
+creates local generated artifacts:
+
+```text
+reconciled_catalog.sqlite
+object_store/pdf-extract/reconciled/Full_30015375000000/
+runs/Full_30015375000000/reconciled_viewer/viewer-manifest.json
+```
+
+To recompute real reconciled pages with OpenAI, set an API key and run the
+reconciliation command instead:
+
+```bash
+export OPENAI_API_KEY=...
+
+uv run python scripts/run_reconcile.py \
+  --run-root runs/Full_30015375000000 \
+  --object-store-root object_store \
+  --sqlite-path reconciled_catalog.sqlite \
+  --viewer-dir runs/Full_30015375000000/reconciled_viewer \
+  --provider openai
+```
+
+By default, real reconciliation skips pages already published in
+`reconciled_catalog.sqlite`; add `--force` to regenerate them. For a cheap local
+pipeline check that uses the reconciliation runner without a model call, use
+`--provider dry-run`.
+
+Run the test suite:
+
+```bash
+uv run --with pytest python -m pytest -v
+```
+
+To run the full PaddleOCR-VL extraction flow from a PDF, install the Paddle
+extra and start the MLX server first:
+
+```bash
+uv sync --extra dev --extra paddle
+```
+
+See [Recommended Setup](#recommended-setup), [Start The MLX Server](#start-the-mlx-server),
+and [Run It](#run-it) for the full extraction workflow.
+
 ## Outputs
 
 A single extraction run directory looks like this:
