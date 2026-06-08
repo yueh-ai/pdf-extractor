@@ -89,6 +89,43 @@ Each page in the prompt must be labeled with its PDF page number. The one-page
 overlap lets facts that cross a boundary appear in at least one complete local
 context. Duplicate facts from overlap are expected and removed during dedupe.
 
+## Page Grounding
+
+Source page handling is critical because batches contain multiple pages and the
+overlap repeats one page in adjacent batches. The model must never infer source
+pages from page order inside the batch.
+
+Every batch prompt should include a page manifest before the page Markdown:
+
+```text
+Batch pages:
+- pdf_page: 28, page_id: page_0028
+- pdf_page: 29, page_id: page_0029
+- pdf_page: 30, page_id: page_0030
+```
+
+Then each page should use a repeated boundary format:
+
+```text
+===== BEGIN PDF PAGE 28 (page_0028) =====
+<reconciled Markdown for PDF page 28>
+===== END PDF PAGE 28 (page_0028) =====
+```
+
+`source_pages` must contain the PDF page numbers from these labels, not the page
+position within the batch. For example, the first page in a batch may still be
+`source_pages: [28]`.
+
+If one fact is supported by multiple pages in the same batch, cite all of them:
+
+```json
+"source_pages": [28, 30]
+```
+
+If a fact appears on the overlap page and is extracted in two adjacent batches,
+dedupe should merge the duplicate facts by normalized value and source page. The
+same PDF page number must remain stable across batches.
+
 ## Fact Scout Output
 
 Each batch returns structured candidate facts. The scout does not decide the
@@ -372,6 +409,10 @@ For each fact, return:
 
 Rules:
 - Every fact must cite one or more source_pages from the provided batch.
+- source_pages must use the explicit PDF page numbers shown in the page
+  boundaries. Do not cite page position within the batch.
+- If a value is supported by multiple pages in the batch, include all supporting
+  PDF page numbers in source_pages.
 - source_snippet is required. Keep it short: enough to recognize the source
   evidence, not a long copy.
 - source_context should describe the form/table/narrative context when clear. If
@@ -458,6 +499,8 @@ Keep v1 simple:
 
 - Validate fact-scout responses against the strict schema.
 - Reject facts whose `source_pages` are not in the batch.
+- Reject facts that cite page positions instead of PDF page numbers when that can
+  be detected.
 - Reject facts whose `section`, `status_hint`, or `confidence` are outside the
   allowed values.
 - Require non-empty `source_snippet`.
@@ -482,6 +525,7 @@ Test schema validation:
 
 - Accept valid fact-scout output.
 - Reject invalid section, status, confidence, or source page.
+- Reject facts citing pages outside the batch manifest.
 - Reject empty `source_snippet`.
 
 Test dedupe:
