@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import runpy
 from pathlib import Path
 
 import pytest
@@ -669,3 +670,36 @@ def test_openai_responses_text_client_uses_json_schema_and_text_calls():
     assert sdk.responses.calls[0]["input"][0]["content"][0]["text"] == "extract"
     assert "text" not in sdk.responses.calls[1]
     assert sdk.responses.calls[1]["input"][0]["content"][0]["text"] == "reduce"
+
+
+def load_run_wellbore_summary_script() -> dict[str, object]:
+    script_path = (
+        Path(__file__).resolve().parents[1]
+        / "scripts"
+        / "run_wellbore_summary.py"
+    )
+    return runpy.run_path(str(script_path), run_name="run_wellbore_summary_test")
+
+
+def test_run_wellbore_summary_parse_args_defaults():
+    script = load_run_wellbore_summary_script()
+    parser = script["create_arg_parser"]()
+
+    args = parser.parse_args(["--document-id", "doc"])
+
+    assert args.document_id == "doc"
+    assert args.object_store_root == Path("object_store")
+    assert args.out_dir == Path("summary_runs/doc")
+    assert args.provider == "openai"
+
+
+def test_run_wellbore_summary_dry_run_client_returns_empty_summary():
+    script = load_run_wellbore_summary_script()
+    client = script["create_client"](provider="dry-run", model="fake")
+
+    assert client.model == "dry-run-no-llm"
+    assert client.create_json(prompt="anything", response_format={}) == {
+        "facts": [],
+        "warnings": ["dry-run summary client did not call a model"],
+    }
+    assert client.create_text(prompt="anything").startswith("<!-- dry-run reducer")
