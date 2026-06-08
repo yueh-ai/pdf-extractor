@@ -85,46 +85,70 @@ overlap = 1
 examples: 1-10, 10-19, 19-28, 28-37
 ```
 
-Each page in the prompt must be labeled with its PDF page number. The one-page
-overlap lets facts that cross a boundary appear in at least one complete local
-context. Duplicate facts from overlap are expected and removed during dedupe.
+Each page in the prompt must be labeled with a system-provided `source_id`. The
+one-page overlap lets facts that cross a boundary appear in at least one
+complete local context. Duplicate facts from overlap are expected and removed
+during dedupe.
 
 ## Page Grounding
 
 Source page handling is critical because batches contain multiple pages and the
 overlap repeats one page in adjacent batches. The model must never infer source
-pages from page order inside the batch.
+pages from page order inside the batch, and it must not use page numbers printed
+inside the PDF or form as citations.
 
 Every batch prompt should include a page manifest before the page Markdown:
 
 ```text
-Batch pages:
-- pdf_page: 28, page_id: page_0028
-- pdf_page: 29, page_id: page_0029
-- pdf_page: 30, page_id: page_0030
+Source manifest:
+- source_id: page_0028
+- source_id: page_0029
+- source_id: page_0030
 ```
 
 Then each page should use a repeated boundary format:
 
 ```text
-===== BEGIN PDF PAGE 28 (page_0028) =====
+===== BEGIN SOURCE page_0028 =====
 <reconciled Markdown for PDF page 28>
-===== END PDF PAGE 28 (page_0028) =====
+===== END SOURCE page_0028 =====
 ```
 
-`source_pages` must contain the PDF page numbers from these labels, not the page
-position within the batch. For example, the first page in a batch may still be
-`source_pages: [28]`.
+The scout output must cite `source_page_ids`, not numeric page numbers:
+
+```json
+"source_page_ids": ["page_0028"]
+```
+
+`source_page_ids` must contain only `source_id` values from the manifest. Code
+maps those stable source IDs to display page numbers when rendering
+`combined_summary_current.md`.
+
+The structured-output schema should generate the allowed `source_page_ids` enum
+per batch:
+
+```json
+{
+  "source_page_ids": {
+    "type": "array",
+    "items": {
+      "type": "string",
+      "enum": ["page_0028", "page_0029", "page_0030"]
+    },
+    "minItems": 1
+  }
+}
+```
 
 If one fact is supported by multiple pages in the same batch, cite all of them:
 
 ```json
-"source_pages": [28, 30]
+"source_page_ids": ["page_0028", "page_0030"]
 ```
 
 If a fact appears on the overlap page and is extracted in two adjacent batches,
-dedupe should merge the duplicate facts by normalized value and source page. The
-same PDF page number must remain stable across batches.
+dedupe should merge the duplicate facts by normalized value and source ID. The
+same `source_id` must remain stable across batches.
 
 ## Fact Scout Output
 
@@ -139,7 +163,7 @@ Fact shape:
   "section": "casing_and_tubing_strings",
   "field": "production_casing",
   "value": "5-1/2\" 17# L-80 LT&C 8rd casing set at 10,490'",
-  "source_pages": [28],
+  "source_page_ids": ["page_0028"],
   "source_context": "C-105 completion report casing table",
   "source_snippet": "5-1/2 ... 17# ... L-80 ... 10,490",
   "status_hint": "actual",
@@ -154,7 +178,7 @@ Required fields:
 section
 field
 value
-source_pages
+source_page_ids
 source_context
 source_snippet
 status_hint
@@ -271,7 +295,8 @@ After all batches finish, normalize facts for comparison:
 - Depths: compare variants such as `10490'`, `10,490 ft`, and `10490 ft`.
 - API numbers: compare dashed and undashed variants.
 - Sizes: compare variants such as `5.5"` and `5-1/2"`.
-- Source pages: sort and deduplicate page lists.
+- Source IDs: sort and deduplicate `source_page_ids`, then map them to display
+  page numbers during rendering.
 
 Group likely duplicates by:
 
@@ -332,9 +357,18 @@ Draft prompt:
 You are extracting wellbore-diagram/current-data candidate facts from
 reconciled PDF Markdown.
 
-You receive 10 PDF pages at a time. Each page is labeled with its PDF page
-number. Use only the provided Markdown. Do not use outside knowledge. Do not
-guess.
+You receive a batch of PDF page sources. Each source has a system-provided
+source_id such as `page_0028`. Use source IDs for citations. Use only the
+provided Markdown. Do not use outside knowledge. Do not guess.
+
+Important source citation rule:
+- Every fact must cite source_page_ids from the provided source manifest.
+- Use source_id values exactly, such as page_0028.
+- Do not cite the page's position inside this batch.
+- Do not cite page numbers printed inside the PDF/form/Markdown.
+- Do not invent source IDs.
+- If one fact is supported by multiple sources in this batch, include all
+  supporting source IDs.
 
 Your job is not to write the final summary. Your job is to collect candidate
 facts that may help fill a current wellbore data summary.
@@ -400,7 +434,7 @@ For each fact, return:
 - section
 - field
 - value
-- source_pages
+- source_page_ids
 - source_context
 - source_snippet
 - status_hint
@@ -408,11 +442,8 @@ For each fact, return:
 - notes
 
 Rules:
-- Every fact must cite one or more source_pages from the provided batch.
-- source_pages must use the explicit PDF page numbers shown in the page
-  boundaries. Do not cite page position within the batch.
-- If a value is supported by multiple pages in the batch, include all supporting
-  PDF page numbers in source_pages.
+- source_page_ids must contain one or more source_id values from the source
+  manifest.
 - source_snippet is required. Keep it short: enough to recognize the source
   evidence, not a long copy.
 - source_context should describe the form/table/narrative context when clear. If
@@ -434,9 +465,10 @@ Rules:
 - Preserve proposed values as facts; the later reducer will decide whether they
   belong in the current summary.
 - Do not deduplicate aggressively inside the batch. If two facts differ in
-  value, context, status, datum, or source page, keep both.
+  value, context, status, datum, or source ID, keep both.
 - Do not invent missing values.
-- If a page contains no relevant wellbore facts, return no facts for that page.
+- If a source contains no relevant wellbore facts, return no facts for that
+  source.
 ```
 
 ## Reducer Prompt
@@ -498,9 +530,9 @@ Current-value rules:
 Keep v1 simple:
 
 - Validate fact-scout responses against the strict schema.
-- Reject facts whose `source_pages` are not in the batch.
-- Reject facts that cite page positions instead of PDF page numbers when that can
-  be detected.
+- Reject facts whose `source_page_ids` are not in the batch source manifest.
+- Reject facts that cite page positions, numeric pages, or printed PDF/form page
+  numbers instead of source IDs when that can be detected.
 - Reject facts whose `section`, `status_hint`, or `confidence` are outside the
   allowed values.
 - Require non-empty `source_snippet`.
@@ -524,8 +556,9 @@ Test batch construction:
 Test schema validation:
 
 - Accept valid fact-scout output.
-- Reject invalid section, status, confidence, or source page.
-- Reject facts citing pages outside the batch manifest.
+- Reject invalid section, status, confidence, or source ID.
+- Reject facts citing sources outside the batch manifest.
+- Reject facts citing numeric pages instead of `source_page_ids`.
 - Reject empty `source_snippet`.
 
 Test dedupe:
